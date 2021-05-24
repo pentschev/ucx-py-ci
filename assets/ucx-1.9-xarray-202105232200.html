@@ -1,0 +1,257 @@
+
+        <html>
+        <head>
+            <title>junit-xarray.xml - Junit Test Report</title>
+            <style type="text/css">
+              h1 {
+    font-family: sans-serif;
+}
+h2 {
+    font-family: sans-serif;
+}
+
+li > a {
+    font-family: monospace;
+}
+
+body {
+    margin-bottom: 3em;
+}
+
+.testclass > td {
+    border-bottom: 1px solid silver;
+    color: #222222;
+    padding: 3px;
+    font-weight: bold;
+}
+
+.testclass > div {
+    padding-left: 1em;
+}
+
+.testclass > a > div {
+    font-size: 1.3em;
+    font-family: sans-serif;
+}
+
+.testcase > div {
+    border-left: 3px solid black;
+    padding-left: 1em;
+}
+
+.testcase pre {
+    display: block;
+    padding: 4px;
+    margin-right: 1em;
+    background-color: #121212;
+    color: #dedede;
+    white-space: pre-wrap;
+}
+
+.testcase .details b {
+    font-size: 1.2em;
+}
+
+.stdout, .stderr, .property {
+    margin-left: 1em;
+}
+
+.testcase-link {
+    text-decoration: none;
+}
+
+.testcase-cell {
+    height: 1.8em;
+    width: 1.8em;
+    vertical-align: middle;
+    text-align: center;
+}
+.testcase-cell a {
+    display: inline-block;
+    margin: -1em;
+    padding: 1em;
+}
+
+.testcase-combined {
+    white-space: pre;
+    padding-left: 1em;
+}
+
+.skipped {
+    background-color: gold;
+}
+
+.failed {
+    background-color: lightcoral;
+}
+
+.passed {
+    background-color: limegreen;
+}
+
+.tooltip {
+    visibility: hidden;
+    padding: 2px;
+    z-index: 1;
+    position: absolute;
+    background: cornsilk;
+    border: 1px solid black;
+    margin-top: 15px;
+    margin-left: 10px;
+    opacity: 0;
+}
+.tooltip-parent:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.testcase:hover {
+    background-color: gray;
+    color: white;
+}
+
+.result-stats {
+    margin: auto;
+}
+
+            </style>
+        </head><body><h1>Test Report</h1>
+        <div class="testsuite">
+            <h2>Test Suite: pytest</h2><a name="a17f4100-3f82-4307-a607-99b206a60b4b">
+            
+            
+            <table>
+            <tr><th align="left">Duration</th><td align="right">3.543 sec</td></tr>
+            <tr><th align="left">Test Cases</th><td align="right">3</td></tr>
+            <tr><th align="left">Failures</th><td align="right">1</td></tr>
+            
+            
+            </table>
+            <a name="toc"></a>
+            <h2>Results Index</h2>
+            
+        <ul>
+            
+            <li>Failures
+            <ul>
+                    <li>
+                        <a href="#b03ca22d-2344-41d4-81e8-0787586c9991">xarray.tests.test_cupy.test_check_data_stays_on_gpu</a>
+                    </li>
+                    </ul>
+            </li>
+            
+            
+            <li>All Test Classes
+            <ul>
+            <li>
+                <a href="#9162360a-e949-496f-8dc7-c3687443b91a">xarray.tests.test_cupy</a>
+                <ul>
+                
+                    <li>
+                        <a href="#e04bc4af-d88b-48e9-9e1d-60fd1d252930">test_cupy_import</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#b03ca22d-2344-41d4-81e8-0787586c9991">test_check_data_stays_on_gpu</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#9cdd35ef-5794-4abf-9815-5679a9dbc2fa">test_where</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            </ul>
+            </li>
+        </ul>
+        
+            <hr size="2"/>
+            <h2>Test Results</h2>
+            <div class="testclasses">
+            
+        <hr size="2"/>
+        <a name="9162360a-e949-496f-8dc7-c3687443b91a">
+        <div class="testclass">
+            <div>Test Class: xarray.tests.test_cupy</div>
+            <div class="testcases">
+            
+    <a name="e04bc4af-d88b-48e9-9e1d-60fd1d252930">
+        <div class="testcase">
+            <div class="details">
+                <span class="testname"><b>test_cupy_import</b></span><br/>
+                <span class="testclassname">xarray.tests.test_cupy</span><br/>
+                <span class="duration">Time Taken: 0.004s</span>
+            </div>
+            
+            
+            <hr size="1"/>
+            
+            
+        </div>
+    </a>
+        
+    <a name="b03ca22d-2344-41d4-81e8-0787586c9991">
+        <div class="testcase">
+            <div class="details">
+                <span class="testname"><b>test_check_data_stays_on_gpu</b></span><br/>
+                <span class="testclassname">xarray.tests.test_cupy</span><br/>
+                <span class="duration">Time Taken: 0.778s</span>
+            </div>
+            
+            
+            <hr size="1"/>
+            <div class="failure"><b>Failed: AttributeError: module 'cupy' has no attribute 'core'</b><br/>
+                <pre>toy_weather_data = &lt;xarray.Dataset&gt;
+Dimensions:   (time: 731, location: 3)
+Coordinates:
+  * time      (time) datetime64[ns] 2000-01-01 20...ay([[ -8.03736932,  -1.78844117,  -...
+    tmax      (time, location) float64 array([[12.98054898,  3.31040942,  6.7...
+
+    def test_check_data_stays_on_gpu(toy_weather_data):
+        """Perform some operations and check the data stays on the GPU."""
+        freeze = (toy_weather_data["tmin"] &lt;= 0).groupby("time.month").mean("time")
+&gt;       assert isinstance(freeze.data, cp.core.core.ndarray)
+
+/datasets/pentschev/simple-ci/src/xarray/xarray/tests/test_cupy.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'core'
+
+    def __getattr__(name):
+        value = _deprecated_attrs.get(name)
+        if value is None:
+            raise AttributeError(
+&gt;               f"module 'cupy' has no attribute {name!r}")
+E           AttributeError: module 'cupy' has no attribute 'core'
+
+/datasets/pentschev/miniconda3/envs/gdf/lib/python3.7/site-packages/cupy/__init__.py:876: AttributeError</pre>
+            </div>
+            
+            <hr size="1"/>
+            
+            
+        </div>
+    </a>
+        
+    <a name="9cdd35ef-5794-4abf-9815-5679a9dbc2fa">
+        <div class="testcase">
+            <div class="details">
+                <span class="testname"><b>test_where</b></span><br/>
+                <span class="testclassname">xarray.tests.test_cupy</span><br/>
+                <span class="duration">Time Taken: 0.02s</span>
+            </div>
+            
+            
+            <hr size="1"/>
+            
+            
+        </div>
+    </a>
+        
+            </div>
+        </div>
+        </a>
+        
+            </div>
+        </div>
+        </body></html>
