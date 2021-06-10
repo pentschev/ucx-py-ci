@@ -13,3 +13,4 @@ Repository to track results from UCX-Py nightly builds
 ![core_am_cupy](assets/202106092200-06-core_am_cupy.png)
 ![async_tag_cupy](assets/202106092200-07-async_tag_cupy.png)
 ![async_am_cupy](assets/202106092200-08-async_am_cupy.png)
+![ucx-py-bandwidth](assets/ucx-py-bandwidth.png)
