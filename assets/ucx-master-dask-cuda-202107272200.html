@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>junit-dask-cuda.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    width: 50%;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : junit-dask-cuda.xml
+</h1>
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>no-testclass
+                <ul>
+                    
+                    <li><a href="#fe8ff34e-3226-4f29-8e98-3c8c96f304bf">dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    <li><a href="#826abe9c-8bd8-4c12-858e-df2161e84be6">dask_cuda.tests.test_device_host_file</a></li>
+                    
+                    <li><a href="#b8a708fe-a2b5-424c-82ec-5133235c5d01">dask_cuda.tests.test_dgx</a></li>
+                    
+                    <li><a href="#a5f1157b-72c8-4c26-93eb-2d42706e0e37">dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    <li><a href="#17bff34c-03e0-446f-a29a-ef2f69ad11b6">dask_cuda.tests.test_initialize</a></li>
+                    
+                    <li><a href="#d475c360-fe48-4ee5-a5f0-0204188a0175">dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    <li><a href="#ba15fad7-373a-4d2f-8616-fd3901be7561">dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    <li><a href="#a6960787-cc25-4171-8496-89c370deaca2">dask_cuda.tests.test_proxy</a></li>
+                    
+                    <li><a href="#134c97bb-1e46-4a69-ab19-610439d22a59">dask_cuda.tests.test_spill</a></li>
+                    
+                    <li><a href="#5417f360-b42b-421f-84b0-283bf7c87d21">dask_cuda.tests.test_ucx_options</a></li>
+                    
+                    <li><a href="#964c70c2-6530-4869-a624-0d62319c4d13">dask_cuda.tests.test_utils</a></li>
+                    
+                    <li><a href="#604de5d7-ef56-45d0-942f-849b5b3fbf02">dask_cuda.tests.test_worker_spec</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    <li><a href="#fe8ff34e-3226-4f29-8e98-3c8c96f304bf">[F] no-testclass : dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    
+                    
+                    <li><a href="#826abe9c-8bd8-4c12-858e-df2161e84be6">[F] no-testclass : dask_cuda.tests.test_device_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#b8a708fe-a2b5-424c-82ec-5133235c5d01">[F] no-testclass : dask_cuda.tests.test_dgx</a></li>
+                    
+                    
+                    
+                    <li><a href="#a5f1157b-72c8-4c26-93eb-2d42706e0e37">[F] no-testclass : dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    
+                    
+                    <li><a href="#17bff34c-03e0-446f-a29a-ef2f69ad11b6">[F] no-testclass : dask_cuda.tests.test_initialize</a></li>
+                    
+                    
+                    
+                    <li><a href="#d475c360-fe48-4ee5-a5f0-0204188a0175">[F] no-testclass : dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    
+                    
+                    <li><a href="#ba15fad7-373a-4d2f-8616-fd3901be7561">[F] no-testclass : dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#a6960787-cc25-4171-8496-89c370deaca2">[F] no-testclass : dask_cuda.tests.test_proxy</a></li>
+                    
+                    
+                    
+                    <li><a href="#134c97bb-1e46-4a69-ab19-610439d22a59">[F] no-testclass : dask_cuda.tests.test_spill</a></li>
+                    
+                    
+                    
+                    <li><a href="#5417f360-b42b-421f-84b0-283bf7c87d21">[F] no-testclass : dask_cuda.tests.test_ucx_options</a></li>
+                    
+                    
+                    
+                    <li><a href="#964c70c2-6530-4869-a624-0d62319c4d13">[F] no-testclass : dask_cuda.tests.test_utils</a></li>
+                    
+                    
+                    
+                    <li><a href="#604de5d7-ef56-45d0-942f-849b5b3fbf02">[F] no-testclass : dask_cuda.tests.test_worker_spec</a></li>
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+    <div class="testsuite">
+        <h2>Test Suite: pytest</h2>
+        <a id="c26d6929-c968-434f-8edf-1d1a65f47ad6"></a>
+        
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>4.8 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>12</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>12</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>no-testclass</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="fe8ff34e-3226-4f29-8e98-3c8c96f304bf"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dask_cuda_worker</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_dask_cuda_worker.py:15: in &lt;module&gt;
+    from dask_cuda.utils import get_n_gpus, wait_workers
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:22: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/device_host_file.py:22: in &lt;module&gt;
+    from .utils import nvtx_annotate
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/utils.py:29: in &lt;module&gt;
+    _ucx_110 = ucp.get_ucx_version() &gt;= (1, 10, 0)
+E   AttributeError: module &#39;ucp&#39; has no attribute &#39;get_ucx_version&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="826abe9c-8bd8-4c12-858e-df2161e84be6"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_device_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_device_host_file.py:16: in &lt;module&gt;
+    from dask_cuda.device_host_file import DeviceHostFile, device_to_host, host_to_device
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:22: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/device_host_file.py:22: in &lt;module&gt;
+    from .utils import nvtx_annotate
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/utils.py:29: in &lt;module&gt;
+    _ucx_110 = ucp.get_ucx_version() &gt;= (1, 10, 0)
+E   AttributeError: module &#39;ucp&#39; has no attribute &#39;get_ucx_version&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="b8a708fe-a2b5-424c-82ec-5133235c5d01"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dgx</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_dgx.py:15: in &lt;module&gt;
+    from dask_cuda import LocalCUDACluster
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:22: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/device_host_file.py:22: in &lt;module&gt;
+    from .utils import nvtx_annotate
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/utils.py:29: in &lt;module&gt;
+    _ucx_110 = ucp.get_ucx_version() &gt;= (1, 10, 0)
+E   AttributeError: module &#39;ucp&#39; has no attribute &#39;get_ucx_version&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="a5f1157b-72c8-4c26-93eb-2d42706e0e37"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_explicit_comms</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_explicit_comms.py:14: in &lt;module&gt;
+    import dask_cuda
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:22: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/device_host_file.py:22: in &lt;module&gt;
+    from .utils import nvtx_annotate
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/utils.py:29: in &lt;module&gt;
+    _ucx_110 = ucp.get_ucx_version() &gt;= (1, 10, 0)
+E   AttributeError: module &#39;ucp&#39; has no attribute &#39;get_ucx_version&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="17bff34c-03e0-446f-a29a-ef2f69ad11b6"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_initialize</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_initialize.py:11: in &lt;module&gt;
+    from dask_cuda.initialize import initialize
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:22: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/device_host_file.py:22: in &lt;module&gt;
+    from .utils import nvtx_annotate
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/utils.py:29: in &lt;module&gt;
+    _ucx_110 = ucp.get_ucx_version() &gt;= (1, 10, 0)
+E   AttributeError: module &#39;ucp&#39; has no attribute &#39;get_ucx_version&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="d475c360-fe48-4ee5-a5f0-0204188a0175"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_local_cuda_cluster</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_local_cuda_cluster.py:11: in &lt;module&gt;
+    from dask_cuda import CUDAWorker, LocalCUDACluster, utils
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:22: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/device_host_file.py:22: in &lt;module&gt;
+    from .utils import nvtx_annotate
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/utils.py:29: in &lt;module&gt;
+    _ucx_110 = ucp.get_ucx_version() &gt;= (1, 10, 0)
+E   AttributeError: module &#39;ucp&#39; has no attribute &#39;get_ucx_version&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="ba15fad7-373a-4d2f-8616-fd3901be7561"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxify_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_proxify_host_file.py:10: in &lt;module&gt;
+    import dask_cuda
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:22: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/device_host_file.py:22: in &lt;module&gt;
+    from .utils import nvtx_annotate
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/utils.py:29: in &lt;module&gt;
+    _ucx_110 = ucp.get_ucx_version() &gt;= (1, 10, 0)
+E   AttributeError: module &#39;ucp&#39; has no attribute &#39;get_ucx_version&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="a6960787-cc25-4171-8496-89c370deaca2"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxy</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_proxy.py:15: in &lt;module&gt;
+    import dask_cudf
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cudf/__init__.py:3: in &lt;module&gt;
+    import cudf
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cudf/__init__.py:4: in &lt;module&gt;
+    validate_setup()
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cudf/utils/gpu_utils.py:145: in validate_setup
+    raise UnSupportedCUDAError(
+E   cudf.errors.UnSupportedCUDAError: Please update your NVIDIA GPU Driver to support CUDA Runtime.
+E   Detected CUDA Runtime version : 11040
+E   Latest version of CUDA supported by current NVIDIA GPU Driver : 11020</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="134c97bb-1e46-4a69-ab19-610439d22a59"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_spill</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_spill.py:15: in &lt;module&gt;
+    from dask_cuda import LocalCUDACluster, utils
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:22: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/device_host_file.py:22: in &lt;module&gt;
+    from .utils import nvtx_annotate
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/utils.py:29: in &lt;module&gt;
+    _ucx_110 = ucp.get_ucx_version() &gt;= (1, 10, 0)
+E   AttributeError: module &#39;ucp&#39; has no attribute &#39;get_ucx_version&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="5417f360-b42b-421f-84b0-283bf7c87d21"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_ucx_options</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_ucx_options.py:11: in &lt;module&gt;
+    from dask_cuda.utils import _ucx_110
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:22: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/device_host_file.py:22: in &lt;module&gt;
+    from .utils import nvtx_annotate
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/utils.py:29: in &lt;module&gt;
+    _ucx_110 = ucp.get_ucx_version() &gt;= (1, 10, 0)
+E   AttributeError: module &#39;ucp&#39; has no attribute &#39;get_ucx_version&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="964c70c2-6530-4869-a624-0d62319c4d13"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_utils</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_utils.py:6: in &lt;module&gt;
+    from dask_cuda.utils import (
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:22: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/device_host_file.py:22: in &lt;module&gt;
+    from .utils import nvtx_annotate
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/utils.py:29: in &lt;module&gt;
+    _ucx_110 = ucp.get_ucx_version() &gt;= (1, 10, 0)
+E   AttributeError: module &#39;ucp&#39; has no attribute &#39;get_ucx_version&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="604de5d7-ef56-45d0-942f-849b5b3fbf02"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_worker_spec</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_worker_spec.py:5: in &lt;module&gt;
+    from dask_cuda.worker_spec import worker_spec
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:22: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/device_host_file.py:22: in &lt;module&gt;
+    from .utils import nvtx_annotate
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/utils.py:29: in &lt;module&gt;
+    _ucx_110 = ucp.get_ucx_version() &gt;= (1, 10, 0)
+E   AttributeError: module &#39;ucp&#39; has no attribute &#39;get_ucx_version&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
