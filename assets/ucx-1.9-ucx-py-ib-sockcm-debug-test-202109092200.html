@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>junit-ucx-py-ib-sockcm-debug-test.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    width: 50%;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : junit-ucx-py-ib-sockcm-debug-test.xml
+</h1>
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>debug-tests.test_send_recv_many_workers
+                <ul>
+                    
+                    <li><a href="#5e0a0e8e-3ccd-454d-a523-de55e634fbde">test_send_recv_cu[True-dataframe]</a></li>
+                    
+                    <li><a href="#03e1413c-060e-462d-b4ea-08bc1dd84a4e">test_send_recv_cu[True-empty_dataframe]</a></li>
+                    
+                    <li><a href="#d193eebd-90d5-4bfd-91cd-9e699f1235a3">test_send_recv_cu[True-series]</a></li>
+                    
+                    <li><a href="#ad6cbc61-1c27-4f60-9227-efda7aa15a45">test_send_recv_cu[True-cupy_obj]</a></li>
+                    
+                    <li><a href="#cba9b948-4752-4667-805b-c330105723a4">test_send_recv_cu[False-dataframe]</a></li>
+                    
+                    <li><a href="#fd45464f-92aa-4835-a5d4-9021291b8e4b">test_send_recv_cu[False-empty_dataframe]</a></li>
+                    
+                    <li><a href="#42deac27-9263-49ad-978f-028eff7bf735">test_send_recv_cu[False-series]</a></li>
+                    
+                    <li><a href="#c7cc7119-0419-4e3b-a256-23c0147ff0ad">test_send_recv_cu[False-cupy_obj]</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="#c7cc7119-0419-4e3b-a256-23c0147ff0ad">[F] debug-tests.test_send_recv_many_workers : test_send_recv_cu[False-cupy_obj]</a></li>
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+    <div class="testsuite">
+        <h2>Test Suite: pytest</h2>
+        <a id="8d41483c-5d9a-45cb-8984-0dbb5163bdea"></a>
+        
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>166.8 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>8</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>1</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>debug-tests.test_send_recv_many_workers</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="5e0a0e8e-3ccd-454d-a523-de55e634fbde"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>test_send_recv_cu[True-dataframe]</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>29.1 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="03e1413c-060e-462d-b4ea-08bc1dd84a4e"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>test_send_recv_cu[True-empty_dataframe]</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>13.4 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="d193eebd-90d5-4bfd-91cd-9e699f1235a3"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>test_send_recv_cu[True-series]</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>14.3 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="ad6cbc61-1c27-4f60-9227-efda7aa15a45"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>test_send_recv_cu[True-cupy_obj]</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>18.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="cba9b948-4752-4667-805b-c330105723a4"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>test_send_recv_cu[False-dataframe]</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>28.7 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="fd45464f-92aa-4835-a5d4-9021291b8e4b"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>test_send_recv_cu[False-empty_dataframe]</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>13.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="42deac27-9263-49ad-978f-028eff7bf735"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>test_send_recv_cu[False-series]</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>14.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="c7cc7119-0419-4e3b-a256-23c0147ff0ad"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>test_send_recv_cu[False-cupy_obj]</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>33.9 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>assert -6 == 0
+  +-6
+  -0</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>cuda_obj_generator = &lt;function cupy_obj at 0x7f33af20df70&gt;, enable_rmm = False
+
+    @pytest.mark.skipif(
+        len(get_cuda_devices()) &lt; 2, reason=&#34;A minimum of two GPUs is required&#34;
+    )
+    @pytest.mark.parametrize(
+        &#34;cuda_obj_generator&#34;, [dataframe, empty_dataframe, series, cupy_obj]
+    )
+    @pytest.mark.parametrize(&#34;enable_rmm&#34;, [True, False])
+    def test_send_recv_cu(cuda_obj_generator, enable_rmm):
+        cuda_visible_devices_base = os.environ.get(&#34;CUDA_VISIBLE_DEVICES&#34;)
+        ucx_net_devices_base = os.environ.get(&#34;UCX_NET_DEVICES&#34;)
+    
+        # grab first two devices
+        cuda_visible_devices = get_cuda_devices()
+        num_workers = len(cuda_visible_devices)
+    
+        port = random.randint(13000, 15500)
+        # serialize function and send to the client and server
+        # server will use the return value of the contents,
+        # serialize the values, then send serialized values to client.
+        # client will compare return values of the deserialized
+        # data sent from the server
+    
+        server_env = get_environment_variables(cuda_visible_devices[0])
+    
+        func = cloudpickle.dumps(cuda_obj_generator)
+        ctx = multiprocessing.get_context(&#34;spawn&#34;)
+    
+        os.environ.update(server_env)
+        parent_conn, child_conn = multiprocessing.Pipe()
+        server_process = ctx.Process(
+            name=&#34;server&#34;,
+            target=server,
+            args=[server_env, port, func, enable_rmm, num_workers, child_conn],
+        )
+        server_process.start()
+    
+        server_msg = parent_conn.recv()
+        assert server_msg == &#34;initialized&#34;
+    
+        client_processes = []
+        print(cuda_visible_devices)
+        for i in range(num_workers):
+            # cudf will ping the driver for validity of device
+            # this will influence device on which a cuda context is created.
+            # work around is to update env with new CVD before spawning
+            client_env = get_environment_variables(cuda_visible_devices[i])
+            os.environ.update(client_env)
+    
+            proc = ctx.Process(
+                name=&#34;client_&#34; + str(i),
+                target=client,
+                args=[client_env, port, func, enable_rmm],
+            )
+            proc.start()
+            client_processes.append(proc)
+    
+        # Ensure restoration of environment variables immediately after starting
+        # processes, to avoid never restoring them in case of assertion failures below
+        restore_environment_variables(cuda_visible_devices_base, ucx_net_devices_base)
+    
+        server_process.join()
+        for i in range(len(client_processes)):
+            client_processes[i].join()
+&gt;           assert client_processes[i].exitcode == 0
+E           assert -6 == 0
+E             +-6
+E             -0
+
+debug-tests/test_send_recv_many_workers.py:266: AssertionError</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
