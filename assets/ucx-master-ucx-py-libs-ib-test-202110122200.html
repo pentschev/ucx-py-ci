@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>junit-ucx-py-libs-ib-test.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    width: 50%;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : junit-ucx-py-libs-ib-test.xml
+</h1>
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>no-testclass
+                <ul>
+                    
+                    <li><a href="#e680a832-897d-43b3-93df-f2db8585b489">ucp._libs.tests.test_address_object</a></li>
+                    
+                    <li><a href="#fa45c46f-b301-4544-8e98-649c8a95b4ab">ucp._libs.tests.test_arr</a></li>
+                    
+                    <li><a href="#93c34ba7-e500-4e25-a411-14a2ff78287f">ucp._libs.tests.test_config</a></li>
+                    
+                    <li><a href="#353f785a-9036-4994-8f20-0d216be6da14">ucp._libs.tests.test_listener</a></li>
+                    
+                    <li><a href="#a929d5a6-71de-48c2-b8e0-3899cdf5f8e7">ucp._libs.tests.test_mem</a></li>
+                    
+                    <li><a href="#87a2b640-b51c-4872-8f04-6f7957698164">ucp._libs.tests.test_peer_send_recv</a></li>
+                    
+                    <li><a href="#b9d0efe0-6b35-4b00-8b1d-fdade183a86f">ucp._libs.tests.test_rma</a></li>
+                    
+                    <li><a href="#5901c075-2258-44f3-973b-500361354681">ucp._libs.tests.test_server_client</a></li>
+                    
+                    <li><a href="#1b4e045d-a29c-443a-b9a7-0a1d07031299">ucp._libs.tests.test_server_client_am</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    <li><a href="#e680a832-897d-43b3-93df-f2db8585b489">[F] no-testclass : ucp._libs.tests.test_address_object</a></li>
+                    
+                    
+                    
+                    <li><a href="#fa45c46f-b301-4544-8e98-649c8a95b4ab">[F] no-testclass : ucp._libs.tests.test_arr</a></li>
+                    
+                    
+                    
+                    <li><a href="#93c34ba7-e500-4e25-a411-14a2ff78287f">[F] no-testclass : ucp._libs.tests.test_config</a></li>
+                    
+                    
+                    
+                    <li><a href="#353f785a-9036-4994-8f20-0d216be6da14">[F] no-testclass : ucp._libs.tests.test_listener</a></li>
+                    
+                    
+                    
+                    <li><a href="#a929d5a6-71de-48c2-b8e0-3899cdf5f8e7">[F] no-testclass : ucp._libs.tests.test_mem</a></li>
+                    
+                    
+                    
+                    <li><a href="#87a2b640-b51c-4872-8f04-6f7957698164">[F] no-testclass : ucp._libs.tests.test_peer_send_recv</a></li>
+                    
+                    
+                    
+                    <li><a href="#b9d0efe0-6b35-4b00-8b1d-fdade183a86f">[F] no-testclass : ucp._libs.tests.test_rma</a></li>
+                    
+                    
+                    
+                    <li><a href="#5901c075-2258-44f3-973b-500361354681">[F] no-testclass : ucp._libs.tests.test_server_client</a></li>
+                    
+                    
+                    
+                    <li><a href="#1b4e045d-a29c-443a-b9a7-0a1d07031299">[F] no-testclass : ucp._libs.tests.test_server_client_am</a></li>
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+    <div class="testsuite">
+        <h2>Test Suite: pytest</h2>
+        <a id="fac5d22f-6f13-4210-a1ec-417a06be0531"></a>
+        
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>0.6 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>9</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>9</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>no-testclass</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="e680a832-897d-43b3-93df-f2db8585b489"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_address_object</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/ucx-py/ucp/_libs/tests/test_address_object.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_address_object.py:4: in &lt;module&gt;
+    from ucp._libs import ucx_api
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/__init__.py:10: in &lt;module&gt;
+    from .core import *  # noqa
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py:16: in &lt;module&gt;
+    from . import comm
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/comm.py:8: in &lt;module&gt;
+    from ._libs import arr, ucx_api
+E   ImportError: /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0: undefined symbol: ucs_stats_node_initv</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="fa45c46f-b301-4544-8e98-649c8a95b4ab"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_arr</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/ucx-py/ucp/_libs/tests/test_arr.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_arr.py:9: in &lt;module&gt;
+    from ucp._libs.arr import Array
+E   ImportError: /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0: undefined symbol: ucs_stats_node_initv</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="93c34ba7-e500-4e25-a411-14a2ff78287f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_config</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/ucx-py/ucp/_libs/tests/test_config.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_config.py:5: in &lt;module&gt;
+    import ucp.exceptions
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/__init__.py:10: in &lt;module&gt;
+    from .core import *  # noqa
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py:16: in &lt;module&gt;
+    from . import comm
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/comm.py:8: in &lt;module&gt;
+    from ._libs import arr, ucx_api
+E   ImportError: /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0: undefined symbol: ucs_stats_node_initv</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="353f785a-9036-4994-8f20-0d216be6da14"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_listener</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/ucx-py/ucp/_libs/tests/test_listener.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_listener.py:1: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0: undefined symbol: ucs_stats_node_initv</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="a929d5a6-71de-48c2-b8e0-3899cdf5f8e7"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_mem</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/ucx-py/ucp/_libs/tests/test_mem.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_mem.py:7: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0: undefined symbol: ucs_stats_node_initv</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="87a2b640-b51c-4872-8f04-6f7957698164"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_peer_send_recv</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/ucx-py/ucp/_libs/tests/test_peer_send_recv.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_peer_send_recv.py:7: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0: undefined symbol: ucs_stats_node_initv</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="b9d0efe0-6b35-4b00-8b1d-fdade183a86f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_rma</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/ucx-py/ucp/_libs/tests/test_rma.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_rma.py:8: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0: undefined symbol: ucs_stats_node_initv</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="5901c075-2258-44f3-973b-500361354681"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_server_client</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/ucx-py/ucp/_libs/tests/test_server_client.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_server_client.py:7: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0: undefined symbol: ucs_stats_node_initv</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="1b4e045d-a29c-443a-b9a7-0a1d07031299"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_server_client_am</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/ucx-py/ucp/_libs/tests/test_server_client_am.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_server_client_am.py:9: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0: undefined symbol: ucs_stats_node_initv</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
