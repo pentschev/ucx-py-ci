@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>junit-dask-cuda.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    width: 50%;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : junit-dask-cuda.xml
+</h1>
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>no-testclass
+                <ul>
+                    
+                    <li><a href="#f79bac36-7841-4ab8-b7cf-90fcfb483928">dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    <li><a href="#a53d684a-d0d7-4884-af72-8fdbb0128647">dask_cuda.tests.test_device_host_file</a></li>
+                    
+                    <li><a href="#fa681463-c007-44d7-b265-5a57d1daa4ba">dask_cuda.tests.test_dgx</a></li>
+                    
+                    <li><a href="#06795129-3e61-4258-b29f-ba5db35cfe71">dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    <li><a href="#fd4ebff4-7776-4861-9f83-0a5dfeab9bba">dask_cuda.tests.test_gds</a></li>
+                    
+                    <li><a href="#23a08081-e16c-4b52-ad5b-964b3b79a605">dask_cuda.tests.test_initialize</a></li>
+                    
+                    <li><a href="#abd53d52-bce9-4cc6-92d9-55bd015c49d2">dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    <li><a href="#865f9363-f89f-4bbc-9716-cec7a030dc0f">dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    <li><a href="#023f8e4b-3ea6-47ae-aa85-eb6af91c6841">dask_cuda.tests.test_proxy</a></li>
+                    
+                    <li><a href="#0f98ef02-9c90-4e69-9098-ac45848e9c40">dask_cuda.tests.test_spill</a></li>
+                    
+                    <li><a href="#ae467b07-fdf1-4a4f-bb70-98709a1d0b8b">dask_cuda.tests.test_utils</a></li>
+                    
+                    <li><a href="#b48118cf-9c32-46fa-80bc-2095c4ef9034">dask_cuda.tests.test_worker_spec</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    <li><a href="#f79bac36-7841-4ab8-b7cf-90fcfb483928">[F] no-testclass : dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    
+                    
+                    <li><a href="#a53d684a-d0d7-4884-af72-8fdbb0128647">[F] no-testclass : dask_cuda.tests.test_device_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#fa681463-c007-44d7-b265-5a57d1daa4ba">[F] no-testclass : dask_cuda.tests.test_dgx</a></li>
+                    
+                    
+                    
+                    <li><a href="#06795129-3e61-4258-b29f-ba5db35cfe71">[F] no-testclass : dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    
+                    
+                    <li><a href="#fd4ebff4-7776-4861-9f83-0a5dfeab9bba">[F] no-testclass : dask_cuda.tests.test_gds</a></li>
+                    
+                    
+                    
+                    <li><a href="#23a08081-e16c-4b52-ad5b-964b3b79a605">[F] no-testclass : dask_cuda.tests.test_initialize</a></li>
+                    
+                    
+                    
+                    <li><a href="#abd53d52-bce9-4cc6-92d9-55bd015c49d2">[F] no-testclass : dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    
+                    
+                    <li><a href="#865f9363-f89f-4bbc-9716-cec7a030dc0f">[F] no-testclass : dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#023f8e4b-3ea6-47ae-aa85-eb6af91c6841">[F] no-testclass : dask_cuda.tests.test_proxy</a></li>
+                    
+                    
+                    
+                    <li><a href="#0f98ef02-9c90-4e69-9098-ac45848e9c40">[F] no-testclass : dask_cuda.tests.test_spill</a></li>
+                    
+                    
+                    
+                    <li><a href="#ae467b07-fdf1-4a4f-bb70-98709a1d0b8b">[F] no-testclass : dask_cuda.tests.test_utils</a></li>
+                    
+                    
+                    
+                    <li><a href="#b48118cf-9c32-46fa-80bc-2095c4ef9034">[F] no-testclass : dask_cuda.tests.test_worker_spec</a></li>
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+    <div class="testsuite">
+        <h2>Test Suite: pytest</h2>
+        <a id="3c9ae000-0f39-4d3a-b61e-3f9e2d1f8200"></a>
+        
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>3.9 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>12</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>12</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>no-testclass</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="f79bac36-7841-4ab8-b7cf-90fcfb483928"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dask_cuda_worker</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_dask_cuda_worker.py:11: in &lt;module&gt;
+    from distributed.utils_test import loop  # noqa: F401
+&lt;frozen importlib._bootstrap&gt;:991: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:975: in _find_and_load_unlocked
+    ???
+&lt;frozen importlib._bootstrap&gt;:671: in _load_unlocked
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/_pytest/assertion/rewrite.py:170: in exec_module
+    exec(co, module.__dict__)
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_test.py:82: in &lt;module&gt;
+    import dask.array  # register config
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:3: in &lt;module&gt;
+    from . import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from .percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:10: in &lt;module&gt;
+    from .core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:30: in &lt;module&gt;
+    from fsspec import get_mapper
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/__init__.py:12: in &lt;module&gt;
+    from .core import get_fs_token_paths, open, open_files, open_local
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/core.py:18: in &lt;module&gt;
+    from .compression import compr
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/compression.py:6: in &lt;module&gt;
+    from fsspec.spec import AbstractBufferedFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/spec.py:92: in &lt;module&gt;
+    if pa_version and LooseVersion(pa_version) &lt; LooseVersion(&#34;2.0&#34;):
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/setuptools/_distutils/version.py:53: in __init__
+    warnings.warn(
+E   DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="a53d684a-d0d7-4884-af72-8fdbb0128647"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_device_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_device_host_file.py:7: in &lt;module&gt;
+    import dask.array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:3: in &lt;module&gt;
+    from . import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from .percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:10: in &lt;module&gt;
+    from .core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:30: in &lt;module&gt;
+    from fsspec import get_mapper
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/__init__.py:12: in &lt;module&gt;
+    from .core import get_fs_token_paths, open, open_files, open_local
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/core.py:18: in &lt;module&gt;
+    from .compression import compr
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/compression.py:6: in &lt;module&gt;
+    from fsspec.spec import AbstractBufferedFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/spec.py:92: in &lt;module&gt;
+    if pa_version and LooseVersion(pa_version) &lt; LooseVersion(&#34;2.0&#34;):
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/setuptools/_distutils/version.py:53: in __init__
+    warnings.warn(
+E   DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="fa681463-c007-44d7-b265-5a57d1daa4ba"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dgx</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_dgx.py:11: in &lt;module&gt;
+    from dask import array as da
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:3: in &lt;module&gt;
+    from . import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from .percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:10: in &lt;module&gt;
+    from .core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:30: in &lt;module&gt;
+    from fsspec import get_mapper
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/__init__.py:12: in &lt;module&gt;
+    from .core import get_fs_token_paths, open, open_files, open_local
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/core.py:18: in &lt;module&gt;
+    from .compression import compr
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/compression.py:6: in &lt;module&gt;
+    from fsspec.spec import AbstractBufferedFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/spec.py:92: in &lt;module&gt;
+    if pa_version and LooseVersion(pa_version) &lt; LooseVersion(&#34;2.0&#34;):
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/setuptools/_distutils/version.py:53: in __init__
+    warnings.warn(
+E   DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="06795129-3e61-4258-b29f-ba5db35cfe71"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_explicit_comms</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_explicit_comms.py:9: in &lt;module&gt;
+    from dask import dataframe as dd
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/__init__.py:3: in &lt;module&gt;
+    from . import backends, dispatch, rolling
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/backends.py:16: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:3: in &lt;module&gt;
+    from . import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from .percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:10: in &lt;module&gt;
+    from .core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:30: in &lt;module&gt;
+    from fsspec import get_mapper
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/__init__.py:12: in &lt;module&gt;
+    from .core import get_fs_token_paths, open, open_files, open_local
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/core.py:18: in &lt;module&gt;
+    from .compression import compr
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/compression.py:6: in &lt;module&gt;
+    from fsspec.spec import AbstractBufferedFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/spec.py:92: in &lt;module&gt;
+    if pa_version and LooseVersion(pa_version) &lt; LooseVersion(&#34;2.0&#34;):
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/setuptools/_distutils/version.py:53: in __init__
+    warnings.warn(
+E   DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="fd4ebff4-7776-4861-9f83-0a5dfeab9bba"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_gds</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_gds.py:5: in &lt;module&gt;
+    from dask_cuda.proxify_host_file import ProxifyHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:2: in &lt;module&gt;
+    import dask.dataframe.core
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/__init__.py:3: in &lt;module&gt;
+    from . import backends, dispatch, rolling
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/backends.py:16: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:3: in &lt;module&gt;
+    from . import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from .percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:10: in &lt;module&gt;
+    from .core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:30: in &lt;module&gt;
+    from fsspec import get_mapper
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/__init__.py:12: in &lt;module&gt;
+    from .core import get_fs_token_paths, open, open_files, open_local
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/core.py:18: in &lt;module&gt;
+    from .compression import compr
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/compression.py:6: in &lt;module&gt;
+    from fsspec.spec import AbstractBufferedFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/spec.py:92: in &lt;module&gt;
+    if pa_version and LooseVersion(pa_version) &lt; LooseVersion(&#34;2.0&#34;):
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/setuptools/_distutils/version.py:53: in __init__
+    warnings.warn(
+E   DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="23a08081-e16c-4b52-ad5b-964b3b79a605"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_initialize</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_initialize.py:7: in &lt;module&gt;
+    from dask import array as da
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:3: in &lt;module&gt;
+    from . import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from .percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:10: in &lt;module&gt;
+    from .core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:30: in &lt;module&gt;
+    from fsspec import get_mapper
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/__init__.py:12: in &lt;module&gt;
+    from .core import get_fs_token_paths, open, open_files, open_local
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/core.py:18: in &lt;module&gt;
+    from .compression import compr
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/compression.py:6: in &lt;module&gt;
+    from fsspec.spec import AbstractBufferedFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/spec.py:92: in &lt;module&gt;
+    if pa_version and LooseVersion(pa_version) &lt; LooseVersion(&#34;2.0&#34;):
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/setuptools/_distutils/version.py:53: in __init__
+    warnings.warn(
+E   DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="abd53d52-bce9-4cc6-92d9-55bd015c49d2"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_local_cuda_cluster</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_local_cuda_cluster.py:8: in &lt;module&gt;
+    from distributed.utils_test import gen_test
+&lt;frozen importlib._bootstrap&gt;:991: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:975: in _find_and_load_unlocked
+    ???
+&lt;frozen importlib._bootstrap&gt;:671: in _load_unlocked
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/_pytest/assertion/rewrite.py:170: in exec_module
+    exec(co, module.__dict__)
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_test.py:82: in &lt;module&gt;
+    import dask.array  # register config
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:3: in &lt;module&gt;
+    from . import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from .percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:10: in &lt;module&gt;
+    from .core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:30: in &lt;module&gt;
+    from fsspec import get_mapper
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/__init__.py:12: in &lt;module&gt;
+    from .core import get_fs_token_paths, open, open_files, open_local
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/core.py:18: in &lt;module&gt;
+    from .compression import compr
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/compression.py:6: in &lt;module&gt;
+    from fsspec.spec import AbstractBufferedFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/spec.py:92: in &lt;module&gt;
+    if pa_version and LooseVersion(pa_version) &lt; LooseVersion(&#34;2.0&#34;):
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/setuptools/_distutils/version.py:53: in __init__
+    warnings.warn(
+E   DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="865f9363-f89f-4bbc-9716-cec7a030dc0f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxify_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_proxify_host_file.py:9: in &lt;module&gt;
+    import dask.dataframe
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/__init__.py:3: in &lt;module&gt;
+    from . import backends, dispatch, rolling
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/backends.py:16: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:3: in &lt;module&gt;
+    from . import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from .percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:10: in &lt;module&gt;
+    from .core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:30: in &lt;module&gt;
+    from fsspec import get_mapper
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/__init__.py:12: in &lt;module&gt;
+    from .core import get_fs_token_paths, open, open_files, open_local
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/core.py:18: in &lt;module&gt;
+    from .compression import compr
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/compression.py:6: in &lt;module&gt;
+    from fsspec.spec import AbstractBufferedFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/spec.py:92: in &lt;module&gt;
+    if pa_version and LooseVersion(pa_version) &lt; LooseVersion(&#34;2.0&#34;):
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/setuptools/_distutils/version.py:53: in __init__
+    warnings.warn(
+E   DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="023f8e4b-3ea6-47ae-aa85-eb6af91c6841"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxy</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_proxy.py:11: in &lt;module&gt;
+    import dask.array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:3: in &lt;module&gt;
+    from . import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from .percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:10: in &lt;module&gt;
+    from .core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:30: in &lt;module&gt;
+    from fsspec import get_mapper
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/__init__.py:12: in &lt;module&gt;
+    from .core import get_fs_token_paths, open, open_files, open_local
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/core.py:18: in &lt;module&gt;
+    from .compression import compr
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/compression.py:6: in &lt;module&gt;
+    from fsspec.spec import AbstractBufferedFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/spec.py:92: in &lt;module&gt;
+    if pa_version and LooseVersion(pa_version) &lt; LooseVersion(&#34;2.0&#34;):
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/setuptools/_distutils/version.py:53: in __init__
+    warnings.warn(
+E   DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="0f98ef02-9c90-4e69-9098-ac45848e9c40"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_spill</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_spill.py:9: in &lt;module&gt;
+    from dask import array as da
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:3: in &lt;module&gt;
+    from . import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from .percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:10: in &lt;module&gt;
+    from .core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:30: in &lt;module&gt;
+    from fsspec import get_mapper
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/__init__.py:12: in &lt;module&gt;
+    from .core import get_fs_token_paths, open, open_files, open_local
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/core.py:18: in &lt;module&gt;
+    from .compression import compr
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/compression.py:6: in &lt;module&gt;
+    from fsspec.spec import AbstractBufferedFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/spec.py:92: in &lt;module&gt;
+    if pa_version and LooseVersion(pa_version) &lt; LooseVersion(&#34;2.0&#34;):
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/setuptools/_distutils/version.py:53: in __init__
+    warnings.warn(
+E   DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="ae467b07-fdf1-4a4f-bb70-98709a1d0b8b"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_utils</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_utils.py:9: in &lt;module&gt;
+    from dask_cuda.utils import (
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:2: in &lt;module&gt;
+    import dask.dataframe.core
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/__init__.py:3: in &lt;module&gt;
+    from . import backends, dispatch, rolling
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/backends.py:16: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:3: in &lt;module&gt;
+    from . import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from .percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:10: in &lt;module&gt;
+    from .core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:30: in &lt;module&gt;
+    from fsspec import get_mapper
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/__init__.py:12: in &lt;module&gt;
+    from .core import get_fs_token_paths, open, open_files, open_local
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/core.py:18: in &lt;module&gt;
+    from .compression import compr
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/compression.py:6: in &lt;module&gt;
+    from fsspec.spec import AbstractBufferedFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/spec.py:92: in &lt;module&gt;
+    if pa_version and LooseVersion(pa_version) &lt; LooseVersion(&#34;2.0&#34;):
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/setuptools/_distutils/version.py:53: in __init__
+    warnings.warn(
+E   DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="b48118cf-9c32-46fa-80bc-2095c4ef9034"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_worker_spec</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_worker_spec.py:5: in &lt;module&gt;
+    from dask_cuda.worker_spec import worker_spec
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:2: in &lt;module&gt;
+    import dask.dataframe.core
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/__init__.py:3: in &lt;module&gt;
+    from . import backends, dispatch, rolling
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/backends.py:16: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:3: in &lt;module&gt;
+    from . import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from .percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:10: in &lt;module&gt;
+    from .core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:30: in &lt;module&gt;
+    from fsspec import get_mapper
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/__init__.py:12: in &lt;module&gt;
+    from .core import get_fs_token_paths, open, open_files, open_local
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/core.py:18: in &lt;module&gt;
+    from .compression import compr
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/compression.py:6: in &lt;module&gt;
+    from fsspec.spec import AbstractBufferedFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/fsspec/spec.py:92: in &lt;module&gt;
+    if pa_version and LooseVersion(pa_version) &lt; LooseVersion(&#34;2.0&#34;):
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/setuptools/_distutils/version.py:53: in __init__
+    warnings.warn(
+E   DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
