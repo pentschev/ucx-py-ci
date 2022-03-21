@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>junit-dask-cuda.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    width: 50%;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : junit-dask-cuda.xml
+</h1>
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>no-testclass
+                <ul>
+                    
+                    <li><a href="#9eb0be21-9332-4156-8dc9-18a117b1a901">dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    <li><a href="#82041e43-8858-4cb3-8bc6-5800a3484cf1">dask_cuda.tests.test_device_host_file</a></li>
+                    
+                    <li><a href="#cd6a3fc7-3520-4b8f-8abe-8410ee5ffc41">dask_cuda.tests.test_dgx</a></li>
+                    
+                    <li><a href="#19225adc-46d8-4996-aa2b-cdc1f15f27ac">dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    <li><a href="#dc049ffc-a5a1-4e05-b001-a81fd6dea599">dask_cuda.tests.test_gds</a></li>
+                    
+                    <li><a href="#f81cabad-f20f-41c6-80d6-ce8d713d4eab">dask_cuda.tests.test_initialize</a></li>
+                    
+                    <li><a href="#77d47267-3b68-47fe-bb20-64b3110ddb65">dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    <li><a href="#bf7d156c-0bc1-4159-8c2e-ccb4a5265a74">dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    <li><a href="#3e90c7d5-faa1-454d-ba0c-5c07a1126153">dask_cuda.tests.test_proxy</a></li>
+                    
+                    <li><a href="#c2cb2ce5-2dd6-4dcd-aa80-5786573544f6">dask_cuda.tests.test_spill</a></li>
+                    
+                    <li><a href="#25e193ca-2785-4416-b5a2-e6c807440329">dask_cuda.tests.test_utils</a></li>
+                    
+                    <li><a href="#c98105ed-0b25-4ccb-8ed5-02738c199ece">dask_cuda.tests.test_worker_spec</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    <li><a href="#9eb0be21-9332-4156-8dc9-18a117b1a901">[F] no-testclass : dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    
+                    
+                    <li><a href="#82041e43-8858-4cb3-8bc6-5800a3484cf1">[F] no-testclass : dask_cuda.tests.test_device_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#cd6a3fc7-3520-4b8f-8abe-8410ee5ffc41">[F] no-testclass : dask_cuda.tests.test_dgx</a></li>
+                    
+                    
+                    
+                    <li><a href="#19225adc-46d8-4996-aa2b-cdc1f15f27ac">[F] no-testclass : dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    
+                    
+                    <li><a href="#dc049ffc-a5a1-4e05-b001-a81fd6dea599">[F] no-testclass : dask_cuda.tests.test_gds</a></li>
+                    
+                    
+                    
+                    <li><a href="#f81cabad-f20f-41c6-80d6-ce8d713d4eab">[F] no-testclass : dask_cuda.tests.test_initialize</a></li>
+                    
+                    
+                    
+                    <li><a href="#77d47267-3b68-47fe-bb20-64b3110ddb65">[F] no-testclass : dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    
+                    
+                    <li><a href="#bf7d156c-0bc1-4159-8c2e-ccb4a5265a74">[F] no-testclass : dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#3e90c7d5-faa1-454d-ba0c-5c07a1126153">[F] no-testclass : dask_cuda.tests.test_proxy</a></li>
+                    
+                    
+                    
+                    <li><a href="#c2cb2ce5-2dd6-4dcd-aa80-5786573544f6">[F] no-testclass : dask_cuda.tests.test_spill</a></li>
+                    
+                    
+                    
+                    <li><a href="#25e193ca-2785-4416-b5a2-e6c807440329">[F] no-testclass : dask_cuda.tests.test_utils</a></li>
+                    
+                    
+                    
+                    <li><a href="#c98105ed-0b25-4ccb-8ed5-02738c199ece">[F] no-testclass : dask_cuda.tests.test_worker_spec</a></li>
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+    <div class="testsuite">
+        <h2>Test Suite: pytest</h2>
+        <a id="93fdcd20-41b6-4716-9886-edb4b6aa9b33"></a>
+        
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>5.5 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>12</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>12</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>no-testclass</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="9eb0be21-9332-4156-8dc9-18a117b1a901"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dask_cuda_worker</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_dask_cuda_worker.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_dask_cuda_worker.py:18: in &lt;module&gt;
+    from dask_cuda.utils import (
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:20: in &lt;module&gt;
+    from distributed.worker import parse_memory_limit
+E   ImportError: cannot import name &#39;parse_memory_limit&#39; from &#39;distributed.worker&#39; (/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="82041e43-8858-4cb3-8bc6-5800a3484cf1"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_device_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_device_host_file.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_device_host_file.py:16: in &lt;module&gt;
+    from dask_cuda.device_host_file import DeviceHostFile, device_to_host, host_to_device
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:20: in &lt;module&gt;
+    from distributed.worker import parse_memory_limit
+E   ImportError: cannot import name &#39;parse_memory_limit&#39; from &#39;distributed.worker&#39; (/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="cd6a3fc7-3520-4b8f-8abe-8410ee5ffc41"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dgx</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_dgx.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_dgx.py:11: in &lt;module&gt;
+    from dask_cuda import LocalCUDACluster
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:20: in &lt;module&gt;
+    from distributed.worker import parse_memory_limit
+E   ImportError: cannot import name &#39;parse_memory_limit&#39; from &#39;distributed.worker&#39; (/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="19225adc-46d8-4996-aa2b-cdc1f15f27ac"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_explicit_comms</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_explicit_comms.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_explicit_comms.py:15: in &lt;module&gt;
+    import dask_cuda
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:20: in &lt;module&gt;
+    from distributed.worker import parse_memory_limit
+E   ImportError: cannot import name &#39;parse_memory_limit&#39; from &#39;distributed.worker&#39; (/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="dc049ffc-a5a1-4e05-b001-a81fd6dea599"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_gds</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_gds.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_gds.py:7: in &lt;module&gt;
+    from dask_cuda.proxify_host_file import ProxifyHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:20: in &lt;module&gt;
+    from distributed.worker import parse_memory_limit
+E   ImportError: cannot import name &#39;parse_memory_limit&#39; from &#39;distributed.worker&#39; (/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="f81cabad-f20f-41c6-80d6-ce8d713d4eab"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_initialize</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_initialize.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_initialize.py:11: in &lt;module&gt;
+    from dask_cuda.initialize import initialize
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:20: in &lt;module&gt;
+    from distributed.worker import parse_memory_limit
+E   ImportError: cannot import name &#39;parse_memory_limit&#39; from &#39;distributed.worker&#39; (/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="77d47267-3b68-47fe-bb20-64b3110ddb65"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_local_cuda_cluster</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_local_cuda_cluster.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_local_cuda_cluster.py:14: in &lt;module&gt;
+    from dask_cuda import CUDAWorker, LocalCUDACluster, utils
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:20: in &lt;module&gt;
+    from distributed.worker import parse_memory_limit
+E   ImportError: cannot import name &#39;parse_memory_limit&#39; from &#39;distributed.worker&#39; (/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="bf7d156c-0bc1-4159-8c2e-ccb4a5265a74"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxify_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_proxify_host_file.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_proxify_host_file.py:18: in &lt;module&gt;
+    import dask_cuda
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:20: in &lt;module&gt;
+    from distributed.worker import parse_memory_limit
+E   ImportError: cannot import name &#39;parse_memory_limit&#39; from &#39;distributed.worker&#39; (/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="3e90c7d5-faa1-454d-ba0c-5c07a1126153"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxy</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_proxy.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_proxy.py:21: in &lt;module&gt;
+    import dask_cuda
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:20: in &lt;module&gt;
+    from distributed.worker import parse_memory_limit
+E   ImportError: cannot import name &#39;parse_memory_limit&#39; from &#39;distributed.worker&#39; (/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="c2cb2ce5-2dd6-4dcd-aa80-5786573544f6"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_spill</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_spill.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_spill.py:15: in &lt;module&gt;
+    from dask_cuda import LocalCUDACluster, utils
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:20: in &lt;module&gt;
+    from distributed.worker import parse_memory_limit
+E   ImportError: cannot import name &#39;parse_memory_limit&#39; from &#39;distributed.worker&#39; (/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="25e193ca-2785-4416-b5a2-e6c807440329"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_utils</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_utils.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_utils.py:9: in &lt;module&gt;
+    from dask_cuda.utils import (
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:20: in &lt;module&gt;
+    from distributed.worker import parse_memory_limit
+E   ImportError: cannot import name &#39;parse_memory_limit&#39; from &#39;distributed.worker&#39; (/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="c98105ed-0b25-4ccb-8ed5-02738c199ece"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_worker_spec</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_worker_spec.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_worker_spec.py:5: in &lt;module&gt;
+    from dask_cuda.worker_spec import worker_spec
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:6: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/cuda_worker.py:20: in &lt;module&gt;
+    from distributed.worker import parse_memory_limit
+E   ImportError: cannot import name &#39;parse_memory_limit&#39; from &#39;distributed.worker&#39; (/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
