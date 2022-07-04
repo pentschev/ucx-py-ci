@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>junit-dask-cuda.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    width: 50%;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+.outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.outcome-skipped {
+    border-left: 1em solid lightyellow;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : junit-dask-cuda.xml
+</h1>
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>no-testclass
+                <ul>
+                    
+                    <li><a href="#cbc9932e-8434-4cb9-9011-9c2b41c04939">dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    <li><a href="#959f60f4-a128-472c-8d4e-517c5e03d847">dask_cuda.tests.test_device_host_file</a></li>
+                    
+                    <li><a href="#4705fac1-5ce8-4c79-b7f2-4bc97c0d5469">dask_cuda.tests.test_dgx</a></li>
+                    
+                    <li><a href="#81f744a1-d871-4bd2-bd92-6c96105f2133">dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    <li><a href="#e9c48855-11a8-4240-a708-f40070ae0dd3">dask_cuda.tests.test_gds</a></li>
+                    
+                    <li><a href="#8f1902f2-dada-478c-88c6-296b52a6d2a1">dask_cuda.tests.test_initialize</a></li>
+                    
+                    <li><a href="#83f3b295-2100-4f12-b19a-c5eb3fe9937e">dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    <li><a href="#f4694196-7cc9-4988-ac30-f247ca32b8e2">dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    <li><a href="#1b1c3ea9-5fb2-48ed-9a39-f72aaf7a96d5">dask_cuda.tests.test_proxy</a></li>
+                    
+                    <li><a href="#f391c0dd-1774-4f85-9eb6-2f52aba3d530">dask_cuda.tests.test_spill</a></li>
+                    
+                    <li><a href="#319346d8-ea4c-4d11-a93d-6b9fbf58cabd">dask_cuda.tests.test_utils</a></li>
+                    
+                    <li><a href="#48ba741e-e6dc-4901-a7ca-3a082d541ad3">dask_cuda.tests.test_worker_spec</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    <li><a href="#cbc9932e-8434-4cb9-9011-9c2b41c04939">[F] no-testclass : dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    
+                    
+                    <li><a href="#959f60f4-a128-472c-8d4e-517c5e03d847">[F] no-testclass : dask_cuda.tests.test_device_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#4705fac1-5ce8-4c79-b7f2-4bc97c0d5469">[F] no-testclass : dask_cuda.tests.test_dgx</a></li>
+                    
+                    
+                    
+                    <li><a href="#81f744a1-d871-4bd2-bd92-6c96105f2133">[F] no-testclass : dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    
+                    
+                    <li><a href="#e9c48855-11a8-4240-a708-f40070ae0dd3">[F] no-testclass : dask_cuda.tests.test_gds</a></li>
+                    
+                    
+                    
+                    <li><a href="#8f1902f2-dada-478c-88c6-296b52a6d2a1">[F] no-testclass : dask_cuda.tests.test_initialize</a></li>
+                    
+                    
+                    
+                    <li><a href="#83f3b295-2100-4f12-b19a-c5eb3fe9937e">[F] no-testclass : dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    
+                    
+                    <li><a href="#f4694196-7cc9-4988-ac30-f247ca32b8e2">[F] no-testclass : dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#1b1c3ea9-5fb2-48ed-9a39-f72aaf7a96d5">[F] no-testclass : dask_cuda.tests.test_proxy</a></li>
+                    
+                    
+                    
+                    <li><a href="#f391c0dd-1774-4f85-9eb6-2f52aba3d530">[F] no-testclass : dask_cuda.tests.test_spill</a></li>
+                    
+                    
+                    
+                    <li><a href="#319346d8-ea4c-4d11-a93d-6b9fbf58cabd">[F] no-testclass : dask_cuda.tests.test_utils</a></li>
+                    
+                    
+                    
+                    <li><a href="#48ba741e-e6dc-4901-a7ca-3a082d541ad3">[F] no-testclass : dask_cuda.tests.test_worker_spec</a></li>
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+    <div class="testsuite">
+        <h2>Test Suite: pytest</h2>
+        <a id="8dcb1633-7462-4714-8744-9f6966a23cf1"></a>
+        
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>3.848 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>12</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>12</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>no-testclass</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="cbc9932e-8434-4cb9-9011-9c2b41c04939"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dask_cuda_worker</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_dask_cuda_worker.py:13: in &lt;module&gt;
+    from distributed.utils_test import cleanup, loop, popen  # noqa: F401
+&lt;frozen importlib._bootstrap&gt;:991: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:975: in _find_and_load_unlocked
+    ???
+&lt;frozen importlib._bootstrap&gt;:671: in _load_unlocked
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/_pytest/assertion/rewrite.py:168: in exec_module
+    exec(co, module.__dict__)
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_test.py:80: in &lt;module&gt;
+    import dask.array  # register config
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:2: in &lt;module&gt;
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:9: in &lt;module&gt;
+    from dask.array.core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:37: in &lt;module&gt;
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/chunk_types.py:108: in &lt;module&gt;
+    import cupy
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cupy/__init__.py:394: in &lt;module&gt;
+    from numpy import MachAr  # NOQA
+&lt;frozen importlib._bootstrap&gt;:1039: in _handle_fromlist
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/numpy/__init__.py:299: in __getattr__
+    warnings.warn(msg, DeprecationWarning, stacklevel=2)
+E   DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="959f60f4-a128-472c-8d4e-517c5e03d847"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_device_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_device_host_file.py:7: in &lt;module&gt;
+    import dask.array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:2: in &lt;module&gt;
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:9: in &lt;module&gt;
+    from dask.array.core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:37: in &lt;module&gt;
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/chunk_types.py:108: in &lt;module&gt;
+    import cupy
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cupy/__init__.py:394: in &lt;module&gt;
+    from numpy import MachAr  # NOQA
+&lt;frozen importlib._bootstrap&gt;:1039: in _handle_fromlist
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/numpy/__init__.py:299: in __getattr__
+    warnings.warn(msg, DeprecationWarning, stacklevel=2)
+E   DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="4705fac1-5ce8-4c79-b7f2-4bc97c0d5469"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dgx</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_dgx.py:8: in &lt;module&gt;
+    from dask import array as da
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:2: in &lt;module&gt;
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:9: in &lt;module&gt;
+    from dask.array.core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:37: in &lt;module&gt;
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/chunk_types.py:108: in &lt;module&gt;
+    import cupy
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cupy/__init__.py:394: in &lt;module&gt;
+    from numpy import MachAr  # NOQA
+&lt;frozen importlib._bootstrap&gt;:1039: in _handle_fromlist
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/numpy/__init__.py:299: in __getattr__
+    warnings.warn(msg, DeprecationWarning, stacklevel=2)
+E   DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="81f744a1-d871-4bd2-bd92-6c96105f2133"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_explicit_comms</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_explicit_comms.py:9: in &lt;module&gt;
+    from dask import dataframe as dd
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/__init__.py:4: in &lt;module&gt;
+    from dask.dataframe import backends, dispatch, rolling
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/backends.py:19: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:2: in &lt;module&gt;
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:9: in &lt;module&gt;
+    from dask.array.core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:37: in &lt;module&gt;
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/chunk_types.py:108: in &lt;module&gt;
+    import cupy
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cupy/__init__.py:394: in &lt;module&gt;
+    from numpy import MachAr  # NOQA
+&lt;frozen importlib._bootstrap&gt;:1039: in _handle_fromlist
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/numpy/__init__.py:299: in __getattr__
+    warnings.warn(msg, DeprecationWarning, stacklevel=2)
+E   DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="e9c48855-11a8-4240-a708-f40070ae0dd3"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_gds</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_gds.py:7: in &lt;module&gt;
+    from dask_cuda.proxify_host_file import ProxifyHostFile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:8: in &lt;module&gt;
+    import dask.dataframe.core
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/__init__.py:4: in &lt;module&gt;
+    from dask.dataframe import backends, dispatch, rolling
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/backends.py:19: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:2: in &lt;module&gt;
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:9: in &lt;module&gt;
+    from dask.array.core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:37: in &lt;module&gt;
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/chunk_types.py:108: in &lt;module&gt;
+    import cupy
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cupy/__init__.py:394: in &lt;module&gt;
+    from numpy import MachAr  # NOQA
+&lt;frozen importlib._bootstrap&gt;:1039: in _handle_fromlist
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/numpy/__init__.py:299: in __getattr__
+    warnings.warn(msg, DeprecationWarning, stacklevel=2)
+E   DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="8f1902f2-dada-478c-88c6-296b52a6d2a1"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_initialize</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_initialize.py:7: in &lt;module&gt;
+    from dask import array as da
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:2: in &lt;module&gt;
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:9: in &lt;module&gt;
+    from dask.array.core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:37: in &lt;module&gt;
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/chunk_types.py:108: in &lt;module&gt;
+    import cupy
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cupy/__init__.py:394: in &lt;module&gt;
+    from numpy import MachAr  # NOQA
+&lt;frozen importlib._bootstrap&gt;:1039: in _handle_fromlist
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/numpy/__init__.py:299: in __getattr__
+    warnings.warn(msg, DeprecationWarning, stacklevel=2)
+E   DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="83f3b295-2100-4f12-b19a-c5eb3fe9937e"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_local_cuda_cluster</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_local_cuda_cluster.py:10: in &lt;module&gt;
+    from distributed.utils_test import gen_test, raises_with_cause
+&lt;frozen importlib._bootstrap&gt;:991: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:975: in _find_and_load_unlocked
+    ???
+&lt;frozen importlib._bootstrap&gt;:671: in _load_unlocked
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/_pytest/assertion/rewrite.py:168: in exec_module
+    exec(co, module.__dict__)
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_test.py:80: in &lt;module&gt;
+    import dask.array  # register config
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:2: in &lt;module&gt;
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:9: in &lt;module&gt;
+    from dask.array.core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:37: in &lt;module&gt;
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/chunk_types.py:108: in &lt;module&gt;
+    import cupy
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cupy/__init__.py:394: in &lt;module&gt;
+    from numpy import MachAr  # NOQA
+&lt;frozen importlib._bootstrap&gt;:1039: in _handle_fromlist
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/numpy/__init__.py:299: in __getattr__
+    warnings.warn(msg, DeprecationWarning, stacklevel=2)
+E   DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="f4694196-7cc9-4988-ac30-f247ca32b8e2"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxify_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_proxify_host_file.py:11: in &lt;module&gt;
+    import dask.dataframe
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/__init__.py:4: in &lt;module&gt;
+    from dask.dataframe import backends, dispatch, rolling
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/backends.py:19: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:2: in &lt;module&gt;
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:9: in &lt;module&gt;
+    from dask.array.core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:37: in &lt;module&gt;
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/chunk_types.py:108: in &lt;module&gt;
+    import cupy
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cupy/__init__.py:394: in &lt;module&gt;
+    from numpy import MachAr  # NOQA
+&lt;frozen importlib._bootstrap&gt;:1039: in _handle_fromlist
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/numpy/__init__.py:299: in __getattr__
+    warnings.warn(msg, DeprecationWarning, stacklevel=2)
+E   DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="1b1c3ea9-5fb2-48ed-9a39-f72aaf7a96d5"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxy</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_proxy.py:13: in &lt;module&gt;
+    import dask.array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:2: in &lt;module&gt;
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:9: in &lt;module&gt;
+    from dask.array.core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:37: in &lt;module&gt;
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/chunk_types.py:108: in &lt;module&gt;
+    import cupy
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cupy/__init__.py:394: in &lt;module&gt;
+    from numpy import MachAr  # NOQA
+&lt;frozen importlib._bootstrap&gt;:1039: in _handle_fromlist
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/numpy/__init__.py:299: in __getattr__
+    warnings.warn(msg, DeprecationWarning, stacklevel=2)
+E   DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="f391c0dd-1774-4f85-9eb6-2f52aba3d530"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_spill</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_spill.py:9: in &lt;module&gt;
+    from dask import array as da
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:2: in &lt;module&gt;
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:9: in &lt;module&gt;
+    from dask.array.core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:37: in &lt;module&gt;
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/chunk_types.py:108: in &lt;module&gt;
+    import cupy
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cupy/__init__.py:394: in &lt;module&gt;
+    from numpy import MachAr  # NOQA
+&lt;frozen importlib._bootstrap&gt;:1039: in _handle_fromlist
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/numpy/__init__.py:299: in __getattr__
+    warnings.warn(msg, DeprecationWarning, stacklevel=2)
+E   DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="319346d8-ea4c-4d11-a93d-6b9fbf58cabd"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_utils</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_utils.py:9: in &lt;module&gt;
+    from dask_cuda.utils import (
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:8: in &lt;module&gt;
+    import dask.dataframe.core
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/__init__.py:4: in &lt;module&gt;
+    from dask.dataframe import backends, dispatch, rolling
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/backends.py:19: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:2: in &lt;module&gt;
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:9: in &lt;module&gt;
+    from dask.array.core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:37: in &lt;module&gt;
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/chunk_types.py:108: in &lt;module&gt;
+    import cupy
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cupy/__init__.py:394: in &lt;module&gt;
+    from numpy import MachAr  # NOQA
+&lt;frozen importlib._bootstrap&gt;:1039: in _handle_fromlist
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/numpy/__init__.py:299: in __getattr__
+    warnings.warn(msg, DeprecationWarning, stacklevel=2)
+E   DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="48ba741e-e6dc-4901-a7ca-3a082d541ad3"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_worker_spec</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_worker_spec.py:5: in &lt;module&gt;
+    from dask_cuda.worker_spec import worker_spec
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask_cuda/__init__.py:8: in &lt;module&gt;
+    import dask.dataframe.core
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/__init__.py:4: in &lt;module&gt;
+    from dask.dataframe import backends, dispatch, rolling
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/dataframe/backends.py:19: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/__init__.py:2: in &lt;module&gt;
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/backends.py:13: in &lt;module&gt;
+    from dask.array.percentile import _percentile
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/percentile.py:9: in &lt;module&gt;
+    from dask.array.core import Array
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/core.py:37: in &lt;module&gt;
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/dask/array/chunk_types.py:108: in &lt;module&gt;
+    import cupy
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/cupy/__init__.py:394: in &lt;module&gt;
+    from numpy import MachAr  # NOQA
+&lt;frozen importlib._bootstrap&gt;:1039: in _handle_fromlist
+    ???
+../../../miniconda3/envs/gdf/lib/python3.8/site-packages/numpy/__init__.py:299: in __getattr__
+    warnings.warn(msg, DeprecationWarning, stacklevel=2)
+E   DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
