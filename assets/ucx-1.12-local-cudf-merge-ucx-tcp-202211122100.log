@@ -1,0 +1,59 @@
+2022-11-12 21:46:20,134 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:46:20,134 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:46:20,136 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:46:20,136 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:46:20,139 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:46:20,139 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:46:20,166 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:46:20,166 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:46:20,185 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:46:20,186 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:46:20,201 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:46:20,201 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:46:20,204 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:46:20,204 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:46:20,209 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:46:20,209 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+terminate called after throwing an instance of 'rmm::out_of_memory'
+  what():  std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded
+2022-11-12 21:46:43,085 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:38543 -> ucx://127.0.0.1:45791
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 317, in write
+    await self.ep.send(each_frame)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 650, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #034] ep: 0x7fba6854f180, tag: 0xb6e22da7f984a330, nbytes: 50000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 1757, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 742, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 321, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2022-11-12 21:46:43,086 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:33581 -> ucx://127.0.0.1:45791
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 317, in write
+    await self.ep.send(each_frame)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 650, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #032] ep: 0x7f1e30124180, tag: 0x5af1a8ab52e4bff6, nbytes: 100000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 1757, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 742, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 321, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2022-11-12 21:46:43,314 - distributed.nanny - WARNING - Restarting worker
+2022-11-12 21:46:45,267 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:46:45,268 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

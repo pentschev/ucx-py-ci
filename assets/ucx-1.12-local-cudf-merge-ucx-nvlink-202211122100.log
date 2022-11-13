@@ -1,0 +1,154 @@
+2022-11-12 21:51:21,141 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-mhh7gxq1', purging
+2022-11-12 21:51:21,141 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-8ss35b2v', purging
+2022-11-12 21:51:21,141 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-6lb002c0', purging
+2022-11-12 21:51:21,141 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-2z7ftxaq', purging
+2022-11-12 21:51:21,141 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-96s0dduz', purging
+2022-11-12 21:51:21,142 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-wskdr5gz', purging
+2022-11-12 21:51:21,142 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-ry72yzzi', purging
+2022-11-12 21:51:21,142 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-b1jkj5pm', purging
+2022-11-12 21:51:21,142 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:51:21,143 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:51:21,154 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:51:21,154 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:51:21,154 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:51:21,154 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:51:21,156 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:51:21,156 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:51:21,156 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:51:21,156 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:51:21,157 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:51:21,157 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:51:21,158 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:51:21,158 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:51:21,164 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:51:21,164 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+terminate called after throwing an instance of 'rmm::out_of_memory'
+  what():  std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded
+2022-11-12 21:51:44,509 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:34319 -> ucx://127.0.0.1:50111
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 317, in write
+    await self.ep.send(each_frame)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 650, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #023] ep: 0x7f4724127140, tag: 0xd2763638fc2a837e, nbytes: 100000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Endpoint timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 1757, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 742, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 321, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2022-11-12 21:51:44,512 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:50111
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 375, in read
+    await self.ep.recv(each_frame)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 725, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Recv #024] ep: 0x7f4724127100, tag: 0xaaa1d33d5e26f114, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: Endpoint timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2051, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2840, in get_data_from_worker
+    return await retry_operation(_get_data, operation="get_data_from_worker")
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 386, in retry_operation
+    return await retry(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 371, in retry
+    return await coro()
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2820, in _get_data
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 928, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 742, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 381, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXError("<[Recv #024] ep: 0x7f4724127100, tag: 0xaaa1d33d5e26f114, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: Endpoint timeout")
+2022-11-12 21:51:44,629 - distributed.nanny - WARNING - Restarting worker
+2022-11-12 21:51:46,560 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-11-12 21:51:46,560 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-11-12 21:52:00,947 - distributed.core - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 742, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 356, in read
+    frames = [
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 357, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 155, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 87, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded
+2022-11-12 21:52:00,947 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2051, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2840, in get_data_from_worker
+    return await retry_operation(_get_data, operation="get_data_from_worker")
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 386, in retry_operation
+    return await retry(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 371, in retry
+    return await coro()
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2820, in _get_data
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 928, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 742, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 356, in read
+    frames = [
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 357, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 155, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 87, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded
+2022-11-12 21:52:04,811 - distributed.worker - WARNING - Compute Failed
+Key:       ('simple-shuffle-84a0276e6a854cf0d6c4324869a61d39', 7)
+Function:  <dask.layers.CallableLazyImport object at 0x7f428d
+args:      ([                key   payload
+171       306766755  26679543
+174       841889514  89901608
+181       813908803  19625407
+188         9840153  69314625
+31810     403562182   1535316
+...             ...       ...
+99996950  310296344  15347254
+99996958  832922194  39674507
+99997040  803016550  11118780
+99997048  863568617  50894761
+99997054  823218189  69414302
+
+[12500893 rows x 2 columns],                 key   payload
+72769     952162748   8032661
+96421     424420192  16936049
+80548     914704020  26932192
+72770     925876455  24010428
+96441     221613445  32654285
+...             ...       ...
+99967882  936183110  31858210
+99967887  949387215  89097033
+99967890  945632365  43434805
+99967893  912707531  48381524
+99967902  909480585  38972951
+
+[12495890 rows x 2 columns],                  key   payload
+84163     1030142600  52357155
+84166     1029650345  81153971
+84169     1029626428  79291337
+84186       25555788  20585498
+60064     1034041920  57425659
+...              ...       ...
+9
+kwargs:    {}
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded')"
+
+/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
