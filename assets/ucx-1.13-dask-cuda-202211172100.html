@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>junit-dask-cuda.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    width: 50%;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+.outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.outcome-skipped {
+    border-left: 1em solid lightyellow;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : junit-dask-cuda.xml
+</h1>
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>no-testclass
+                <ul>
+                    
+                    <li><a href="#4da0ad69-269d-4643-86e3-9c2d324e5172">dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    <li><a href="#2c4753da-4e99-4f74-9ff9-b4b29d2c5109">dask_cuda.tests.test_device_host_file</a></li>
+                    
+                    <li><a href="#9adedf85-516f-482c-a4e3-f861b10ffe80">dask_cuda.tests.test_dgx</a></li>
+                    
+                    <li><a href="#de178127-c1c2-4459-bb38-626a924731cf">dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    <li><a href="#7bfaedb4-1840-4cf0-b0b4-97d050da700d">dask_cuda.tests.test_gds</a></li>
+                    
+                    <li><a href="#2c3fbec0-d47a-46a6-9a4d-9a046d77785f">dask_cuda.tests.test_initialize</a></li>
+                    
+                    <li><a href="#1d9b9e1c-26b2-4982-a6df-667299f2d8e4">dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    <li><a href="#95f8913c-b53b-4f81-83d7-f663985e22ff">dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    <li><a href="#c72bb758-d7a4-4066-9c6c-f7f4d819d816">dask_cuda.tests.test_proxy</a></li>
+                    
+                    <li><a href="#983f5a8f-aad6-4c64-a0b6-9e241047dbe2">dask_cuda.tests.test_spill</a></li>
+                    
+                    <li><a href="#b412dc0c-50e1-49e5-a9f2-60f234dac084">dask_cuda.tests.test_utils</a></li>
+                    
+                    <li><a href="#2a63cec4-2ca5-4c4a-a31a-820c14c09496">dask_cuda.tests.test_worker_spec</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    <li><a href="#4da0ad69-269d-4643-86e3-9c2d324e5172">[F] no-testclass : dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    
+                    
+                    <li><a href="#2c4753da-4e99-4f74-9ff9-b4b29d2c5109">[F] no-testclass : dask_cuda.tests.test_device_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#9adedf85-516f-482c-a4e3-f861b10ffe80">[F] no-testclass : dask_cuda.tests.test_dgx</a></li>
+                    
+                    
+                    
+                    <li><a href="#de178127-c1c2-4459-bb38-626a924731cf">[F] no-testclass : dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    
+                    
+                    <li><a href="#7bfaedb4-1840-4cf0-b0b4-97d050da700d">[F] no-testclass : dask_cuda.tests.test_gds</a></li>
+                    
+                    
+                    
+                    <li><a href="#2c3fbec0-d47a-46a6-9a4d-9a046d77785f">[F] no-testclass : dask_cuda.tests.test_initialize</a></li>
+                    
+                    
+                    
+                    <li><a href="#1d9b9e1c-26b2-4982-a6df-667299f2d8e4">[F] no-testclass : dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    
+                    
+                    <li><a href="#95f8913c-b53b-4f81-83d7-f663985e22ff">[F] no-testclass : dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#c72bb758-d7a4-4066-9c6c-f7f4d819d816">[F] no-testclass : dask_cuda.tests.test_proxy</a></li>
+                    
+                    
+                    
+                    <li><a href="#983f5a8f-aad6-4c64-a0b6-9e241047dbe2">[F] no-testclass : dask_cuda.tests.test_spill</a></li>
+                    
+                    
+                    
+                    <li><a href="#b412dc0c-50e1-49e5-a9f2-60f234dac084">[F] no-testclass : dask_cuda.tests.test_utils</a></li>
+                    
+                    
+                    
+                    <li><a href="#2a63cec4-2ca5-4c4a-a31a-820c14c09496">[F] no-testclass : dask_cuda.tests.test_worker_spec</a></li>
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+    <div class="testsuite">
+        <h2>Test Suite: pytest</h2>
+        <a id="37573586-9853-45b0-9df9-e304209a1d15"></a>
+        
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>2.549 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>12</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>12</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>no-testclass</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="4da0ad69-269d-4643-86e3-9c2d324e5172"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dask_cuda_worker</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_dask_cuda_worker.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_dask_cuda_worker.py:15: in &lt;module&gt;
+    from dask_cuda.utils import (
+E   ModuleNotFoundError: No module named &#39;dask_cuda&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="2c4753da-4e99-4f74-9ff9-b4b29d2c5109"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_device_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_device_host_file.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_device_host_file.py:15: in &lt;module&gt;
+    from dask_cuda.device_host_file import DeviceHostFile, device_to_host, host_to_device
+E   ModuleNotFoundError: No module named &#39;dask_cuda&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="9adedf85-516f-482c-a4e3-f861b10ffe80"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dgx</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_dgx.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_dgx.py:11: in &lt;module&gt;
+    from dask_cuda import LocalCUDACluster
+E   ModuleNotFoundError: No module named &#39;dask_cuda&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="de178127-c1c2-4459-bb38-626a924731cf"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_explicit_comms</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_explicit_comms.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_explicit_comms.py:15: in &lt;module&gt;
+    import dask_cuda
+E   ModuleNotFoundError: No module named &#39;dask_cuda&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="7bfaedb4-1840-4cf0-b0b4-97d050da700d"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_gds</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_gds.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_gds.py:7: in &lt;module&gt;
+    from dask_cuda.proxify_host_file import ProxifyHostFile
+E   ModuleNotFoundError: No module named &#39;dask_cuda&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="2c3fbec0-d47a-46a6-9a4d-9a046d77785f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_initialize</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_initialize.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_initialize.py:11: in &lt;module&gt;
+    from dask_cuda.initialize import initialize
+E   ModuleNotFoundError: No module named &#39;dask_cuda&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="1d9b9e1c-26b2-4982-a6df-667299f2d8e4"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_local_cuda_cluster</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_local_cuda_cluster.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_local_cuda_cluster.py:14: in &lt;module&gt;
+    from dask_cuda import CUDAWorker, LocalCUDACluster, utils
+E   ModuleNotFoundError: No module named &#39;dask_cuda&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="95f8913c-b53b-4f81-83d7-f663985e22ff"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxify_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_proxify_host_file.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_proxify_host_file.py:17: in &lt;module&gt;
+    import dask_cuda
+E   ModuleNotFoundError: No module named &#39;dask_cuda&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="c72bb758-d7a4-4066-9c6c-f7f4d819d816"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxy</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_proxy.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_proxy.py:20: in &lt;module&gt;
+    import dask_cuda
+E   ModuleNotFoundError: No module named &#39;dask_cuda&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="983f5a8f-aad6-4c64-a0b6-9e241047dbe2"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_spill</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_spill.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_spill.py:14: in &lt;module&gt;
+    from dask_cuda import LocalCUDACluster, utils
+E   ModuleNotFoundError: No module named &#39;dask_cuda&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="b412dc0c-50e1-49e5-a9f2-60f234dac084"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_utils</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_utils.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_utils.py:9: in &lt;module&gt;
+    from dask_cuda.utils import (
+E   ModuleNotFoundError: No module named &#39;dask_cuda&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="2a63cec4-2ca5-4c4a-a31a-820c14c09496"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_worker_spec</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/datasets/pentschev/simple-ci/src/dask-cuda/dask_cuda/tests/test_worker_spec.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+../../../miniconda3/envs/gdf/lib/python3.8/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_worker_spec.py:5: in &lt;module&gt;
+    from dask_cuda.worker_spec import worker_spec
+E   ModuleNotFoundError: No module named &#39;dask_cuda&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
