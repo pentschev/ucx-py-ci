@@ -1,0 +1,70 @@
+2022-12-08 22:51:36,213 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-12-08 22:51:36,213 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-12-08 22:51:36,213 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-12-08 22:51:36,213 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-12-08 22:51:36,218 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-12-08 22:51:36,219 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-12-08 22:51:36,231 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-12-08 22:51:36,231 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-12-08 22:51:36,244 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-12-08 22:51:36,244 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-12-08 22:51:36,259 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-12-08 22:51:36,259 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-12-08 22:51:36,287 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-12-08 22:51:36,287 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2022-12-08 22:51:36,298 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-12-08 22:51:36,298 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+terminate called after throwing an instance of 'rmm::out_of_memory'
+  what():  std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded
+2022-12-08 22:52:01,228 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:47307 -> ucx://127.0.0.1:42051
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 333, in write
+    await self.ep.send(each_frame)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 650, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #024] ep: 0x7ff83c013140, tag: 0xc7a63b11cf803571, nbytes: 100000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 1756, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 742, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 337, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2022-12-08 22:52:01,230 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:42051
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 391, in read
+    await self.ep.recv(each_frame)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 725, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #026] ep: 0x7ff83c013100, tag: 0xfaf76f281bbca7c3, nbytes: 50000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2050, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2839, in get_data_from_worker
+    return await retry_operation(_get_data, operation="get_data_from_worker")
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 386, in retry_operation
+    return await retry(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 371, in retry
+    return await coro()
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2819, in _get_data
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 928, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 742, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 397, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #026] ep: 0x7ff83c013100, tag: 0xfaf76f281bbca7c3, nbytes: 50000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: ")
+2022-12-08 22:52:01,582 - distributed.nanny - WARNING - Restarting worker
+2022-12-08 22:52:03,597 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2022-12-08 22:52:03,597 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
