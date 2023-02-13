@@ -1,0 +1,223 @@
+2023-02-13 01:01:56,274 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-02-13 01:01:56,274 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-02-13 01:01:56,283 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-02-13 01:01:56,283 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-02-13 01:01:56,289 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-02-13 01:01:56,289 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-02-13 01:01:56,294 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-02-13 01:01:56,295 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-02-13 01:01:56,301 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-02-13 01:01:56,301 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-02-13 01:01:56,305 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-02-13 01:01:56,305 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-02-13 01:01:56,314 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-02-13 01:01:56,314 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-02-13 01:01:56,381 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-02-13 01:01:56,382 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+terminate called after throwing an instance of 'rmm::out_of_memory'
+  what():  std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded
+2023-02-13 01:02:07,760 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:59428
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 391, in read
+    await self.ep.recv(each_frame)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 725, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #033] ep: 0x7fa3ac712140, tag: 0x6df52a0c15322d8c, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2873, in get_data_from_worker
+    return await retry_operation(_get_data, operation="get_data_from_worker")
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 419, in retry_operation
+    return await retry(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 404, in retry
+    return await coro()
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2853, in _get_data
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 986, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 741, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 397, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #033] ep: 0x7fa3ac712140, tag: 0x6df52a0c15322d8c, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: ")
+2023-02-13 01:02:08,219 - distributed.nanny - WARNING - Restarting worker
+2023-02-13 01:02:09,826 - distributed.core - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 741, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 372, in read
+    frames = [
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 373, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 171, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded
+2023-02-13 01:02:09,826 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2873, in get_data_from_worker
+    return await retry_operation(_get_data, operation="get_data_from_worker")
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 419, in retry_operation
+    return await retry(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 404, in retry
+    return await coro()
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2853, in _get_data
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 986, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 741, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 372, in read
+    frames = [
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 373, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 171, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:193: Maximum pool size exceeded
+2023-02-13 01:02:10,289 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-02-13 01:02:10,289 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-02-13 01:02:11,354 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:56239
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 353, in read
+    raise CommClosedError("Connection closed by writer")
+distributed.comm.core.CommClosedError: Connection closed by writer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2873, in get_data_from_worker
+    return await retry_operation(_get_data, operation="get_data_from_worker")
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 419, in retry_operation
+    return await retry(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 404, in retry
+    return await coro()
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2853, in _get_data
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 986, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 741, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 367, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: CommClosedError('Connection closed by writer')
+2023-02-13 01:02:12,027 - distributed.core - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 741, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 372, in read
+    frames = [
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 373, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 171, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2023-02-13 01:02:12,028 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2873, in get_data_from_worker
+    return await retry_operation(_get_data, operation="get_data_from_worker")
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 419, in retry_operation
+    return await retry(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 404, in retry
+    return await coro()
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2853, in _get_data
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 986, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 741, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 372, in read
+    frames = [
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 373, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 171, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2023-02-13 01:02:12,050 - distributed.core - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 741, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 372, in read
+    frames = [
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 373, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 171, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2023-02-13 01:02:12,050 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2873, in get_data_from_worker
+    return await retry_operation(_get_data, operation="get_data_from_worker")
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 419, in retry_operation
+    return await retry(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 404, in retry
+    return await coro()
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2853, in _get_data
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 986, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 741, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 372, in read
+    frames = [
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 373, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 171, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2023-02-13 01:02:13,184 - distributed.core - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 741, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 372, in read
+    frames = [
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 373, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 171, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2023-02-13 01:02:13,184 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2873, in get_data_from_worker
+    return await retry_operation(_get_data, operation="get_data_from_worker")
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 419, in retry_operation
+    return await retry(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils_comm.py", line 404, in retry
+    return await coro()
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2853, in _get_data
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 986, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 741, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 372, in read
+    frames = [
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 373, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 171, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /datasets/pentschev/miniconda3/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
