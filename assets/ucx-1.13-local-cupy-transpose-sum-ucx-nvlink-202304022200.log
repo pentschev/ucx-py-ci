@@ -1,0 +1,755 @@
+2023-04-02 22:50:39,271 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:39,271 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-02 22:50:39,279 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:39,279 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-02 22:50:39,292 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:39,292 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-02 22:50:39,292 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:39,292 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-02 22:50:39,292 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:39,292 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-02 22:50:39,294 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:39,294 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-02 22:50:39,308 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:39,308 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-02 22:50:39,320 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:39,320 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+[dgx13:47865:0:47865] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x448)
+[dgx13:47871:0:47871] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x448)
+==== backtrace (tid:  47865) ====
+ 0  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2d4) [0x7f39948556b4]
+ 1  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(+0x2d88f) [0x7f399485588f]
+ 2  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(+0x2dbb4) [0x7f3994855bb4]
+ 3  /lib/x86_64-linux-gnu/libpthread.so.0(+0x12980) [0x7f3a19111980]
+ 4  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_mem_type_unpack+0x17) [0x7f3994ad11b7]
+ 5  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_rndv_data_handler+0x508) [0x7f3994afa638]
+ 6  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x1f0ff) [0x7f399460d0ff]
+ 7  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x1f674) [0x7f399460d674]
+ 8  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x21a78) [0x7f399460fa78]
+ 9  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(ucs_event_set_wait+0xb9) [0x7f399485f8a9]
+10  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(uct_tcp_iface_progress+0x7b) [0x7f399460fb1b]
+11  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_worker_progress+0x6a) [0x7f3994acdf5a]
+12  /datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/_libs/ucx_api.cpython-38-x86_64-linux-gnu.so(+0x272d9) [0x7f3994d7a2d9]
+13  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x12e343) [0x56088dd40343]
+14  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x24a) [0x56088dd4b1fa]
+15  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x680b) [0x56088dd31b8b]
+16  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x56088dd2a2f1]
+17  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x56088dd3b93c]
+18  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x56088dd2ba55]
+19  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x56088dd3b8a6]
+20  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136c36) [0x56088dd48c36]
+21  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x23565a) [0x56088de4765a]
+22  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0xe0b07) [0x56088dcf2b07]
+23  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x120f96) [0x56088dd32f96]
+24  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyVectorcall_Call+0x7a) [0x56088dd491ea]
+25  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5df8) [0x56088dd31178]
+26  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x56088dd3b8a6]
+27  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x56088dd2ba55]
+28  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x56088dd3b8a6]
+29  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x56088dd2ba55]
+30  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x56088dd3b8a6]
+31  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x56088dd2ba55]
+32  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x56088dd3b8a6]
+33  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x56088dd2ba55]
+34  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x56088dd2a2f1]
+35  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x56088dd3b93c]
+36  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x4b7b) [0x56088dd2fefb]
+37  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x56088dd2a2f1]
+38  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x56088dd3b93c]
+39  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136e8c) [0x56088dd48e8c]
+40  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyObject_FastCallDict+0x282) [0x56088dd33a92]
+41  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x1ee049) [0x56088de00049]
+42  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x2d3) [0x56088dd4b283]
+43  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x205e) [0x56088dd2d3de]
+44  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x56088dd3b8a6]
+45  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136e8c) [0x56088dd48e8c]
+46  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x24a) [0x56088dd4b1fa]
+47  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x205e) [0x56088dd2d3de]
+48  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x56088dd3b8a6]
+49  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x56088dd2ba55]
+50  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x56088dd2a2f1]
+51  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x56088dd3b93c]
+52  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x56088dd2ba55]
+53  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x56088dd3b8a6]
+54  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3a9) [0x56088dd2b729]
+55  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x56088dd2a2f1]
+56  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x56088dd3b93c]
+57  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11bf) [0x56088dd2c53f]
+58  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x56088dd2a2f1]
+59  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyEval_EvalCodeEx+0x39) [0x56088dddce99]
+60  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyEval_EvalCode+0x1b) [0x56088dddce5b]
+61  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x1eb7f9) [0x56088ddfd7f9]
+=================================
+==== backtrace (tid:  47871) ====
+ 0  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2d4) [0x7f6a51e236b4]
+ 1  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(+0x2d88f) [0x7f6a51e2388f]
+ 2  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(+0x2dbb4) [0x7f6a51e23bb4]
+ 3  /lib/x86_64-linux-gnu/libpthread.so.0(+0x12980) [0x7f6ac8885980]
+ 4  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_mem_type_unpack+0x17) [0x7f6a5209f1b7]
+ 5  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_rndv_data_handler+0x508) [0x7f6a520c8638]
+ 6  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x1f0ff) [0x7f6a51bdb0ff]
+ 7  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x1f674) [0x7f6a51bdb674]
+ 8  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x21a78) [0x7f6a51bdda78]
+ 9  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(ucs_event_set_wait+0xb9) [0x7f6a51e2d8a9]
+10  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(uct_tcp_iface_progress+0x7b) [0x7f6a51bddb1b]
+11  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_worker_progress+0x6a) [0x7f6a5209bf5a]
+12  /datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/_libs/ucx_api.cpython-38-x86_64-linux-gnu.so(+0x272d9) [0x7f6a523482d9]
+13  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x12e343) [0x55c7de6d6343]
+14  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x24a) [0x55c7de6e11fa]
+15  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x680b) [0x55c7de6c7b8b]
+16  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55c7de6c02f1]
+17  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55c7de6d193c]
+18  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55c7de6c1a55]
+19  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55c7de6d18a6]
+20  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136c36) [0x55c7de6dec36]
+21  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x23565a) [0x55c7de7dd65a]
+22  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0xe0b07) [0x55c7de688b07]
+23  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x120f96) [0x55c7de6c8f96]
+24  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyVectorcall_Call+0x7a) [0x55c7de6df1ea]
+25  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5df8) [0x55c7de6c7178]
+26  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55c7de6d18a6]
+27  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55c7de6c1a55]
+28  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55c7de6d18a6]
+29  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55c7de6c1a55]
+30  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55c7de6d18a6]
+31  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55c7de6c1a55]
+32  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55c7de6d18a6]
+33  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55c7de6c1a55]
+34  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55c7de6c02f1]
+35  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55c7de6d193c]
+36  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x4b7b) [0x55c7de6c5efb]
+37  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55c7de6c02f1]
+38  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55c7de6d193c]
+39  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136e8c) [0x55c7de6dee8c]
+40  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyObject_FastCallDict+0x282) [0x55c7de6c9a92]
+41  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x1ee049) [0x55c7de796049]
+42  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x2d3) [0x55c7de6e1283]
+43  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x205e) [0x55c7de6c33de]
+44  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55c7de6d18a6]
+45  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136e8c) [0x55c7de6dee8c]
+46  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x24a) [0x55c7de6e11fa]
+47  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x205e) [0x55c7de6c33de]
+48  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55c7de6d18a6]
+49  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55c7de6c1a55]
+50  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55c7de6c02f1]
+51  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55c7de6d193c]
+52  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55c7de6c1a55]
+53  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55c7de6d18a6]
+54  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3a9) [0x55c7de6c1729]
+55  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55c7de6c02f1]
+56  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55c7de6d193c]
+57  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11bf) [0x55c7de6c253f]
+58  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55c7de6c02f1]
+59  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyEval_EvalCodeEx+0x39) [0x55c7de772e99]
+60  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyEval_EvalCode+0x1b) [0x55c7de772e5b]
+61  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x1eb7f9) [0x55c7de7937f9]
+=================================
+[dgx13:47856:0:47856] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x448)
+==== backtrace (tid:  47856) ====
+ 0  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2d4) [0x7f210106c6b4]
+ 1  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(+0x2d88f) [0x7f210106c88f]
+ 2  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(+0x2dbb4) [0x7f210106cbb4]
+ 3  /lib/x86_64-linux-gnu/libpthread.so.0(+0x12980) [0x7f2177913980]
+ 4  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_mem_type_unpack+0x17) [0x7f21012e81b7]
+ 5  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_rndv_data_handler+0x508) [0x7f2101311638]
+ 6  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x1f0ff) [0x7f2100e240ff]
+ 7  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x1f674) [0x7f2100e24674]
+ 8  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x21a78) [0x7f2100e26a78]
+ 9  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(ucs_event_set_wait+0xb9) [0x7f21010768a9]
+10  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(uct_tcp_iface_progress+0x7b) [0x7f2100e26b1b]
+11  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_worker_progress+0x6a) [0x7f21012e4f5a]
+12  /datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/_libs/ucx_api.cpython-38-x86_64-linux-gnu.so(+0x272d9) [0x7f21015912d9]
+13  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x12e343) [0x55fcf212c343]
+14  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x24a) [0x55fcf21371fa]
+15  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x680b) [0x55fcf211db8b]
+16  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55fcf21162f1]
+17  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55fcf212793c]
+18  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55fcf2117a55]
+19  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x13e1e8) [0x55fcf213c1e8]
+20  /datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/lib-dynload/_asyncio.cpython-38-x86_64-linux-gnu.so(+0x7003) [0x7f2111ffa003]
+21  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyObject_MakeTpCall+0x3db) [0x55fcf212030b]
+22  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0xe0b07) [0x55fcf20deb07]
+23  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x120f96) [0x55fcf211ef96]
+24  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyVectorcall_Call+0x7a) [0x55fcf21351ea]
+25  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5df8) [0x55fcf211d178]
+26  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55fcf21278a6]
+27  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55fcf2117a55]
+28  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55fcf21278a6]
+29  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55fcf2117a55]
+30  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55fcf21278a6]
+31  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55fcf2117a55]
+32  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55fcf21278a6]
+33  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55fcf2117a55]
+34  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55fcf21162f1]
+35  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55fcf212793c]
+36  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x4b7b) [0x55fcf211befb]
+37  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55fcf21162f1]
+38  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55fcf212793c]
+39  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136e8c) [0x55fcf2134e8c]
+40  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyObject_FastCallDict+0x282) [0x55fcf211fa92]
+41  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x1ee049) [0x55fcf21ec049]
+42  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x2d3) [0x55fcf2137283]
+43  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x205e) [0x55fcf21193de]
+44  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55fcf21278a6]
+45  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136e8c) [0x55fcf2134e8c]
+46  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x24a) [0x55fcf21371fa]
+47  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x205e) [0x55fcf21193de]
+48  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55fcf21278a6]
+49  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55fcf2117a55]
+50  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55fcf21162f1]
+51  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55fcf212793c]
+52  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55fcf2117a55]
+53  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55fcf21278a6]
+54  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3a9) [0x55fcf2117729]
+55  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55fcf21162f1]
+56  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55fcf212793c]
+57  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11bf) [0x55fcf211853f]
+58  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55fcf21162f1]
+59  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyEval_EvalCodeEx+0x39) [0x55fcf21c8e99]
+60  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyEval_EvalCode+0x1b) [0x55fcf21c8e5b]
+61  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x1eb7f9) [0x55fcf21e97f9]
+=================================
+[dgx13:47860:0:47860] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x448)
+==== backtrace (tid:  47860) ====
+ 0  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2d4) [0x7f929de236b4]
+ 1  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(+0x2d88f) [0x7f929de2388f]
+ 2  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(+0x2dbb4) [0x7f929de23bb4]
+ 3  /lib/x86_64-linux-gnu/libpthread.so.0(+0x12980) [0x7f93147cf980]
+ 4  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_mem_type_unpack+0x17) [0x7f929e09f1b7]
+ 5  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_rndv_data_handler+0x508) [0x7f929e0c8638]
+ 6  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x1f0ff) [0x7f929dbdb0ff]
+ 7  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x1f674) [0x7f929dbdb674]
+ 8  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x21a78) [0x7f929dbdda78]
+ 9  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(ucs_event_set_wait+0xb9) [0x7f929de2d8a9]
+10  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(uct_tcp_iface_progress+0x7b) [0x7f929dbddb1b]
+11  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_worker_progress+0x6a) [0x7f929e09bf5a]
+12  /datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/_libs/ucx_api.cpython-38-x86_64-linux-gnu.so(+0x272d9) [0x7f929e3482d9]
+13  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x12e343) [0x557b75a2b343]
+14  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x24a) [0x557b75a361fa]
+15  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x680b) [0x557b75a1cb8b]
+16  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x557b75a152f1]
+17  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x557b75a2693c]
+18  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x557b75a16a55]
+19  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x557b75a268a6]
+20  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136c36) [0x557b75a33c36]
+21  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x23565a) [0x557b75b3265a]
+22  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0xe0b07) [0x557b759ddb07]
+23  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x120f96) [0x557b75a1df96]
+24  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyVectorcall_Call+0x7a) [0x557b75a341ea]
+25  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5df8) [0x557b75a1c178]
+26  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x557b75a268a6]
+27  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x557b75a16a55]
+28  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x557b75a268a6]
+29  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x557b75a16a55]
+30  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x557b75a268a6]
+31  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x557b75a16a55]
+32  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x557b75a268a6]
+33  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x557b75a16a55]
+34  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x557b75a152f1]
+35  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x557b75a2693c]
+36  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x4b7b) [0x557b75a1aefb]
+37  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x557b75a152f1]
+38  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x557b75a2693c]
+39  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136e8c) [0x557b75a33e8c]
+40  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyObject_FastCallDict+0x282) [0x557b75a1ea92]
+41  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x1ee049) [0x557b75aeb049]
+42  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x2d3) [0x557b75a36283]
+43  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x205e) [0x557b75a183de]
+44  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x557b75a268a6]
+45  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136e8c) [0x557b75a33e8c]
+46  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x24a) [0x557b75a361fa]
+47  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x205e) [0x557b75a183de]
+48  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x557b75a268a6]
+49  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x557b75a16a55]
+50  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x557b75a152f1]
+51  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x557b75a2693c]
+52  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x557b75a16a55]
+53  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x557b75a268a6]
+54  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3a9) [0x557b75a16729]
+55  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x557b75a152f1]
+56  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x557b75a2693c]
+57  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11bf) [0x557b75a1753f]
+58  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x557b75a152f1]
+59  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyEval_EvalCodeEx+0x39) [0x557b75ac7e99]
+60  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyEval_EvalCode+0x1b) [0x557b75ac7e5b]
+61  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x1eb7f9) [0x557b75ae87f9]
+=================================
+[dgx13:47874:0:47874] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x448)
+==== backtrace (tid:  47874) ====
+ 0  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2d4) [0x7f1bdc6706b4]
+ 1  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(+0x2d88f) [0x7f1bdc67088f]
+ 2  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(+0x2dbb4) [0x7f1bdc670bb4]
+ 3  /lib/x86_64-linux-gnu/libpthread.so.0(+0x12980) [0x7f1c53095980]
+ 4  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_mem_type_unpack+0x17) [0x7f1bdc8ec1b7]
+ 5  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_rndv_data_handler+0x508) [0x7f1bdc915638]
+ 6  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x1f0ff) [0x7f1bdc4280ff]
+ 7  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x1f674) [0x7f1bdc428674]
+ 8  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(+0x21a78) [0x7f1bdc42aa78]
+ 9  /datasets/pentschev/miniconda3/envs/gdf/lib/libucs.so.0(ucs_event_set_wait+0xb9) [0x7f1bdc67a8a9]
+10  /datasets/pentschev/miniconda3/envs/gdf/lib/libuct.so.0(uct_tcp_iface_progress+0x7b) [0x7f1bdc42ab1b]
+11  /datasets/pentschev/miniconda3/envs/gdf/lib/libucp.so.0(ucp_worker_progress+0x6a) [0x7f1bdc8e8f5a]
+12  /datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/_libs/ucx_api.cpython-38-x86_64-linux-gnu.so(+0x272d9) [0x7f1bdcb952d9]
+13  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x12e343) [0x55cc6fcc7343]
+14  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x24a) [0x55cc6fcd21fa]
+15  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x680b) [0x55cc6fcb8b8b]
+16  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55cc6fcb12f1]
+17  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55cc6fcc293c]
+18  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55cc6fcb2a55]
+19  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x13e1e8) [0x55cc6fcd71e8]
+20  /datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/lib-dynload/_asyncio.cpython-38-x86_64-linux-gnu.so(+0x7003) [0x7f1bed780003]
+21  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyObject_MakeTpCall+0x3db) [0x55cc6fcbb30b]
+22  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0xe0b07) [0x55cc6fc79b07]
+23  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x120f96) [0x55cc6fcb9f96]
+24  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyVectorcall_Call+0x7a) [0x55cc6fcd01ea]
+25  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5df8) [0x55cc6fcb8178]
+26  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55cc6fcc28a6]
+27  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55cc6fcb2a55]
+28  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55cc6fcc28a6]
+29  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55cc6fcb2a55]
+30  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55cc6fcc28a6]
+31  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55cc6fcb2a55]
+32  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55cc6fcc28a6]
+33  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55cc6fcb2a55]
+34  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55cc6fcb12f1]
+35  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55cc6fcc293c]
+36  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x4b7b) [0x55cc6fcb6efb]
+37  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55cc6fcb12f1]
+38  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55cc6fcc293c]
+39  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136e8c) [0x55cc6fccfe8c]
+40  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyObject_FastCallDict+0x282) [0x55cc6fcbaa92]
+41  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x1ee049) [0x55cc6fd87049]
+42  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x2d3) [0x55cc6fcd2283]
+43  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x205e) [0x55cc6fcb43de]
+44  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55cc6fcc28a6]
+45  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x136e8c) [0x55cc6fccfe8c]
+46  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyObject_Call+0x24a) [0x55cc6fcd21fa]
+47  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x205e) [0x55cc6fcb43de]
+48  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55cc6fcc28a6]
+49  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55cc6fcb2a55]
+50  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55cc6fcb12f1]
+51  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55cc6fcc293c]
+52  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x6d5) [0x55cc6fcb2a55]
+53  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x106) [0x55cc6fcc28a6]
+54  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3a9) [0x55cc6fcb2729]
+55  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55cc6fcb12f1]
+56  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyFunction_Vectorcall+0x19c) [0x55cc6fcc293c]
+57  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11bf) [0x55cc6fcb353f]
+58  /datasets/pentschev/miniconda3/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x2f1) [0x55cc6fcb12f1]
+59  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyEval_EvalCodeEx+0x39) [0x55cc6fd63e99]
+60  /datasets/pentschev/miniconda3/envs/gdf/bin/python(PyEval_EvalCode+0x1b) [0x55cc6fd63e5b]
+61  /datasets/pentschev/miniconda3/envs/gdf/bin/python(+0x1eb7f9) [0x55cc6fd847f9]
+=================================
+Task exception was never retrieved
+future: <Task finished name='Task-292' coro=<_listener_handler_coroutine() done, defined at /datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py:128> exception=UCXError('<stream_send>: Connection reset by remote peer')>
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 143, in _listener_handler_coroutine
+    peer_info = await exchange_peer_info(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 51, in exchange_peer_info
+    await comm.stream_send(endpoint, my_info_arr, my_info_arr.nbytes)
+ucp._libs.exceptions.UCXError: <stream_send>: Connection reset by remote peer
+2023-04-02 22:50:42,180 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:50761
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 349, in read
+    await self.ep.recv(msg)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 725, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #000] ep: 0x7efd140d31c0, tag: 0x4a58767aea7a8319, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/core.py", line 329, in connect
+    handshake = await wait_for(comm.read(), time_left())
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 1849, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/asyncio/tasks.py", line 494, in wait_for
+    return fut.result()
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 367, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #000] ep: 0x7efd140d31c0, tag: 0x4a58767aea7a8319, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2064, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2887, in get_data_from_worker
+    comm = await rpc.connect(worker)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1509, in connect
+    return await connect_attempt
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1430, in _connect
+    comm = await connect(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/core.py", line 334, in connect
+    raise OSError(
+OSError: Timed out during handshake while connecting to ucx://127.0.0.1:50761 after 30 s
+Task exception was never retrieved
+future: <Task finished name='Task-293' coro=<_listener_handler_coroutine() done, defined at /datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py:128> exception=UCXError('<stream_send>: Connection reset by remote peer')>
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 143, in _listener_handler_coroutine
+    peer_info = await exchange_peer_info(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 51, in exchange_peer_info
+    await comm.stream_send(endpoint, my_info_arr, my_info_arr.nbytes)
+ucp._libs.exceptions.UCXError: <stream_send>: Connection reset by remote peer
+Task exception was never retrieved
+future: <Task finished name='Task-293' coro=<_listener_handler_coroutine() done, defined at /datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py:128> exception=UCXError('<stream_recv>: Endpoint timeout')>
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 143, in _listener_handler_coroutine
+    peer_info = await exchange_peer_info(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 52, in exchange_peer_info
+    await comm.stream_recv(endpoint, peer_info_arr, peer_info_arr.nbytes)
+ucp._libs.exceptions.UCXError: <stream_recv>: Endpoint timeout
+2023-04-02 22:50:42,196 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:59023
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1430, in _connect
+    comm = await connect(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/core.py", line 316, in connect
+    await asyncio.sleep(backoff)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/asyncio/tasks.py", line 659, in sleep
+    return await future
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2064, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2887, in get_data_from_worker
+    comm = await rpc.connect(worker)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1509, in connect
+    return await connect_attempt
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1453, in _connect
+    raise CommClosedError(reason)
+distributed.comm.core.CommClosedError: Address removed.
+2023-04-02 22:50:42,208 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:51929
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 349, in read
+    await self.ep.recv(msg)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 725, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #003] ep: 0x7efeec0781c0, tag: 0xc3d477d3536acfff, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2064, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2890, in get_data_from_worker
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1027, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 367, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #003] ep: 0x7efeec0781c0, tag: 0xc3d477d3536acfff, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+Task exception was never retrieved
+future: <Task finished name='Task-294' coro=<_listener_handler_coroutine() done, defined at /datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py:128> exception=UCXError('<stream_send>: Connection reset by remote peer')>
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 143, in _listener_handler_coroutine
+    peer_info = await exchange_peer_info(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 51, in exchange_peer_info
+    await comm.stream_send(endpoint, my_info_arr, my_info_arr.nbytes)
+ucp._libs.exceptions.UCXError: <stream_send>: Connection reset by remote peer
+2023-04-02 22:50:42,211 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:51929
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1430, in _connect
+    comm = await connect(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/core.py", line 316, in connect
+    await asyncio.sleep(backoff)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/asyncio/tasks.py", line 659, in sleep
+    return await future
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2064, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2887, in get_data_from_worker
+    comm = await rpc.connect(worker)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1509, in connect
+    return await connect_attempt
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1453, in _connect
+    raise CommClosedError(reason)
+distributed.comm.core.CommClosedError: Address removed.
+2023-04-02 22:50:42,224 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:49575
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 349, in read
+    await self.ep.recv(msg)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 725, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #003] ep: 0x7efeec078180, tag: 0xd344493e796a870e, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2064, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2890, in get_data_from_worker
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1027, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 367, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #003] ep: 0x7efeec078180, tag: 0xd344493e796a870e, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2023-04-02 22:50:42,224 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:47011 -> ucx://127.0.0.1:51929
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 333, in write
+    await self.ep.send(each_frame)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 650, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #007] ep: 0x7f68d1d1b240, tag: 0xa0da04fae955034f, nbytes: 50000000, type: <class 'cupy.ndarray'>>: Endpoint timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 1790, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 337, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2023-04-02 22:50:42,227 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:47011 -> ucx://127.0.0.1:49575
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 333, in write
+    await self.ep.send(each_frame)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 650, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #007] ep: 0x7f68d1d1b200, tag: 0xf64783f59f9e9b96, nbytes: 50000000, type: <class 'cupy.ndarray'>>: Endpoint timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 1790, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 337, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2023-04-02 22:50:42,228 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:50761
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 349, in read
+    await self.ep.recv(msg)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 725, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #003] ep: 0x7f68d1d1b180, tag: 0x5f5b8fc2ca106c2, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2064, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2890, in get_data_from_worker
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1027, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 367, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #003] ep: 0x7f68d1d1b180, tag: 0x5f5b8fc2ca106c2, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2023-04-02 22:50:42,236 - distributed.nanny - WARNING - Restarting worker
+2023-04-02 22:50:42,240 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:39079 -> ucx://127.0.0.1:60005
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 333, in write
+    await self.ep.send(each_frame)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 650, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #007] ep: 0x7efd140d3380, tag: 0xd9959229da5a08f8, nbytes: 50000000, type: <class 'cupy.ndarray'>>: Endpoint timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 1790, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 337, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2023-04-02 22:50:42,240 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:51929
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1430, in _connect
+    comm = await connect(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/core.py", line 292, in connect
+    comm = await wait_for(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 1849, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/asyncio/tasks.py", line 481, in wait_for
+    await waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2064, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2887, in get_data_from_worker
+    comm = await rpc.connect(worker)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1509, in connect
+    return await connect_attempt
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1453, in _connect
+    raise CommClosedError(reason)
+distributed.comm.core.CommClosedError: Address removed.
+2023-04-02 22:50:42,241 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:60005
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 391, in read
+    await self.ep.recv(each_frame)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 725, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Recv #007] ep: 0x7efd140d3140, tag: 0x6300c943c9d64311, nbytes: 50000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: Endpoint timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2064, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2890, in get_data_from_worker
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1027, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 397, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXError("<[Recv #007] ep: 0x7efd140d3140, tag: 0x6300c943c9d64311, nbytes: 50000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: Endpoint timeout")
+2023-04-02 22:50:42,242 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:45793 -> ucx://127.0.0.1:60005
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 349, in read
+    await self.ep.recv(msg)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 725, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #006] ep: 0x7efeec078300, tag: 0x92e32e61b46ec8d4, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 1791, in get_data
+    response = await comm.read(deserializers=serializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 367, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #006] ep: 0x7efeec078300, tag: 0x92e32e61b46ec8d4, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2023-04-02 22:50:42,242 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:60005
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 349, in read
+    await self.ep.recv(msg)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 725, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #003] ep: 0x7f68d1d1b140, tag: 0xf32f4b70c5a48cc7, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2064, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2890, in get_data_from_worker
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1027, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 367, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #003] ep: 0x7f68d1d1b140, tag: 0xf32f4b70c5a48cc7, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2023-04-02 22:50:42,242 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:60005
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 349, in read
+    await self.ep.recv(msg)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 725, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #008] ep: 0x7efeec078140, tag: 0x492fd22632ea3c81, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2064, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2890, in get_data_from_worker
+    response = await send_recv(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1027, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/ucx.py", line 367, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #008] ep: 0x7efeec078140, tag: 0x492fd22632ea3c81, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2023-04-02 22:50:42,448 - distributed.nanny - WARNING - Restarting worker
+2023-04-02 22:50:42,451 - distributed.nanny - WARNING - Restarting worker
+2023-04-02 22:50:42,465 - distributed.nanny - WARNING - Restarting worker
+2023-04-02 22:50:42,475 - distributed.nanny - WARNING - Restarting worker
+2023-04-02 22:50:44,044 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:44,044 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-02 22:50:44,256 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:44,256 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-02 22:50:44,261 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:44,262 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-02 22:50:44,276 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:44,277 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-02 22:50:44,326 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-04-02 22:50:44,326 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-04-02 22:51:11,933 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:59023
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/core.py", line 292, in connect
+    comm = await wait_for(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 1849, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/asyncio/tasks.py", line 501, in wait_for
+    raise exceptions.TimeoutError()
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2064, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2887, in get_data_from_worker
+    comm = await rpc.connect(worker)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1509, in connect
+    return await connect_attempt
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1430, in _connect
+    comm = await connect(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/core.py", line 318, in connect
+    raise OSError(
+OSError: Timed out trying to connect to ucx://127.0.0.1:59023 after 30 s
+2023-04-02 22:51:11,933 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:59023
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/core.py", line 292, in connect
+    comm = await wait_for(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/utils.py", line 1849, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/asyncio/tasks.py", line 501, in wait_for
+    raise exceptions.TimeoutError()
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2064, in gather_dep
+    response = await get_data_from_worker(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/worker.py", line 2887, in get_data_from_worker
+    comm = await rpc.connect(worker)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1509, in connect
+    return await connect_attempt
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/core.py", line 1430, in _connect
+    comm = await connect(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/distributed/comm/core.py", line 318, in connect
+    raise OSError(
+OSError: Timed out trying to connect to ucx://127.0.0.1:59023 after 30 s
+/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
