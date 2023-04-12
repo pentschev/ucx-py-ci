@@ -1,0 +1,32 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.16, pytest-7.3.0, pluggy-1.0.0 -- /datasets/pentschev/miniconda3/envs/gdf/bin/python3.8
+cachedir: .pytest_cache
+rootdir: /datasets/pentschev/simple-ci/src/ucx-py
+configfile: pyproject.toml
+plugins: asyncio-0.12.0
+collecting ... collected 8 items
+
+debug-tests/test_send_recv_many_workers.py::test_send_recv_cu[True-dataframe] [1681279910.633933] [dgx13:5435 :0]     ucp_context.c:1081 UCX  WARN  transport 'rc' is not available, please use one or more of: cma, cuda, cuda_copy, cuda_ipc, mm, posix, self, shm, sm, sysv, tcp
+[1681279910.655049] [dgx13:5435 :0]    ucp_listener.c:320  UCX  ERROR cannot create listener: none of the available components supports it
+CREATING CUDA OBJECT IN SERVER...
+Process server:
+Traceback (most recent call last):
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/datasets/pentschev/simple-ci/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 151, in server
+    loop.run_until_complete(f(port, frames))
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/datasets/pentschev/simple-ci/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 139, in f
+    lf = ucp.create_listener(write, port=listener_port)
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 996, in create_listener
+    return _get_ctx().create_listener(
+  File "/datasets/pentschev/miniconda3/envs/gdf/lib/python3.8/site-packages/ucp/core.py", line 272, in create_listener
+    ucx_api.UCXListener(
+  File "ucp/_libs/ucx_listener.pyx", line 100, in ucp._libs.ucx_api.UCXListener.__init__
+    assert_ucs_status(status)
+  File "ucp/_libs/utils.pyx", line 107, in ucp._libs.ucx_api.assert_ucs_status
+    raise UCXError(msg)
+ucp._libs.exceptions.UCXError: Unsupported operation
