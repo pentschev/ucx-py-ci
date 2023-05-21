@@ -1,0 +1,45 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.16, pytest-7.3.1, pluggy-1.0.0 -- /opt/conda/envs/gdf/bin/python3.9
+cachedir: .pytest_cache
+rootdir: /usr/src/ucx-py
+configfile: pyproject.toml
+plugins: asyncio-0.12.0
+collecting ... collected 8 items
+
+debug-tests/test_send_recv_many_workers.py::test_send_recv_cu[True-dataframe] Process server:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 95, in server
+    cuda_obj = cuda_obj_generator()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 162, in dataframe
+    return cudf.DataFrame(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/nvtx/nvtx.py", line 101, in inner
+    result = func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/dataframe.py", line 719, in __init__
+    self._init_from_dict_like(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/nvtx/nvtx.py", line 101, in inner
+    result = func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/dataframe.py", line 927, in _init_from_dict_like
+    self._insert(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/nvtx/nvtx.py", line 101, in inner
+    result = func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/dataframe.py", line 3069, in _insert
+    value = column.as_column(value, nan_as_null=nan_as_null)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/column/column.py", line 2163, in as_column
+    cupy.asarray(arbitrary, dtype=arb_dtype),
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cupy/_creation/from_data.py", line 76, in asarray
+    return _core.array(a, dtype, False, order)
+  File "cupy/_core/core.pyx", line 2382, in cupy._core.core.array
+  File "cupy/_core/core.pyx", line 2406, in cupy._core.core.array
+  File "cupy/_core/core.pyx", line 2538, in cupy._core.core._array_default
+  File "cupy/_core/core.pyx", line 136, in cupy._core.core.ndarray.__new__
+  File "cupy/_core/core.pyx", line 224, in cupy._core.core._ndarray_base._init
+  File "cupy/cuda/memory.pyx", line 742, in cupy.cuda.memory.alloc
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rmm/allocators/cupy.py", line 37, in rmm_cupy_allocator
+    buf = librmm.device_buffer.DeviceBuffer(size=nbytes, stream=stream)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+CREATING CUDA OBJECT IN SERVER...
