@@ -1,0 +1,1551 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.16, pytest-7.3.1, pluggy-1.0.0 -- /opt/conda/envs/gdf/bin/python3.9
+cachedir: .pytest_cache
+rootdir: /usr/src/dask-cuda
+configfile: pyproject.toml
+plugins: asyncio-0.12.0
+collecting ... collected 1181 items
+
+dask_cuda/tests/test_cudf_builtin_spilling.py::test_is_spillable_object_when_cudf_spilling_disabled PASSED
+dask_cuda/tests/test_cudf_builtin_spilling.py::test_is_spillable_object_when_cudf_spilling_enabled PASSED
+dask_cuda/tests/test_cudf_builtin_spilling.py::test_device_host_file_when_cudf_spilling_is_disabled PASSED
+dask_cuda/tests/test_cudf_builtin_spilling.py::test_device_host_file_step_by_step PASSED
+dask_cuda/tests/test_cudf_builtin_spilling.py::test_proxify_host_file PASSED
+dask_cuda/tests/test_dask_cuda_worker.py::test_cuda_visible_devices_and_memory_limit_and_nthreads 2023-05-30 06:07:54,829 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:07:54,833 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2023-05-30 06:07:54,836 - distributed.scheduler - INFO - State start
+2023-05-30 06:07:54,855 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:07:54,856 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9359
+2023-05-30 06:07:54,856 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2023-05-30 06:07:54,918 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:35495'
+2023-05-30 06:07:54,934 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:44765'
+2023-05-30 06:07:54,936 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:41741'
+2023-05-30 06:07:54,943 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:42537'
+2023-05-30 06:07:55,128 - distributed.scheduler - INFO - Receive client connection: Client-50553060-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:07:55,139 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:60250
+2023-05-30 06:07:56,312 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-d1nlqcqb', purging
+2023-05-30 06:07:56,312 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-2rl642wx', purging
+2023-05-30 06:07:56,313 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:07:56,313 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:07:56,318 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:07:56,318 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:07:56,320 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:07:56,324 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:07:56,324 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:07:56,325 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:07:56,328 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:07:56,328 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:07:56,330 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:07:56,335 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+Unable to start CUDA Context
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/initialize.py", line 31, in _create_cuda_context
+    distributed.comm.ucx.init_once()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 133, in init_once
+    cuda_visible_device = get_device_index_and_uuid(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/diagnostics/nvml.py", line 256, in get_device_index_and_uuid
+    device_handle = pynvml.nvmlDeviceGetHandleByIndex(device_index)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/pynvml/nvml.py", line 1655, in nvmlDeviceGetHandleByIndex
+    _nvmlCheckReturn(ret)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/pynvml/nvml.py", line 765, in _nvmlCheckReturn
+    raise NVMLError(ret)
+pynvml.nvml.NVMLError_InvalidArgument: Invalid Argument
+2023-05-30 06:07:56,336 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:37083
+2023-05-30 06:07:56,336 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:37083
+2023-05-30 06:07:56,336 - distributed.worker - INFO -          dashboard at:            127.0.0.1:34279
+2023-05-30 06:07:56,336 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9359
+2023-05-30 06:07:56,336 - distributed.worker - INFO - -------------------------------------------------
+2023-05-30 06:07:56,336 - distributed.worker - INFO -               Threads:                          4
+2023-05-30 06:07:56,336 - distributed.worker - INFO -                Memory:                 251.94 GiB
+2023-05-30 06:07:56,337 - distributed.worker - INFO -       Local Directory: /tmp/dask-worker-space/worker-dfrut3ju
+2023-05-30 06:07:56,337 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-ed562e67-88c5-43b6-97d3-28fe41c58655
+2023-05-30 06:07:56,338 - distributed.worker - INFO - Starting Worker plugin RMMSetup-2dae975a-9abf-4d05-b8b5-76eda809ba05
+2023-05-30 06:07:56,338 - distributed.worker - INFO - Starting Worker plugin PreImport-e9a1622e-9331-455d-907d-19906e24b881
+2023-05-30 06:07:56,338 - distributed.worker - INFO - -------------------------------------------------
+2023-05-30 06:07:56,353 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:37083', status: init, memory: 0, processing: 0>
+2023-05-30 06:07:56,354 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:37083
+2023-05-30 06:07:56,354 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:60256
+2023-05-30 06:07:56,354 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9359
+2023-05-30 06:07:56,354 - distributed.worker - INFO - -------------------------------------------------
+2023-05-30 06:07:56,356 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9359
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:07:57,046 - distributed.nanny - INFO - Worker process 26513 exited with status 127
+2023-05-30 06:07:57,047 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:07:57,081 - distributed.nanny - INFO - Worker process 26509 exited with status 127
+2023-05-30 06:07:57,081 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:07:57,101 - distributed.nanny - INFO - Worker process 26506 exited with status 127
+2023-05-30 06:07:57,102 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:07:58,409 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-50tm37ms', purging
+2023-05-30 06:07:58,409 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-yogyn3gi', purging
+2023-05-30 06:07:58,409 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-nleuos50', purging
+2023-05-30 06:07:58,410 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:07:58,410 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:07:58,416 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:07:58,438 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:07:58,438 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:07:58,439 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:07:58,439 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:07:58,444 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:07:58,445 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:07:59,061 - distributed.nanny - INFO - Worker process 26551 exited with status 127
+2023-05-30 06:07:59,063 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:07:59,164 - distributed.nanny - INFO - Worker process 26554 exited with status 127
+2023-05-30 06:07:59,165 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:07:59,186 - distributed.nanny - INFO - Worker process 26557 exited with status 127
+2023-05-30 06:07:59,186 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:00,436 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-2l0zm2l3', purging
+2023-05-30 06:08:00,437 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-fn5o_bw4', purging
+2023-05-30 06:08:00,437 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-hnjcs8xd', purging
+2023-05-30 06:08:00,438 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:00,438 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:00,444 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:00,513 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:00,513 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:00,519 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:00,528 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:00,528 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:00,534 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:01,088 - distributed.nanny - INFO - Worker process 26579 exited with status 127
+2023-05-30 06:08:01,089 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:01,210 - distributed.nanny - INFO - Worker process 26587 exited with status 127
+2023-05-30 06:08:01,211 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:01,233 - distributed.nanny - INFO - Worker process 26584 exited with status 127
+2023-05-30 06:08:01,234 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:02,453 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-s_m0fd2y', purging
+2023-05-30 06:08:02,453 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-ku_xxvwz', purging
+2023-05-30 06:08:02,454 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-3d_1qyh2', purging
+2023-05-30 06:08:02,454 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:02,454 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:02,460 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:02,585 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:02,585 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:02,587 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:02,587 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:02,591 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:02,593 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:03,085 - distributed.nanny - INFO - Worker process 26609 exited with status 127
+2023-05-30 06:08:03,086 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:03,212 - distributed.nanny - INFO - Worker process 26617 exited with status 127
+2023-05-30 06:08:03,213 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:03,233 - distributed.nanny - INFO - Worker process 26614 exited with status 127
+2023-05-30 06:08:03,234 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:04,444 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-_5d8pvxn', purging
+2023-05-30 06:08:04,444 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-ak3qz3n3', purging
+2023-05-30 06:08:04,444 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-p267ibz1', purging
+2023-05-30 06:08:04,445 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:04,445 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:04,451 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:04,563 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:04,563 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:04,569 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:04,581 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:04,581 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:04,588 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:05,101 - distributed.nanny - INFO - Worker process 26639 exited with status 127
+2023-05-30 06:08:05,101 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:05,152 - distributed.scheduler - INFO - Remove client Client-50553060-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:08:05,153 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:60250; closing.
+2023-05-30 06:08:05,153 - distributed.scheduler - INFO - Remove client Client-50553060-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:08:05,154 - distributed.scheduler - INFO - Close client connection: Client-50553060-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:08:05,154 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:35495'. Reason: nanny-close
+2023-05-30 06:08:05,155 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:44765'. Reason: nanny-close
+2023-05-30 06:08:05,155 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:41741'. Reason: nanny-close
+2023-05-30 06:08:05,155 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:42537'. Reason: nanny-close
+2023-05-30 06:08:05,155 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2023-05-30 06:08:05,157 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:37083. Reason: nanny-close
+2023-05-30 06:08:05,159 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:60256; closing.
+2023-05-30 06:08:05,159 - distributed.core - INFO - Connection to tcp://127.0.0.1:9359 has been closed.
+2023-05-30 06:08:05,159 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:37083', status: closing, memory: 0, processing: 0>
+2023-05-30 06:08:05,159 - distributed.core - INFO - Removing comms to tcp://127.0.0.1:37083
+2023-05-30 06:08:05,159 - distributed.scheduler - INFO - Lost all workers
+2023-05-30 06:08:05,160 - distributed.nanny - INFO - Worker closed
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:05,221 - distributed.nanny - INFO - Worker process 26647 exited with status 127
+2023-05-30 06:08:05,243 - distributed.nanny - INFO - Worker process 26644 exited with status 127
+2023-05-30 06:08:06,429 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-g76mqcpd', purging
+2023-05-30 06:08:06,429 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-5tdg2_be', purging
+2023-05-30 06:08:06,429 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-v6p_tswi', purging
+2023-05-30 06:08:06,430 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:06,430 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:06,436 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:06,740 - distributed.nanny - INFO - Worker process 26669 exited with status 127
+2023-05-30 06:08:33,223 - distributed.scheduler - INFO - Receive client connection: Client-680e05aa-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:08:33,224 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:60396
+2023-05-30 06:08:35,186 - distributed._signals - INFO - Received signal SIGINT (2)
+2023-05-30 06:08:35,187 - distributed.scheduler - INFO - Scheduler closing...
+2023-05-30 06:08:35,187 - distributed.scheduler - INFO - Scheduler closing all comms
+2023-05-30 06:08:35,189 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9359'
+2023-05-30 06:08:35,189 - distributed.scheduler - INFO - End scheduler
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_rmm_pool 2023-05-30 06:08:37,475 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:08:37,478 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2023-05-30 06:08:37,481 - distributed.scheduler - INFO - State start
+2023-05-30 06:08:37,501 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:08:37,502 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9369
+2023-05-30 06:08:37,502 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2023-05-30 06:08:37,660 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:42341'
+2023-05-30 06:08:37,679 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:46363'
+2023-05-30 06:08:37,688 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:45319'
+2023-05-30 06:08:37,690 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:33835'
+2023-05-30 06:08:37,697 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:39725'
+2023-05-30 06:08:37,705 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:33929'
+2023-05-30 06:08:37,713 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:34935'
+2023-05-30 06:08:37,721 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:41155'
+2023-05-30 06:08:38,187 - distributed.scheduler - INFO - Receive client connection: Client-69af67b1-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:08:38,201 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:57382
+2023-05-30 06:08:39,317 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:39,317 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-vw7a86eb', purging
+2023-05-30 06:08:39,317 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:39,317 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:39,317 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:39,318 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:39,318 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:39,318 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:39,318 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:39,319 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:39,319 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:39,347 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:39,347 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:39,348 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:39,349 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:39,350 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:39,367 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:39,367 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:39,375 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:39,376 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:39,376 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:39,376 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:39,399 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:39,411 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:39,412 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:41,417 - distributed.nanny - INFO - Worker process 26858 exited with status 127
+2023-05-30 06:08:41,419 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:41,894 - distributed.nanny - INFO - Worker process 26854 exited with status 127
+2023-05-30 06:08:41,895 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:41,916 - distributed.nanny - INFO - Worker process 26851 exited with status 127
+2023-05-30 06:08:41,917 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:41,944 - distributed.nanny - INFO - Worker process 26862 exited with status 127
+2023-05-30 06:08:41,944 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:41,975 - distributed.nanny - INFO - Worker process 26866 exited with status 127
+2023-05-30 06:08:41,976 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:42,015 - distributed.nanny - INFO - Worker process 26869 exited with status 127
+2023-05-30 06:08:42,015 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:42,057 - distributed.nanny - INFO - Worker process 26872 exited with status 127
+2023-05-30 06:08:42,058 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:42,093 - distributed.nanny - INFO - Worker process 26875 exited with status 127
+2023-05-30 06:08:42,094 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:43,002 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-_vecw5c9', purging
+2023-05-30 06:08:43,002 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-_urbiqgy', purging
+2023-05-30 06:08:43,002 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-35xkdclr', purging
+2023-05-30 06:08:43,003 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-jvdyesc5', purging
+2023-05-30 06:08:43,003 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-m18dte1r', purging
+2023-05-30 06:08:43,003 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-jzsc_6df', purging
+2023-05-30 06:08:43,004 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-m4v2dv5n', purging
+2023-05-30 06:08:43,004 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-wbo1b3iz', purging
+2023-05-30 06:08:43,004 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:43,004 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:43,029 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:43,435 - distributed.nanny - INFO - Worker process 26933 exited with status 127
+2023-05-30 06:08:43,436 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:43,548 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-0dy3o5q_', purging
+2023-05-30 06:08:43,549 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:43,549 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:43,551 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:43,551 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:43,557 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:43,557 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:43,575 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:43,576 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:43,582 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:43,630 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:43,630 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:43,662 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:43,680 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:43,680 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:43,690 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:43,690 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:43,727 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:43,734 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:43,735 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:43,735 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:44,085 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:45,052 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:45,052 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:45,215 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:45,759 - distributed.nanny - INFO - Worker process 26944 exited with status 127
+2023-05-30 06:08:45,760 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:45,803 - distributed.nanny - INFO - Worker process 26938 exited with status 127
+2023-05-30 06:08:45,804 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:45,836 - distributed.nanny - INFO - Worker process 26941 exited with status 127
+2023-05-30 06:08:45,837 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:46,311 - distributed.nanny - INFO - Worker process 26947 exited with status 127
+2023-05-30 06:08:46,312 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:46,529 - distributed.nanny - INFO - Worker process 26957 exited with status 127
+2023-05-30 06:08:46,530 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:46,555 - distributed.nanny - INFO - Worker process 26951 exited with status 127
+2023-05-30 06:08:46,556 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:46,580 - distributed.nanny - INFO - Worker process 26954 exited with status 127
+2023-05-30 06:08:46,581 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:46,725 - distributed.nanny - INFO - Worker process 26973 exited with status 127
+2023-05-30 06:08:46,726 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:47,433 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-jo2hfryk', purging
+2023-05-30 06:08:47,433 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-wy8la_qy', purging
+2023-05-30 06:08:47,433 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-y0_v0fr3', purging
+2023-05-30 06:08:47,434 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-uizf65h7', purging
+2023-05-30 06:08:47,434 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-3iac0dgx', purging
+2023-05-30 06:08:47,434 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-6r6b2cb3', purging
+2023-05-30 06:08:47,434 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-1a5809i0', purging
+2023-05-30 06:08:47,435 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:47,435 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:47,435 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-x5cdeza8', purging
+2023-05-30 06:08:47,435 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:47,435 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:47,443 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:47,443 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:47,461 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:47,461 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:47,468 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:47,931 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:47,931 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:48,147 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:48,214 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:48,215 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:48,216 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:48,216 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:48,217 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:48,217 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:48,313 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:48,316 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:48,316 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:48,352 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:48,352 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:48,415 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:48,991 - distributed.nanny - INFO - Worker process 27018 exited with status 127
+2023-05-30 06:08:48,992 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:49,030 - distributed.nanny - INFO - Worker process 27024 exited with status 127
+2023-05-30 06:08:49,032 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:49,082 - distributed.nanny - INFO - Worker process 27021 exited with status 127
+2023-05-30 06:08:49,083 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:50,494 - distributed.nanny - INFO - Worker process 27033 exited with status 127
+2023-05-30 06:08:50,495 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:50,598 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-qkxv6wzr', purging
+2023-05-30 06:08:50,598 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-qqg4ew0c', purging
+2023-05-30 06:08:50,598 - distributed.nanny - INFO - Worker process 27042 exited with status 127
+2023-05-30 06:08:50,599 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-bi_5or2v', purging
+2023-05-30 06:08:50,599 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-_agime8y', purging
+2023-05-30 06:08:50,599 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-iasw5rgt', purging
+2023-05-30 06:08:50,599 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:50,600 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-9g7wfft0', purging
+2023-05-30 06:08:50,600 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-o_uylrg1', purging
+2023-05-30 06:08:50,601 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:50,601 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:50,601 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:50,601 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:50,623 - distributed.nanny - INFO - Worker process 27039 exited with status 127
+2023-05-30 06:08:50,623 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:50,646 - distributed.nanny - INFO - Worker process 27045 exited with status 127
+2023-05-30 06:08:50,647 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:50,678 - distributed.nanny - INFO - Worker process 27049 exited with status 127
+2023-05-30 06:08:50,679 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:50,681 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-4_jhf302', purging
+2023-05-30 06:08:50,681 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:50,681 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:50,691 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:50,691 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:50,706 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:51,584 - distributed.nanny - INFO - Worker process 27090 exited with status 127
+2023-05-30 06:08:51,585 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:51,624 - distributed.nanny - INFO - Worker process 27093 exited with status 127
+2023-05-30 06:08:51,624 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:51,651 - distributed.nanny - INFO - Worker process 27096 exited with status 127
+2023-05-30 06:08:51,652 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:52,131 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-xsgvg0jd', purging
+2023-05-30 06:08:52,132 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-f55qg_ni', purging
+2023-05-30 06:08:52,132 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-13euw5we', purging
+2023-05-30 06:08:52,133 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:52,133 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:52,228 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:52,228 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:52,231 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:52,231 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:52,255 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:52,275 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:52,275 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:52,288 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:52,294 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:52,319 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:52,319 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:52,339 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:52,371 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:53,223 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:53,223 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:53,238 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:53,238 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:53,267 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:53,267 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:53,512 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:53,523 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:53,524 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:53,850 - distributed.nanny - INFO - Worker process 27113 exited with status 127
+2023-05-30 06:08:53,851 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:53,889 - distributed.nanny - INFO - Worker process 27122 exited with status 127
+2023-05-30 06:08:53,889 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:53,913 - distributed.nanny - INFO - Worker process 27125 exited with status 127
+2023-05-30 06:08:53,914 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:53,963 - distributed.nanny - INFO - Worker process 27128 exited with status 127
+2023-05-30 06:08:53,964 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:08:54,255 - distributed.scheduler - INFO - Remove client Client-69af67b1-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:08:54,256 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:57382; closing.
+2023-05-30 06:08:54,257 - distributed.scheduler - INFO - Remove client Client-69af67b1-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:08:54,258 - distributed.scheduler - INFO - Close client connection: Client-69af67b1-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:08:54,258 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:46363'. Reason: nanny-close
+2023-05-30 06:08:54,259 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:39725'. Reason: nanny-close
+2023-05-30 06:08:54,259 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:42341'. Reason: nanny-close
+2023-05-30 06:08:54,260 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:45319'. Reason: nanny-close
+2023-05-30 06:08:54,260 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:33835'. Reason: nanny-close
+2023-05-30 06:08:54,260 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:33929'. Reason: nanny-close
+2023-05-30 06:08:54,260 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:34935'. Reason: nanny-close
+2023-05-30 06:08:54,260 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:41155'. Reason: nanny-close
+2023-05-30 06:08:54,514 - distributed.nanny - INFO - Worker process 27134 exited with status 127
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:55,277 - distributed.nanny - INFO - Worker process 27161 exited with status 127
+2023-05-30 06:08:55,309 - distributed.nanny - INFO - Worker process 27155 exited with status 127
+2023-05-30 06:08:55,373 - distributed.nanny - INFO - Worker process 27158 exited with status 127
+2023-05-30 06:08:55,410 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-c0dkwkex', purging
+2023-05-30 06:08:55,411 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-69uorj1b', purging
+2023-05-30 06:08:55,411 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-bbp_g90p', purging
+2023-05-30 06:08:55,411 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-cytfvmm1', purging
+2023-05-30 06:08:55,412 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-yx6imcp2', purging
+2023-05-30 06:08:55,412 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-t40526u_', purging
+2023-05-30 06:08:55,412 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-yyg6m_w2', purging
+2023-05-30 06:08:55,413 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-i56kqvjh', purging
+2023-05-30 06:08:55,413 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:55,413 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:55,438 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:55,484 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:55,484 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:55,489 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:55,489 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:55,512 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:08:55,512 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:08:55,557 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:55,557 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:08:55,559 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:56,400 - distributed.nanny - INFO - Worker process 27205 exited with status 127
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:08:56,560 - distributed.nanny - INFO - Worker process 27215 exited with status 127
+2023-05-30 06:08:56,585 - distributed.nanny - INFO - Worker process 27209 exited with status 127
+2023-05-30 06:08:56,607 - distributed.nanny - INFO - Worker process 27212 exited with status 127
+2023-05-30 06:09:24,524 - distributed._signals - INFO - Received signal SIGINT (2)
+2023-05-30 06:09:24,525 - distributed.scheduler - INFO - Scheduler closing...
+2023-05-30 06:09:24,525 - distributed.scheduler - INFO - Scheduler closing all comms
+2023-05-30 06:09:24,526 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9369'
+2023-05-30 06:09:24,527 - distributed.scheduler - INFO - End scheduler
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_rmm_managed 2023-05-30 06:09:26,595 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:09:26,599 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2023-05-30 06:09:26,602 - distributed.scheduler - INFO - State start
+2023-05-30 06:09:26,761 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:09:26,763 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9369
+2023-05-30 06:09:26,763 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2023-05-30 06:09:26,988 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:35183'
+2023-05-30 06:09:27,004 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:46149'
+2023-05-30 06:09:27,005 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:44867'
+2023-05-30 06:09:27,012 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:38569'
+2023-05-30 06:09:27,020 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:35717'
+2023-05-30 06:09:27,027 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:41853'
+2023-05-30 06:09:27,034 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:44115'
+2023-05-30 06:09:27,041 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:32977'
+2023-05-30 06:09:28,449 - distributed.scheduler - INFO - Receive client connection: Client-870b83f0-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:09:28,462 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:49732
+2023-05-30 06:09:28,648 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:28,648 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-ofu_0ib6', purging
+2023-05-30 06:09:28,648 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:28,648 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:28,648 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:28,649 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-yp_fpwhr', purging
+2023-05-30 06:09:28,649 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-px7dpp9w', purging
+2023-05-30 06:09:28,649 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-1h90dj5j', purging
+2023-05-30 06:09:28,650 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:28,650 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:28,681 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:28,682 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:28,683 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:28,683 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:28,683 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:28,683 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:28,685 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:28,685 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:28,702 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:28,703 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:28,901 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:28,904 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:28,907 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:28,913 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:28,921 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:28,926 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:28,926 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:28,930 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:31,096 - distributed.nanny - INFO - Worker process 27429 exited with status 127
+2023-05-30 06:09:31,097 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:31,149 - distributed.nanny - INFO - Worker process 27433 exited with status 127
+2023-05-30 06:09:31,150 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:31,176 - distributed.nanny - INFO - Worker process 27437 exited with status 127
+2023-05-30 06:09:31,176 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:31,210 - distributed.nanny - INFO - Worker process 27446 exited with status 127
+2023-05-30 06:09:31,210 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:31,233 - distributed.nanny - INFO - Worker process 27443 exited with status 127
+2023-05-30 06:09:31,234 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:31,257 - distributed.nanny - INFO - Worker process 27441 exited with status 127
+2023-05-30 06:09:31,258 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:31,281 - distributed.nanny - INFO - Worker process 27422 exited with status 127
+2023-05-30 06:09:31,282 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:31,312 - distributed.nanny - INFO - Worker process 27425 exited with status 127
+2023-05-30 06:09:31,312 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:32,628 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-v9ebcccg', purging
+2023-05-30 06:09:32,628 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-6ol3_9zv', purging
+2023-05-30 06:09:32,629 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-sy0dawkg', purging
+2023-05-30 06:09:32,629 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-xdjfhis4', purging
+2023-05-30 06:09:32,629 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-5d8mzkuj', purging
+2023-05-30 06:09:32,630 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-jzq_ra9m', purging
+2023-05-30 06:09:32,630 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-s7udpblw', purging
+2023-05-30 06:09:32,630 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-4_lg9wak', purging
+2023-05-30 06:09:32,631 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:32,631 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:32,651 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:32,651 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:32,654 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:32,676 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:32,694 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:32,695 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:32,699 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:32,699 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:32,720 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:32,729 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:32,757 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:32,757 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:32,778 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:32,778 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:32,799 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:32,799 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:32,809 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:32,809 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:32,953 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:32,955 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:32,957 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:32,960 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:33,716 - distributed.nanny - INFO - Worker process 27505 exited with status 127
+2023-05-30 06:09:33,717 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:34,472 - distributed.nanny - INFO - Worker process 27518 exited with status 127
+2023-05-30 06:09:34,473 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:34,756 - distributed.nanny - INFO - Worker process 27509 exited with status 127
+2023-05-30 06:09:34,758 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:34,818 - distributed.nanny - INFO - Worker process 27527 exited with status 127
+2023-05-30 06:09:34,818 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:34,840 - distributed.nanny - INFO - Worker process 27512 exited with status 127
+2023-05-30 06:09:34,840 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:34,918 - distributed.nanny - INFO - Worker process 27524 exited with status 127
+2023-05-30 06:09:34,919 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:34,949 - distributed.nanny - INFO - Worker process 27515 exited with status 127
+2023-05-30 06:09:34,950 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:34,976 - distributed.nanny - INFO - Worker process 27521 exited with status 127
+2023-05-30 06:09:34,977 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:35,210 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-tmbwffo_', purging
+2023-05-30 06:09:35,210 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-2seo1vd4', purging
+2023-05-30 06:09:35,210 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-byqcjiio', purging
+2023-05-30 06:09:35,211 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-u7eb238l', purging
+2023-05-30 06:09:35,211 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-9xmz_xfx', purging
+2023-05-30 06:09:35,211 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-_r5njqbe', purging
+2023-05-30 06:09:35,212 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-j8n37tlx', purging
+2023-05-30 06:09:35,212 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-gohtmm9n', purging
+2023-05-30 06:09:35,213 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:35,213 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:35,237 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:35,645 - distributed.nanny - INFO - Worker process 27571 exited with status 127
+2023-05-30 06:09:35,645 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:35,825 - distributed.scheduler - INFO - Receive client connection: Client-8d63cbcd-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:09:35,826 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:49670
+2023-05-30 06:09:36,091 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-arwki1uh', purging
+2023-05-30 06:09:36,093 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:36,093 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:36,131 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:36,313 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:36,313 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:36,409 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:36,423 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:36,423 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:36,442 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:36,442 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:36,457 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:36,472 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:36,529 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:36,530 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:36,611 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:36,611 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:36,614 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:36,614 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:36,725 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:36,728 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:36,729 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:36,778 - distributed.nanny - INFO - Worker process 27584 exited with status 127
+2023-05-30 06:09:36,779 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:37,236 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-gimbjpyv', purging
+2023-05-30 06:09:37,237 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:37,237 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:37,282 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:37,405 - distributed.nanny - INFO - Worker process 27590 exited with status 127
+2023-05-30 06:09:37,406 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:38,150 - distributed.nanny - INFO - Worker process 27593 exited with status 127
+2023-05-30 06:09:38,151 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:38,254 - distributed.nanny - INFO - Worker process 27596 exited with status 127
+2023-05-30 06:09:38,255 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:38,291 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-96bal0vc', purging
+2023-05-30 06:09:38,292 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-4cj3jyd0', purging
+2023-05-30 06:09:38,292 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-h8m48dhl', purging
+2023-05-30 06:09:38,293 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:38,293 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:38,476 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:38,558 - distributed.nanny - INFO - Worker process 27602 exited with status 127
+2023-05-30 06:09:38,559 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:38,586 - distributed.nanny - INFO - Worker process 27608 exited with status 127
+2023-05-30 06:09:38,587 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:38,617 - distributed.nanny - INFO - Worker process 27605 exited with status 127
+2023-05-30 06:09:38,618 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:38,878 - distributed.nanny - INFO - Worker process 27624 exited with status 127
+2023-05-30 06:09:38,879 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:38,901 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-o7tythqa', purging
+2023-05-30 06:09:38,901 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-u4hzz61k', purging
+2023-05-30 06:09:38,901 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-wmugbrbj', purging
+2023-05-30 06:09:38,902 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-bdh8u8o0', purging
+2023-05-30 06:09:38,902 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:38,902 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:38,930 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:39,028 - distributed.nanny - INFO - Worker process 27654 exited with status 127
+2023-05-30 06:09:39,029 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:39,373 - distributed.nanny - INFO - Worker process 27666 exited with status 127
+2023-05-30 06:09:39,374 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:39,773 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-zoo80me_', purging
+2023-05-30 06:09:39,774 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-j_y8e_ko', purging
+2023-05-30 06:09:39,774 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:39,774 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:39,799 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:39,904 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:39,904 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:40,110 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:40,224 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:40,224 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:40,233 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:40,233 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:40,241 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:40,241 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:40,314 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:40,322 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:40,338 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:40,573 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:40,573 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:40,693 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:40,693 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:40,732 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:40,746 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:41,007 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:41,007 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:41,316 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:42,539 - distributed.nanny - INFO - Worker process 27678 exited with status 127
+2023-05-30 06:09:42,540 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:44,044 - distributed.nanny - INFO - Worker process 27681 exited with status 127
+2023-05-30 06:09:44,045 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:44,155 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-mwsgtpjl', purging
+2023-05-30 06:09:44,156 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-h5by1dps', purging
+2023-05-30 06:09:44,157 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:44,157 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:44,309 - distributed.nanny - INFO - Worker process 27695 exited with status 127
+2023-05-30 06:09:44,310 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:44,325 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:44,367 - distributed.nanny - INFO - Worker process 27692 exited with status 127
+2023-05-30 06:09:44,368 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:44,403 - distributed.nanny - INFO - Worker process 27698 exited with status 127
+2023-05-30 06:09:44,404 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:44,447 - distributed.nanny - INFO - Worker process 27706 exited with status 127
+2023-05-30 06:09:44,447 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:09:44,488 - distributed.nanny - INFO - Worker process 27713 exited with status 127
+2023-05-30 06:09:44,489 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:44,513 - distributed.scheduler - INFO - Remove client Client-870b83f0-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:09:44,513 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:49732; closing.
+2023-05-30 06:09:44,514 - distributed.scheduler - INFO - Remove client Client-870b83f0-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:09:44,515 - distributed.scheduler - INFO - Close client connection: Client-870b83f0-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:09:44,515 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:35183'. Reason: nanny-close
+2023-05-30 06:09:44,516 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:46149'. Reason: nanny-close
+2023-05-30 06:09:44,516 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:44867'. Reason: nanny-close
+2023-05-30 06:09:44,516 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:38569'. Reason: nanny-close
+2023-05-30 06:09:44,516 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:35717'. Reason: nanny-close
+2023-05-30 06:09:44,516 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:41853'. Reason: nanny-close
+2023-05-30 06:09:44,517 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:44115'. Reason: nanny-close
+2023-05-30 06:09:44,517 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:32977'. Reason: nanny-close
+2023-05-30 06:09:44,715 - distributed.nanny - INFO - Worker process 27722 exited with status 127
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:44,864 - distributed.nanny - INFO - Worker process 27763 exited with status 127
+2023-05-30 06:09:45,730 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-l7m9p5a7', purging
+2023-05-30 06:09:45,730 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-619jimvk', purging
+2023-05-30 06:09:45,731 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-9773qpzu', purging
+2023-05-30 06:09:45,731 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-s91k22n3', purging
+2023-05-30 06:09:45,731 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-d4vunabf', purging
+2023-05-30 06:09:45,731 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-p5qehl20', purging
+2023-05-30 06:09:45,732 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-qnfww6n9', purging
+2023-05-30 06:09:45,732 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:45,733 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:45,903 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:45,904 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:45,904 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:45,960 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:45,995 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:45,995 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:46,018 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:46,018 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:46,040 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:46,078 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:46,116 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:46,116 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:46,119 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:09:46,119 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:09:46,195 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:09:46,198 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:09:49,614 - distributed.nanny - INFO - Worker process 27794 exited with status 127
+2023-05-30 06:09:49,673 - distributed.nanny - INFO - Worker process 27775 exited with status 127
+2023-05-30 06:09:49,737 - distributed.nanny - INFO - Worker process 27786 exited with status 127
+2023-05-30 06:09:49,758 - distributed.nanny - INFO - Worker process 27790 exited with status 127
+2023-05-30 06:09:49,782 - distributed.nanny - INFO - Worker process 27781 exited with status 127
+2023-05-30 06:09:49,803 - distributed.nanny - INFO - Worker process 27797 exited with status 127
+2023-05-30 06:09:51,878 - distributed.scheduler - INFO - Remove client Client-8d63cbcd-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:09:51,878 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:49670; closing.
+2023-05-30 06:09:51,879 - distributed.scheduler - INFO - Remove client Client-8d63cbcd-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:09:51,879 - distributed.scheduler - INFO - Close client connection: Client-8d63cbcd-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:09:59,069 - distributed.scheduler - INFO - Receive client connection: Client-9b3ed8e1-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:09:59,070 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:48522
+2023-05-30 06:10:14,579 - distributed._signals - INFO - Received signal SIGINT (2)
+2023-05-30 06:10:14,580 - distributed.scheduler - INFO - Scheduler closing...
+2023-05-30 06:10:14,580 - distributed.scheduler - INFO - Scheduler closing all comms
+2023-05-30 06:10:14,583 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9369'
+2023-05-30 06:10:14,584 - distributed.scheduler - INFO - End scheduler
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_rmm_async 2023-05-30 06:10:16,933 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:10:16,936 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2023-05-30 06:10:16,940 - distributed.scheduler - INFO - State start
+2023-05-30 06:10:17,018 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:10:17,018 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9369
+2023-05-30 06:10:17,019 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2023-05-30 06:10:17,141 - distributed.scheduler - INFO - Receive client connection: Client-a5058297-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:10:17,153 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:45008
+2023-05-30 06:10:17,567 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:37947'
+2023-05-30 06:10:17,580 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:38937'
+2023-05-30 06:10:17,593 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:46679'
+2023-05-30 06:10:17,595 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:33635'
+2023-05-30 06:10:17,603 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:40163'
+2023-05-30 06:10:17,611 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:44325'
+2023-05-30 06:10:17,621 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:33719'
+2023-05-30 06:10:17,631 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:39701'
+2023-05-30 06:10:18,111 - distributed.scheduler - INFO - Receive client connection: Client-9b3ed8e1-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:10:18,112 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:45126
+2023-05-30 06:10:18,240 - distributed.scheduler - INFO - Remove client Client-9b3ed8e1-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:10:18,241 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:45126; closing.
+2023-05-30 06:10:18,241 - distributed.scheduler - INFO - Remove client Client-9b3ed8e1-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:10:18,241 - distributed.scheduler - INFO - Close client connection: Client-9b3ed8e1-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:10:19,261 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-hjj35cqz', purging
+2023-05-30 06:10:19,261 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-wc2lbv8t', purging
+2023-05-30 06:10:19,262 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-vyc7uw61', purging
+2023-05-30 06:10:19,262 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-bq9ive2t', purging
+2023-05-30 06:10:19,262 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:19,262 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:19,262 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-8c_bdfb6', purging
+2023-05-30 06:10:19,263 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-m0vxq9se', purging
+2023-05-30 06:10:19,263 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:19,263 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:19,274 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:19,274 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:19,278 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:19,278 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:19,279 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:19,279 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:19,305 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:19,305 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:19,316 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:19,318 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:19,318 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:19,353 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:19,353 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:19,353 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:19,353 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:19,364 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:19,364 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:19,393 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:19,393 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:19,411 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:10:22,210 - distributed.nanny - INFO - Worker process 28029 exited with status 127
+2023-05-30 06:10:22,211 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:22,236 - distributed.nanny - INFO - Worker process 28021 exited with status 127
+2023-05-30 06:10:22,237 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:22,257 - distributed.scheduler - INFO - Receive client connection: Client-a910c1bb-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:10:22,258 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:56222
+2023-05-30 06:10:22,261 - distributed.nanny - INFO - Worker process 28032 exited with status 127
+2023-05-30 06:10:22,261 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:22,288 - distributed.nanny - INFO - Worker process 28025 exited with status 127
+2023-05-30 06:10:22,289 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:22,313 - distributed.nanny - INFO - Worker process 28014 exited with status 127
+2023-05-30 06:10:22,313 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:22,339 - distributed.nanny - INFO - Worker process 28038 exited with status 127
+2023-05-30 06:10:22,340 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:22,368 - distributed.nanny - INFO - Worker process 28017 exited with status 127
+2023-05-30 06:10:22,368 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:22,463 - distributed.nanny - INFO - Worker process 28035 exited with status 127
+2023-05-30 06:10:22,464 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:23,860 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-9rsh5kg6', purging
+2023-05-30 06:10:23,861 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-l7g_9zfd', purging
+2023-05-30 06:10:23,861 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-f1irc8e8', purging
+2023-05-30 06:10:23,861 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-p8hfqjbr', purging
+2023-05-30 06:10:23,862 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-xaqejjqz', purging
+2023-05-30 06:10:23,862 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:23,862 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-4c4_ft3_', purging
+2023-05-30 06:10:23,862 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:23,862 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-_j4kmsv3', purging
+2023-05-30 06:10:23,862 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-w84xv0zz', purging
+2023-05-30 06:10:23,863 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:23,863 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:23,888 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:23,889 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:23,893 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:23,893 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:23,921 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:23,984 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:23,984 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:23,984 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:23,984 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:23,988 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:23,988 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:24,022 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:24,023 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:24,026 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:24,049 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:24,050 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:24,158 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:24,158 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:24,415 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:24,415 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:10:25,819 - distributed.nanny - INFO - Worker process 28097 exited with status 127
+2023-05-30 06:10:25,820 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:25,848 - distributed.nanny - INFO - Worker process 28100 exited with status 127
+2023-05-30 06:10:25,849 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:26,011 - distributed.nanny - INFO - Worker process 28103 exited with status 127
+2023-05-30 06:10:26,012 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:10:26,396 - distributed.nanny - INFO - Worker process 28106 exited with status 127
+2023-05-30 06:10:26,397 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:26,464 - distributed.nanny - INFO - Worker process 28115 exited with status 127
+2023-05-30 06:10:26,465 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:26,510 - distributed.nanny - INFO - Worker process 28109 exited with status 127
+2023-05-30 06:10:26,511 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:26,549 - distributed.nanny - INFO - Worker process 28118 exited with status 127
+2023-05-30 06:10:26,549 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:26,578 - distributed.nanny - INFO - Worker process 28112 exited with status 127
+2023-05-30 06:10:26,578 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:27,230 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-0k4mvlpj', purging
+2023-05-30 06:10:27,230 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-vjf_l0kr', purging
+2023-05-30 06:10:27,231 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-oe6r7gdd', purging
+2023-05-30 06:10:27,231 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-kluijt4x', purging
+2023-05-30 06:10:27,231 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-cxbmwfsj', purging
+2023-05-30 06:10:27,232 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-bfpic1ws', purging
+2023-05-30 06:10:27,232 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-rvqnc6j9', purging
+2023-05-30 06:10:27,232 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-uosmrwfi', purging
+2023-05-30 06:10:27,232 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:27,233 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:27,534 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:27,534 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:27,549 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:27,549 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:28,062 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:28,081 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:28,082 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:28,087 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:28,087 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:28,152 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:28,152 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:28,181 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:28,181 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:28,193 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:28,193 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:28,220 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:28,220 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:28,220 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:28,261 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:28,278 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:28,344 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:28,391 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:10:31,155 - distributed.nanny - INFO - Worker process 28175 exited with status 127
+2023-05-30 06:10:31,156 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:31,183 - distributed.nanny - INFO - Worker process 28172 exited with status 127
+2023-05-30 06:10:31,183 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:31,220 - distributed.nanny - INFO - Worker process 28178 exited with status 127
+2023-05-30 06:10:31,221 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:10:31,320 - distributed.nanny - INFO - Worker process 28187 exited with status 127
+2023-05-30 06:10:31,321 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:31,346 - distributed.nanny - INFO - Worker process 28194 exited with status 127
+2023-05-30 06:10:31,346 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:31,370 - distributed.nanny - INFO - Worker process 28200 exited with status 127
+2023-05-30 06:10:31,370 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:31,405 - distributed.nanny - INFO - Worker process 28190 exited with status 127
+2023-05-30 06:10:31,406 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:31,476 - distributed.nanny - INFO - Worker process 28197 exited with status 127
+2023-05-30 06:10:31,476 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:10:32,831 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-5if4mqa_', purging
+2023-05-30 06:10:32,831 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-mptd35d2', purging
+2023-05-30 06:10:32,832 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-hp9vyhm_', purging
+2023-05-30 06:10:32,832 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-gpsb9fo2', purging
+2023-05-30 06:10:32,832 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-kmsc_6wu', purging
+2023-05-30 06:10:32,833 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-kxxz9ih3', purging
+2023-05-30 06:10:32,833 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-_laxuq4j', purging
+2023-05-30 06:10:32,833 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-kj8tq47e', purging
+2023-05-30 06:10:32,834 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:32,834 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:32,840 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:32,840 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:32,847 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:32,848 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:32,933 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:32,934 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:32,970 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:32,972 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:32,980 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:33,030 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:33,030 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:33,035 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:33,035 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:33,045 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:33,045 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:33,063 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:33,171 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:10:33,171 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:10:33,173 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:33,178 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:33,183 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:10:33,224 - distributed.scheduler - INFO - Remove client Client-a5058297-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:10:33,225 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:45008; closing.
+2023-05-30 06:10:33,225 - distributed.scheduler - INFO - Remove client Client-a5058297-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:10:33,226 - distributed.scheduler - INFO - Close client connection: Client-a5058297-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:10:33,227 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:37947'. Reason: nanny-close
+2023-05-30 06:10:33,227 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:38937'. Reason: nanny-close
+2023-05-30 06:10:33,228 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:46679'. Reason: nanny-close
+2023-05-30 06:10:33,228 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:33635'. Reason: nanny-close
+2023-05-30 06:10:33,228 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:40163'. Reason: nanny-close
+2023-05-30 06:10:33,228 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:44325'. Reason: nanny-close
+2023-05-30 06:10:33,229 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:33719'. Reason: nanny-close
+2023-05-30 06:10:33,229 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:39701'. Reason: nanny-close
+2023-05-30 06:10:33,329 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:10:36,043 - distributed.nanny - INFO - Worker process 28262 exited with status 127
+2023-05-30 06:10:36,066 - distributed.nanny - INFO - Worker process 28266 exited with status 127
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:10:36,103 - distributed.nanny - INFO - Worker process 28256 exited with status 127
+2023-05-30 06:10:36,155 - distributed.nanny - INFO - Worker process 28259 exited with status 127
+2023-05-30 06:10:36,229 - distributed.nanny - INFO - Worker process 28272 exited with status 127
+2023-05-30 06:10:36,251 - distributed.nanny - INFO - Worker process 28278 exited with status 127
+2023-05-30 06:10:36,278 - distributed.nanny - INFO - Worker process 28275 exited with status 127
+2023-05-30 06:10:36,301 - distributed.nanny - INFO - Worker process 28269 exited with status 127
+2023-05-30 06:10:38,316 - distributed.scheduler - INFO - Remove client Client-a910c1bb-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:10:38,316 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:56222; closing.
+2023-05-30 06:10:38,316 - distributed.scheduler - INFO - Remove client Client-a910c1bb-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:10:38,317 - distributed.scheduler - INFO - Close client connection: Client-a910c1bb-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:10:48,525 - distributed.scheduler - INFO - Receive client connection: Client-b8b92298-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:10:48,526 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:56876
+2023-05-30 06:11:03,342 - distributed._signals - INFO - Received signal SIGINT (2)
+2023-05-30 06:11:03,342 - distributed.scheduler - INFO - Scheduler closing...
+2023-05-30 06:11:03,343 - distributed.scheduler - INFO - Scheduler closing all comms
+2023-05-30 06:11:03,345 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9369'
+2023-05-30 06:11:03,346 - distributed.scheduler - INFO - End scheduler
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_rmm_logging 2023-05-30 06:11:05,761 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:11:05,765 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2023-05-30 06:11:05,769 - distributed.scheduler - INFO - State start
+2023-05-30 06:11:05,818 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:11:05,819 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9369
+2023-05-30 06:11:05,819 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2023-05-30 06:11:06,240 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:39985'
+2023-05-30 06:11:06,258 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:42223'
+2023-05-30 06:11:06,260 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:35269'
+2023-05-30 06:11:06,267 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:35701'
+2023-05-30 06:11:06,276 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:46263'
+2023-05-30 06:11:06,285 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:34521'
+2023-05-30 06:11:06,294 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:38281'
+2023-05-30 06:11:06,303 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:44339'
+2023-05-30 06:11:07,399 - distributed.scheduler - INFO - Receive client connection: Client-c2047ea0-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:11:07,411 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:42066
+2023-05-30 06:11:07,972 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-au1_mibk', purging
+2023-05-30 06:11:07,973 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-m_654ujr', purging
+2023-05-30 06:11:07,973 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-ev78084g', purging
+2023-05-30 06:11:07,973 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-_otp08bw', purging
+2023-05-30 06:11:07,973 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-knp69tnj', purging
+2023-05-30 06:11:07,974 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-385bfnsc', purging
+2023-05-30 06:11:07,974 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-am7zpds2', purging
+2023-05-30 06:11:07,974 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-sbm6tktp', purging
+2023-05-30 06:11:07,975 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:07,975 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:07,975 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:07,975 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:07,979 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:07,979 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:07,991 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:07,991 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:07,992 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:07,992 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:07,999 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:08,000 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:08,002 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:08,002 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:08,022 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:08,022 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:08,150 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:08,152 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:08,152 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:08,153 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:08,154 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:08,154 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:08,183 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:08,185 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:08,757 - distributed.scheduler - INFO - Receive client connection: Client-c4c846b4-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:11:08,757 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:42088
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:11:10,276 - distributed.nanny - INFO - Worker process 28515 exited with status 127
+2023-05-30 06:11:10,277 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:11:10,350 - distributed.nanny - INFO - Worker process 28504 exited with status 127
+2023-05-30 06:11:10,351 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:10,375 - distributed.nanny - INFO - Worker process 28528 exited with status 127
+2023-05-30 06:11:10,376 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:10,399 - distributed.nanny - INFO - Worker process 28519 exited with status 127
+2023-05-30 06:11:10,400 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:10,422 - distributed.nanny - INFO - Worker process 28511 exited with status 127
+2023-05-30 06:11:10,423 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:10,448 - distributed.nanny - INFO - Worker process 28522 exited with status 127
+2023-05-30 06:11:10,448 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:10,472 - distributed.nanny - INFO - Worker process 28525 exited with status 127
+2023-05-30 06:11:10,473 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:10,508 - distributed.nanny - INFO - Worker process 28507 exited with status 127
+2023-05-30 06:11:10,509 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:11,957 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-_kkpo7vu', purging
+2023-05-30 06:11:11,957 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-gc18i8c7', purging
+2023-05-30 06:11:11,958 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-vdtl_021', purging
+2023-05-30 06:11:11,958 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-qmex93y9', purging
+2023-05-30 06:11:11,958 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-8c97ajuf', purging
+2023-05-30 06:11:11,958 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-kjnxnr9u', purging
+2023-05-30 06:11:11,959 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-ks8v59ik', purging
+2023-05-30 06:11:11,959 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-vm4blpl8', purging
+2023-05-30 06:11:11,960 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:11,960 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:11,985 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:12,083 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:12,083 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:12,085 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:12,085 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:12,086 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:12,086 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:12,106 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:12,106 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:12,187 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:12,187 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:12,206 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:12,206 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:12,222 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:12,222 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:12,267 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:12,267 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:12,273 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:12,276 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:12,277 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:12,286 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:12,297 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:11:12,742 - distributed.nanny - INFO - Worker process 28587 exited with status 127
+2023-05-30 06:11:12,743 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:14,241 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-e325cs3n', purging
+2023-05-30 06:11:14,242 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:14,242 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:14,991 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:11:16,320 - distributed.nanny - INFO - Worker process 28591 exited with status 127
+2023-05-30 06:11:16,321 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:16,350 - distributed.nanny - INFO - Worker process 28597 exited with status 127
+2023-05-30 06:11:16,351 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:16,467 - distributed.nanny - INFO - Worker process 28600 exited with status 127
+2023-05-30 06:11:16,468 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:16,496 - distributed.nanny - INFO - Worker process 28609 exited with status 127
+2023-05-30 06:11:16,497 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:16,547 - distributed.nanny - INFO - Worker process 28594 exited with status 127
+2023-05-30 06:11:16,549 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:16,596 - distributed.nanny - INFO - Worker process 28606 exited with status 127
+2023-05-30 06:11:16,597 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:16,708 - distributed.nanny - INFO - Worker process 28603 exited with status 127
+2023-05-30 06:11:16,709 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:11:17,027 - distributed.nanny - INFO - Worker process 28647 exited with status 127
+2023-05-30 06:11:17,028 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:18,012 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-6yqmas1r', purging
+2023-05-30 06:11:18,013 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-9zp_qqf3', purging
+2023-05-30 06:11:18,013 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-k7avl7st', purging
+2023-05-30 06:11:18,013 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-22y6j44e', purging
+2023-05-30 06:11:18,014 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-nspe5y7w', purging
+2023-05-30 06:11:18,014 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-plqydxnp', purging
+2023-05-30 06:11:18,014 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-rey7f_iz', purging
+2023-05-30 06:11:18,014 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-2ui8d2j_', purging
+2023-05-30 06:11:18,015 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:18,015 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:18,068 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:18,069 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:18,169 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:18,169 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:18,179 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:18,183 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:18,213 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:18,213 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:18,219 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:18,269 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:18,270 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:18,270 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:18,317 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:18,327 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:18,327 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:18,397 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:18,435 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:18,435 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:18,545 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:18,728 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:18,729 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:18,897 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:11:22,399 - distributed.nanny - INFO - Worker process 28675 exited with status 127
+2023-05-30 06:11:22,400 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:22,464 - distributed.nanny - INFO - Worker process 28678 exited with status 127
+2023-05-30 06:11:22,465 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:22,494 - distributed.nanny - INFO - Worker process 28684 exited with status 127
+2023-05-30 06:11:22,495 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:22,520 - distributed.nanny - INFO - Worker process 28681 exited with status 127
+2023-05-30 06:11:22,521 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:11:22,579 - distributed.nanny - INFO - Worker process 28690 exited with status 127
+2023-05-30 06:11:22,580 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:22,637 - distributed.nanny - INFO - Worker process 28695 exited with status 127
+2023-05-30 06:11:22,637 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:22,668 - distributed.nanny - INFO - Worker process 28687 exited with status 127
+2023-05-30 06:11:22,668 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:22,694 - distributed.nanny - INFO - Worker process 28701 exited with status 127
+2023-05-30 06:11:22,695 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:23,504 - distributed.scheduler - INFO - Remove client Client-c2047ea0-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:11:23,505 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:42066; closing.
+2023-05-30 06:11:23,505 - distributed.scheduler - INFO - Remove client Client-c2047ea0-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:11:23,506 - distributed.scheduler - INFO - Close client connection: Client-c2047ea0-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:11:23,507 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:39985'. Reason: nanny-close
+2023-05-30 06:11:23,508 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:35701'. Reason: nanny-close
+2023-05-30 06:11:23,508 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:46263'. Reason: nanny-close
+2023-05-30 06:11:23,508 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:38281'. Reason: nanny-close
+2023-05-30 06:11:23,508 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:44339'. Reason: nanny-close
+2023-05-30 06:11:23,508 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:42223'. Reason: nanny-close
+2023-05-30 06:11:23,508 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:35269'. Reason: nanny-close
+2023-05-30 06:11:23,508 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:34521'. Reason: nanny-close
+2023-05-30 06:11:24,141 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-taae8aao', purging
+2023-05-30 06:11:24,141 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-4e5l6_iu', purging
+2023-05-30 06:11:24,142 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-tp1u5upi', purging
+2023-05-30 06:11:24,142 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-oxtcy3bm', purging
+2023-05-30 06:11:24,142 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-e6r7cjhi', purging
+2023-05-30 06:11:24,143 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-_za9hsow', purging
+2023-05-30 06:11:24,143 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-4wxkb04h', purging
+2023-05-30 06:11:24,143 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-nuyark30', purging
+2023-05-30 06:11:24,144 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:24,144 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:24,167 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:24,167 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:24,204 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:24,205 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:24,220 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:24,220 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:24,281 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:24,281 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:24,351 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:24,352 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:24,356 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:24,358 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:24,358 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:24,362 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:24,362 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:24,365 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:24,365 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:24,414 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:24,414 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:24,434 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:24,448 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:24,471 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:11:24,790 - distributed.scheduler - INFO - Remove client Client-c4c846b4-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:11:24,790 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:42088; closing.
+2023-05-30 06:11:24,791 - distributed.scheduler - INFO - Remove client Client-c4c846b4-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:11:24,791 - distributed.scheduler - INFO - Close client connection: Client-c4c846b4-feb0-11ed-a60b-d8c49764f6bb
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:11:28,134 - distributed.nanny - INFO - Worker process 28766 exited with status 127
+2023-05-30 06:11:28,174 - distributed.nanny - INFO - Worker process 28760 exited with status 127
+2023-05-30 06:11:28,229 - distributed.nanny - INFO - Worker process 28763 exited with status 127
+2023-05-30 06:11:28,286 - distributed.nanny - INFO - Worker process 28773 exited with status 127
+2023-05-30 06:11:28,309 - distributed.nanny - INFO - Worker process 28779 exited with status 127
+2023-05-30 06:11:28,362 - distributed.nanny - INFO - Worker process 28776 exited with status 127
+2023-05-30 06:11:28,383 - distributed.nanny - INFO - Worker process 28770 exited with status 127
+2023-05-30 06:11:28,403 - distributed.nanny - INFO - Worker process 28757 exited with status 127
+2023-05-30 06:11:36,976 - distributed.scheduler - INFO - Receive client connection: Client-d59a5760-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:11:36,977 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:35016
+2023-05-30 06:11:52,993 - distributed.scheduler - INFO - Remove client Client-d59a5760-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:11:52,993 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:35016; closing.
+2023-05-30 06:11:52,994 - distributed.scheduler - INFO - Remove client Client-d59a5760-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:11:52,994 - distributed.scheduler - INFO - Close client connection: Client-d59a5760-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:11:53,539 - distributed._signals - INFO - Received signal SIGINT (2)
+2023-05-30 06:11:53,539 - distributed.scheduler - INFO - Scheduler closing...
+2023-05-30 06:11:53,540 - distributed.scheduler - INFO - Scheduler closing all comms
+2023-05-30 06:11:53,542 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9369'
+2023-05-30 06:11:53,543 - distributed.scheduler - INFO - End scheduler
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_dashboard_address 2023-05-30 06:11:55,874 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:11:55,878 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2023-05-30 06:11:55,881 - distributed.scheduler - INFO - State start
+2023-05-30 06:11:55,900 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:11:55,901 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9369
+2023-05-30 06:11:55,901 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2023-05-30 06:11:55,952 - distributed.scheduler - INFO - Receive client connection: Client-e088e267-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:11:55,967 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:39960
+2023-05-30 06:11:56,055 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:46061'
+2023-05-30 06:11:57,498 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-zo0d4v49', purging
+2023-05-30 06:11:57,499 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-lqcf1z4j', purging
+2023-05-30 06:11:57,499 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-dgpf1jlo', purging
+2023-05-30 06:11:57,499 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-gdtdhbp1', purging
+2023-05-30 06:11:57,500 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-ej7y4w13', purging
+2023-05-30 06:11:57,500 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-ndvsy7xm', purging
+2023-05-30 06:11:57,500 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-wqw8npcr', purging
+2023-05-30 06:11:57,501 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-e5x23r0g', purging
+2023-05-30 06:11:57,501 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:57,501 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:11:57,809 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:11:58,236 - distributed.nanny - INFO - Worker process 29006 exited with status 127
+2023-05-30 06:11:58,237 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:11:59,692 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-ht31v086', purging
+2023-05-30 06:11:59,693 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:11:59,693 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:12:00,411 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:12:00,993 - distributed.scheduler - INFO - Receive client connection: Client-dfef19b1-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:12:00,994 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:35730
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:12:01,115 - distributed.nanny - INFO - Worker process 29016 exited with status 127
+2023-05-30 06:12:01,115 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:12:02,738 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-vt9zljgc', purging
+2023-05-30 06:12:02,738 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:12:02,738 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:12:03,541 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:12:04,875 - distributed.nanny - INFO - Worker process 29026 exited with status 127
+2023-05-30 06:12:04,876 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:12:06,240 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-ub_9nh7t', purging
+2023-05-30 06:12:06,241 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:12:06,241 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:12:06,858 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:12:08,288 - distributed.nanny - INFO - Worker process 29036 exited with status 127
+2023-05-30 06:12:08,288 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:12:09,887 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-kr2x73wn', purging
+2023-05-30 06:12:09,887 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:12:09,887 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:12:10,222 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2023-05-30 06:12:11,088 - distributed.scheduler - INFO - Remove client Client-dfef19b1-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:12:11,088 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:35730; closing.
+2023-05-30 06:12:11,089 - distributed.scheduler - INFO - Remove client Client-dfef19b1-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:12:11,090 - distributed.scheduler - INFO - Close client connection: Client-dfef19b1-feb0-11ed-a615-d8c49764f6bb
+2023-05-30 06:12:11,090 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:46061'. Reason: nanny-close
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:12:11,975 - distributed.nanny - INFO - Worker process 29046 exited with status 127
+2023-05-30 06:12:12,064 - distributed.scheduler - INFO - Remove client Client-e088e267-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:12:12,065 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:39960; closing.
+2023-05-30 06:12:12,065 - distributed.scheduler - INFO - Remove client Client-e088e267-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:12:12,065 - distributed.scheduler - INFO - Close client connection: Client-e088e267-feb0-11ed-a60b-d8c49764f6bb
+2023-05-30 06:12:23,278 - distributed.scheduler - INFO - Receive client connection: Client-f13348f4-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:12:23,279 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:46954
+2023-05-30 06:12:39,369 - distributed.scheduler - INFO - Remove client Client-f13348f4-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:12:39,369 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:46954; closing.
+2023-05-30 06:12:39,369 - distributed.scheduler - INFO - Remove client Client-f13348f4-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:12:39,370 - distributed.scheduler - INFO - Close client connection: Client-f13348f4-feb0-11ed-a5db-d8c49764f6bb
+2023-05-30 06:12:41,122 - distributed._signals - INFO - Received signal SIGINT (2)
+2023-05-30 06:12:41,122 - distributed.scheduler - INFO - Scheduler closing...
+2023-05-30 06:12:41,123 - distributed.scheduler - INFO - Scheduler closing all comms
+2023-05-30 06:12:41,125 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9369'
+2023-05-30 06:12:41,126 - distributed.scheduler - INFO - End scheduler
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_unknown_argument PASSED
+dask_cuda/tests/test_dask_cuda_worker.py::test_pre_import 2023-05-30 06:12:44,935 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:12:44,939 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 35367 instead
+  warnings.warn(
+2023-05-30 06:12:44,943 - distributed.scheduler - INFO - State start
+2023-05-30 06:12:44,961 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:12:44,961 - distributed.scheduler - INFO - Scheduler closing...
+2023-05-30 06:12:44,962 - distributed.scheduler - INFO - Scheduler closing all comms
+2023-05-30 06:12:44,962 - distributed.scheduler - INFO - End scheduler
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 536, in start
+    await wait_for(self.start_unsafe(), timeout=timeout)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1849, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/tasks.py", line 442, in wait_for
+    return await fut
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/scheduler.py", line 3844, in start_unsafe
+    await self.listen(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 719, in listen
+    listener = await listen(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/core.py", line 213, in _
+    await self.start()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 580, in start
+    sockets = netutil.bind_sockets(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/tornado/netutil.py", line 162, in bind_sockets
+    sock.bind(sockaddr)
+OSError: [Errno 98] Address already in use
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/bin/dask", line 10, in <module>
+    sys.exit(main())
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/__main__.py", line 5, in main
+    run_cli()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/cli.py", line 81, in run_cli
+    cli()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/cli/dask_scheduler.py", line 249, in main
+    asyncio.run(run())
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/cli/dask_scheduler.py", line 245, in run
+    [task.result() for task in done]
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/cli/dask_scheduler.py", line 245, in <listcomp>
+    [task.result() for task in done]
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/cli/dask_scheduler.py", line 225, in wait_for_scheduler_to_finish
+    await scheduler
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 544, in start
+    raise RuntimeError(f"{type(self).__name__} failed to start.") from exc
+RuntimeError: Scheduler failed to start.
+2023-05-30 06:12:45,143 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:38787'
+2023-05-30 06:12:46,489 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-ikeljrl_', purging
+2023-05-30 06:12:46,490 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:12:46,490 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:12:46,748 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:12:47,129 - distributed.nanny - INFO - Worker process 29304 exited with status 127
+2023-05-30 06:12:47,130 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:12:48,458 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-uhaq3oro', purging
+2023-05-30 06:12:48,459 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:12:48,459 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:12:48,719 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:12:49,098 - distributed.nanny - INFO - Worker process 29314 exited with status 127
+2023-05-30 06:12:49,099 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:12:50,456 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-6x7pm8f4', purging
+2023-05-30 06:12:50,456 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:12:50,456 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:12:50,719 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:12:51,119 - distributed.nanny - INFO - Worker process 29324 exited with status 127
+2023-05-30 06:12:51,120 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:12:52,477 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-jpadi2o0', purging
+2023-05-30 06:12:52,478 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:12:52,478 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:12:52,756 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:12:53,147 - distributed.nanny - INFO - Worker process 29334 exited with status 127
+2023-05-30 06:12:53,148 - distributed.nanny - WARNING - Restarting worker
+2023-05-30 06:12:54,509 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:38787'. Reason: nanny-close
+2023-05-30 06:12:54,523 - distributed.diskutils - INFO - Found stale lock file and directory '/tmp/dask-worker-space/worker-emsovn3o', purging
+2023-05-30 06:12:54,524 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-05-30 06:12:54,524 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-05-30 06:12:54,780 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+/opt/conda/envs/gdf/bin/python3.9: symbol lookup error: /opt/conda/envs/gdf/lib/ucx/libuct_ib.so.0: undefined symbol: ibv_reg_dmabuf_mr
+2023-05-30 06:12:55,149 - distributed.nanny - INFO - Worker process 29344 exited with status 127
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_pre_import_not_found 2023-05-30 06:13:26,222 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:13:26,226 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2023-05-30 06:13:26,229 - distributed.scheduler - INFO - State start
+2023-05-30 06:13:26,247 - distributed.scheduler - INFO - -----------------------------------------------
+2023-05-30 06:13:26,248 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9369
+2023-05-30 06:13:26,248 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2023-05-30 06:13:26,487 - distributed.scheduler - INFO - Receive client connection: Client-16e064be-feb1-11ed-a60b-d8c49764f6bb
+2023-05-30 06:13:26,498 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:45090
+2023-05-30 06:13:36,515 - distributed.scheduler - INFO - Remove client Client-16e064be-feb1-11ed-a60b-d8c49764f6bb
+2023-05-30 06:13:36,515 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:45090; closing.
+2023-05-30 06:13:36,515 - distributed.scheduler - INFO - Remove client Client-16e064be-feb1-11ed-a60b-d8c49764f6bb
+2023-05-30 06:13:36,516 - distributed.scheduler - INFO - Close client connection: Client-16e064be-feb1-11ed-a60b-d8c49764f6bb
+2023-05-30 06:13:51,672 - distributed.scheduler - INFO - Receive client connection: Client-25e334c9-feb1-11ed-a5db-d8c49764f6bb
+2023-05-30 06:13:51,673 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:59644
+2023-05-30 06:14:01,718 - distributed.scheduler - INFO - Remove client Client-25e334c9-feb1-11ed-a5db-d8c49764f6bb
+2023-05-30 06:14:01,718 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:59644; closing.
+2023-05-30 06:14:01,719 - distributed.scheduler - INFO - Remove client Client-25e334c9-feb1-11ed-a5db-d8c49764f6bb
+2023-05-30 06:14:01,719 - distributed.scheduler - INFO - Close client connection: Client-25e334c9-feb1-11ed-a5db-d8c49764f6bb
+2023-05-30 06:37:47,893 - distributed._signals - INFO - Received signal SIGTERM (15)
+2023-05-30 06:37:47,894 - distributed.scheduler - INFO - Scheduler closing...
+2023-05-30 06:37:47,894 - distributed.scheduler - INFO - Scheduler closing all comms
+2023-05-30 06:37:47,895 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9369'
+2023-05-30 06:37:47,896 - distributed.scheduler - INFO - End scheduler
