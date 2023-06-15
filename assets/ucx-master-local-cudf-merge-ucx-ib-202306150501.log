@@ -1,0 +1,134 @@
+2023-06-15 06:18:39,550 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-06-15 06:18:39,550 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-06-15 06:18:39,631 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-06-15 06:18:39,631 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-06-15 06:18:39,660 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-06-15 06:18:39,660 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-06-15 06:18:39,746 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-06-15 06:18:39,746 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-06-15 06:18:39,746 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-06-15 06:18:39,746 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-06-15 06:18:39,752 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-06-15 06:18:39,752 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-06-15 06:18:39,756 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-06-15 06:18:39,756 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-06-15 06:18:39,757 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-06-15 06:18:39,757 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+terminate called after throwing an instance of 'rmm::out_of_memory'
+  what():  std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:196: Maximum pool size exceeded
+2023-06-15 06:18:50,914 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:53327 -> ucx://127.0.0.1:33217
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 333, in write
+    await self.ep.send(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 650, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #024] ep: 0x7f57f4678100, tag: 0xcad6e922ce14d0de, nbytes: 100000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1792, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 337, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2023-06-15 06:18:50,916 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:33217
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 391, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 725, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #021] ep: 0x7f57f4678140, tag: 0x732aa31c2cad2e88, nbytes: 99, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2066, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2892, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1024, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 397, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #021] ep: 0x7f57f4678140, tag: 0x732aa31c2cad2e88, nbytes: 99, type: <class 'numpy.ndarray'>>: ")
+2023-06-15 06:18:51,092 - distributed.nanny - WARNING - Restarting worker
+2023-06-15 06:18:52,703 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-06-15 06:18:52,703 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-06-15 06:18:53,802 - distributed.core - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:196: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 372, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 171, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:196: Maximum pool size exceeded
+2023-06-15 06:18:53,803 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:196: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2066, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2892, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1024, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 752, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 372, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 171, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:196: Maximum pool size exceeded
+2023-06-15 06:18:53,906 - distributed.worker - WARNING - Compute Failed
+Key:       ('simple-shuffle-84a0276e6a854cf0d6c4324869a61d39', 7)
+Function:  <dask.layers.CallableLazyImport object at 0x7f52a0
+args:      ([                key   payload
+70692     856951540  25550737
+70704     832267096  27973282
+70712     839784014  59881958
+41201     865123247  90694131
+41206     847991782  48627636
+...             ...       ...
+99996649  869684933  36359816
+99996656  824078858  94025875
+99996666    8074919  24817564
+99996667  808363460  79840212
+99996618  827865494  81708516
+
+[12500893 rows x 2 columns],                 key   payload
+22657     415972411  62880038
+22658     932235709  90708925
+22659     956624719   9935448
+22667     324207130  79923201
+22678     954437286  25272711
+...             ...       ...
+99991454  912747842  16158909
+99991528  724869995  93436443
+99991542  962320433  13864109
+99986328  964683144  23546213
+99986330  619738705  62812588
+
+[12495890 rows x 2 columns],                  key   payload
+80003     1024955470  77660760
+80010      336938677  49869640
+18528     1004187100  15072146
+80015     1068819527  43076420
+18530      230013842  62538632
+...              ...       ...
+9
+kwargs:    {}
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:196: Maximum pool size exceeded')"
+
+/opt/conda/envs/gdf/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
