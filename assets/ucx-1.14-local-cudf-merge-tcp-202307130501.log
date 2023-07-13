@@ -1,0 +1,437 @@
+/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 38073 instead
+  warnings.warn(
+2023-07-13 05:46:55,221 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-07-13 05:46:55,222 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-07-13 05:46:55,222 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-07-13 05:46:55,222 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-07-13 05:46:55,248 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-07-13 05:46:55,248 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-07-13 05:46:55,251 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-07-13 05:46:55,251 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-07-13 05:46:55,252 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-07-13 05:46:55,252 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-07-13 05:46:55,253 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-07-13 05:46:55,253 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-07-13 05:46:55,254 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-07-13 05:46:55,254 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-07-13 05:46:55,511 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-07-13 05:46:55,511 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+terminate called after throwing an instance of 'rmm::out_of_memory'
+  what():  std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:196: Maximum pool size exceeded
+2023-07-13 05:48:02,436 - distributed.worker - ERROR - Worker stream died during communication: tcp://127.0.0.1:39521
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nbytes = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2066, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2892, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1024, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 241, in read
+    convert_stream_closed_error(self, e)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 144, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Ephemeral Worker->Worker for gather local=tcp://127.0.0.1:40198 remote=tcp://127.0.0.1:39521>: Stream is closed
+2023-07-13 05:48:02,436 - distributed.worker - ERROR - Worker stream died during communication: tcp://127.0.0.1:39521
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nbytes = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2066, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2892, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1024, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 241, in read
+    convert_stream_closed_error(self, e)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 144, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Ephemeral Worker->Worker for gather local=tcp://127.0.0.1:40188 remote=tcp://127.0.0.1:39521>: Stream is closed
+2023-07-13 05:48:02,436 - distributed.worker - ERROR - Worker stream died during communication: tcp://127.0.0.1:39521
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nbytes = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2066, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2892, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1024, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 241, in read
+    convert_stream_closed_error(self, e)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 144, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Ephemeral Worker->Worker for gather local=tcp://127.0.0.1:40210 remote=tcp://127.0.0.1:39521>: Stream is closed
+2023-07-13 05:48:02,436 - distributed.worker - ERROR - Worker stream died during communication: tcp://127.0.0.1:39521
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nbytes = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2066, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2892, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1024, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 241, in read
+    convert_stream_closed_error(self, e)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 144, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Ephemeral Worker->Worker for gather local=tcp://127.0.0.1:40176 remote=tcp://127.0.0.1:39521>: Stream is closed
+2023-07-13 05:48:02,438 - distributed.worker - ERROR - failed during get data with tcp://127.0.0.1:39707 -> tcp://127.0.0.1:39521
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nbytes = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1793, in get_data
+    response = await comm.read(deserializers=serializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 241, in read
+    convert_stream_closed_error(self, e)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 144, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed)  local=tcp://127.0.0.1:39707 remote=tcp://127.0.0.1:49996>: Stream is closed
+2023-07-13 05:48:02,994 - distributed.worker - ERROR - failed during get data with tcp://127.0.0.1:41959 -> tcp://127.0.0.1:39521
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 317, in write
+    raise StreamClosedError()
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1792, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 328, in write
+    convert_stream_closed_error(self, e)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 144, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed)  local=tcp://127.0.0.1:41959 remote=tcp://127.0.0.1:45226>: Stream is closed
+2023-07-13 05:48:02,997 - distributed.nanny - WARNING - Restarting worker
+2023-07-13 05:48:04,556 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2023-07-13 05:48:04,556 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2023-07-13 05:51:26,186 - distributed.worker - WARNING - Compute Failed
+Key:       ('simple-shuffle-84a0276e6a854cf0d6c4324869a61d39', 3)
+Function:  <dask.layers.CallableLazyImport object at 0x7f29a0
+args:      ([                key   payload
+22726     211104404  20642160
+22741     824699759  67081345
+11466     844248299  84330162
+60070     812783119  16111551
+746       865339844  17943060
+...             ...       ...
+99999095  817207244  39384382
+99999098  844378134  95491790
+99999102  865850432  31339423
+99999204  206980399  60775988
+99999230  409651003  46802080
+
+[12498632 rows x 2 columns],                 key   payload
+11968     524416787  97187626
+11972     321817995  49676042
+11975     954513553  93937098
+103936    922543715  22340144
+11995     952835010   2487168
+...             ...       ...
+99989382  916435361  54690390
+99989394  959563460  55306290
+99989395  951874460  13186684
+99989254  933946242  86040193
+99989271  515598302  78993480
+
+[12502237 rows x 2 columns],                  key   payload
+23236     1057935839  90763002
+23243     1011744811  57576158
+23251      131873453   1335066
+63654      332172625  43304593
+23142     1069398573  87491448
+...              ...       ...
+9
+kwargs:    {}
+Exception: "MemoryError('std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp')"
+
+std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 172, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 173, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 82, in as_buffer
+    return Buffer._from_host_memory(data)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 167, in _from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 87, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2023-07-13 05:51:36,577 - distributed.protocol.core - CRITICAL - Failed to deserialize
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 158, in loads
+    return msgpack.loads(
+  File "msgpack/_unpacker.pyx", line 194, in msgpack._cmsgpack.unpackb
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 138, in _decode_default
+    return merge_and_deserialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 501, in merge_and_deserialize
+    return deserialize(header, merged_frames, deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 428, in deserialize
+    return loads(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 61, in dask_loads
+    return loads(header["sub-header"], frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 172, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 173, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 82, in as_buffer
+    return Buffer._from_host_memory(data)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 167, in _from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 87, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2023-07-13 05:51:36,578 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2066, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2892, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1024, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 254, in read
+    msg = await from_frames(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/utils.py", line 98, in from_frames
+    res = await offload(_from_frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1442, in run_in_executor_with_context
+    return await loop.run_in_executor(
+  File "/opt/conda/envs/gdf/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1443, in <lambda>
+    executor, lambda: context.run(func, *args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/utils.py", line 83, in _from_frames
+    return protocol.loads(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 158, in loads
+    return msgpack.loads(
+  File "msgpack/_unpacker.pyx", line 194, in msgpack._cmsgpack.unpackb
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 138, in _decode_default
+    return merge_and_deserialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 501, in merge_and_deserialize
+    return deserialize(header, merged_frames, deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 428, in deserialize
+    return loads(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 61, in dask_loads
+    return loads(header["sub-header"], frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 172, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 173, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 82, in as_buffer
+    return Buffer._from_host_memory(data)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 167, in _from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 87, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 172, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 173, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 82, in as_buffer
+    return Buffer._from_host_memory(data)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 167, in _from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 87, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2023-07-13 05:51:37,381 - distributed.protocol.core - CRITICAL - Failed to deserialize
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 158, in loads
+    return msgpack.loads(
+  File "msgpack/_unpacker.pyx", line 194, in msgpack._cmsgpack.unpackb
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 138, in _decode_default
+    return merge_and_deserialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 501, in merge_and_deserialize
+    return deserialize(header, merged_frames, deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 428, in deserialize
+    return loads(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 61, in dask_loads
+    return loads(header["sub-header"], frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 172, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 173, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 82, in as_buffer
+    return Buffer._from_host_memory(data)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 167, in _from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 87, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2023-07-13 05:51:37,382 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2066, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2892, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1024, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 254, in read
+    msg = await from_frames(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/utils.py", line 98, in from_frames
+    res = await offload(_from_frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1442, in run_in_executor_with_context
+    return await loop.run_in_executor(
+  File "/opt/conda/envs/gdf/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1443, in <lambda>
+    executor, lambda: context.run(func, *args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/utils.py", line 83, in _from_frames
+    return protocol.loads(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 158, in loads
+    return msgpack.loads(
+  File "msgpack/_unpacker.pyx", line 194, in msgpack._cmsgpack.unpackb
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 138, in _decode_default
+    return merge_and_deserialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 501, in merge_and_deserialize
+    return deserialize(header, merged_frames, deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 428, in deserialize
+    return loads(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 61, in dask_loads
+    return loads(header["sub-header"], frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 172, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 173, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 82, in as_buffer
+    return Buffer._from_host_memory(data)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 167, in _from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 87, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 172, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 173, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 82, in as_buffer
+    return Buffer._from_host_memory(data)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 167, in _from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 87, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2023-07-13 05:51:39,890 - distributed.protocol.core - CRITICAL - Failed to deserialize
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 158, in loads
+    return msgpack.loads(
+  File "msgpack/_unpacker.pyx", line 194, in msgpack._cmsgpack.unpackb
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 138, in _decode_default
+    return merge_and_deserialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 501, in merge_and_deserialize
+    return deserialize(header, merged_frames, deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 428, in deserialize
+    return loads(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 61, in dask_loads
+    return loads(header["sub-header"], frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 172, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 173, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 82, in as_buffer
+    return Buffer._from_host_memory(data)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 167, in _from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 87, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2023-07-13 05:51:39,891 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2066, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2892, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1024, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 254, in read
+    msg = await from_frames(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/utils.py", line 98, in from_frames
+    res = await offload(_from_frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1442, in run_in_executor_with_context
+    return await loop.run_in_executor(
+  File "/opt/conda/envs/gdf/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1443, in <lambda>
+    executor, lambda: context.run(func, *args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/utils.py", line 83, in _from_frames
+    return protocol.loads(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 158, in loads
+    return msgpack.loads(
+  File "msgpack/_unpacker.pyx", line 194, in msgpack._cmsgpack.unpackb
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 138, in _decode_default
+    return merge_and_deserialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 501, in merge_and_deserialize
+    return deserialize(header, merged_frames, deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 428, in deserialize
+    return loads(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 61, in dask_loads
+    return loads(header["sub-header"], frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 172, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 173, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 82, in as_buffer
+    return Buffer._from_host_memory(data)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 167, in _from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 87, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+/opt/conda/envs/gdf/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
