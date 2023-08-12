@@ -1,0 +1,357 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.17, pytest-7.4.0, pluggy-1.2.0 -- /opt/conda/envs/gdf/bin/python3.9
+cachedir: .pytest_cache
+rootdir: /usr/src/ucx-py
+configfile: pyproject.toml
+plugins: asyncio-0.12.0
+collecting ... collected 8 items
+
+debug-tests/test_send_recv_many_workers.py::test_send_recv_cu[True-dataframe] [0, 1, 2, 3, 4, 5, 6, 7]
+/usr/src/ucx-py/debug-tests/utils.py:80: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+/usr/src/ucx-py/debug-tests/utils.py:99: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  is_cudas = np.empty(nframes[0], dtype=np.bool)
+Process client_2:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 72, in client
+    get_event_loop().run_until_complete(read())
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 61, in read
+    frames, msg = await recv(ep)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 99, in recv
+    is_cudas = np.empty(nframes[0], dtype=np.bool)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<_listener_handler_coroutine() done, defined at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py:128> exception=AttributeError("module 'numpy' has no attribute 'bool'.\n`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.\nThe aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:\n    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations")>
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 178, in _listener_handler_coroutine
+    await func(ep)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 129, in write
+    await send(ep, _frames)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 80, in send
+    [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+ITER:  0
+/usr/src/ucx-py/debug-tests/utils.py:80: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+/usr/src/ucx-py/debug-tests/utils.py:99: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  is_cudas = np.empty(nframes[0], dtype=np.bool)
+Task exception was never retrieved
+future: <Task finished name='Task-14' coro=<_listener_handler_coroutine() done, defined at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py:128> exception=AttributeError("module 'numpy' has no attribute 'bool'.\n`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.\nThe aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:\n    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations")>
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 178, in _listener_handler_coroutine
+    await func(ep)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 129, in write
+    await send(ep, _frames)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 80, in send
+    [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+Process client_0:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 72, in client
+    get_event_loop().run_until_complete(read())
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 61, in read
+    frames, msg = await recv(ep)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 99, in recv
+    is_cudas = np.empty(nframes[0], dtype=np.bool)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+ITER:  0
+/usr/src/ucx-py/debug-tests/utils.py:80: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+/usr/src/ucx-py/debug-tests/utils.py:99: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  is_cudas = np.empty(nframes[0], dtype=np.bool)
+Task exception was never retrieved
+future: <Task finished name='Task-12' coro=<_listener_handler_coroutine() done, defined at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py:128> exception=AttributeError("module 'numpy' has no attribute 'bool'.\n`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.\nThe aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:\n    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations")>
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 178, in _listener_handler_coroutine
+    await func(ep)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 129, in write
+    await send(ep, _frames)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 80, in send
+    [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+Process client_6:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 72, in client
+    get_event_loop().run_until_complete(read())
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 61, in read
+    frames, msg = await recv(ep)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 99, in recv
+    is_cudas = np.empty(nframes[0], dtype=np.bool)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+ITER:  0
+Future exception was never retrieved
+future: <Future finished exception=UCXCanceled('<[Recv shutdown] ep: 0x7fc644123080, tag: 0x6773e98cd7e458be>: ')>
+ucp._libs.exceptions.UCXCanceled: <[Recv shutdown] ep: 0x7fc644123080, tag: 0x6773e98cd7e458be>: 
+Future exception was never retrieved
+future: <Future finished exception=UCXCanceled('<[Recv shutdown] ep: 0x7f0716003080, tag: 0xd91c0592b7062ad3>: ')>
+ucp._libs.exceptions.UCXCanceled: <[Recv shutdown] ep: 0x7f0716003080, tag: 0xd91c0592b7062ad3>: 
+Future exception was never retrieved
+future: <Future finished exception=UCXCanceled('<[Recv shutdown] ep: 0x7f29e05c7080, tag: 0x6b9ed72c6709910>: ')>
+ucp._libs.exceptions.UCXCanceled: <[Recv shutdown] ep: 0x7f29e05c7080, tag: 0x6b9ed72c6709910>: 
+/usr/src/ucx-py/debug-tests/utils.py:80: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+Task exception was never retrieved
+future: <Task finished name='Task-28' coro=<_listener_handler_coroutine() done, defined at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py:128> exception=AttributeError("module 'numpy' has no attribute 'bool'.\n`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.\nThe aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:\n    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations")>
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 178, in _listener_handler_coroutine
+    await func(ep)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 129, in write
+    await send(ep, _frames)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 80, in send
+    [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+/usr/src/ucx-py/debug-tests/utils.py:99: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  is_cudas = np.empty(nframes[0], dtype=np.bool)
+Process client_1:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 72, in client
+    get_event_loop().run_until_complete(read())
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 61, in read
+    frames, msg = await recv(ep)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 99, in recv
+    is_cudas = np.empty(nframes[0], dtype=np.bool)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+ITER:  0
+/usr/src/ucx-py/debug-tests/utils.py:80: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+Task exception was never retrieved
+future: <Task finished name='Task-27' coro=<_listener_handler_coroutine() done, defined at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py:128> exception=AttributeError("module 'numpy' has no attribute 'bool'.\n`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.\nThe aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:\n    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations")>
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 178, in _listener_handler_coroutine
+    await func(ep)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 129, in write
+    await send(ep, _frames)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 80, in send
+    [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+/usr/src/ucx-py/debug-tests/utils.py:99: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  is_cudas = np.empty(nframes[0], dtype=np.bool)
+Process client_3:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 72, in client
+    get_event_loop().run_until_complete(read())
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 61, in read
+    frames, msg = await recv(ep)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 99, in recv
+    is_cudas = np.empty(nframes[0], dtype=np.bool)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+ITER:  0
+/usr/src/ucx-py/debug-tests/utils.py:80: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+Task exception was never retrieved
+future: <Task finished name='Task-35' coro=<_listener_handler_coroutine() done, defined at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py:128> exception=AttributeError("module 'numpy' has no attribute 'bool'.\n`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.\nThe aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:\n    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations")>
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 178, in _listener_handler_coroutine
+    await func(ep)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 129, in write
+    await send(ep, _frames)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 80, in send
+    [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+/usr/src/ucx-py/debug-tests/utils.py:99: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  is_cudas = np.empty(nframes[0], dtype=np.bool)
+Process client_4:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 72, in client
+    get_event_loop().run_until_complete(read())
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 61, in read
+    frames, msg = await recv(ep)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 99, in recv
+    is_cudas = np.empty(nframes[0], dtype=np.bool)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+ITER:  0
+/usr/src/ucx-py/debug-tests/utils.py:80: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+Task exception was never retrieved
+future: <Task finished name='Task-46' coro=<_listener_handler_coroutine() done, defined at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py:128> exception=AttributeError("module 'numpy' has no attribute 'bool'.\n`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.\nThe aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:\n    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations")>
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 178, in _listener_handler_coroutine
+    await func(ep)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 129, in write
+    await send(ep, _frames)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 80, in send
+    [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+/usr/src/ucx-py/debug-tests/utils.py:99: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  is_cudas = np.empty(nframes[0], dtype=np.bool)
+Process client_5:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 72, in client
+    get_event_loop().run_until_complete(read())
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 61, in read
+    frames, msg = await recv(ep)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 99, in recv
+    is_cudas = np.empty(nframes[0], dtype=np.bool)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+ITER:  0
+/usr/src/ucx-py/debug-tests/utils.py:80: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+Task exception was never retrieved
+future: <Task finished name='Task-55' coro=<_listener_handler_coroutine() done, defined at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py:128> exception=AttributeError("module 'numpy' has no attribute 'bool'.\n`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.\nThe aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:\n    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations")>
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 178, in _listener_handler_coroutine
+    await func(ep)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 129, in write
+    await send(ep, _frames)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 80, in send
+    [hasattr(f, "__cuda_array_interface__") for f in frames], dtype=np.bool
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+/usr/src/ucx-py/debug-tests/utils.py:99: FutureWarning: In the future `np.bool` will be defined as the corresponding NumPy scalar.
+  is_cudas = np.empty(nframes[0], dtype=np.bool)
+Process client_7:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 72, in client
+    get_event_loop().run_until_complete(read())
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 61, in read
+    frames, msg = await recv(ep)
+  File "/usr/src/ucx-py/debug-tests/utils.py", line 99, in recv
+    is_cudas = np.empty(nframes[0], dtype=np.bool)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+ITER:  0
+Future exception was never retrieved
+future: <Future finished exception=UCXCanceled('<[Recv shutdown] ep: 0x7f2d72b32080, tag: 0x73b75806ff8342e4>: ')>
+ucp._libs.exceptions.UCXCanceled: <[Recv shutdown] ep: 0x7f2d72b32080, tag: 0x73b75806ff8342e4>: 
+Future exception was never retrieved
+future: <Future finished exception=UCXCanceled('<[Recv shutdown] ep: 0x7f3822510080, tag: 0xe7968771ee6bc688>: ')>
+ucp._libs.exceptions.UCXCanceled: <[Recv shutdown] ep: 0x7f3822510080, tag: 0xe7968771ee6bc688>: 
+Future exception was never retrieved
+future: <Future finished exception=UCXCanceled('<[Recv shutdown] ep: 0x7f05f2756080, tag: 0x4cb9e6c70537ca25>: ')>
+ucp._libs.exceptions.UCXCanceled: <[Recv shutdown] ep: 0x7f05f2756080, tag: 0x4cb9e6c70537ca25>: 
+Future exception was never retrieved
+future: <Future finished exception=UCXCanceled('<[Recv shutdown] ep: 0x7fe3a6014080, tag: 0x812f5840122f4cea>: ')>
+ucp._libs.exceptions.UCXCanceled: <[Recv shutdown] ep: 0x7fe3a6014080, tag: 0x812f5840122f4cea>: 
+Future exception was never retrieved
+future: <Future finished exception=UCXCanceled('<[Recv shutdown] ep: 0x7fc9c0079080, tag: 0xff5832361971a478>: ')>
+ucp._libs.exceptions.UCXCanceled: <[Recv shutdown] ep: 0x7fc9c0079080, tag: 0xff5832361971a478>: 
+sys:1: RuntimeWarning: coroutine 'BlockingMode._arm_worker' was never awaited
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+Task was destroyed but it is pending!
+task: <Task cancelling name='Task-7' coro=<BlockingMode._arm_worker() running at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/continuous_ucx_progress.py:88>>
