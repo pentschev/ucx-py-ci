@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>junit-dask-cuda.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    width: 50%;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+.outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.outcome-skipped {
+    border-left: 1em solid lightyellow;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : junit-dask-cuda.xml
+</h1>
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>no-testclass
+                <ul>
+                    
+                    <li><a href="#c1b6c572-8a51-4be3-942c-4593eeb0c06e">dask_cuda.tests.test_cudf_builtin_spilling</a></li>
+                    
+                    <li><a href="#b5b5c62c-983d-4cb4-a484-cfe161571e23">dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    <li><a href="#2fcb4da1-0c73-4001-8fe4-c49c784ae7e8">dask_cuda.tests.test_device_host_file</a></li>
+                    
+                    <li><a href="#e5e93368-b833-40dc-a83f-fb64bc26d8f2">dask_cuda.tests.test_dgx</a></li>
+                    
+                    <li><a href="#856c6c75-3952-4b72-aa58-cd7cfcf3f101">dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    <li><a href="#a2aef215-b8b3-4287-a273-765902f4f97b">dask_cuda.tests.test_gds</a></li>
+                    
+                    <li><a href="#c0268712-a5f0-4ab4-b747-261c47a0fc74">dask_cuda.tests.test_initialize</a></li>
+                    
+                    <li><a href="#a9356a40-48fc-413f-8c4d-f38cdd052ded">dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    <li><a href="#53cd974c-bfe4-4d41-be0a-808f69612f23">dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    <li><a href="#00b94299-a347-4f2b-9f30-0b817b75ce23">dask_cuda.tests.test_proxy</a></li>
+                    
+                    <li><a href="#841b4559-e9ac-415a-8aeb-fe65ca108bc9">dask_cuda.tests.test_spill</a></li>
+                    
+                    <li><a href="#15853e53-2f02-4d21-9cbb-d39718d86f67">dask_cuda.tests.test_utils</a></li>
+                    
+                    <li><a href="#9b1edb62-0545-44f0-95f1-10b8387c8812">dask_cuda.tests.test_worker_spec</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    <li><a href="#c1b6c572-8a51-4be3-942c-4593eeb0c06e">[F] no-testclass : dask_cuda.tests.test_cudf_builtin_spilling</a></li>
+                    
+                    
+                    
+                    <li><a href="#b5b5c62c-983d-4cb4-a484-cfe161571e23">[F] no-testclass : dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    
+                    
+                    <li><a href="#2fcb4da1-0c73-4001-8fe4-c49c784ae7e8">[F] no-testclass : dask_cuda.tests.test_device_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#e5e93368-b833-40dc-a83f-fb64bc26d8f2">[F] no-testclass : dask_cuda.tests.test_dgx</a></li>
+                    
+                    
+                    
+                    <li><a href="#856c6c75-3952-4b72-aa58-cd7cfcf3f101">[F] no-testclass : dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    
+                    
+                    <li><a href="#a2aef215-b8b3-4287-a273-765902f4f97b">[F] no-testclass : dask_cuda.tests.test_gds</a></li>
+                    
+                    
+                    
+                    <li><a href="#c0268712-a5f0-4ab4-b747-261c47a0fc74">[F] no-testclass : dask_cuda.tests.test_initialize</a></li>
+                    
+                    
+                    
+                    <li><a href="#a9356a40-48fc-413f-8c4d-f38cdd052ded">[F] no-testclass : dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    
+                    
+                    <li><a href="#53cd974c-bfe4-4d41-be0a-808f69612f23">[F] no-testclass : dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#00b94299-a347-4f2b-9f30-0b817b75ce23">[F] no-testclass : dask_cuda.tests.test_proxy</a></li>
+                    
+                    
+                    
+                    <li><a href="#841b4559-e9ac-415a-8aeb-fe65ca108bc9">[F] no-testclass : dask_cuda.tests.test_spill</a></li>
+                    
+                    
+                    
+                    <li><a href="#15853e53-2f02-4d21-9cbb-d39718d86f67">[F] no-testclass : dask_cuda.tests.test_utils</a></li>
+                    
+                    
+                    
+                    <li><a href="#9b1edb62-0545-44f0-95f1-10b8387c8812">[F] no-testclass : dask_cuda.tests.test_worker_spec</a></li>
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+    <div class="testsuite">
+        <h2>Test Suite: pytest</h2>
+        <a id="163f03c7-2c49-4169-b720-96730bf9b219"></a>
+        
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>2.652 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>13</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>13</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>no-testclass</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="c1b6c572-8a51-4be3-942c-4593eeb0c06e"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_cudf_builtin_spilling</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_cudf_builtin_spilling.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_cudf_builtin_spilling.py:5: in &lt;module&gt;
+    from dask_cuda.device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="b5b5c62c-983d-4cb4-a484-cfe161571e23"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dask_cuda_worker</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_dask_cuda_worker.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_dask_cuda_worker.py:15: in &lt;module&gt;
+    from dask_cuda.utils import (
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="2fcb4da1-0c73-4001-8fe4-c49c784ae7e8"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_device_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_device_host_file.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_device_host_file.py:14: in &lt;module&gt;
+    from dask_cuda.device_host_file import DeviceHostFile, device_to_host, host_to_device
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="e5e93368-b833-40dc-a83f-fb64bc26d8f2"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dgx</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_dgx.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_dgx.py:11: in &lt;module&gt;
+    from dask_cuda import LocalCUDACluster
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="856c6c75-3952-4b72-aa58-cd7cfcf3f101"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_explicit_comms</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_explicit_comms.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_explicit_comms.py:17: in &lt;module&gt;
+    import dask_cuda
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="a2aef215-b8b3-4287-a273-765902f4f97b"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_gds</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_gds.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_gds.py:7: in &lt;module&gt;
+    from dask_cuda.proxify_host_file import ProxifyHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="c0268712-a5f0-4ab4-b747-261c47a0fc74"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_initialize</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_initialize.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_initialize.py:11: in &lt;module&gt;
+    from dask_cuda.initialize import initialize
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="a9356a40-48fc-413f-8c4d-f38cdd052ded"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_local_cuda_cluster</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_local_cuda_cluster.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_local_cuda_cluster.py:13: in &lt;module&gt;
+    from dask_cuda import CUDAWorker, LocalCUDACluster, utils
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="53cd974c-bfe4-4d41-be0a-808f69612f23"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxify_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_proxify_host_file.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_proxify_host_file.py:16: in &lt;module&gt;
+    import dask_cuda
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="00b94299-a347-4f2b-9f30-0b817b75ce23"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxy</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_proxy.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_proxy.py:21: in &lt;module&gt;
+    import dask_cuda
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="841b4559-e9ac-415a-8aeb-fe65ca108bc9"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_spill</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_spill.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_spill.py:13: in &lt;module&gt;
+    from dask_cuda import LocalCUDACluster, utils
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="15853e53-2f02-4d21-9cbb-d39718d86f67"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_utils</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_utils.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_utils.py:9: in &lt;module&gt;
+    from dask_cuda.utils import (
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="9b1edb62-0545-44f0-95f1-10b8387c8812"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_worker_spec</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/dask-cuda/dask_cuda/tests/test_worker_spec.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+dask_cuda/tests/test_worker_spec.py:5: in &lt;module&gt;
+    from dask_cuda.worker_spec import worker_spec
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:21: in &lt;module&gt;
+    from .device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/device_host_file.py:20: in &lt;module&gt;
+    from distributed.spill import CustomFile as KeyAsStringFile
+E   ImportError: cannot import name &#39;CustomFile&#39; from &#39;distributed.spill&#39; (/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/spill.py)</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
