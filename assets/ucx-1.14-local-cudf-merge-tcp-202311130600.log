@@ -1,0 +1,39 @@
+2023-11-13 08:09:06,656 - distributed.scheduler - WARNING - Worker failed to heartbeat within 300 seconds. Closing: <WorkerState 'tcp://127.0.0.1:44763', name: 4, status: running, memory: 4, processing: 9>
+2023-11-13 08:09:06,668 - distributed.worker.state_machine - WARNING - Async instruction for <Task cancelled name="execute(('group-simple-shuffle-b0648aa7f9e27a40d5f4d39e31c5b5a2', 0))" coro=<Worker.execute() done, defined at /opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker_state_machine.py:3608>> ended with CancelledError
+2023-11-13 08:09:06,668 - distributed.worker - ERROR - Worker stream died during communication: tcp://127.0.0.1:44763
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 224, in read
+    frames_nbytes = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2852, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1106, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 240, in read
+    convert_stream_closed_error(self, e)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 143, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed) Ephemeral Worker->Worker for gather local=tcp://127.0.0.1:40346 remote=tcp://127.0.0.1:44763>: Stream is closed
+2023-11-13 08:09:08,308 - distributed.worker - WARNING - Compute Failed
+Key:       ('generate-data-5366301a596b755bb8c33997d3ce7726', 6)
+Function:  generate_chunk
+args:      (6, 100000000, 8, 'build', 0.3, True)
+kwargs:    {}
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:201: Maximum pool size exceeded')"
+
+2023-11-13 08:09:08,339 - distributed.worker - WARNING - Compute Failed
+Key:       ('generate-data-5366301a596b755bb8c33997d3ce7726', 7)
+Function:  generate_chunk
+args:      (7, 100000000, 8, 'build', 0.3, True)
+kwargs:    {}
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:201: Maximum pool size exceeded')"
+
+2023-11-13 08:09:24,868 - distributed.nanny - WARNING - Worker process still alive after 3.1999983215332035 seconds, killing
+/opt/conda/envs/gdf/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 42 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
