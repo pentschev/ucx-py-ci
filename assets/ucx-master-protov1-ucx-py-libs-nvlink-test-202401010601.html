@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>junit-ucx-py-libs-nvlink-test.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    width: 50%;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+.outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.outcome-skipped {
+    border-left: 1em solid lightyellow;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : junit-ucx-py-libs-nvlink-test.xml
+</h1>
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>no-testclass
+                <ul>
+                    
+                    <li><a href="#745ad3bb-8954-4936-bec1-93e6e9cc699c">ucp._libs.tests.test_address_object</a></li>
+                    
+                    <li><a href="#497cdc65-c548-4da0-9fde-b3c1a34d113c">ucp._libs.tests.test_cancel</a></li>
+                    
+                    <li><a href="#b1ff4443-2afb-476b-bfdd-7bcbabcc8830">ucp._libs.tests.test_config</a></li>
+                    
+                    <li><a href="#a57d52f5-096c-45b6-bcc2-196fe2a2f5a2">ucp._libs.tests.test_endpoint</a></li>
+                    
+                    <li><a href="#fe2641f3-f311-4a2d-8f5a-77cca2d06a03">ucp._libs.tests.test_listener</a></li>
+                    
+                    <li><a href="#4b6d1cc1-8372-4e69-b08c-c952cc1f0aad">ucp._libs.tests.test_mem</a></li>
+                    
+                    <li><a href="#b32cec23-d275-4470-9432-6de10a2463cc">ucp._libs.tests.test_peer_send_recv</a></li>
+                    
+                    <li><a href="#59fd1463-e5a6-4536-9a80-42902a4eb371">ucp._libs.tests.test_probe</a></li>
+                    
+                    <li><a href="#a9e56e8c-00eb-426e-b69b-a0847334095e">ucp._libs.tests.test_rma</a></li>
+                    
+                    <li><a href="#3a928d58-01cf-4fd4-bed5-7cb12cdac6ae">ucp._libs.tests.test_server_client</a></li>
+                    
+                    <li><a href="#d569e78b-be4e-46a6-86c9-9e2d546c7a15">ucp._libs.tests.test_server_client_am</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    <li><a href="#745ad3bb-8954-4936-bec1-93e6e9cc699c">[F] no-testclass : ucp._libs.tests.test_address_object</a></li>
+                    
+                    
+                    
+                    <li><a href="#497cdc65-c548-4da0-9fde-b3c1a34d113c">[F] no-testclass : ucp._libs.tests.test_cancel</a></li>
+                    
+                    
+                    
+                    <li><a href="#b1ff4443-2afb-476b-bfdd-7bcbabcc8830">[F] no-testclass : ucp._libs.tests.test_config</a></li>
+                    
+                    
+                    
+                    <li><a href="#a57d52f5-096c-45b6-bcc2-196fe2a2f5a2">[F] no-testclass : ucp._libs.tests.test_endpoint</a></li>
+                    
+                    
+                    
+                    <li><a href="#fe2641f3-f311-4a2d-8f5a-77cca2d06a03">[F] no-testclass : ucp._libs.tests.test_listener</a></li>
+                    
+                    
+                    
+                    <li><a href="#4b6d1cc1-8372-4e69-b08c-c952cc1f0aad">[F] no-testclass : ucp._libs.tests.test_mem</a></li>
+                    
+                    
+                    
+                    <li><a href="#b32cec23-d275-4470-9432-6de10a2463cc">[F] no-testclass : ucp._libs.tests.test_peer_send_recv</a></li>
+                    
+                    
+                    
+                    <li><a href="#59fd1463-e5a6-4536-9a80-42902a4eb371">[F] no-testclass : ucp._libs.tests.test_probe</a></li>
+                    
+                    
+                    
+                    <li><a href="#a9e56e8c-00eb-426e-b69b-a0847334095e">[F] no-testclass : ucp._libs.tests.test_rma</a></li>
+                    
+                    
+                    
+                    <li><a href="#3a928d58-01cf-4fd4-bed5-7cb12cdac6ae">[F] no-testclass : ucp._libs.tests.test_server_client</a></li>
+                    
+                    
+                    
+                    <li><a href="#d569e78b-be4e-46a6-86c9-9e2d546c7a15">[F] no-testclass : ucp._libs.tests.test_server_client_am</a></li>
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+    <div class="testsuite">
+        <h2>Test Suite: pytest</h2>
+        <a id="48421b89-5d1c-4dd1-a0bd-307656e69921"></a>
+        
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>0.543 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>11</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>11</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>no-testclass</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="745ad3bb-8954-4936-bec1-93e6e9cc699c"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_address_object</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/ucx-py/ucp/_libs/tests/test_address_object.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_address_object.py:4: in &lt;module&gt;
+    from ucp._libs import ucx_api
+/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/__init__.py:19: in &lt;module&gt;
+    from .core import *  # noqa
+/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py:16: in &lt;module&gt;
+    from . import comm
+/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/comm.py:8: in &lt;module&gt;
+    from ._libs import arr, ucx_api
+E   ImportError: /opt/conda/envs/gdf/lib/libucp.so.0: undefined symbol: ucs_callbackq_remove_if</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="497cdc65-c548-4da0-9fde-b3c1a34d113c"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_cancel</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/ucx-py/ucp/_libs/tests/test_cancel.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_cancel.py:6: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /opt/conda/envs/gdf/lib/libucp.so.0: undefined symbol: ucs_callbackq_remove_if</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="b1ff4443-2afb-476b-bfdd-7bcbabcc8830"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_config</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/ucx-py/ucp/_libs/tests/test_config.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_config.py:5: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /opt/conda/envs/gdf/lib/libucp.so.0: undefined symbol: ucs_callbackq_remove_if</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="a57d52f5-096c-45b6-bcc2-196fe2a2f5a2"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_endpoint</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/ucx-py/ucp/_libs/tests/test_endpoint.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_endpoint.py:6: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /opt/conda/envs/gdf/lib/libucp.so.0: undefined symbol: ucs_callbackq_remove_if</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="fe2641f3-f311-4a2d-8f5a-77cca2d06a03"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_listener</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/ucx-py/ucp/_libs/tests/test_listener.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_listener.py:1: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /opt/conda/envs/gdf/lib/libucp.so.0: undefined symbol: ucs_callbackq_remove_if</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="4b6d1cc1-8372-4e69-b08c-c952cc1f0aad"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_mem</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/ucx-py/ucp/_libs/tests/test_mem.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_mem.py:7: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /opt/conda/envs/gdf/lib/libucp.so.0: undefined symbol: ucs_callbackq_remove_if</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="b32cec23-d275-4470-9432-6de10a2463cc"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_peer_send_recv</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/ucx-py/ucp/_libs/tests/test_peer_send_recv.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_peer_send_recv.py:7: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /opt/conda/envs/gdf/lib/libucp.so.0: undefined symbol: ucs_callbackq_remove_if</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="59fd1463-e5a6-4536-9a80-42902a4eb371"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_probe</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/ucx-py/ucp/_libs/tests/test_probe.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_probe.py:5: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /opt/conda/envs/gdf/lib/libucp.so.0: undefined symbol: ucs_callbackq_remove_if</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="a9e56e8c-00eb-426e-b69b-a0847334095e"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_rma</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/ucx-py/ucp/_libs/tests/test_rma.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_rma.py:8: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /opt/conda/envs/gdf/lib/libucp.so.0: undefined symbol: ucs_callbackq_remove_if</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="3a928d58-01cf-4fd4-bed5-7cb12cdac6ae"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_server_client</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/ucx-py/ucp/_libs/tests/test_server_client.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_server_client.py:7: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /opt/conda/envs/gdf/lib/libucp.so.0: undefined symbol: ucs_callbackq_remove_if</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="d569e78b-be4e-46a6-86c9-9e2d546c7a15"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>ucp._libs.tests.test_server_client_am</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>ImportError while importing test module &#39;/usr/src/ucx-py/ucp/_libs/tests/test_server_client_am.py&#39;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ucp/_libs/tests/test_server_client_am.py:9: in &lt;module&gt;
+    from ucp._libs import ucx_api
+E   ImportError: /opt/conda/envs/gdf/lib/libucp.so.0: undefined symbol: ucs_callbackq_remove_if</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
