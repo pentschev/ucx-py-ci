@@ -1,0 +1,421 @@
+[1704610966.195326] [dgx13:93665:0]    ib_mlx5dv_md.c:392  UCX  ERROR mlx5_3: LRU push returned Unsupported operation
+[dgx13:93665:0:93665]        rndv.c:166  Fatal: failed to pack rendezvous remote key: Unsupported operation
+==== backtrace (tid:  93665) ====
+ 0  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2fd) [0x7f6c3723defd]
+ 1  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_fatal_error_message+0x51) [0x7f6c3723bab1]
+ 2  /opt/conda/envs/gdf/lib/libucs.so.0(+0x29c4c) [0x7f6c3723bc4c]
+ 3  /opt/conda/envs/gdf/lib/libucp.so.0(+0x74c7b) [0x7f6c372e8c7b]
+ 4  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_do_am_single+0xdf) [0x7f6c372bff1f]
+ 5  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_proto_progress_tag_rndv_rts+0x1d) [0x7f6c372fd27d]
+ 6  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_tag_send_nbx+0x6e9) [0x7f6c37302799]
+ 7  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_tag_send_nb+0x4f) [0x7f6c3730340f]
+ 8  /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/_libs/ucx_api.cpython-39-x86_64-linux-gnu.so(+0x6c6f0) [0x7f6c373b56f0]
+ 9  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x55d2102c204c]
+10  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55d2102a83f6]
+11  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55d2102a2fb4]
+12  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55d2102b4469]
+13  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55d2102a5042]
+14  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55d2102a2fb4]
+15  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55d2102b4469]
+16  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55d2102a5042]
+17  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55d2103576d2]
+18  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55d2102a9c10]
+19  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55d2103576d2]
+20  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55d2102a9c10]
+21  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55d2103576d2]
+22  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55d2102a9c10]
+23  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55d2103576d2]
+24  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55d2102a9c10]
+25  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55d2103576d2]
+26  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55d2102a9c10]
+27  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55d2103576d2]
+28  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x81e9) [0x7f6cd289f1e9]
+29  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x8aa6) [0x7f6cd289faa6]
+30  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x55d2102ac6ac]
+31  /opt/conda/envs/gdf/bin/python(+0xf23ff) [0x55d2102673ff]
+32  /opt/conda/envs/gdf/bin/python(+0x136723) [0x55d2102ab723]
+33  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5ad9) [0x55d2102a9929]
+34  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55d2102b4712]
+35  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55d2102a44e6]
+36  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55d2102b4712]
+37  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55d2102a44e6]
+38  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55d2102b4712]
+39  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55d2102a44e6]
+40  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55d2102b4712]
+41  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55d2102a44e6]
+42  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55d2102a2fb4]
+43  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55d2102b4469]
+44  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55d2102a5042]
+45  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55d2102a2fb4]
+46  /opt/conda/envs/gdf/bin/python(+0x14c8cb) [0x55d2102c18cb]
+47  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x55d2102c204c]
+48  /opt/conda/envs/gdf/bin/python(+0x21080e) [0x55d21038580e]
+49  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x55d2102ac6ac]
+50  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55d2102a83f6]
+51  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55d2102b4712]
+52  /opt/conda/envs/gdf/bin/python(+0x14c9ac) [0x55d2102c19ac]
+53  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55d2102a83f6]
+54  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55d2102b4712]
+55  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55d2102a44e6]
+56  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55d2102a2fb4]
+57  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55d2102b4469]
+58  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55d2102a44e6]
+59  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55d2102b4712]
+60  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3e2) [0x55d2102a4232]
+61  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55d2102a2fb4]
+=================================
+2024-01-07 07:02:48,758 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:47099
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #038] ep: 0x7f0e7487c240, tag: 0x272a8ee2a44b32c8, nbytes: 799970624, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1153, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #038] ep: 0x7f0e7487c240, tag: 0x272a8ee2a44b32c8, nbytes: 799970624, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: ")
+2024-01-07 07:02:53,776 - distributed.nanny - WARNING - Restarting worker
+[1704610976.132958] [dgx13:93636:0]    ib_mlx5dv_md.c:392  UCX  ERROR mlx5_2: LRU push returned Unsupported operation
+[dgx13:93636:0:93636]        rndv.c:166  Fatal: failed to pack rendezvous remote key: Unsupported operation
+==== backtrace (tid:  93636) ====
+ 0  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2fd) [0x7f0eb0767efd]
+ 1  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_fatal_error_message+0x51) [0x7f0eb0765ab1]
+ 2  /opt/conda/envs/gdf/lib/libucs.so.0(+0x29c4c) [0x7f0eb0765c4c]
+ 3  /opt/conda/envs/gdf/lib/libucp.so.0(+0x74c7b) [0x7f0eb0812c7b]
+ 4  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_do_am_single+0xdf) [0x7f0eb07e9f1f]
+ 5  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_proto_progress_tag_rndv_rts+0x1d) [0x7f0eb082727d]
+ 6  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_tag_send_nbx+0x6e9) [0x7f0eb082c799]
+ 7  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_tag_send_nb+0x4f) [0x7f0eb082d40f]
+ 8  /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/_libs/ucx_api.cpython-39-x86_64-linux-gnu.so(+0x6c6f0) [0x7f0eb08df6f0]
+ 9  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x55a402ee704c]
+10  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55a402ecd3f6]
+11  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55a402ec7fb4]
+12  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55a402ed9469]
+13  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55a402eca042]
+14  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55a402ec7fb4]
+15  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55a402ed9469]
+16  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55a402eca042]
+17  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55a402f7c6d2]
+18  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55a402ecec10]
+19  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55a402f7c6d2]
+20  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55a402ecec10]
+21  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55a402f7c6d2]
+22  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55a402ecec10]
+23  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55a402f7c6d2]
+24  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55a402ecec10]
+25  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55a402f7c6d2]
+26  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55a402ecec10]
+27  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55a402f7c6d2]
+28  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x81e9) [0x7f0f43dc41e9]
+29  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x8aa6) [0x7f0f43dc4aa6]
+30  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x55a402ed16ac]
+31  /opt/conda/envs/gdf/bin/python(+0xf23ff) [0x55a402e8c3ff]
+32  /opt/conda/envs/gdf/bin/python(+0x136723) [0x55a402ed0723]
+33  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5ad9) [0x55a402ece929]
+34  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a402ed9712]
+35  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55a402ec94e6]
+36  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a402ed9712]
+37  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55a402ec94e6]
+38  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a402ed9712]
+39  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55a402ec94e6]
+40  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a402ed9712]
+41  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55a402ec94e6]
+42  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55a402ec7fb4]
+43  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55a402ed9469]
+44  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55a402eca042]
+45  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55a402ec7fb4]
+46  /opt/conda/envs/gdf/bin/python(+0x14c8cb) [0x55a402ee68cb]
+47  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x55a402ee704c]
+48  /opt/conda/envs/gdf/bin/python(+0x21080e) [0x55a402faa80e]
+49  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x55a402ed16ac]
+50  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55a402ecd3f6]
+51  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a402ed9712]
+52  /opt/conda/envs/gdf/bin/python(+0x14c9ac) [0x55a402ee69ac]
+53  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55a402ecd3f6]
+54  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a402ed9712]
+55  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55a402ec94e6]
+56  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55a402ec7fb4]
+57  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55a402ed9469]
+58  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55a402ec94e6]
+59  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a402ed9712]
+60  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3e2) [0x55a402ec9232]
+61  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55a402ec7fb4]
+=================================
+2024-01-07 07:02:58,723 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:57582
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #118] ep: 0x7f7f44c952c0, tag: 0xb40bca59a55a9e68, nbytes: 99985648, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1153, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #118] ep: 0x7f7f44c952c0, tag: 0xb40bca59a55a9e68, nbytes: 99985648, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: ")
+2024-01-07 07:02:58,725 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:57582
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #118] ep: 0x7fbd1c4c6100, tag: 0x629bae0a6f28568e, nbytes: 800010824, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1153, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #118] ep: 0x7fbd1c4c6100, tag: 0x629bae0a6f28568e, nbytes: 800010824, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: ")
+2024-01-07 07:02:58,735 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:40485 -> ucx://127.0.0.1:57582
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 334, in write
+    await self.ep.send(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 662, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #147] ep: 0x7faea46ca280, tag: 0x4e01ef51938d0d8e, nbytes: 99986000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1779, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 338, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2024-01-07 07:02:59,930 - distributed.worker - WARNING - Compute Failed
+Key:       ('merge_chunk-adccb87e3fee0e0ff9c5206a34e9fe09', 3)
+Function:  subgraph_callable-745f1ced-e362-4bfe-856e-fba9e3d0
+args:      (               key   payload
+shuffle                     
+0           186580  35514794
+0           151078  81131111
+0           195208  68356718
+0           169061  20591196
+0           612224  34065235
+...            ...       ...
+7        799996652  81644390
+7        799935001  79666337
+7        799888112  86136857
+7        799977649  33223672
+7        799996647  71523492
+
+[100002012 rows x 2 columns],                  key   payload
+93719      825571977  82295460
+93721      606599955  50313642
+81954      805961676  51848959
+22018      854195119  13726404
+22031      812750150   4409989
+...              ...       ...
+99964403    89176566  45276978
+99996955  1509945181  92670932
+99964405  1542284214  96691516
+99996956  1553930761  78451863
+99964409  1556759760  10959243
+
+[100005738 rows x 2 columns], 'simple-shuffle-b0648aa7f9e27a40d5f4d39e31c5b5a2', 'simple-shuffle-84a0276e6a854cf0d6c4324869a61d39')
+kwargs:    {}
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:273: Maximum pool size exceeded')"
+
+2024-01-07 07:03:03,765 - distributed.nanny - WARNING - Restarting worker
+2024-01-07 07:03:05,087 - distributed.comm.ucx - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+2024-01-07 07:03:05,088 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1153, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+2024-01-07 07:03:05,282 - distributed.comm.ucx - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+2024-01-07 07:03:05,282 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1153, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+2024-01-07 07:03:05,296 - distributed.worker - ERROR - ('Unexpected response', {'op': 'get_data', 'keys': {('split-simple-shuffle-84a0276e6a854cf0d6c4324869a61d39', 1, 0)}, 'who': 'ucx://127.0.0.1:40485', 'reply': True})
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2869, in get_data_from_worker
+    status = response["status"]
+KeyError: 'status'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2871, in get_data_from_worker
+    raise ValueError("Unexpected response", response)
+ValueError: ('Unexpected response', {'op': 'get_data', 'keys': {('split-simple-shuffle-84a0276e6a854cf0d6c4324869a61d39', 1, 0)}, 'who': 'ucx://127.0.0.1:40485', 'reply': True})
+2024-01-07 07:03:05,302 - distributed.comm.ucx - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+2024-01-07 07:03:05,302 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1153, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+2024-01-07 07:03:05,400 - distributed.comm.ucx - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+2024-01-07 07:03:05,400 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1153, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+2024-01-07 07:03:05,404 - distributed.comm.ucx - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+2024-01-07 07:03:05,404 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1153, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/conda-bld/work/include/rmm/mr/device/cuda_memory_resource.hpp:76: cudaErrorMemoryAllocation out of memory
+/opt/conda/envs/gdf/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
