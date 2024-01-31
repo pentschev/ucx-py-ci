@@ -1,0 +1,167 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.18, pytest-8.0.0, pluggy-1.4.0 -- /opt/conda/envs/gdf/bin/python3.9
+cachedir: .pytest_cache
+rootdir: /usr/src/ucx-py
+configfile: pyproject.toml
+plugins: asyncio-0.23.3
+asyncio: mode=strict
+collecting ... collected 8 items
+
+debug-tests/test_send_recv_many_workers.py::test_send_recv_cu[True-dataframe] [0, 1, 2, 3, 4, 5, 6, 7]
+Process client_4:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 68, in client
+    set_rmm()
+  File "/usr/src/ucx-py/debug-tests/debug_utils.py", line 17, in set_rmm
+    rmm.reinitialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rmm/rmm.py", line 81, in reinitialize
+    mr._initialize(
+  File "memory_resource.pyx", line 948, in rmm._lib.memory_resource._initialize
+  File "memory_resource.pyx", line 1008, in rmm._lib.memory_resource._initialize
+  File "memory_resource.pyx", line 388, in rmm._lib.memory_resource.PoolMemoryResource.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded
+Process client_3:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 68, in client
+    set_rmm()
+  File "/usr/src/ucx-py/debug-tests/debug_utils.py", line 17, in set_rmm
+    rmm.reinitialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rmm/rmm.py", line 81, in reinitialize
+    mr._initialize(
+  File "memory_resource.pyx", line 948, in rmm._lib.memory_resource._initialize
+  File "memory_resource.pyx", line 1008, in rmm._lib.memory_resource._initialize
+  File "memory_resource.pyx", line 388, in rmm._lib.memory_resource.PoolMemoryResource.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded
+Process client_2:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 68, in client
+    set_rmm()
+  File "/usr/src/ucx-py/debug-tests/debug_utils.py", line 17, in set_rmm
+    rmm.reinitialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rmm/rmm.py", line 81, in reinitialize
+    mr._initialize(
+  File "memory_resource.pyx", line 948, in rmm._lib.memory_resource._initialize
+  File "memory_resource.pyx", line 1008, in rmm._lib.memory_resource._initialize
+  File "memory_resource.pyx", line 388, in rmm._lib.memory_resource.PoolMemoryResource.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded
+Process client_6:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 54, in client
+    numba.cuda.current_context()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py", line 220, in get_context
+    return _runtime.get_or_create_context(devnum)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py", line 138, in get_or_create_context
+    return self._get_or_create_context_uncached(devnum)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py", line 155, in _get_or_create_context_uncached
+    return self._activate_context_for(0)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py", line 177, in _activate_context_for
+    newctx = gpu.get_primary_context()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/driver.py", line 675, in get_primary_context
+    driver.cuDevicePrimaryCtxRetain(byref(hctx), self.id)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/driver.py", line 331, in safe_cuda_api_call
+    self._check_ctypes_error(fname, retcode)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/driver.py", line 399, in _check_ctypes_error
+    raise CudaAPIError(retcode, msg)
+numba.cuda.cudadrv.driver.CudaAPIError: [2] Call to cuDevicePrimaryCtxRetain results in CUDA_ERROR_OUT_OF_MEMORY
+Process client_5:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 68, in client
+    set_rmm()
+  File "/usr/src/ucx-py/debug-tests/debug_utils.py", line 17, in set_rmm
+    rmm.reinitialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rmm/rmm.py", line 81, in reinitialize
+    mr._initialize(
+  File "memory_resource.pyx", line 948, in rmm._lib.memory_resource._initialize
+  File "memory_resource.pyx", line 1008, in rmm._lib.memory_resource._initialize
+  File "memory_resource.pyx", line 388, in rmm._lib.memory_resource.PoolMemoryResource.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded
+ITER:  0
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+Shutting Down Client...
+ITER:  1
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+Shutting Down Client...
+ITER:  2
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+Shutting Down Client...
+FINISHED
+ITER:  0
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+Shutting Down Client...
+ITER:  1
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+Shutting Down Client...
+ITER:  2
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+Shutting Down Client...
+FINISHED
+ITER:  0
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+Shutting Down Client...
+ITER:  1
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+Shutting Down Client...
+ITER:  2
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+size of the message:  67108864
+Shutting Down Client...
+FINISHED
+sys:1: RuntimeWarning: coroutine 'BlockingMode._arm_worker' was never awaited
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+Task was destroyed but it is pending!
+task: <Task cancelling name='Task-50' coro=<BlockingMode._arm_worker() running at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/continuous_ucx_progress.py:88>>
