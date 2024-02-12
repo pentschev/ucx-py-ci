@@ -1,0 +1,448 @@
+[1707724994.979601] [dgx13:57876:0]            sock.c:470  UCX  ERROR bind(fd=176 addr=0.0.0.0:59099) failed: Address already in use
+[1707725008.167499] [dgx13:57976:0]    ib_mlx5dv_md.c:468  UCX  ERROR mlx5_0: LRU push returned Unsupported operation
+[dgx13:57976:0:57976]        rndv.c:166  Fatal: failed to pack rendezvous remote key: Unsupported operation
+==== backtrace (tid:  57976) ====
+ 0  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2fd) [0x7f3d0c06606d]
+ 1  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_fatal_error_message+0x51) [0x7f3d0c063c11]
+ 2  /opt/conda/envs/gdf/lib/libucs.so.0(+0x27dac) [0x7f3d0c063dac]
+ 3  /opt/conda/envs/gdf/lib/libucp.so.0(+0x739e8) [0x7f3cf9fa59e8]
+ 4  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_do_am_single+0xdf) [0x7f3cf9f7cd7f]
+ 5  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_proto_progress_tag_rndv_rts+0x1d) [0x7f3cf9fb8aed]
+ 6  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_tag_send_nbx+0x6da) [0x7f3cf9fbd9da]
+ 7  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_tag_send_nb+0x4f) [0x7f3cf9fbe71f]
+ 8  /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/_libs/ucx_api.cpython-39-x86_64-linux-gnu.so(+0x6c6f0) [0x7f3d0c1066f0]
+ 9  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x56301a5b304c]
+10  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x56301a5993f6]
+11  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x56301a593fb4]
+12  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x56301a5a5469]
+13  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x56301a596042]
+14  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x56301a593fb4]
+15  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x56301a5a5469]
+16  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x56301a596042]
+17  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x56301a6486d2]
+18  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x56301a59ac10]
+19  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x56301a6486d2]
+20  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x56301a59ac10]
+21  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x56301a6486d2]
+22  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x56301a59ac10]
+23  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x56301a6486d2]
+24  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x56301a59ac10]
+25  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x56301a6486d2]
+26  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x56301a59ac10]
+27  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x56301a6486d2]
+28  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x81e9) [0x7f3d212851e9]
+29  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x8aa6) [0x7f3d21285aa6]
+30  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x56301a59d6ac]
+31  /opt/conda/envs/gdf/bin/python(+0xf23ff) [0x56301a5583ff]
+32  /opt/conda/envs/gdf/bin/python(+0x136723) [0x56301a59c723]
+33  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5ad9) [0x56301a59a929]
+34  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x56301a5a5712]
+35  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x56301a5954e6]
+36  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x56301a5a5712]
+37  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x56301a5954e6]
+38  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x56301a5a5712]
+39  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x56301a5954e6]
+40  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x56301a5a5712]
+41  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x56301a5954e6]
+42  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x56301a593fb4]
+43  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x56301a5a5469]
+44  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x56301a596042]
+45  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x56301a593fb4]
+46  /opt/conda/envs/gdf/bin/python(+0x14c8cb) [0x56301a5b28cb]
+47  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x56301a5b304c]
+48  /opt/conda/envs/gdf/bin/python(+0x21080e) [0x56301a67680e]
+49  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x56301a59d6ac]
+50  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x56301a5993f6]
+51  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x56301a5a5712]
+52  /opt/conda/envs/gdf/bin/python(+0x14c9ac) [0x56301a5b29ac]
+53  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x56301a5993f6]
+54  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x56301a5a5712]
+55  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x56301a5954e6]
+56  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x56301a593fb4]
+57  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x56301a5a5469]
+58  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x56301a5954e6]
+59  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x56301a5a5712]
+60  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3e2) [0x56301a595232]
+61  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x56301a593fb4]
+=================================
+2024-02-12 08:03:29,934 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:41038
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #032] ep: 0x7fb03d174200, tag: 0x4a00926a9b616ba7, nbytes: 800052928, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #032] ep: 0x7fb03d174200, tag: 0x4a00926a9b616ba7, nbytes: 800052928, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: ")
+2024-02-12 08:03:29,934 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:41038
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #025] ep: 0x7f5010578100, tag: 0x9df258a8a5b3a16d, nbytes: 99992392, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #025] ep: 0x7f5010578100, tag: 0x9df258a8a5b3a16d, nbytes: 99992392, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: ")
+[1707725010.548513] [dgx13:57988:0]    ib_mlx5dv_md.c:468  UCX  ERROR mlx5_3: LRU push returned Unsupported operation
+[dgx13:57988:0:57988]        rndv.c:166  Fatal: failed to pack rendezvous remote key: Unsupported operation
+==== backtrace (tid:  57988) ====
+ 0  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2fd) [0x7f1d1590f06d]
+ 1  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_fatal_error_message+0x51) [0x7f1d1590cc11]
+ 2  /opt/conda/envs/gdf/lib/libucs.so.0(+0x27dac) [0x7f1d1590cdac]
+ 3  /opt/conda/envs/gdf/lib/libucp.so.0(+0x739e8) [0x7f1d159b69e8]
+ 4  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_do_am_single+0xdf) [0x7f1d1598dd7f]
+ 5  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_proto_progress_tag_rndv_rts+0x1d) [0x7f1d159c9aed]
+ 6  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_tag_send_nbx+0x6da) [0x7f1d159ce9da]
+ 7  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_tag_send_nb+0x4f) [0x7f1d159cf71f]
+ 8  /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/_libs/ucx_api.cpython-39-x86_64-linux-gnu.so(+0x6c6f0) [0x7f1d15a7d6f0]
+ 9  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x55a93a79704c]
+10  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55a93a77d3f6]
+11  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55a93a777fb4]
+12  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55a93a789469]
+13  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55a93a77a042]
+14  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55a93a777fb4]
+15  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55a93a789469]
+16  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55a93a77a042]
+17  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55a93a82c6d2]
+18  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55a93a77ec10]
+19  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55a93a82c6d2]
+20  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55a93a77ec10]
+21  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55a93a82c6d2]
+22  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55a93a77ec10]
+23  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55a93a82c6d2]
+24  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55a93a77ec10]
+25  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55a93a82c6d2]
+26  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55a93a77ec10]
+27  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55a93a82c6d2]
+28  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x81e9) [0x7f1d3cc331e9]
+29  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x8aa6) [0x7f1d3cc33aa6]
+30  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x55a93a7816ac]
+31  /opt/conda/envs/gdf/bin/python(+0xf23ff) [0x55a93a73c3ff]
+32  /opt/conda/envs/gdf/bin/python(+0x136723) [0x55a93a780723]
+33  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5ad9) [0x55a93a77e929]
+34  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a93a789712]
+35  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55a93a7794e6]
+36  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a93a789712]
+37  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55a93a7794e6]
+38  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a93a789712]
+39  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55a93a7794e6]
+40  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a93a789712]
+41  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55a93a7794e6]
+42  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55a93a777fb4]
+43  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55a93a789469]
+44  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55a93a77a042]
+45  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55a93a777fb4]
+46  /opt/conda/envs/gdf/bin/python(+0x14c8cb) [0x55a93a7968cb]
+47  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x55a93a79704c]
+48  /opt/conda/envs/gdf/bin/python(+0x21080e) [0x55a93a85a80e]
+49  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x55a93a7816ac]
+50  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55a93a77d3f6]
+51  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a93a789712]
+52  /opt/conda/envs/gdf/bin/python(+0x14c9ac) [0x55a93a7969ac]
+53  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55a93a77d3f6]
+54  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a93a789712]
+55  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55a93a7794e6]
+56  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55a93a777fb4]
+57  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55a93a789469]
+58  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55a93a7794e6]
+59  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55a93a789712]
+60  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3e2) [0x55a93a779232]
+61  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55a93a777fb4]
+=================================
+2024-02-12 08:03:32,330 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:43677
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #031] ep: 0x7fb03d174280, tag: 0x3cac68718e24400, nbytes: 800052928, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #031] ep: 0x7fb03d174280, tag: 0x3cac68718e24400, nbytes: 800052928, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: ")
+[1707725013.409632] [dgx13:57971:0]    ib_mlx5dv_md.c:468  UCX  ERROR mlx5_1: LRU push returned Unsupported operation
+[dgx13:57971:0:57971]        rndv.c:166  Fatal: failed to pack rendezvous remote key: Unsupported operation
+==== backtrace (tid:  57971) ====
+ 0  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2fd) [0x7fc4b4ac906d]
+ 1  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_fatal_error_message+0x51) [0x7fc4b4ac6c11]
+ 2  /opt/conda/envs/gdf/lib/libucs.so.0(+0x27dac) [0x7fc4b4ac6dac]
+ 3  /opt/conda/envs/gdf/lib/libucp.so.0(+0x739e8) [0x7fc4b4b709e8]
+ 4  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_do_am_single+0xdf) [0x7fc4b4b47d7f]
+ 5  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_proto_progress_tag_rndv_rts+0x1d) [0x7fc4b4b83aed]
+ 6  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_tag_send_nbx+0x6da) [0x7fc4b4b889da]
+ 7  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_tag_send_nb+0x4f) [0x7fc4b4b8971f]
+ 8  /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/_libs/ucx_api.cpython-39-x86_64-linux-gnu.so(+0x6c6f0) [0x7fc4b4c376f0]
+ 9  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x55b87be1f04c]
+10  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55b87be053f6]
+11  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55b87bdfffb4]
+12  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55b87be11469]
+13  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55b87be02042]
+14  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55b87bdfffb4]
+15  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55b87be11469]
+16  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55b87be02042]
+17  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55b87beb46d2]
+18  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55b87be06c10]
+19  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55b87beb46d2]
+20  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55b87be06c10]
+21  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55b87beb46d2]
+22  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55b87be06c10]
+23  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55b87beb46d2]
+24  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55b87be06c10]
+25  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55b87beb46d2]
+26  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5dc0) [0x55b87be06c10]
+27  /opt/conda/envs/gdf/bin/python(+0x1e26d2) [0x55b87beb46d2]
+28  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x81e9) [0x7fc4c9dd11e9]
+29  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x8aa6) [0x7fc4c9dd1aa6]
+30  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x55b87be096ac]
+31  /opt/conda/envs/gdf/bin/python(+0xf23ff) [0x55b87bdc43ff]
+32  /opt/conda/envs/gdf/bin/python(+0x136723) [0x55b87be08723]
+33  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x5ad9) [0x55b87be06929]
+34  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55b87be11712]
+35  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55b87be014e6]
+36  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55b87be11712]
+37  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55b87be014e6]
+38  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55b87be11712]
+39  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55b87be014e6]
+40  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55b87be11712]
+41  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55b87be014e6]
+42  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55b87bdfffb4]
+43  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55b87be11469]
+44  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55b87be02042]
+45  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55b87bdfffb4]
+46  /opt/conda/envs/gdf/bin/python(+0x14c8cb) [0x55b87be1e8cb]
+47  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x55b87be1f04c]
+48  /opt/conda/envs/gdf/bin/python(+0x21080e) [0x55b87bee280e]
+49  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x55b87be096ac]
+50  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55b87be053f6]
+51  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55b87be11712]
+52  /opt/conda/envs/gdf/bin/python(+0x14c9ac) [0x55b87be1e9ac]
+53  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55b87be053f6]
+54  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55b87be11712]
+55  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55b87be014e6]
+56  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55b87bdfffb4]
+57  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55b87be11469]
+58  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55b87be014e6]
+59  /opt/conda/envs/gdf/bin/python(+0x13f712) [0x55b87be11712]
+60  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3e2) [0x55b87be01232]
+61  /opt/conda/envs/gdf/bin/python(+0x12dfb4) [0x55b87bdfffb4]
+=================================
+2024-02-12 08:03:35,311 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:54012
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #065] ep: 0x7f5010578140, tag: 0x4fe2aee188c76205, nbytes: 800028552, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #065] ep: 0x7f5010578140, tag: 0x4fe2aee188c76205, nbytes: 800028552, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: ")
+2024-02-12 08:03:35,789 - distributed.nanny - WARNING - Restarting worker
+2024-02-12 08:03:36,969 - distributed.comm.ucx - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded
+2024-02-12 08:03:36,969 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded
+2024-02-12 08:03:36,972 - distributed.comm.ucx - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded
+2024-02-12 08:03:36,973 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2056, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded
+2024-02-12 08:03:37,138 - distributed.worker - WARNING - Compute Failed
+Key:       ('simple-shuffle-54efe4e1c1ff02b405ca9dd1c57e206a', 5)
+Function:  _concat
+args:      ([               key   payload  _partitions
+shuffle                                  
+0           665225  42421547            5
+0            29008  27521439            5
+0            58819  74733761            5
+0           527155   7901458            5
+0           202170  57903687            5
+...            ...       ...          ...
+0        799553649  55245894            5
+0        799566911  13606399            5
+0        799623330  47597470            5
+0        799677307  67221562            5
+0        799626960  71468144            5
+
+[12507714 rows x 3 columns],                key   payload  _partitions
+shuffle                                  
+1           430649  94552829            5
+1           287654   9261145            5
+1          1137305   6882686            5
+1           408713  36085085            5
+1          1073545  12871340            5
+...            ...       ...          ...
+1        799926120  89853270            5
+1        799853113  57707962            5
+1 
+kwargs:    {}
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded')"
+
+2024-02-12 08:03:37,272 - distributed.worker - WARNING - Compute Failed
+Key:       ('simple-shuffle-b9e75a656c00804c86f03e519074f660', 3)
+Function:  _concat
+args:      ([                key   payload  _partitions
+61990     845593778  60051373            3
+61995     405598958  20880778            3
+123558    849609979  31525029            3
+123564    844633331  11101959            3
+123568    600483593  10247191            3
+...             ...       ...          ...
+99979771  868511770  92646939            3
+99979735  801281843  79305501            3
+99979742     573881  87179165            3
+99979700  833366052  98390090            3
+99979707  301186593  43553102            3
+
+[12504123 rows x 3 columns],                 key   payload  _partitions
+84131     901148705  18499996            3
+84152      15330189   3867942            3
+11489     926846534  23633901            3
+84037     902862168  75087378            3
+11496     320811052  86042937            3
+...             ...       ...          ...
+99972933  922634054  42827944            3
+99972939  931507281  81370384            3
+99972942  122036778  84856103            3
+99972948  907684890  5
+kwargs:    {}
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded')"
+
+2024-02-12 08:03:37,457 - distributed.worker - WARNING - Compute Failed
+Key:       ('simple-shuffle-54efe4e1c1ff02b405ca9dd1c57e206a', 0)
+Function:  _concat
+args:      ([               key   payload  _partitions
+shuffle                                  
+0           484710  78769384            0
+0           227246  80311974            0
+0           117129  48459552            0
+0           515578  20512454            0
+0           143680  50730661            0
+...            ...       ...          ...
+0        799688033  22714523            0
+0        799579145  28510851            0
+0        799606400  12034171            0
+0        799614977  72215938            0
+0        799559708  64122835            0
+
+[12497200 rows x 3 columns],                key   payload  _partitions
+shuffle                                  
+1           347161  49975785            0
+1           357384  10059098            0
+1          1005445  69439061            0
+1           323021  87532727            0
+1          1108699  97364327            0
+...            ...       ...          ...
+1        799915785  18535375            0
+1        799822404  29607553            0
+1 
+kwargs:    {}
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:313: Maximum pool size exceeded')"
+
+2024-02-12 08:03:40,419 - distributed.nanny - WARNING - Restarting worker
+2024-02-12 08:03:42,046 - distributed.nanny - WARNING - Restarting worker
+/opt/conda/envs/gdf/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
