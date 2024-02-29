@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>junit-dask-cuda.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    max-width: 200px;
+    word-wrap: break-word;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+.outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.outcome-skipped {
+    border-left: 1em dotted silver;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : junit-dask-cuda.xml
+</h1>
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>no-testclass
+                <ul>
+                    
+                    <li><a href="#46c54a59-a982-43c1-b0bc-a71bbd7ab63e">dask_cuda.tests.test_cudf_builtin_spilling</a></li>
+                    
+                    <li><a href="#dec493cb-e6ea-4c1c-84c9-ae2685f80034">dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    <li><a href="#47b3bb8a-6bb1-4bf9-8863-faf93752b7a4">dask_cuda.tests.test_dgx</a></li>
+                    
+                    <li><a href="#0912778b-9cf3-46dd-81f8-abaf94c53acc">dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    <li><a href="#120383f7-6900-41d5-89a3-27f8b050c450">dask_cuda.tests.test_from_array</a></li>
+                    
+                    <li><a href="#20b6f749-f2d3-426e-bc1f-7382cd7b5255">dask_cuda.tests.test_gds</a></li>
+                    
+                    <li><a href="#edb0d08d-380a-4709-9491-b6e989a0bd44">dask_cuda.tests.test_initialize</a></li>
+                    
+                    <li><a href="#d145be68-bc0b-43e8-81ca-fb9cca6b669d">dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    <li><a href="#627792b3-493a-42aa-9e1e-19a499bb7f1b">dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    <li><a href="#b62070cb-28ac-41e9-a62a-4d53db10237a">dask_cuda.tests.test_proxy</a></li>
+                    
+                    <li><a href="#6180331c-4b34-4c84-8509-d5f1b7c99bbb">dask_cuda.tests.test_spill</a></li>
+                    
+                    <li><a href="#95be1ad7-c3f0-4b08-abc2-9a1be7e41047">dask_cuda.tests.test_worker_spec</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    <li><a href="#46c54a59-a982-43c1-b0bc-a71bbd7ab63e">[F] no-testclass : dask_cuda.tests.test_cudf_builtin_spilling</a></li>
+                    
+                    
+                    
+                    <li><a href="#dec493cb-e6ea-4c1c-84c9-ae2685f80034">[F] no-testclass : dask_cuda.tests.test_dask_cuda_worker</a></li>
+                    
+                    
+                    
+                    <li><a href="#47b3bb8a-6bb1-4bf9-8863-faf93752b7a4">[F] no-testclass : dask_cuda.tests.test_dgx</a></li>
+                    
+                    
+                    
+                    <li><a href="#0912778b-9cf3-46dd-81f8-abaf94c53acc">[F] no-testclass : dask_cuda.tests.test_explicit_comms</a></li>
+                    
+                    
+                    
+                    <li><a href="#120383f7-6900-41d5-89a3-27f8b050c450">[F] no-testclass : dask_cuda.tests.test_from_array</a></li>
+                    
+                    
+                    
+                    <li><a href="#20b6f749-f2d3-426e-bc1f-7382cd7b5255">[F] no-testclass : dask_cuda.tests.test_gds</a></li>
+                    
+                    
+                    
+                    <li><a href="#edb0d08d-380a-4709-9491-b6e989a0bd44">[F] no-testclass : dask_cuda.tests.test_initialize</a></li>
+                    
+                    
+                    
+                    <li><a href="#d145be68-bc0b-43e8-81ca-fb9cca6b669d">[F] no-testclass : dask_cuda.tests.test_local_cuda_cluster</a></li>
+                    
+                    
+                    
+                    <li><a href="#627792b3-493a-42aa-9e1e-19a499bb7f1b">[F] no-testclass : dask_cuda.tests.test_proxify_host_file</a></li>
+                    
+                    
+                    
+                    <li><a href="#b62070cb-28ac-41e9-a62a-4d53db10237a">[F] no-testclass : dask_cuda.tests.test_proxy</a></li>
+                    
+                    
+                    
+                    <li><a href="#6180331c-4b34-4c84-8509-d5f1b7c99bbb">[F] no-testclass : dask_cuda.tests.test_spill</a></li>
+                    
+                    
+                    
+                    <li><a href="#95be1ad7-c3f0-4b08-abc2-9a1be7e41047">[F] no-testclass : dask_cuda.tests.test_worker_spec</a></li>
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+    <div class="testsuite">
+        <h2>Test Suite: pytest</h2>
+        <a id="186c55f8-e978-4bc7-a6bc-67d0147233ca"></a>
+        
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>3.291 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>12</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>12</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>no-testclass</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="46c54a59-a982-43c1-b0bc-a71bbd7ab63e"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_cudf_builtin_spilling</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_cudf_builtin_spilling.py:5: in &lt;module&gt;
+    from dask_cuda.device_host_file import DeviceHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:8: in &lt;module&gt;
+    import dask.dataframe.core
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/dataframe/__init__.py:173: in &lt;module&gt;
+    warnings.warn(
+E   DeprecationWarning: The current Dask DataFrame implementation is deprecated. 
+E   In a future release, Dask DataFrame will use a new implementation that
+E   contains several improvements including a logical query planning.
+E   The user-facing DataFrame API will remain unchanged.
+E   
+E   The new implementation is already available and can be enabled by
+E   installing the dask-expr library:
+E   
+E       $ pip install dask-expr
+E   
+E   and turning the query planning option on:
+E   
+E       &gt;&gt;&gt; import dask
+E       &gt;&gt;&gt; dask.config.set({&#39;dataframe.query-planning&#39;: True})
+E       &gt;&gt;&gt; import dask.dataframe as dd
+E   
+E   API documentation for the new implementation is available at
+E   https://docs.dask.org/en/stable/dask-expr-api.html
+E   
+E   Any feedback can be reported on the Dask issue tracker
+E   https://github.com/dask/dask/issues 
+E   
+E   To disable this warning in the future, set dask config:
+E   
+E       # via Python
+E       &gt;&gt;&gt; dask.config.set({&#39;dataframe.query-planning-warning&#39;: False})
+E   
+E       # via CLI
+E       dask config set dataframe.query-planning-warning False</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="dec493cb-e6ea-4c1c-84c9-ae2685f80034"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dask_cuda_worker</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_dask_cuda_worker.py:15: in &lt;module&gt;
+    from dask_cuda.utils import (
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:24: in &lt;module&gt;
+    from .proxify_host_file import ProxifyHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_host_file.py:40: in &lt;module&gt;
+    from . import proxify_device_objects as pdo
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_device_objects.py:10: in &lt;module&gt;
+    from .proxy_object import ProxyObject, asproxy
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxy_object.py:896: in &lt;module&gt;
+    @dask.dataframe.core.get_parallel_type.register(ProxyObject)
+E   AttributeError: module &#39;dask&#39; has no attribute &#39;dataframe&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="47b3bb8a-6bb1-4bf9-8863-faf93752b7a4"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_dgx</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_dgx.py:11: in &lt;module&gt;
+    from dask_cuda import LocalCUDACluster
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:24: in &lt;module&gt;
+    from .proxify_host_file import ProxifyHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_host_file.py:40: in &lt;module&gt;
+    from . import proxify_device_objects as pdo
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_device_objects.py:10: in &lt;module&gt;
+    from .proxy_object import ProxyObject, asproxy
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxy_object.py:896: in &lt;module&gt;
+    @dask.dataframe.core.get_parallel_type.register(ProxyObject)
+E   AttributeError: module &#39;dask&#39; has no attribute &#39;dataframe&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="0912778b-9cf3-46dd-81f8-abaf94c53acc"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_explicit_comms</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_explicit_comms.py:14: in &lt;module&gt;
+    from dask import dataframe as dd
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/dataframe/__init__.py:173: in &lt;module&gt;
+    warnings.warn(
+E   DeprecationWarning: The current Dask DataFrame implementation is deprecated. 
+E   In a future release, Dask DataFrame will use a new implementation that
+E   contains several improvements including a logical query planning.
+E   The user-facing DataFrame API will remain unchanged.
+E   
+E   The new implementation is already available and can be enabled by
+E   installing the dask-expr library:
+E   
+E       $ pip install dask-expr
+E   
+E   and turning the query planning option on:
+E   
+E       &gt;&gt;&gt; import dask
+E       &gt;&gt;&gt; dask.config.set({&#39;dataframe.query-planning&#39;: True})
+E       &gt;&gt;&gt; import dask.dataframe as dd
+E   
+E   API documentation for the new implementation is available at
+E   https://docs.dask.org/en/stable/dask-expr-api.html
+E   
+E   Any feedback can be reported on the Dask issue tracker
+E   https://github.com/dask/dask/issues 
+E   
+E   To disable this warning in the future, set dask config:
+E   
+E       # via Python
+E       &gt;&gt;&gt; dask.config.set({&#39;dataframe.query-planning-warning&#39;: False})
+E   
+E       # via CLI
+E       dask config set dataframe.query-planning-warning False</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="120383f7-6900-41d5-89a3-27f8b050c450"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_from_array</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_from_array.py:6: in &lt;module&gt;
+    from dask_cuda import LocalCUDACluster
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:24: in &lt;module&gt;
+    from .proxify_host_file import ProxifyHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_host_file.py:40: in &lt;module&gt;
+    from . import proxify_device_objects as pdo
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_device_objects.py:10: in &lt;module&gt;
+    from .proxy_object import ProxyObject, asproxy
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxy_object.py:896: in &lt;module&gt;
+    @dask.dataframe.core.get_parallel_type.register(ProxyObject)
+E   AttributeError: module &#39;dask&#39; has no attribute &#39;dataframe&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="20b6f749-f2d3-426e-bc1f-7382cd7b5255"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_gds</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_gds.py:7: in &lt;module&gt;
+    from dask_cuda.proxify_host_file import ProxifyHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:24: in &lt;module&gt;
+    from .proxify_host_file import ProxifyHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_host_file.py:40: in &lt;module&gt;
+    from . import proxify_device_objects as pdo
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_device_objects.py:10: in &lt;module&gt;
+    from .proxy_object import ProxyObject, asproxy
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxy_object.py:896: in &lt;module&gt;
+    @dask.dataframe.core.get_parallel_type.register(ProxyObject)
+E   AttributeError: module &#39;dask&#39; has no attribute &#39;dataframe&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="edb0d08d-380a-4709-9491-b6e989a0bd44"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_initialize</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_initialize.py:13: in &lt;module&gt;
+    from dask_cuda.utils_test import IncreasedCloseTimeoutNanny
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:24: in &lt;module&gt;
+    from .proxify_host_file import ProxifyHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_host_file.py:40: in &lt;module&gt;
+    from . import proxify_device_objects as pdo
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_device_objects.py:10: in &lt;module&gt;
+    from .proxy_object import ProxyObject, asproxy
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxy_object.py:896: in &lt;module&gt;
+    @dask.dataframe.core.get_parallel_type.register(ProxyObject)
+E   AttributeError: module &#39;dask&#39; has no attribute &#39;dataframe&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="d145be68-bc0b-43e8-81ca-fb9cca6b669d"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_local_cuda_cluster</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_local_cuda_cluster.py:13: in &lt;module&gt;
+    from dask_cuda import CUDAWorker, LocalCUDACluster, utils
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:24: in &lt;module&gt;
+    from .proxify_host_file import ProxifyHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_host_file.py:40: in &lt;module&gt;
+    from . import proxify_device_objects as pdo
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_device_objects.py:10: in &lt;module&gt;
+    from .proxy_object import ProxyObject, asproxy
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxy_object.py:896: in &lt;module&gt;
+    @dask.dataframe.core.get_parallel_type.register(ProxyObject)
+E   AttributeError: module &#39;dask&#39; has no attribute &#39;dataframe&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="627792b3-493a-42aa-9e1e-19a499bb7f1b"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxify_host_file</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_proxify_host_file.py:9: in &lt;module&gt;
+    import dask.dataframe
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/dataframe/__init__.py:173: in &lt;module&gt;
+    warnings.warn(
+E   DeprecationWarning: The current Dask DataFrame implementation is deprecated. 
+E   In a future release, Dask DataFrame will use a new implementation that
+E   contains several improvements including a logical query planning.
+E   The user-facing DataFrame API will remain unchanged.
+E   
+E   The new implementation is already available and can be enabled by
+E   installing the dask-expr library:
+E   
+E       $ pip install dask-expr
+E   
+E   and turning the query planning option on:
+E   
+E       &gt;&gt;&gt; import dask
+E       &gt;&gt;&gt; dask.config.set({&#39;dataframe.query-planning&#39;: True})
+E       &gt;&gt;&gt; import dask.dataframe as dd
+E   
+E   API documentation for the new implementation is available at
+E   https://docs.dask.org/en/stable/dask-expr-api.html
+E   
+E   Any feedback can be reported on the Dask issue tracker
+E   https://github.com/dask/dask/issues 
+E   
+E   To disable this warning in the future, set dask config:
+E   
+E       # via Python
+E       &gt;&gt;&gt; dask.config.set({&#39;dataframe.query-planning-warning&#39;: False})
+E   
+E       # via CLI
+E       dask config set dataframe.query-planning-warning False</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="b62070cb-28ac-41e9-a62a-4d53db10237a"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_proxy</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_proxy.py:21: in &lt;module&gt;
+    import dask_cuda
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:24: in &lt;module&gt;
+    from .proxify_host_file import ProxifyHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_host_file.py:40: in &lt;module&gt;
+    from . import proxify_device_objects as pdo
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_device_objects.py:10: in &lt;module&gt;
+    from .proxy_object import ProxyObject, asproxy
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxy_object.py:896: in &lt;module&gt;
+    @dask.dataframe.core.get_parallel_type.register(ProxyObject)
+E   AttributeError: module &#39;dask&#39; has no attribute &#39;dataframe&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="6180331c-4b34-4c84-8509-d5f1b7c99bbb"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_spill</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_spill.py:14: in &lt;module&gt;
+    from dask_cuda import LocalCUDACluster, utils
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:24: in &lt;module&gt;
+    from .proxify_host_file import ProxifyHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_host_file.py:40: in &lt;module&gt;
+    from . import proxify_device_objects as pdo
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_device_objects.py:10: in &lt;module&gt;
+    from .proxy_object import ProxyObject, asproxy
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxy_object.py:896: in &lt;module&gt;
+    @dask.dataframe.core.get_parallel_type.register(ProxyObject)
+E   AttributeError: module &#39;dask&#39; has no attribute &#39;dataframe&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="95be1ad7-c3f0-4b08-abc2-9a1be7e41047"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>dask_cuda.tests.test_worker_spec</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>collection failure</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>dask_cuda/tests/test_worker_spec.py:5: in &lt;module&gt;
+    from dask_cuda.worker_spec import worker_spec
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py:14: in &lt;module&gt;
+    from .cuda_worker import CUDAWorker
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/cuda_worker.py:24: in &lt;module&gt;
+    from .proxify_host_file import ProxifyHostFile
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_host_file.py:40: in &lt;module&gt;
+    from . import proxify_device_objects as pdo
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxify_device_objects.py:10: in &lt;module&gt;
+    from .proxy_object import ProxyObject, asproxy
+/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/proxy_object.py:896: in &lt;module&gt;
+    @dask.dataframe.core.get_parallel_type.register(ProxyObject)
+E   AttributeError: module &#39;dask&#39; has no attribute &#39;dataframe&#39;</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
