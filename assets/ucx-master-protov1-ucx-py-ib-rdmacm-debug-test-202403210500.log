@@ -1,0 +1,48 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.19, pytest-8.1.1, pluggy-1.4.0 -- /opt/conda/envs/gdf/bin/python3.9
+cachedir: .pytest_cache
+rootdir: /usr/src/ucx-py
+configfile: pyproject.toml
+plugins: asyncio-0.23.6
+asyncio: mode=strict
+collecting ... collected 8 items
+
+debug-tests/test_send_recv_many_workers.py::test_send_recv_cu[True-dataframe] Process server:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 95, in server
+    cuda_obj = cuda_obj_generator()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 162, in dataframe
+    return cudf.DataFrame(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/nvtx/nvtx.py", line 116, in inner
+    result = func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/dataframe.py", line 848, in __init__
+    self._init_from_dict_like(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/nvtx/nvtx.py", line 116, in inner
+    result = func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/dataframe.py", line 1094, in _init_from_dict_like
+    self._insert(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/nvtx/nvtx.py", line 116, in inner
+    result = func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/dataframe.py", line 3279, in _insert
+    value = column.as_column(value, nan_as_null=nan_as_null)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/column/column.py", line 2136, in as_column
+    data = as_column(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/column/column.py", line 1827, in as_column
+    mask = libcudf.transform.nans_to_nulls(col.fillna(np.nan))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/column/numerical.py", line 545, in fillna
+    col = self.nans_to_nulls()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/column/numerical.py", line 309, in nans_to_nulls
+    if self.dtype.kind != "f" or self.nan_count == 0:
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/column/numerical.py", line 432, in nan_count
+    nan_col = libcudf.unary.is_nan(self)
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "unary.pyx", line 51, in cudf._lib.unary.is_nan
+  File "unary.pyx", line 113, in cudf._lib.pylibcudf.unary.is_nan
+  File "unary.pyx", line 131, in cudf._lib.pylibcudf.unary.is_nan
+RuntimeError: Fatal CUDA error encountered at: /opt/conda/conda-bld/work/cpp/src/bitmask/null_mask.cu:92: 2 cudaErrorMemoryAllocation out of memory
+CREATING CUDA OBJECT IN SERVER...
