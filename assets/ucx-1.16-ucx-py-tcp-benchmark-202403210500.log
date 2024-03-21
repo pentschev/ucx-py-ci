@@ -1,0 +1,42 @@
+Server Running at 10.33.227.163:50429
+Client connecting to server at 10.33.227.163:50429
+Task exception was never retrieved
+future: <Task finished name='Task-2' coro=<_listener_handler_coroutine() done, defined at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py:140> exception=OutOfMemoryError('Out of memory allocating 256,000,000 bytes (allocated so far: 0 bytes).')>
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 190, in _listener_handler_coroutine
+    await func(ep)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/benchmarks/backends/ucp_async.py", line 67, in server_handler
+    recv_msg = Array(xp.zeros(self.args.n_bytes, dtype="u1"))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cupy/_creation/basic.py", line 248, in zeros
+    a = cupy.ndarray(shape, dtype, order=order)
+  File "cupy/_core/core.pyx", line 132, in cupy._core.core.ndarray.__new__
+  File "cupy/_core/core.pyx", line 220, in cupy._core.core._ndarray_base._init
+  File "cupy/cuda/memory.pyx", line 738, in cupy.cuda.memory.alloc
+  File "cupy/cuda/memory.pyx", line 1424, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1445, in cupy.cuda.memory.MemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1116, in cupy.cuda.memory.SingleDeviceMemoryPool.malloc
+  File "cupy/cuda/memory.pyx", line 1137, in cupy.cuda.memory.SingleDeviceMemoryPool._malloc
+  File "cupy/cuda/memory.pyx", line 1382, in cupy.cuda.memory.SingleDeviceMemoryPool._try_malloc
+  File "cupy/cuda/memory.pyx", line 1385, in cupy.cuda.memory.SingleDeviceMemoryPool._try_malloc
+cupy.cuda.memory.OutOfMemoryError: Out of memory allocating 256,000,000 bytes (allocated so far: 0 bytes).
+Process SpawnProcess-2:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/ucp/benchmarks/send_recv.py", line 95, in client
+    loop.run_until_complete(client.run())
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/benchmarks/backends/ucp_async.py", line 158, in run
+    await ep.send(send_msg)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 662, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #000] ep: 0x7f8b547a9080, tag: 0x6ee34af51fcb2c09, nbytes: 256000000, type: <class 'cupy.ndarray'>>: Connection reset by remote peer
+Traceback (most recent call last):
+  File "/usr/src/ucx-py/ucp/benchmarks/send_recv.py", line 401, in <module>
+    main()
+  File "/usr/src/ucx-py/ucp/benchmarks/send_recv.py", line 393, in main
+    assert not p2.exitcode
+AssertionError
