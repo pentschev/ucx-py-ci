@@ -1,0 +1,312 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.19, pytest-8.1.1, pluggy-1.4.0 -- /opt/conda/envs/gdf/bin/python3.9
+cachedir: .pytest_cache
+rootdir: /usr/src/ucx-py
+configfile: pyproject.toml
+plugins: asyncio-0.23.6
+asyncio: mode=strict
+collecting ... collected 326 items
+
+tests/test_benchmark_cluster.py::test_benchmark_cluster PASSED
+tests/test_config.py::test_get_config PASSED
+tests/test_config.py::test_set_env PASSED
+tests/test_config.py::test_init_options PASSED
+tests/test_config.py::test_init_options_and_env PASSED
+tests/test_config.py::test_init_unknown_option SKIPPED (Beginning wi...)
+tests/test_config.py::test_init_invalid_option [1711084416.410219] [dgx13:30177:0]          parser.c:1339 UCX  ERROR Invalid value for SEG_SIZE: 'invalid-size'. Expected: memory units: <number>[b|kb|mb|gb], "inf", or "auto"
+PASSED
+tests/test_config.py::test_logging PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>0] PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>1] PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>2] PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>3] PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>4] PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>5] PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>6] PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>7] PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>8] PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>9] PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>10] PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>11] PASSED
+tests/test_custom_send_recv.py::test_send_recv_cudf[<lambda>12] PASSED
+tests/test_disconnect.py::test_shutdown_unexpected_closed_peer[True] PASSED
+tests/test_disconnect.py::test_shutdown_unexpected_closed_peer[False] SKIPPED
+tests/test_endpoint.py::test_close_callback[True] PASSED
+tests/test_endpoint.py::test_close_callback[False] PASSED
+tests/test_endpoint.py::test_cancel[am] PASSED
+tests/test_endpoint.py::test_cancel[tag] PASSED
+tests/test_from_worker_address.py::test_from_worker_address PASSED
+tests/test_from_worker_address.py::test_from_worker_address_multinode[1] PASSED
+tests/test_from_worker_address.py::test_from_worker_address_multinode[2] PASSED
+tests/test_from_worker_address.py::test_from_worker_address_multinode[4] PASSED
+tests/test_from_worker_address.py::test_from_worker_address_multinode[8] PASSED
+tests/test_from_worker_address_error.py::test_from_worker_address_error[unreachable] sys:1: RuntimeWarning: coroutine 'BlockingMode._arm_worker' was never awaited
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+Task was destroyed but it is pending!
+task: <Task cancelling name='Task-2' coro=<BlockingMode._arm_worker() running at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/continuous_ucx_progress.py:88>>
+PASSED
+tests/test_from_worker_address_error.py::test_from_worker_address_error[timeout_am_send] PASSED
+tests/test_from_worker_address_error.py::test_from_worker_address_error[timeout_am_recv] PASSED
+tests/test_from_worker_address_error.py::test_from_worker_address_error[timeout_send] PASSED
+tests/test_from_worker_address_error.py::test_from_worker_address_error[timeout_recv] PASSED
+tests/test_info.py::test_context_info PASSED
+tests/test_info.py::test_worker_info PASSED
+tests/test_info.py::test_check_transport[posix] PASSED
+tests/test_info.py::test_check_transport[tcp] PASSED
+tests/test_info.py::test_check_transport[posix,tcp] PASSED
+tests/test_multiple_nodes.py::test_many_servers_many_clients[10-1] PASSED
+tests/test_multiple_nodes.py::test_many_servers_many_clients[10-2] PASSED
+tests/test_multiple_nodes.py::test_many_servers_many_clients[10-4] PASSED
+tests/test_multiple_nodes.py::test_many_servers_many_clients[50-1] PASSED
+tests/test_multiple_nodes.py::test_many_servers_many_clients[50-2] PASSED
+tests/test_multiple_nodes.py::test_many_servers_many_clients[50-4] PASSED
+tests/test_multiple_nodes.py::test_many_servers_many_clients[100-1] PASSED
+tests/test_multiple_nodes.py::test_many_servers_many_clients[100-2] PASSED
+tests/test_multiple_nodes.py::test_many_servers_many_clients[100-4] PASSED
+tests/test_probe.py::test_message_probe[am] PASSED
+tests/test_probe.py::test_message_probe[tag] PASSED
+tests/test_reset.py::test_reset PASSED
+tests/test_reset.py::test_lt_still_in_scope_error PASSED
+tests/test_reset.py::test_ep_still_in_scope_error PASSED
+tests/test_rma.py::test_fence[True] PASSED
+tests/test_rma.py::test_fence[False] PASSED
+tests/test_rma.py::test_flush[True] PASSED
+tests/test_rma.py::test_flush[False] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[True-1] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[True-16] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[True-256] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[True-4096] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[True-65536] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[True-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[True-16777216] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[False-1] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[False-16] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[False-256] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[False-4096] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[False-65536] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[False-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_bytes[False-16777216] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-|u1-1] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-|u1-16] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-|u1-256] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-|u1-4096] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-|u1-65536] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-|u1-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-|u1-16777216] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-<i8-1] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-<i8-16] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-<i8-256] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-<i8-4096] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-<i8-65536] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-<i8-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-<i8-16777216] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-f8-1] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-f8-16] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-f8-256] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-f8-4096] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-f8-65536] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-f8-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[True-f8-16777216] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-|u1-1] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-|u1-16] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-|u1-256] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-|u1-4096] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-|u1-65536] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-|u1-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-|u1-16777216] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-<i8-1] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-<i8-16] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-<i8-256] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-<i8-4096] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-<i8-65536] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-<i8-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-<i8-16777216] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-f8-1] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-f8-16] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-f8-256] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-f8-4096] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-f8-65536] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-f8-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_numpy[False-f8-16777216] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-|u1-1] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-|u1-16] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-|u1-256] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-|u1-4096] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-|u1-65536] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-|u1-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-|u1-16777216] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-<i8-1] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-<i8-16] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-<i8-256] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-<i8-4096] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-<i8-65536] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-<i8-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-<i8-16777216] std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+FAILED
+tests/test_send_recv.py::test_send_recv_cupy[True-<i8-16777216] ERROR
+tests/test_send_recv.py::test_send_recv_cupy[True-f8-1] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-f8-16] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-f8-256] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-f8-4096] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-f8-65536] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-f8-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[True-f8-16777216] std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+FAILED
+tests/test_send_recv.py::test_send_recv_cupy[True-f8-16777216] ERROR
+tests/test_send_recv.py::test_send_recv_cupy[False-|u1-1] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-|u1-16] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-|u1-256] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-|u1-4096] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-|u1-65536] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-|u1-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-|u1-16777216] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-<i8-1] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-<i8-16] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-<i8-256] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-<i8-4096] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-<i8-65536] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-<i8-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-<i8-16777216] std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+FAILED
+tests/test_send_recv.py::test_send_recv_cupy[False-<i8-16777216] ERROR
+tests/test_send_recv.py::test_send_recv_cupy[False-f8-1] PASSEDTask was destroyed but it is pending!
+
+tests/test_send_recv.py::test_send_recv_cupy[False-f8-16] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-f8-256] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-f8-4096] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-f8-65536] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-f8-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_cupy[False-f8-16777216] std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+FAILED
+tests/test_send_recv.py::test_send_recv_cupy[False-f8-16777216] ERROR
+tests/test_send_recv.py::test_send_recv_numba[True-|u1-1] PASSEDTask was destroyed but it is pending!
+
+tests/test_send_recv.py::test_send_recv_numba[True-|u1-16] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-|u1-256] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-|u1-4096] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-|u1-65536] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-|u1-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-|u1-16777216] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-<i8-1] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-<i8-16] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-<i8-256] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-<i8-4096] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-<i8-65536] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-<i8-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-<i8-16777216] std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+FAILED
+tests/test_send_recv.py::test_send_recv_numba[True-<i8-16777216] ERROR
+tests/test_send_recv.py::test_send_recv_numba[True-f8-1] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-f8-16] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-f8-256] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-f8-4096] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-f8-65536] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-f8-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_numba[True-f8-16777216] std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+FAILED
+tests/test_send_recv.py::test_send_recv_numba[True-f8-16777216] ERROR
+tests/test_send_recv.py::test_send_recv_numba[False-|u1-1] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-|u1-16] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-|u1-256] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-|u1-4096] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-|u1-65536] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-|u1-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-|u1-16777216] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-<i8-1] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-<i8-16] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-<i8-256] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-<i8-4096] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-<i8-65536] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-<i8-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-<i8-16777216] std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+FAILED
+tests/test_send_recv.py::test_send_recv_numba[False-<i8-16777216] ERROR
+tests/test_send_recv.py::test_send_recv_numba[False-f8-1] PASSEDTask was destroyed but it is pending!
+
+tests/test_send_recv.py::test_send_recv_numba[False-f8-16] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-f8-256] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-f8-4096] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-f8-65536] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-f8-1048576] PASSED
+tests/test_send_recv.py::test_send_recv_numba[False-f8-16777216] std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+FAILED
+tests/test_send_recv.py::test_send_recv_numba[False-f8-16777216] ERROR
+tests/test_send_recv.py::test_send_recv_error[True] PASSEDTask was destroyed but it is pending!
+
+tests/test_send_recv.py::test_send_recv_error[False] PASSED
+tests/test_send_recv.py::test_send_recv_obj[True] PASSED
+tests/test_send_recv.py::test_send_recv_obj[False] PASSED
+tests/test_send_recv.py::test_send_recv_obj_numpy[True] PASSED
+tests/test_send_recv.py::test_send_recv_obj_numpy[False] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-True-0] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-True-1] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-True-16] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-True-256] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-True-4096] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-True-65536] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-True-1048576] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-True-16777216] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-False-0] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-False-1] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-False-16] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-False-256] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-False-4096] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-False-65536] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-False-1048576] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-True-False-16777216] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-True-0] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-True-1] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-True-16] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-True-256] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-True-4096] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-True-65536] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-True-1048576] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-True-16777216] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-False-0] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-False-1] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-False-16] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-False-256] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-False-4096] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-False-65536] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-False-1048576] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data0-False-False-16777216] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-True-0] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-True-1] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-True-16] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-True-256] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-True-4096] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-True-65536] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-True-1048576] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-True-16777216] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-False-0] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-False-1] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-False-16] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-False-256] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-False-4096] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-False-65536] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-False-1048576] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-True-False-16777216] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-True-0] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-True-1] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-True-16] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-True-256] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-True-4096] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-True-65536] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-True-1048576] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-True-16777216] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-False-0] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-False-1] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-False-16] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-False-256] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-False-4096] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-False-65536] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-False-1048576] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data1-False-False-16777216] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data2-True-True-0] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data2-True-True-1] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data2-True-True-16] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data2-True-True-256] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data2-True-True-4096] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data2-True-True-65536] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data2-True-True-1048576] PASSED
+tests/test_send_recv_am.py::test_send_recv_am[data2-True-True-16777216] 
