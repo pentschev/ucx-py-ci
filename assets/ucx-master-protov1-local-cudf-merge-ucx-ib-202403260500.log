@@ -1,0 +1,89 @@
+2024-03-26 06:31:48,646 - distributed.worker - WARNING - Compute Failed
+Key:       ('merge_chunk-86db226a6a1c1400112a4980f3937126', 0)
+Function:  subgraph_callable-86c2ba46cf21a7a064f5dd3a290da228
+args:      ('drop_by_shallow_copy-593ebae6b6f8aa2e896c0b9e9b55b607', 'drop_by_shallow_copy-7cfabaa1e0541cd256f8f6fa293b613b',                key   payload  _partitions
+shuffle                                  
+0            72692  73829775            0
+0             6204  27607169            0
+0           105283  59840628            0
+0           302120  21911716            0
+0           488982  74993691            0
+...            ...       ...          ...
+7        799876289  17366670            0
+7        799949452    140813            0
+7        799984890  56435545            0
+7        799919626  14406283            0
+7        799960195  97646275            0
+
+[100015189 rows x 3 columns], ['_partitions'], 'simple-shuffle-03749b6a67db4b27e3fb569a3f534480',                  key   payload  _partitions
+39589      844953503   2033760            0
+55331      849765660  77529250            0
+60075      832906539  52535992            0
+11331      109062107  79260202            0
+55336      609621691
+kwargs:    {}
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:424: Maximum pool size exceeded')"
+
+2024-03-26 06:31:51,164 - distributed.comm.ucx - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:424: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:424: Maximum pool size exceeded
+2024-03-26 06:31:51,165 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:424: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 373, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 374, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 167, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "device_buffer.pyx", line 85, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:424: Maximum pool size exceeded
+2024-03-26 06:31:51,290 - distributed.worker - WARNING - Compute Failed
+Key:       ('simple-shuffle-03749b6a67db4b27e3fb569a3f534480', 6)
+Function:  _concat
+args:      ([               key   payload  _partitions
+shuffle                                  
+0           614749  89361997            6
+0          1093020  64968616            6
+0            73690  62594101            6
+0          1154384  30296056            6
+0           612300  92905818            6
+...            ...       ...          ...
+0        799864475  55287059            6
+0        799841448  74444855            6
+0        799913606  39919375            6
+0        799872169  76545642            6
+0        799960994  62456837            6
+
+[12499059 rows x 3 columns],                key   payload  _partitions
+shuffle                                  
+1           935231   2486594            6
+1           922510  93347351            6
+1          1033367  42382394            6
+1           930758  36202615            6
+1          1043089   5126253            6
+...            ...       ...          ...
+1        799930510  96625532            6
+1        799922743  37404465            6
+1 
+kwargs:    {}
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:424: Maximum pool size exceeded')"
+
+/opt/conda/envs/gdf/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
