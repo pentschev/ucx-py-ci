@@ -1,0 +1,294 @@
+/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 37473 instead
+  warnings.warn(
+2024-05-03 06:08:29,621 - distributed.worker - WARNING - Compute Failed
+Key:       ('taskshuffle-a55c2dee9f27a9742fdd04c4ff0554ff', 7)
+Function:  _concat
+args:      ([                key   payload  _partitions
+72906     111302258  27099927            7
+72907     806311925  80015048            7
+72913     847193437   8584837            7
+31973     407110429  15451182            7
+31981     842398802  94640116            7
+...             ...       ...          ...
+99994525  815756117  32066279            7
+99994442  850277787  61099210            7
+99994443  842126313  57353494            7
+99994452  834051540  91422876            7
+99994457  828434859  91821038            7
+
+[12503560 rows x 3 columns],                 key   payload  _partitions
+39589     944953503   2033760            7
+39590     935843362  89345503            7
+39604     918071640  29542759            7
+72769     952162748   8032661            7
+39608     956418252  14245217            7
+...             ...       ...          ...
+99959762  920589393  28680136            7
+99955052   20197564  77423717            7
+99959774  965726778  33268924            7
+99955064  910369352   
+kwargs:    {}
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded')"
+
+std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 178, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 179, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 136, in as_buffer
+    return buffer_class(owner=owner_class.from_host_memory(data))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 216, in from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 93, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+2024-05-03 06:08:31,241 - distributed.protocol.core - CRITICAL - Failed to deserialize
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 175, in loads
+    return msgpack.loads(
+  File "msgpack/_unpacker.pyx", line 194, in msgpack._cmsgpack.unpackb
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 159, in _decode_default
+    return merge_and_deserialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 522, in merge_and_deserialize
+    return deserialize(header, merged_frames, deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 449, in deserialize
+    return loads(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 66, in dask_loads
+    return loads(header["sub-header"], frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 178, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 179, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 136, in as_buffer
+    return buffer_class(owner=owner_class.from_host_memory(data))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 216, in from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 93, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+2024-05-03 06:08:31,365 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 247, in read
+    msg = await from_frames(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/utils.py", line 76, in from_frames
+    res = await offload(_from_frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1540, in run_in_executor_with_context
+    return await loop.run_in_executor(
+  File "/opt/conda/envs/gdf/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1541, in <lambda>
+    executor, lambda: context.run(func, *args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/utils.py", line 61, in _from_frames
+    return protocol.loads(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 175, in loads
+    return msgpack.loads(
+  File "msgpack/_unpacker.pyx", line 194, in msgpack._cmsgpack.unpackb
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 159, in _decode_default
+    return merge_and_deserialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 522, in merge_and_deserialize
+    return deserialize(header, merged_frames, deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 449, in deserialize
+    return loads(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 66, in dask_loads
+    return loads(header["sub-header"], frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 178, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 179, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 136, in as_buffer
+    return buffer_class(owner=owner_class.from_host_memory(data))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 216, in from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 93, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 178, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 179, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 136, in as_buffer
+    return buffer_class(owner=owner_class.from_host_memory(data))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 216, in from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 93, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+2024-05-03 06:08:31,372 - distributed.protocol.core - CRITICAL - Failed to deserialize
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 175, in loads
+    return msgpack.loads(
+  File "msgpack/_unpacker.pyx", line 194, in msgpack._cmsgpack.unpackb
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 159, in _decode_default
+    return merge_and_deserialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 522, in merge_and_deserialize
+    return deserialize(header, merged_frames, deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 449, in deserialize
+    return loads(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 66, in dask_loads
+    return loads(header["sub-header"], frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 178, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 179, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 136, in as_buffer
+    return buffer_class(owner=owner_class.from_host_memory(data))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 216, in from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 93, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 178, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 179, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 136, in as_buffer
+    return buffer_class(owner=owner_class.from_host_memory(data))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 216, in from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 93, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+2024-05-03 06:08:31,493 - distributed.protocol.core - CRITICAL - Failed to deserialize
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 175, in loads
+    return msgpack.loads(
+  File "msgpack/_unpacker.pyx", line 194, in msgpack._cmsgpack.unpackb
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 159, in _decode_default
+    return merge_and_deserialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 522, in merge_and_deserialize
+    return deserialize(header, merged_frames, deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 449, in deserialize
+    return loads(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 66, in dask_loads
+    return loads(header["sub-header"], frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 178, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 179, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 136, in as_buffer
+    return buffer_class(owner=owner_class.from_host_memory(data))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 216, in from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 93, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+2024-05-03 06:08:31,570 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 247, in read
+    msg = await from_frames(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/utils.py", line 76, in from_frames
+    res = await offload(_from_frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1540, in run_in_executor_with_context
+    return await loop.run_in_executor(
+  File "/opt/conda/envs/gdf/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1541, in <lambda>
+    executor, lambda: context.run(func, *args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/utils.py", line 61, in _from_frames
+    return protocol.loads(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 175, in loads
+    return msgpack.loads(
+  File "msgpack/_unpacker.pyx", line 194, in msgpack._cmsgpack.unpackb
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 159, in _decode_default
+    return merge_and_deserialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 522, in merge_and_deserialize
+    return deserialize(header, merged_frames, deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 449, in deserialize
+    return loads(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 66, in dask_loads
+    return loads(header["sub-header"], frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 178, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 179, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 136, in as_buffer
+    return buffer_class(owner=owner_class.from_host_memory(data))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 216, in from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 93, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+2024-05-03 06:08:31,644 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 247, in read
+    msg = await from_frames(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/utils.py", line 76, in from_frames
+    res = await offload(_from_frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1540, in run_in_executor_with_context
+    return await loop.run_in_executor(
+  File "/opt/conda/envs/gdf/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1541, in <lambda>
+    executor, lambda: context.run(func, *args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/utils.py", line 61, in _from_frames
+    return protocol.loads(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 175, in loads
+    return msgpack.loads(
+  File "msgpack/_unpacker.pyx", line 194, in msgpack._cmsgpack.unpackb
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/core.py", line 159, in _decode_default
+    return merge_and_deserialize(
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 522, in merge_and_deserialize
+    return deserialize(header, merged_frames, deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 449, in deserialize
+    return loads(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/protocol/serialize.py", line 66, in dask_loads
+    return loads(header["sub-header"], frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/comm/serialize.py", line 29, in dask_deserialize_cudf_object
+    return Serializable.host_deserialize(header, frames)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 178, in host_deserialize
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/abc.py", line 179, in <listcomp>
+    cudf.core.buffer.as_buffer(f) if c else f
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/utils.py", line 136, in as_buffer
+    return buffer_class(owner=owner_class.from_host_memory(data))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/buffer/buffer.py", line 216, in from_host_memory
+    buf = rmm.DeviceBuffer(ptr=ptr, size=size)
+  File "device_buffer.pyx", line 93, in rmm._lib.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/conda-bld/work/include/rmm/mr/device/pool_memory_resource.hpp:254: Maximum pool size exceeded
+/opt/conda/envs/gdf/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
