@@ -1,0 +1,817 @@
+[1715235601.152672] [dgx13:88734:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+[1715235603.712938] [dgx13:88839:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+[1715235605.170181] [dgx13:88829:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+[1715235605.282552] [dgx13:88847:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+[1715235605.337463] [dgx13:88855:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+[1715235605.336595] [dgx13:88834:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+[1715235605.336513] [dgx13:88859:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+[1715235605.364051] [dgx13:88851:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+[1715235605.331093] [dgx13:88843:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+[dgx13:88847:0:88847] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x448)
+==== backtrace (tid:  88847) ====
+ 0  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2fd) [0x7fa96008e06d]
+ 1  /opt/conda/envs/gdf/lib/libucs.so.0(+0x2a264) [0x7fa96008e264]
+ 2  /opt/conda/envs/gdf/lib/libucs.so.0(+0x2a42a) [0x7fa96008e42a]
+ 3  /usr/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420) [0x7fa999a3a420]
+ 4  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_mem_type_unpack+0x14) [0x7fa96010c6a4]
+ 5  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_rndv_data_handler+0x4e9) [0x7fa960135829]
+ 6  /opt/conda/envs/gdf/lib/./libuct.so.0(+0x2146f) [0x7fa96004846f]
+ 7  /opt/conda/envs/gdf/lib/./libuct.so.0(+0x248c8) [0x7fa96004b8c8]
+ 8  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_event_set_wait+0xb9) [0x7fa960097499]
+ 9  /opt/conda/envs/gdf/lib/./libuct.so.0(uct_tcp_iface_progress+0x7d) [0x7fa96004a66d]
+10  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_worker_progress+0x5a) [0x7fa9601098ca]
+11  /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/_libs/ucx_api.cpython-39-x86_64-linux-gnu.so(+0x3206a) [0x7fa9601c206a]
+12  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x5602999d0516]
+13  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x5602999cb184]
+14  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x5602999dc559]
+15  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x5602999cc606]
+16  /opt/conda/envs/gdf/bin/python(+0x1e28a2) [0x560299a7f8a2]
+17  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x81e9) [0x7fa983b5b1e9]
+18  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x5602999d47ac]
+19  /opt/conda/envs/gdf/bin/python(+0xf266c) [0x56029998f66c]
+20  /opt/conda/envs/gdf/bin/python(+0x136833) [0x5602999d3833]
+21  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x58b4) [0x5602999d1824]
+22  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x5602999dc802]
+23  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x5602999cc606]
+24  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x5602999dc802]
+25  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x5602999cc606]
+26  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x5602999dc802]
+27  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x5602999cc606]
+28  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x5602999dc802]
+29  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x5602999cc606]
+30  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x5602999cb184]
+31  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x5602999dc559]
+32  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x5602999cd162]
+33  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x5602999cb184]
+34  /opt/conda/envs/gdf/bin/python(+0x14c9fb) [0x5602999e99fb]
+35  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x5602999ea17c]
+36  /opt/conda/envs/gdf/bin/python(+0x2109ce) [0x560299aad9ce]
+37  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x5602999d47ac]
+38  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x5602999d0516]
+39  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x5602999dc802]
+40  /opt/conda/envs/gdf/bin/python(+0x14cadc) [0x5602999e9adc]
+41  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x5602999d0516]
+42  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x5602999dc802]
+43  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x5602999cc606]
+44  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x5602999cb184]
+45  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x5602999dc559]
+46  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x5602999cc606]
+47  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x5602999dc802]
+48  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3e2) [0x5602999cc352]
+49  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x5602999cb184]
+50  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x5602999dc559]
+51  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x5602999cd162]
+52  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x5602999cb184]
+53  /opt/conda/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x48) [0x5602999cae58]
+54  /opt/conda/envs/gdf/bin/python(PyEval_EvalCodeEx+0x39) [0x5602999cae09]
+55  /opt/conda/envs/gdf/bin/python(PyEval_EvalCode+0x1b) [0x560299a784ab]
+56  /opt/conda/envs/gdf/bin/python(+0x20887a) [0x560299aa587a]
+57  /opt/conda/envs/gdf/bin/python(+0x204c03) [0x560299aa1c03]
+58  /opt/conda/envs/gdf/bin/python(PyRun_StringFlags+0x9a) [0x560299a99a1a]
+59  /opt/conda/envs/gdf/bin/python(PyRun_SimpleStringFlags+0x3c) [0x560299a9990c]
+60  /opt/conda/envs/gdf/bin/python(Py_RunMain+0x267) [0x560299a98b47]
+61  /opt/conda/envs/gdf/bin/python(Py_BytesMain+0x37) [0x560299a6c2e7]
+=================================
+[dgx13:88851:0:88851] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x448)
+==== backtrace (tid:  88851) ====
+ 0  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2fd) [0x7f32edb9106d]
+ 1  /opt/conda/envs/gdf/lib/libucs.so.0(+0x2a264) [0x7f32edb91264]
+ 2  /opt/conda/envs/gdf/lib/libucs.so.0(+0x2a42a) [0x7f32edb9142a]
+ 3  /usr/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420) [0x7f332b54c420]
+ 4  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_mem_type_unpack+0x14) [0x7f32edc0f6a4]
+ 5  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_rndv_data_handler+0x4e9) [0x7f32edc38829]
+ 6  /opt/conda/envs/gdf/lib/./libuct.so.0(+0x2146f) [0x7f32edb4b46f]
+ 7  /opt/conda/envs/gdf/lib/./libuct.so.0(+0x248c8) [0x7f32edb4e8c8]
+ 8  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_event_set_wait+0xb9) [0x7f32edb9a499]
+ 9  /opt/conda/envs/gdf/lib/./libuct.so.0(uct_tcp_iface_progress+0x7d) [0x7f32edb4d66d]
+10  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_worker_progress+0x5a) [0x7f32edc0c8ca]
+11  /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/_libs/ucx_api.cpython-39-x86_64-linux-gnu.so(+0x3206a) [0x7f330004d06a]
+12  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55eedda0c516]
+13  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x55eedda07184]
+14  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55eedda18559]
+15  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55eedda08606]
+16  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55eedda18802]
+17  /opt/conda/envs/gdf/bin/python(+0x14cbb3) [0x55eedda25bb3]
+18  /opt/conda/envs/gdf/bin/python(+0x25842c) [0x55eeddb3142c]
+19  /opt/conda/envs/gdf/bin/python(+0xf266c) [0x55eedd9cb66c]
+20  /opt/conda/envs/gdf/bin/python(+0x136833) [0x55eedda0f833]
+21  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x58b4) [0x55eedda0d824]
+22  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55eedda18802]
+23  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55eedda08606]
+24  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55eedda18802]
+25  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55eedda08606]
+26  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55eedda18802]
+27  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55eedda08606]
+28  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55eedda18802]
+29  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55eedda08606]
+30  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x55eedda07184]
+31  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55eedda18559]
+32  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55eedda09162]
+33  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x55eedda07184]
+34  /opt/conda/envs/gdf/bin/python(+0x14c9fb) [0x55eedda259fb]
+35  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x55eedda2617c]
+36  /opt/conda/envs/gdf/bin/python(+0x2109ce) [0x55eeddae99ce]
+37  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x55eedda107ac]
+38  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55eedda0c516]
+39  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55eedda18802]
+40  /opt/conda/envs/gdf/bin/python(+0x14cadc) [0x55eedda25adc]
+41  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55eedda0c516]
+42  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55eedda18802]
+43  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55eedda08606]
+44  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x55eedda07184]
+45  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55eedda18559]
+46  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55eedda08606]
+47  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55eedda18802]
+48  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3e2) [0x55eedda08352]
+49  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x55eedda07184]
+50  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55eedda18559]
+51  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55eedda09162]
+52  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x55eedda07184]
+53  /opt/conda/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x48) [0x55eedda06e58]
+54  /opt/conda/envs/gdf/bin/python(PyEval_EvalCodeEx+0x39) [0x55eedda06e09]
+55  /opt/conda/envs/gdf/bin/python(PyEval_EvalCode+0x1b) [0x55eeddab44ab]
+56  /opt/conda/envs/gdf/bin/python(+0x20887a) [0x55eeddae187a]
+57  /opt/conda/envs/gdf/bin/python(+0x204c03) [0x55eeddaddc03]
+58  /opt/conda/envs/gdf/bin/python(PyRun_StringFlags+0x9a) [0x55eeddad5a1a]
+59  /opt/conda/envs/gdf/bin/python(PyRun_SimpleStringFlags+0x3c) [0x55eeddad590c]
+60  /opt/conda/envs/gdf/bin/python(Py_RunMain+0x267) [0x55eeddad4b47]
+61  /opt/conda/envs/gdf/bin/python(Py_BytesMain+0x37) [0x55eeddaa82e7]
+=================================
+[dgx13:88859:0:88859] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x448)
+==== backtrace (tid:  88859) ====
+ 0  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2fd) [0x7ff24018506d]
+ 1  /opt/conda/envs/gdf/lib/libucs.so.0(+0x2a264) [0x7ff240185264]
+ 2  /opt/conda/envs/gdf/lib/libucs.so.0(+0x2a42a) [0x7ff24018542a]
+ 3  /usr/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420) [0x7ff26bb32420]
+ 4  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_mem_type_unpack+0x14) [0x7ff2402036a4]
+ 5  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_rndv_data_handler+0x4e9) [0x7ff24022c829]
+ 6  /opt/conda/envs/gdf/lib/./libuct.so.0(+0x2146f) [0x7ff24013f46f]
+ 7  /opt/conda/envs/gdf/lib/./libuct.so.0(+0x248c8) [0x7ff2401428c8]
+ 8  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_event_set_wait+0xb9) [0x7ff24018e499]
+ 9  /opt/conda/envs/gdf/lib/./libuct.so.0(uct_tcp_iface_progress+0x7d) [0x7ff24014166d]
+10  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_worker_progress+0x5a) [0x7ff2402008ca]
+11  /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/_libs/ucx_api.cpython-39-x86_64-linux-gnu.so(+0x3206a) [0x7ff2402b906a]
+12  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55dc1eebd516]
+13  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x55dc1eeb8184]
+14  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55dc1eec9559]
+15  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55dc1eeb9606]
+16  /opt/conda/envs/gdf/bin/python(+0x1e28a2) [0x55dc1ef6c8a2]
+17  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x81e9) [0x7ff255c571e9]
+18  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x55dc1eec17ac]
+19  /opt/conda/envs/gdf/bin/python(+0xf266c) [0x55dc1ee7c66c]
+20  /opt/conda/envs/gdf/bin/python(+0x136833) [0x55dc1eec0833]
+21  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x58b4) [0x55dc1eebe824]
+22  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55dc1eec9802]
+23  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55dc1eeb9606]
+24  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55dc1eec9802]
+25  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55dc1eeb9606]
+26  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55dc1eec9802]
+27  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55dc1eeb9606]
+28  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55dc1eec9802]
+29  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55dc1eeb9606]
+30  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x55dc1eeb8184]
+31  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55dc1eec9559]
+32  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55dc1eeba162]
+33  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x55dc1eeb8184]
+34  /opt/conda/envs/gdf/bin/python(+0x14c9fb) [0x55dc1eed69fb]
+35  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x55dc1eed717c]
+36  /opt/conda/envs/gdf/bin/python(+0x2109ce) [0x55dc1ef9a9ce]
+37  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x55dc1eec17ac]
+38  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55dc1eebd516]
+39  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55dc1eec9802]
+40  /opt/conda/envs/gdf/bin/python(+0x14cadc) [0x55dc1eed6adc]
+41  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x55dc1eebd516]
+42  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55dc1eec9802]
+43  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55dc1eeb9606]
+44  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x55dc1eeb8184]
+45  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55dc1eec9559]
+46  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x55dc1eeb9606]
+47  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x55dc1eec9802]
+48  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3e2) [0x55dc1eeb9352]
+49  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x55dc1eeb8184]
+50  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x55dc1eec9559]
+51  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x55dc1eeba162]
+52  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x55dc1eeb8184]
+53  /opt/conda/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x48) [0x55dc1eeb7e58]
+54  /opt/conda/envs/gdf/bin/python(PyEval_EvalCodeEx+0x39) [0x55dc1eeb7e09]
+55  /opt/conda/envs/gdf/bin/python(PyEval_EvalCode+0x1b) [0x55dc1ef654ab]
+56  /opt/conda/envs/gdf/bin/python(+0x20887a) [0x55dc1ef9287a]
+57  /opt/conda/envs/gdf/bin/python(+0x204c03) [0x55dc1ef8ec03]
+58  /opt/conda/envs/gdf/bin/python(PyRun_StringFlags+0x9a) [0x55dc1ef86a1a]
+59  /opt/conda/envs/gdf/bin/python(PyRun_SimpleStringFlags+0x3c) [0x55dc1ef8690c]
+60  /opt/conda/envs/gdf/bin/python(Py_RunMain+0x267) [0x55dc1ef85b47]
+61  /opt/conda/envs/gdf/bin/python(Py_BytesMain+0x37) [0x55dc1ef592e7]
+=================================
+[dgx13:88855:0:88855] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x448)
+==== backtrace (tid:  88855) ====
+ 0  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_handle_error+0x2fd) [0x7f7d2183406d]
+ 1  /opt/conda/envs/gdf/lib/libucs.so.0(+0x2a264) [0x7f7d21834264]
+ 2  /opt/conda/envs/gdf/lib/libucs.so.0(+0x2a42a) [0x7f7d2183442a]
+ 3  /usr/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420) [0x7f7d5f1e8420]
+ 4  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_mem_type_unpack+0x14) [0x7f7d218b26a4]
+ 5  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_rndv_data_handler+0x4e9) [0x7f7d218db829]
+ 6  /opt/conda/envs/gdf/lib/./libuct.so.0(+0x2146f) [0x7f7d217ee46f]
+ 7  /opt/conda/envs/gdf/lib/./libuct.so.0(+0x248c8) [0x7f7d217f18c8]
+ 8  /opt/conda/envs/gdf/lib/libucs.so.0(ucs_event_set_wait+0xb9) [0x7f7d2183d499]
+ 9  /opt/conda/envs/gdf/lib/./libuct.so.0(uct_tcp_iface_progress+0x7d) [0x7f7d217f066d]
+10  /opt/conda/envs/gdf/lib/libucp.so.0(ucp_worker_progress+0x5a) [0x7f7d218af8ca]
+11  /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/_libs/ucx_api.cpython-39-x86_64-linux-gnu.so(+0x3206a) [0x7f7d2196806a]
+12  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x560dd7cb5516]
+13  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x560dd7cb0184]
+14  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x560dd7cc1559]
+15  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x560dd7cb1606]
+16  /opt/conda/envs/gdf/bin/python(+0x1e28a2) [0x560dd7d648a2]
+17  /opt/conda/envs/gdf/lib/python3.9/lib-dynload/_asyncio.cpython-39-x86_64-linux-gnu.so(+0x81e9) [0x7f7d4930e1e9]
+18  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x560dd7cb97ac]
+19  /opt/conda/envs/gdf/bin/python(+0xf266c) [0x560dd7c7466c]
+20  /opt/conda/envs/gdf/bin/python(+0x136833) [0x560dd7cb8833]
+21  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x58b4) [0x560dd7cb6824]
+22  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x560dd7cc1802]
+23  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x560dd7cb1606]
+24  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x560dd7cc1802]
+25  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x560dd7cb1606]
+26  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x560dd7cc1802]
+27  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x560dd7cb1606]
+28  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x560dd7cc1802]
+29  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x560dd7cb1606]
+30  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x560dd7cb0184]
+31  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x560dd7cc1559]
+32  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x560dd7cb2162]
+33  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x560dd7cb0184]
+34  /opt/conda/envs/gdf/bin/python(+0x14c9fb) [0x560dd7cce9fb]
+35  /opt/conda/envs/gdf/bin/python(PyObject_Call+0xbc) [0x560dd7ccf17c]
+36  /opt/conda/envs/gdf/bin/python(+0x2109ce) [0x560dd7d929ce]
+37  /opt/conda/envs/gdf/bin/python(_PyObject_MakeTpCall+0x2ec) [0x560dd7cb97ac]
+38  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x560dd7cb5516]
+39  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x560dd7cc1802]
+40  /opt/conda/envs/gdf/bin/python(+0x14cadc) [0x560dd7cceadc]
+41  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x45a6) [0x560dd7cb5516]
+42  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x560dd7cc1802]
+43  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x560dd7cb1606]
+44  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x560dd7cb0184]
+45  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x560dd7cc1559]
+46  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x696) [0x560dd7cb1606]
+47  /opt/conda/envs/gdf/bin/python(+0x13f802) [0x560dd7cc1802]
+48  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x3e2) [0x560dd7cb1352]
+49  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x560dd7cb0184]
+50  /opt/conda/envs/gdf/bin/python(_PyFunction_Vectorcall+0xd9) [0x560dd7cc1559]
+51  /opt/conda/envs/gdf/bin/python(_PyEval_EvalFrameDefault+0x11f2) [0x560dd7cb2162]
+52  /opt/conda/envs/gdf/bin/python(+0x12e184) [0x560dd7cb0184]
+53  /opt/conda/envs/gdf/bin/python(_PyEval_EvalCodeWithName+0x48) [0x560dd7cafe58]
+54  /opt/conda/envs/gdf/bin/python(PyEval_EvalCodeEx+0x39) [0x560dd7cafe09]
+55  /opt/conda/envs/gdf/bin/python(PyEval_EvalCode+0x1b) [0x560dd7d5d4ab]
+56  /opt/conda/envs/gdf/bin/python(+0x20887a) [0x560dd7d8a87a]
+57  /opt/conda/envs/gdf/bin/python(+0x204c03) [0x560dd7d86c03]
+58  /opt/conda/envs/gdf/bin/python(PyRun_StringFlags+0x9a) [0x560dd7d7ea1a]
+59  /opt/conda/envs/gdf/bin/python(PyRun_SimpleStringFlags+0x3c) [0x560dd7d7e90c]
+60  /opt/conda/envs/gdf/bin/python(Py_RunMain+0x267) [0x560dd7d7db47]
+61  /opt/conda/envs/gdf/bin/python(Py_BytesMain+0x37) [0x560dd7d512e7]
+=================================
+Task exception was never retrieved
+future: <Task finished name='Task-620' coro=<_listener_handler_coroutine() done, defined at /opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py:140> exception=UCXError('<stream_recv>: Connection reset by remote peer')>
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 155, in _listener_handler_coroutine
+    peer_info = await exchange_peer_info(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 55, in exchange_peer_info
+    await asyncio.wait_for(
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/tasks.py", line 479, in wait_for
+    return fut.result()
+ucp._libs.exceptions.UCXError: <stream_recv>: Connection reset by remote peer
+2024-05-09 06:20:13,873 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:49443 -> ucx://127.0.0.1:53127
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 334, in write
+    await self.ep.send(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 662, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #007] ep: 0x7fabf49a4340, tag: 0x1cb024559476af27, nbytes: 100000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1782, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 338, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2024-05-09 06:20:13,873 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:53127
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 350, in read
+    await self.ep.recv(msg)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #000] ep: 0x7f8b616b2140, tag: 0xe8bd25a0eefd2a65, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    comm = await rpc.connect(worker)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1674, in connect
+    return connect_attempt.result()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1564, in _connect
+    comm = await connect(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/core.py", line 377, in connect
+    handshake = await comm.read()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 368, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #000] ep: 0x7f8b616b2140, tag: 0xe8bd25a0eefd2a65, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2024-05-09 06:20:13,873 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:53127
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 350, in read
+    await self.ep.recv(msg)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #000] ep: 0x7f2d743fb1c0, tag: 0x26b065cb3c357f17, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    comm = await rpc.connect(worker)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1674, in connect
+    return connect_attempt.result()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1564, in _connect
+    comm = await connect(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/core.py", line 377, in connect
+    handshake = await comm.read()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 368, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #000] ep: 0x7f2d743fb1c0, tag: 0x26b065cb3c357f17, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2024-05-09 06:20:13,873 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:53127
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 350, in read
+    await self.ep.recv(msg)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #000] ep: 0x7f44dc4cc200, tag: 0xfd80cf188334c899, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2860, in get_data_from_worker
+    comm = await rpc.connect(worker)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1674, in connect
+    return connect_attempt.result()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1564, in _connect
+    comm = await connect(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/core.py", line 377, in connect
+    handshake = await comm.read()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 368, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #000] ep: 0x7f44dc4cc200, tag: 0xfd80cf188334c899, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2024-05-09 06:20:13,874 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:53127
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 350, in read
+    await self.ep.recv(msg)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #003] ep: 0x7fabf49a4280, tag: 0xca63c16ef7417663, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 368, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #003] ep: 0x7fabf49a4280, tag: 0xca63c16ef7417663, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2024-05-09 06:20:13,877 - distributed.scheduler - WARNING - Removing worker 'ucx://127.0.0.1:53127' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {('generate_chunk-_to_string_dtype-26fc8ffd6cffe3bf06a052b526402c5c', 1), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 3, 1), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 4, 1), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 5, 1), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 6, 1), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 1, 1), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 7, 1), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 2, 1), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 0, 1)} (stimulus_id='handle-worker-cleanup-1715235613.8773456')
+2024-05-09 06:20:13,909 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:33147
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 350, in read
+    await self.ep.recv(msg)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #003] ep: 0x7f2d743fb280, tag: 0x5a43939d46dba7, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 368, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #003] ep: 0x7f2d743fb280, tag: 0x5a43939d46dba7, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2024-05-09 06:20:13,909 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:49443 -> ucx://127.0.0.1:50849
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 334, in write
+    await self.ep.send(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 662, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #007] ep: 0x7fabf49a4440, tag: 0x4d07524eb6cbd165, nbytes: 100000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1782, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 338, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2024-05-09 06:20:13,910 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:33147
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #009] ep: 0x7fabf49a41c0, tag: 0xa39b91e980392a3a, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #009] ep: 0x7fabf49a41c0, tag: 0xa39b91e980392a3a, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: ")
+2024-05-09 06:20:13,910 - distributed.scheduler - WARNING - Removing worker 'ucx://127.0.0.1:33147' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 0, 7), ('generate_chunk-_to_string_dtype-26fc8ffd6cffe3bf06a052b526402c5c', 7), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 3, 7), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 4, 7), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 5, 7), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 6, 7), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 1, 7), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 7, 7), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 2, 7)} (stimulus_id='handle-worker-cleanup-1715235613.910403')
+2024-05-09 06:20:13,910 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:39011 -> ucx://127.0.0.1:33147
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 334, in write
+    await self.ep.send(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 662, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #007] ep: 0x7f2d743fb100, tag: 0x1e03624599bd9057, nbytes: 100000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1782, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 338, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2024-05-09 06:20:13,911 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:50849
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 350, in read
+    await self.ep.recv(msg)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #003] ep: 0x7fabf49a4240, tag: 0xb061e0a56ff588ff, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 368, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #003] ep: 0x7fabf49a4240, tag: 0xb061e0a56ff588ff, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2024-05-09 06:20:13,911 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:50849
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Recv #007] ep: 0x7f2d743fb300, tag: 0x386cc63714d5020b, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXError("<[Recv #007] ep: 0x7f2d743fb300, tag: 0x386cc63714d5020b, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: Connection reset by remote peer")
+2024-05-09 06:20:13,911 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:39011 -> ucx://127.0.0.1:50849
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 334, in write
+    await self.ep.send(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 662, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #007] ep: 0x7f2d743fb3c0, tag: 0x75941edd6757e072, nbytes: 100000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1782, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 338, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2024-05-09 06:20:13,918 - distributed.scheduler - WARNING - Removing worker 'ucx://127.0.0.1:50849' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 7, 0), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 2, 0), ('generate_chunk-_to_string_dtype-26fc8ffd6cffe3bf06a052b526402c5c', 2), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 0, 0), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 3, 0), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 4, 0), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 5, 0), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 6, 0), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 1, 0)} (stimulus_id='handle-worker-cleanup-1715235613.9183629')
+2024-05-09 06:20:13,916 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:60235 -> ucx://127.0.0.1:50849
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 334, in write
+    await self.ep.send(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 662, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #007] ep: 0x7f8b616b2440, tag: 0x471fed8f73ca741f, nbytes: 100000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1782, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 338, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2024-05-09 06:20:13,922 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:33147
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Recv #007] ep: 0x7f8b616b2100, tag: 0x8d5a39601f6d42db, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXError("<[Recv #007] ep: 0x7f8b616b2100, tag: 0x8d5a39601f6d42db, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: Connection reset by remote peer")
+2024-05-09 06:20:13,934 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:50849
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 350, in read
+    await self.ep.recv(msg)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #003] ep: 0x7f8b616b2200, tag: 0x346ccb030bc5c740, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 368, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #003] ep: 0x7f8b616b2200, tag: 0x346ccb030bc5c740, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2024-05-09 06:20:13,965 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:33147
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 350, in read
+    await self.ep.recv(msg)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #003] ep: 0x7f44dc4cc140, tag: 0xa47a6f898bad467f, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 368, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #003] ep: 0x7f44dc4cc140, tag: 0xa47a6f898bad467f, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2024-05-09 06:20:13,965 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:50849
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #010] ep: 0x7f44dc4cc180, tag: 0x333b2636b8ebda47, nbytes: 50000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #010] ep: 0x7f44dc4cc180, tag: 0x333b2636b8ebda47, nbytes: 50000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: ")
+2024-05-09 06:20:14,392 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:47759
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 350, in read
+    await self.ep.recv(msg)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #003] ep: 0x7f2d743fb240, tag: 0xca6a423dbe411a1, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 368, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #003] ep: 0x7f2d743fb240, tag: 0xca6a423dbe411a1, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2024-05-09 06:20:14,392 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:47759
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 350, in read
+    await self.ep.recv(msg)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXCanceled: <[Recv #003] ep: 0x7f44dc4cc1c0, tag: 0xc1532958e6ab21b8, nbytes: 16, type: <class 'numpy.ndarray'>>: 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 368, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXCanceled("<[Recv #003] ep: 0x7f44dc4cc1c0, tag: 0xc1532958e6ab21b8, nbytes: 16, type: <class 'numpy.ndarray'>>: ")
+2024-05-09 06:20:14,392 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:49443 -> ucx://127.0.0.1:47759
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 334, in write
+    await self.ep.send(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 662, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #007] ep: 0x7fabf49a4300, tag: 0xf69eac7a2a9e7bbe, nbytes: 100000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1782, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 338, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2024-05-09 06:20:14,393 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:60235 -> ucx://127.0.0.1:47759
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 334, in write
+    await self.ep.send(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 662, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #007] ep: 0x7f8b616b2380, tag: 0x5f4ed04aee13463, nbytes: 100000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1782, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 338, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2024-05-09 06:20:14,393 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:47759
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Recv #007] ep: 0x7fabf49a4180, tag: 0xb008184af3c91d0f, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXError("<[Recv #007] ep: 0x7fabf49a4180, tag: 0xb008184af3c91d0f, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: Connection reset by remote peer")
+2024-05-09 06:20:14,393 - distributed.worker - ERROR - failed during get data with ucx://127.0.0.1:45225 -> ucx://127.0.0.1:47759
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 334, in write
+    await self.ep.send(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 662, in send
+    return await comm.tag_send(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Send #007] ep: 0x7f44dc4cc300, tag: 0x256f947f4297ec5c, nbytes: 100000000, type: <class 'cudf.core.buffer.buffer.Buffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1782, in get_data
+    compressed = await comm.write(msg, serializers=serializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 338, in write
+    raise CommClosedError("While writing, the connection was closed")
+distributed.comm.core.CommClosedError: While writing, the connection was closed
+2024-05-09 06:20:14,394 - distributed.worker - ERROR - Worker stream died during communication: ucx://127.0.0.1:47759
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 392, in read
+    await self.ep.recv(each_frame)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 737, in recv
+    ret = await comm.tag_recv(self._ep, buffer, nbytes, tag, name=log)
+ucp._libs.exceptions.UCXError: <[Recv #007] ep: 0x7f8b616b2280, tag: 0x306e160c24006624, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: Connection reset by remote peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2059, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 2863, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/ucx.py", line 398, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXError("<[Recv #007] ep: 0x7f8b616b2280, tag: 0x306e160c24006624, nbytes: 100000000, type: <class 'rmm._lib.device_buffer.DeviceBuffer'>>: Connection reset by remote peer")
+2024-05-09 06:20:14,394 - distributed.scheduler - WARNING - Removing worker 'ucx://127.0.0.1:47759' caused the cluster to lose already computed task(s), which will be recomputed elsewhere: {('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 1, 6), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 7, 6), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 2, 6), ('generate_chunk-_to_string_dtype-26fc8ffd6cffe3bf06a052b526402c5c', 4), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 0, 6), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 3, 6), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 4, 6), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 5, 6), ('split-taskshuffle-6069670213e233d5016755b29b3e54d4', 6, 6)} (stimulus_id='handle-worker-cleanup-1715235614.394508')
+2024-05-09 06:20:26,569 - distributed.nanny - WARNING - Restarting worker
+2024-05-09 06:20:26,651 - distributed.nanny - WARNING - Restarting worker
+2024-05-09 06:20:26,936 - distributed.nanny - WARNING - Restarting worker
+2024-05-09 06:20:27,142 - distributed.nanny - WARNING - Restarting worker
+[1715235629.150660] [dgx13:89029:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+[1715235629.158859] [dgx13:89025:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+[1715235629.687516] [dgx13:89035:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+[1715235629.752978] [dgx13:89039:0]     ucp_context.c:2119 UCX  WARN  UCP API version is incompatible: required >= 1.18, actual 1.15.0 (loaded from /opt/conda/envs/gdf/lib/libucp.so.0)
+/opt/conda/envs/gdf/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 24 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
