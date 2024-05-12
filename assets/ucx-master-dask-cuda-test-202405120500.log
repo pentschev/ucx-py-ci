@@ -1,0 +1,1818 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.19, pytest-8.2.0, pluggy-1.5.0 -- /opt/conda/envs/gdf/bin/python3.9
+cachedir: .pytest_cache
+rootdir: /usr/src/dask-cuda
+configfile: pyproject.toml
+plugins: asyncio-0.23.6
+asyncio: mode=strict
+collecting ... collected 1182 items / 1 skipped
+
+dask_cuda/tests/test_cudf_builtin_spilling.py::test_is_spillable_object_when_cudf_spilling_disabled PASSED
+dask_cuda/tests/test_cudf_builtin_spilling.py::test_is_spillable_object_when_cudf_spilling_enabled PASSED
+dask_cuda/tests/test_cudf_builtin_spilling.py::test_device_host_file_when_cudf_spilling_is_disabled PASSED
+dask_cuda/tests/test_cudf_builtin_spilling.py::test_device_host_file_step_by_step PASSED
+dask_cuda/tests/test_cudf_builtin_spilling.py::test_proxify_host_file PASSED
+dask_cuda/tests/test_dask_cuda_worker.py::test_cuda_visible_devices_and_memory_limit_and_nthreads 2024-05-12 05:05:34,336 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:05:34,342 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2024-05-12 05:05:34,345 - distributed.scheduler - INFO - State start
+2024-05-12 05:05:34,369 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:05:34,370 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9359
+2024-05-12 05:05:34,371 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2024-05-12 05:05:34,371 - distributed.scheduler - INFO - Registering Worker plugin shuffle
+2024-05-12 05:05:34,541 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:35033'
+2024-05-12 05:05:34,557 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:38753'
+2024-05-12 05:05:34,561 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:34811'
+2024-05-12 05:05:34,568 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:42635'
+2024-05-12 05:05:35,819 - distributed.scheduler - INFO - Receive client connection: Client-42575da5-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:35,835 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:52148
+2024-05-12 05:05:36,313 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:36,313 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:36,317 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:36,318 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:40065
+2024-05-12 05:05:36,318 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:40065
+2024-05-12 05:05:36,318 - distributed.worker - INFO -          dashboard at:            127.0.0.1:35039
+2024-05-12 05:05:36,318 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9359
+2024-05-12 05:05:36,318 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:36,318 - distributed.worker - INFO -               Threads:                          4
+2024-05-12 05:05:36,318 - distributed.worker - INFO -                Memory:                 251.94 GiB
+2024-05-12 05:05:36,318 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/mockworker-cj5h4qd7
+2024-05-12 05:05:36,319 - distributed.worker - INFO - Starting Worker plugin RMMSetup-13e97027-7c72-45d1-96cc-efcae1f3803b
+2024-05-12 05:05:36,319 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-611177f0-d5b9-4b0b-a531-fd28c2d394e2
+2024-05-12 05:05:36,319 - distributed.worker - INFO - Starting Worker plugin PreImport-d37ef5b1-3ff2-4671-a67a-99f6c76c4d7a
+2024-05-12 05:05:36,319 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:36,366 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:40065', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:36,368 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:40065
+2024-05-12 05:05:36,368 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:52166
+2024-05-12 05:05:36,369 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:36,369 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9359
+2024-05-12 05:05:36,370 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:36,371 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9359
+2024-05-12 05:05:36,396 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:36,396 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:36,401 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:36,401 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:37501
+2024-05-12 05:05:36,402 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:37501
+2024-05-12 05:05:36,402 - distributed.worker - INFO -          dashboard at:            127.0.0.1:42065
+2024-05-12 05:05:36,402 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9359
+2024-05-12 05:05:36,402 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:36,402 - distributed.worker - INFO -               Threads:                          4
+2024-05-12 05:05:36,402 - distributed.worker - INFO -                Memory:                 251.94 GiB
+2024-05-12 05:05:36,402 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/mockworker-a57uth6t
+2024-05-12 05:05:36,402 - distributed.worker - INFO - Starting Worker plugin PreImport-db8a245d-b8ce-4d02-90e9-bfe2e6594d97
+2024-05-12 05:05:36,402 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-502745d6-98e3-4c40-a542-c813f8473773
+2024-05-12 05:05:36,402 - distributed.worker - INFO - Starting Worker plugin RMMSetup-6c768aeb-4bf0-44f3-9d9a-463187e1f1a4
+2024-05-12 05:05:36,403 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:36,452 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:37501', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:36,453 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:37501
+2024-05-12 05:05:36,453 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:52176
+2024-05-12 05:05:36,454 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:36,455 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9359
+2024-05-12 05:05:36,455 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:36,456 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9359
+2024-05-12 05:05:36,597 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:36,598 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:36,602 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:36,602 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:36973
+2024-05-12 05:05:36,602 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:36973
+2024-05-12 05:05:36,603 - distributed.worker - INFO -          dashboard at:            127.0.0.1:35661
+2024-05-12 05:05:36,603 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9359
+2024-05-12 05:05:36,603 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:36,603 - distributed.worker - INFO -               Threads:                          4
+2024-05-12 05:05:36,603 - distributed.worker - INFO -                Memory:                 251.94 GiB
+2024-05-12 05:05:36,603 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/mockworker-i5wm2wed
+2024-05-12 05:05:36,603 - distributed.worker - INFO - Starting Worker plugin PreImport-38e21490-e533-45be-82e2-7043cd45181e
+2024-05-12 05:05:36,603 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-39561c1d-1ad4-4879-9220-f37ea2e99787
+2024-05-12 05:05:36,604 - distributed.worker - INFO - Starting Worker plugin RMMSetup-9ca343d1-60ca-4fdd-9d4c-4a3abe1e5ab0
+2024-05-12 05:05:36,604 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:36,658 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:36973', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:36,659 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:36973
+2024-05-12 05:05:36,660 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:52190
+2024-05-12 05:05:36,660 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:36,661 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9359
+2024-05-12 05:05:36,661 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:36,663 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9359
+2024-05-12 05:05:36,700 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:36,700 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:36,705 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:36,706 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:41575
+2024-05-12 05:05:36,706 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:41575
+2024-05-12 05:05:36,707 - distributed.worker - INFO -          dashboard at:            127.0.0.1:46767
+2024-05-12 05:05:36,707 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9359
+2024-05-12 05:05:36,707 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:36,707 - distributed.worker - INFO -               Threads:                          4
+2024-05-12 05:05:36,707 - distributed.worker - INFO -                Memory:                 251.94 GiB
+2024-05-12 05:05:36,707 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/mockworker-11157pyq
+2024-05-12 05:05:36,707 - distributed.worker - INFO - Starting Worker plugin PreImport-848be556-4bf0-4365-b956-4cd56ee001d1
+2024-05-12 05:05:36,707 - distributed.worker - INFO - Starting Worker plugin RMMSetup-11cec3b1-a61b-4ae6-9612-95452f3f29dd
+2024-05-12 05:05:36,707 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-14b0088a-7c04-4193-9c5f-b4c174248cd1
+2024-05-12 05:05:36,707 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:36,763 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:41575', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:36,764 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:41575
+2024-05-12 05:05:36,764 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:52206
+2024-05-12 05:05:36,765 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:36,765 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9359
+2024-05-12 05:05:36,765 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:36,767 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9359
+2024-05-12 05:05:36,872 - distributed.worker - INFO - Run out-of-band function 'get_visible_devices'
+2024-05-12 05:05:36,872 - distributed.worker - INFO - Run out-of-band function 'get_visible_devices'
+2024-05-12 05:05:36,872 - distributed.worker - INFO - Run out-of-band function 'get_visible_devices'
+2024-05-12 05:05:36,873 - distributed.worker - INFO - Run out-of-band function 'get_visible_devices'
+2024-05-12 05:05:36,882 - distributed.scheduler - INFO - Remove client Client-42575da5-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:36,883 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:52148; closing.
+2024-05-12 05:05:36,883 - distributed.scheduler - INFO - Remove client Client-42575da5-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:36,884 - distributed.scheduler - INFO - Close client connection: Client-42575da5-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:36,885 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:35033'. Reason: nanny-close
+2024-05-12 05:05:36,885 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:36,885 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:38753'. Reason: nanny-close
+2024-05-12 05:05:36,886 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:36,886 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:34811'. Reason: nanny-close
+2024-05-12 05:05:36,886 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:37501. Reason: nanny-close
+2024-05-12 05:05:36,886 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:36,887 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:42635'. Reason: nanny-close
+2024-05-12 05:05:36,887 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:36,887 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:41575. Reason: nanny-close
+2024-05-12 05:05:36,887 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:40065. Reason: nanny-close
+2024-05-12 05:05:36,888 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:36973. Reason: nanny-close
+2024-05-12 05:05:36,889 - distributed.core - INFO - Connection to tcp://127.0.0.1:9359 has been closed.
+2024-05-12 05:05:36,889 - distributed.core - INFO - Connection to tcp://127.0.0.1:9359 has been closed.
+2024-05-12 05:05:36,889 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:52166; closing.
+2024-05-12 05:05:36,889 - distributed.core - INFO - Connection to tcp://127.0.0.1:9359 has been closed.
+2024-05-12 05:05:36,889 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:52176; closing.
+2024-05-12 05:05:36,890 - distributed.core - INFO - Connection to tcp://127.0.0.1:9359 has been closed.
+2024-05-12 05:05:36,890 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:40065', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490336.8905675')
+2024-05-12 05:05:36,890 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:36,891 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:36,891 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:36,891 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:37501', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490336.8915198')
+2024-05-12 05:05:36,891 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:36,892 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:52206; closing.
+2024-05-12 05:05:36,893 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:52190; closing.
+2024-05-12 05:05:36,893 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:41575', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490336.8933067')
+2024-05-12 05:05:36,894 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:36973', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490336.8941765')
+2024-05-12 05:05:36,894 - distributed.scheduler - INFO - Lost all workers
+2024-05-12 05:05:36,894 - distributed.batched - INFO - Batched Comm Closed <TCP (closed) Scheduler connection to worker local=tcp://127.0.0.1:9359 remote=tcp://127.0.0.1:52206>
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/batched.py", line 115, in _background_send
+    nbytes = yield coro
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/tornado/gen.py", line 767, in run
+    value = future.result()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 262, in write
+    raise CommClosedError()
+distributed.comm.core.CommClosedError
+2024-05-12 05:05:37,751 - distributed._signals - INFO - Received signal SIGINT (2)
+2024-05-12 05:05:37,751 - distributed.scheduler - INFO - Scheduler closing due to signal-2...
+2024-05-12 05:05:37,752 - distributed.scheduler - INFO - Scheduler closing all comms
+2024-05-12 05:05:37,753 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9359'
+2024-05-12 05:05:37,754 - distributed.scheduler - INFO - End scheduler
+PASSED
+dask_cuda/tests/test_dask_cuda_worker.py::test_rmm_pool Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/bin/dask", line 10, in <module>
+    sys.exit(main())
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/__main__.py", line 7, in main
+    run_cli()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/cli.py", line 207, in run_cli
+    _register_command_ep(cli, ep)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/cli.py", line 178, in _register_command_ep
+    command = entry_point.load()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/importlib_metadata/__init__.py", line 184, in load
+    module = import_module(match.group('module'))
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py", line 8, in <module>
+    import dask.dataframe.core
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/dataframe/__init__.py", line 39, in <module>
+    import dask.dataframe._pyarrow_compat
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/dataframe/_pyarrow_compat.py", line 13, in <module>
+    if Version(pa_version) < Version("14.0.1"):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/packaging/version.py", line 206, in __init__
+    pre=_parse_letter_version(match.group("pre_l"), match.group("pre_n")),
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/bin/dask", line 10, in <module>
+    sys.exit(main())
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/__main__.py", line 7, in main
+    run_cli()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/cli.py", line 207, in run_cli
+    _register_command_ep(cli, ep)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/cli.py", line 178, in _register_command_ep
+    command = entry_point.load()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/importlib_metadata/__init__.py", line 184, in load
+    module = import_module(match.group('module'))
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py", line 8, in <module>
+    import dask.dataframe.core
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/dataframe/__init__.py", line 41, in <module>
+    from dask.dataframe import backends, dispatch, methods, rolling
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/dataframe/backends.py", line 10, in <module>
+    from dask.array.core import Array
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/array/__init__.py", line 4, in <module>
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/array/backends.py", line 8, in <module>
+    from dask.array.core import Array
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/array/core.py", line 30, in <module>
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/array/chunk_types.py", line 110, in <module>
+    import cupy
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cupy/__init__.py", line 47, in <module>
+    from cupy import testing  # NOQA  # NOQA
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cupy/testing/__init__.py", line 1, in <module>
+    from cupy.testing._array import assert_allclose  # NOQA
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cupy/testing/_array.py", line 1, in <module>
+    import numpy.testing
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/testing/__init__.py", line 11, in <module>
+    from ._private.utils import *
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/testing/_private/utils.py", line 1253, in <module>
+    _SUPPORTS_SVE = check_support_sve()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/testing/_private/utils.py", line 1247, in check_support_sve
+    output = subprocess.run(cmd, capture_output=True, text=True)
+  File "/opt/conda/envs/gdf/lib/python3.9/subprocess.py", line 507, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/opt/conda/envs/gdf/lib/python3.9/subprocess.py", line 1134, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/opt/conda/envs/gdf/lib/python3.9/subprocess.py", line 1995, in _communicate
+    ready = selector.select(timeout)
+  File "/opt/conda/envs/gdf/lib/python3.9/selectors.py", line 416, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt
+PASSED
+dask_cuda/tests/test_dask_cuda_worker.py::test_rmm_managed Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site.py", line 598, in <module>
+    main()
+  File "/opt/conda/envs/gdf/lib/python3.9/site.py", line 585, in main
+    known_paths = addsitepackages(known_paths)
+  File "/opt/conda/envs/gdf/lib/python3.9/site.py", line 368, in addsitepackages
+    addsitedir(sitedir, known_paths)
+  File "/opt/conda/envs/gdf/lib/python3.9/site.py", line 217, in addsitedir
+    addpackage(sitedir, name, known_paths)
+  File "/opt/conda/envs/gdf/lib/python3.9/site.py", line 177, in addpackage
+    exec(line)
+  File "<string>", line 1, in <module>
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/__init__.py", line 3, in <module>
+    from .dask_loader import DaskLoader
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 4, in <module>
+    import importlib.abc
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/abc.py", line 17, in <module>
+    from typing import Protocol, runtime_checkable
+  File "/opt/conda/envs/gdf/lib/python3.9/typing.py", line 950, in <module>
+    class _LiteralGenericAlias(_GenericAlias, _root=True):
+  File "/opt/conda/envs/gdf/lib/python3.9/typing.py", line 309, in __init_subclass__
+    def __init_subclass__(self, /, *args, **kwds):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/bin/dask", line 6, in <module>
+    from dask.__main__ import main
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 28, in create_module
+    return proxy.load_module(spec)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/importer.py", line 29, in load_module
+    mod = importlib.import_module(self.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/__init__.py", line 3, in <module>
+    from dask import config, datasets
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/config.py", line 16, in <module>
+    import yaml
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/__init__.py", line 13, in <module>
+    from .cyaml import *
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/cyaml.py", line 7, in <module>
+    from yaml._yaml import CParser, CEmitter
+  File "<frozen importlib._bootstrap>", line 398, in parent
+KeyboardInterrupt
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_rmm_async Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site.py", line 598, in <module>
+    main()
+  File "/opt/conda/envs/gdf/lib/python3.9/site.py", line 585, in main
+    known_paths = addsitepackages(known_paths)
+  File "/opt/conda/envs/gdf/lib/python3.9/site.py", line 368, in addsitepackages
+    addsitedir(sitedir, known_paths)
+  File "/opt/conda/envs/gdf/lib/python3.9/site.py", line 217, in addsitedir
+    addpackage(sitedir, name, known_paths)
+  File "/opt/conda/envs/gdf/lib/python3.9/site.py", line 177, in addpackage
+    exec(line)
+  File "<string>", line 1, in <module>
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/__init__.py", line 3, in <module>
+    from .dask_loader import DaskLoader
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 4, in <module>
+    import importlib.abc
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/abc.py", line 17, in <module>
+    from typing import Protocol, runtime_checkable
+  File "/opt/conda/envs/gdf/lib/python3.9/typing.py", line 1043, in <module>
+    class _TypingEmpty:
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/bin/dask", line 6, in <module>
+    from dask.__main__ import main
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 28, in create_module
+    return proxy.load_module(spec)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/importer.py", line 29, in load_module
+    mod = importlib.import_module(self.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/__init__.py", line 3, in <module>
+    from dask import config, datasets
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/config.py", line 849, in <module>
+    _initialize()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/config.py", line 843, in _initialize
+    _defaults = yaml.safe_load(f)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+KeyboardInterrupt
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_rmm_async_with_maximum_pool_size Traceback (most recent call last):
+  File "<frozen importlib._bootstrap_external>", line 1362, in _path_importer_cache
+KeyError: '/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/patches'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/bin/dask", line 6, in <module>
+    from dask.__main__ import main
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 24, in create_module
+    proxy = importlib.import_module(
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 982, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 925, in _find_spec
+  File "<frozen importlib._bootstrap_external>", line 1423, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1392, in _get_spec
+  File "<frozen importlib._bootstrap_external>", line 1364, in _path_importer_cache
+  File "<frozen importlib._bootstrap_external>", line 1340, in _path_hooks
+  File "<frozen zipimport>", line 75, in __init__
+  File "<frozen importlib._bootstrap_external>", line 142, in _path_stat
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/bin/dask", line 6, in <module>
+    from dask.__main__ import main
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 28, in create_module
+    return proxy.load_module(spec)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/importer.py", line 29, in load_module
+    mod = importlib.import_module(self.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/__init__.py", line 3, in <module>
+    from dask import config, datasets
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/config.py", line 849, in <module>
+    _initialize()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/config.py", line 843, in _initialize
+    _defaults = yaml.safe_load(f)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/composer.py", line 64, in compose_node
+    if self.check_event(AliasEvent):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/parser.py", line 451, in parse_block_mapping_value
+    return self.parse_block_node_or_indentless_sequence()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/parser.py", line 271, in parse_block_node_or_indentless_sequence
+    return self.parse_node(block=True, indentless_sequence=True)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/parser.py", line 352, in parse_node
+    elif block and self.check_token(BlockMappingStartToken):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/scanner.py", line 115, in check_token
+    while self.need_more_tokens():
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/yaml/scanner.py", line 153, in need_more_tokens
+    if self.next_possible_simple_key() == self.tokens_taken:
+KeyboardInterrupt
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_rmm_logging 2024-05-12 05:05:42,319 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:05:42,325 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2024-05-12 05:05:42,328 - distributed.scheduler - INFO - State start
+2024-05-12 05:05:42,350 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:05:42,351 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9369
+2024-05-12 05:05:42,352 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2024-05-12 05:05:42,352 - distributed.scheduler - INFO - Registering Worker plugin shuffle
+2024-05-12 05:05:42,488 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:44303'
+2024-05-12 05:05:42,499 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:36017'
+2024-05-12 05:05:42,508 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:37427'
+2024-05-12 05:05:42,524 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:38085'
+2024-05-12 05:05:42,526 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:38475'
+2024-05-12 05:05:42,537 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:40435'
+2024-05-12 05:05:42,546 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:40131'
+2024-05-12 05:05:42,555 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:38087'
+2024-05-12 05:05:42,826 - distributed.scheduler - INFO - Receive client connection: Client-47c7a7fb-101d-11ef-a7e5-d8c49764f6bb
+2024-05-12 05:05:42,840 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58472
+2024-05-12 05:05:43,210 - distributed.scheduler - INFO - Receive client connection: Client-47098c01-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:43,211 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58498
+2024-05-12 05:05:44,563 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:44,563 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:44,563 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:44,564 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:44,570 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:44,571 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:44,572 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:40367
+2024-05-12 05:05:44,572 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:40367
+2024-05-12 05:05:44,572 - distributed.worker - INFO -          dashboard at:            127.0.0.1:46663
+2024-05-12 05:05:44,572 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:44,572 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:40413
+2024-05-12 05:05:44,572 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:44,572 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:40413
+2024-05-12 05:05:44,572 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:05:44,572 - distributed.worker - INFO -          dashboard at:            127.0.0.1:37369
+2024-05-12 05:05:44,572 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:05:44,572 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:44,572 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-xcpix6p9
+2024-05-12 05:05:44,572 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:44,572 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:05:44,572 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:05:44,572 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-ysn7s_l5
+2024-05-12 05:05:44,572 - distributed.worker - INFO - Starting Worker plugin PreImport-7627bc33-863a-4cb2-ad7f-eed874d1c5ce
+2024-05-12 05:05:44,572 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-3abb5c16-bdad-465b-b75a-37dd112f083f
+2024-05-12 05:05:44,573 - distributed.worker - INFO - Starting Worker plugin PreImport-bd396ea9-9f1d-4b01-b450-fd191df677fa
+2024-05-12 05:05:44,573 - distributed.worker - INFO - Starting Worker plugin RMMSetup-7c6acfc0-9824-4728-84c7-be7c1c785e78
+2024-05-12 05:05:44,573 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-744981ba-401c-472f-ad3b-af1d9d6a5f01
+2024-05-12 05:05:44,573 - distributed.worker - INFO - Starting Worker plugin RMMSetup-a87172b4-f930-41c2-9ec0-ce1fab011d8d
+2024-05-12 05:05:44,578 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:44,578 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:44,586 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:44,588 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:44507
+2024-05-12 05:05:44,588 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:44507
+2024-05-12 05:05:44,588 - distributed.worker - INFO -          dashboard at:            127.0.0.1:38447
+2024-05-12 05:05:44,588 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:44,588 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:44,588 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:05:44,588 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:05:44,588 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-zlydoq8g
+2024-05-12 05:05:44,589 - distributed.worker - INFO - Starting Worker plugin PreImport-8a7e2317-31ad-429c-a2bd-cbfcf0441bec
+2024-05-12 05:05:44,589 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-d078a088-7b4f-4fb3-95ed-cd0092c29528
+2024-05-12 05:05:44,589 - distributed.worker - INFO - Starting Worker plugin RMMSetup-0eb90327-6bd2-4509-bde0-e2cac29eaa40
+2024-05-12 05:05:44,659 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:44,659 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:44,662 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:44,663 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:44,666 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:44,666 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:44,666 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:44,668 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:36177
+2024-05-12 05:05:44,668 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:36177
+2024-05-12 05:05:44,668 - distributed.worker - INFO -          dashboard at:            127.0.0.1:46075
+2024-05-12 05:05:44,668 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:44,668 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:44,668 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:05:44,668 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:05:44,668 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-1y4rhlyt
+2024-05-12 05:05:44,668 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-a7de60a8-c88c-4663-b333-589ec10c8ee9
+2024-05-12 05:05:44,669 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:44,669 - distributed.worker - INFO - Starting Worker plugin PreImport-4ec01004-e43f-452b-8195-a48cd0cd1df8
+2024-05-12 05:05:44,669 - distributed.worker - INFO - Starting Worker plugin RMMSetup-2f72b79f-7393-42f6-b416-e46ff41248e9
+2024-05-12 05:05:44,670 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:41319
+2024-05-12 05:05:44,670 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:41319
+2024-05-12 05:05:44,670 - distributed.worker - INFO -          dashboard at:            127.0.0.1:40225
+2024-05-12 05:05:44,670 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:44,670 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:44,670 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:05:44,670 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:05:44,670 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-my7vftzi
+2024-05-12 05:05:44,670 - distributed.worker - INFO - Starting Worker plugin PreImport-67ea916f-1510-4cf6-bdc6-b69631b1763c
+2024-05-12 05:05:44,671 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-8312ac38-7d12-493a-b083-a6ad178971b2
+2024-05-12 05:05:44,671 - distributed.worker - INFO - Starting Worker plugin RMMSetup-361c1b88-2eac-4aec-be5e-dfbb85398d73
+2024-05-12 05:05:44,672 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:44,673 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:42495
+2024-05-12 05:05:44,673 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:42495
+2024-05-12 05:05:44,674 - distributed.worker - INFO -          dashboard at:            127.0.0.1:45383
+2024-05-12 05:05:44,674 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:44,674 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:44,674 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:05:44,674 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:05:44,674 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-wbfzh2q1
+2024-05-12 05:05:44,674 - distributed.worker - INFO - Starting Worker plugin PreImport-02a90636-ce32-461b-82aa-e76b333b603b
+2024-05-12 05:05:44,674 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-fc2fa064-5094-4e89-8d9e-e422d2652ac1
+2024-05-12 05:05:44,675 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:44,675 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:44,675 - distributed.worker - INFO - Starting Worker plugin RMMSetup-2faf9caa-42c0-4048-b440-60f5734fd493
+2024-05-12 05:05:44,677 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:44,677 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:44,681 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:44,682 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:40833
+2024-05-12 05:05:44,682 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:40833
+2024-05-12 05:05:44,682 - distributed.worker - INFO -          dashboard at:            127.0.0.1:46701
+2024-05-12 05:05:44,682 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:44,682 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:44,682 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:05:44,683 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:05:44,683 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-zktkf1y5
+2024-05-12 05:05:44,683 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:44,683 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-1889b271-62b1-4e15-a49c-f47824cf21fc
+2024-05-12 05:05:44,684 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:43813
+2024-05-12 05:05:44,684 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:43813
+2024-05-12 05:05:44,684 - distributed.worker - INFO -          dashboard at:            127.0.0.1:35549
+2024-05-12 05:05:44,684 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:44,684 - distributed.worker - INFO - Starting Worker plugin RMMSetup-493fb7ad-fa56-40c1-934e-992482da805c
+2024-05-12 05:05:44,684 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:44,684 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:05:44,684 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:05:44,684 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-o42uf4rg
+2024-05-12 05:05:44,684 - distributed.worker - INFO - Starting Worker plugin RMMSetup-6426bb1f-9a54-458a-b691-8e48f8b22022
+2024-05-12 05:05:45,463 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:45,485 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:40413', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:45,486 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:40413
+2024-05-12 05:05:45,486 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58612
+2024-05-12 05:05:45,487 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:45,487 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:45,487 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:45,489 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:05:46,250 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:46,273 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:40367', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:46,274 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:40367
+2024-05-12 05:05:46,274 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58614
+2024-05-12 05:05:46,275 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:46,276 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:46,276 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:46,277 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:05:46,442 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:46,464 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:44507', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:46,465 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:44507
+2024-05-12 05:05:46,465 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58622
+2024-05-12 05:05:46,466 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:46,466 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:46,467 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:46,468 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:05:46,948 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:46,956 - distributed.worker - INFO - Starting Worker plugin PreImport-efa15e21-3300-4691-8d92-9990d8e7daf4
+2024-05-12 05:05:46,958 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:46,971 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:41319', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:46,972 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:41319
+2024-05-12 05:05:46,972 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58648
+2024-05-12 05:05:46,973 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:46,974 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:46,974 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:46,975 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:46,976 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:05:46,981 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:46,991 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:40833', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:46,991 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:40833
+2024-05-12 05:05:46,991 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58664
+2024-05-12 05:05:46,991 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-4fd0daf4-ab63-4f40-ac6e-7c70654c327f
+2024-05-12 05:05:46,992 - distributed.worker - INFO - Starting Worker plugin PreImport-974bb1e3-c994-4736-80cd-247acf5897cd
+2024-05-12 05:05:46,993 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:46,993 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:46,994 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:46,994 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:46,996 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:05:47,011 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:42495', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:47,012 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:42495
+2024-05-12 05:05:47,012 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58672
+2024-05-12 05:05:47,013 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:47,014 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:47,014 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:47,015 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:36177', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:47,015 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:36177
+2024-05-12 05:05:47,016 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58686
+2024-05-12 05:05:47,016 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:05:47,017 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:47,018 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:47,019 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:47,021 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:05:47,025 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:43813', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:47,026 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:43813
+2024-05-12 05:05:47,026 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58694
+2024-05-12 05:05:47,027 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:47,029 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:47,029 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:47,031 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:05:47,040 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,040 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,041 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,041 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,041 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,041 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,041 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,041 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,046 - distributed.scheduler - INFO - Remove client Client-47c7a7fb-101d-11ef-a7e5-d8c49764f6bb
+2024-05-12 05:05:47,046 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:58472; closing.
+2024-05-12 05:05:47,046 - distributed.scheduler - INFO - Remove client Client-47c7a7fb-101d-11ef-a7e5-d8c49764f6bb
+2024-05-12 05:05:47,047 - distributed.scheduler - INFO - Close client connection: Client-47c7a7fb-101d-11ef-a7e5-d8c49764f6bb
+2024-05-12 05:05:47,055 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,055 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,055 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,055 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,056 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,056 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,056 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,056 - distributed.worker - INFO - Run out-of-band function 'get_current_device_resource_type'
+2024-05-12 05:05:47,061 - distributed.scheduler - INFO - Remove client Client-47098c01-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:47,061 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:58498; closing.
+2024-05-12 05:05:47,061 - distributed.scheduler - INFO - Remove client Client-47098c01-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:47,061 - distributed.scheduler - INFO - Close client connection: Client-47098c01-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:47,062 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:44303'. Reason: nanny-close
+2024-05-12 05:05:47,063 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:47,063 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:36017'. Reason: nanny-close
+2024-05-12 05:05:47,063 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:47,064 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:37427'. Reason: nanny-close
+2024-05-12 05:05:47,064 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:40367. Reason: nanny-close
+2024-05-12 05:05:47,064 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:47,064 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:38085'. Reason: nanny-close
+2024-05-12 05:05:47,064 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:40413. Reason: nanny-close
+2024-05-12 05:05:47,064 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:47,064 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:38475'. Reason: nanny-close
+2024-05-12 05:05:47,065 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:47,065 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:40833. Reason: nanny-close
+2024-05-12 05:05:47,065 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:40435'. Reason: nanny-close
+2024-05-12 05:05:47,065 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:47,065 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:42495. Reason: nanny-close
+2024-05-12 05:05:47,065 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:40131'. Reason: nanny-close
+2024-05-12 05:05:47,065 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:05:47,065 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:58614; closing.
+2024-05-12 05:05:47,065 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:44507. Reason: nanny-close
+2024-05-12 05:05:47,065 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:47,066 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:38087'. Reason: nanny-close
+2024-05-12 05:05:47,066 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:41319. Reason: nanny-close
+2024-05-12 05:05:47,066 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:40367', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490347.066173')
+2024-05-12 05:05:47,066 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:05:47,066 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:47,066 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:43813. Reason: nanny-close
+2024-05-12 05:05:47,067 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:36177. Reason: nanny-close
+2024-05-12 05:05:47,067 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:47,067 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:47,067 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:05:47,068 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:05:47,068 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:05:47,068 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:05:47,068 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:58612; closing.
+2024-05-12 05:05:47,069 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:47,069 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:47,069 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:05:47,069 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:05:47,069 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:47,069 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:40413', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490347.0699127')
+2024-05-12 05:05:47,070 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:47,070 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:58664; closing.
+2024-05-12 05:05:47,070 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:58672; closing.
+2024-05-12 05:05:47,071 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:47,071 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:40833', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490347.0715563')
+2024-05-12 05:05:47,071 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:47,072 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:42495', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490347.0719934')
+2024-05-12 05:05:47,072 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:58622; closing.
+2024-05-12 05:05:47,072 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:58648; closing.
+2024-05-12 05:05:47,073 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:44507', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490347.073621')
+2024-05-12 05:05:47,074 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:41319', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490347.0741608')
+2024-05-12 05:05:47,074 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:58694; closing.
+2024-05-12 05:05:47,074 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:58686; closing.
+2024-05-12 05:05:47,075 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:43813', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490347.0755453')
+2024-05-12 05:05:47,076 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:36177', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490347.0761023')
+2024-05-12 05:05:47,076 - distributed.scheduler - INFO - Lost all workers
+2024-05-12 05:05:49,012 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:33479', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:49,013 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:33479
+2024-05-12 05:05:49,013 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58706
+2024-05-12 05:05:49,058 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:58706; closing.
+2024-05-12 05:05:49,058 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:33479', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490349.0588846')
+2024-05-12 05:05:49,059 - distributed.scheduler - INFO - Lost all workers
+2024-05-12 05:05:49,079 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:44681', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:49,080 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:44681
+2024-05-12 05:05:49,080 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58718
+2024-05-12 05:05:49,108 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:58718; closing.
+2024-05-12 05:05:49,109 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:44681', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490349.1090753')
+2024-05-12 05:05:49,109 - distributed.scheduler - INFO - Lost all workers
+2024-05-12 05:05:49,110 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:39343', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:49,111 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:39343
+2024-05-12 05:05:49,111 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:58726
+2024-05-12 05:05:49,130 - distributed._signals - INFO - Received signal SIGINT (2)
+2024-05-12 05:05:49,131 - distributed.scheduler - INFO - Scheduler closing due to signal-2...
+2024-05-12 05:05:49,131 - distributed.scheduler - INFO - Scheduler closing all comms
+2024-05-12 05:05:49,132 - distributed.core - INFO - Connection to tcp://127.0.0.1:58726 has been closed.
+2024-05-12 05:05:49,132 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:39343', status: running, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490349.1324806')
+2024-05-12 05:05:49,132 - distributed.scheduler - INFO - Lost all workers
+2024-05-12 05:05:49,135 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9369'
+2024-05-12 05:05:49,135 - distributed.scheduler - INFO - End scheduler
+PASSED
+dask_cuda/tests/test_dask_cuda_worker.py::test_dashboard_address 2024-05-12 05:05:51,334 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:05:51,340 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2024-05-12 05:05:51,344 - distributed.scheduler - INFO - State start
+2024-05-12 05:05:51,364 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:05:51,365 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9369
+2024-05-12 05:05:51,365 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2024-05-12 05:05:51,366 - distributed.scheduler - INFO - Registering Worker plugin shuffle
+2024-05-12 05:05:51,407 - distributed.scheduler - WARNING - Received heartbeat from unregistered worker 'tcp://127.0.0.1:39343'.
+2024-05-12 05:05:51,432 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:42565'
+2024-05-12 05:05:51,531 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:40845', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:51,544 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:40845
+2024-05-12 05:05:51,544 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:60200
+2024-05-12 05:05:51,598 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:60200; closing.
+2024-05-12 05:05:51,598 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:40845', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490351.5985296')
+2024-05-12 05:05:51,598 - distributed.scheduler - INFO - Lost all workers
+2024-05-12 05:05:52,572 - distributed.scheduler - INFO - Receive client connection: Client-4c828bd1-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:52,572 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:60216
+2024-05-12 05:05:52,643 - distributed.scheduler - INFO - Receive client connection: Client-4e59d621-101d-11ef-a7e5-d8c49764f6bb
+2024-05-12 05:05:52,643 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:60224
+2024-05-12 05:05:53,217 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:05:53,217 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:05:53,728 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:05:53,729 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:34999
+2024-05-12 05:05:53,729 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:34999
+2024-05-12 05:05:53,729 - distributed.worker - INFO -          dashboard at:             127.0.0.1:9370
+2024-05-12 05:05:53,729 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:53,729 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:53,729 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:05:53,729 - distributed.worker - INFO -                Memory:                   0.98 TiB
+2024-05-12 05:05:53,730 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-_i_5n78h
+2024-05-12 05:05:53,730 - distributed.worker - INFO - Starting Worker plugin RMMSetup-76f01aa6-62d4-4170-8366-3a280eb6fd14
+2024-05-12 05:05:53,730 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-7bfa7f61-2073-4da2-963a-2dad2eee19ed
+2024-05-12 05:05:53,730 - distributed.worker - INFO - Starting Worker plugin PreImport-1c41c175-b9ae-4e05-8719-cf51359fcb2f
+2024-05-12 05:05:53,731 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:53,789 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:34999', status: init, memory: 0, processing: 0>
+2024-05-12 05:05:53,789 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:34999
+2024-05-12 05:05:53,789 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:60240
+2024-05-12 05:05:53,791 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:05:53,792 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:05:53,792 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:05:53,793 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:05:53,798 - distributed.worker - INFO - Run out-of-band function 'lambda'
+2024-05-12 05:05:53,801 - distributed.scheduler - INFO - Remove client Client-4c828bd1-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:53,801 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:60216; closing.
+2024-05-12 05:05:53,801 - distributed.scheduler - INFO - Remove client Client-4c828bd1-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:53,802 - distributed.scheduler - INFO - Close client connection: Client-4c828bd1-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:53,802 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:42565'. Reason: nanny-close
+2024-05-12 05:05:53,811 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:05:53,812 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:34999. Reason: nanny-close
+2024-05-12 05:05:53,814 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:60240; closing.
+2024-05-12 05:05:53,814 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:05:53,814 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:34999', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490353.8148887')
+2024-05-12 05:05:53,815 - distributed.scheduler - INFO - Lost all workers
+2024-05-12 05:05:53,816 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:05:54,568 - distributed._signals - INFO - Received signal SIGINT (2)
+2024-05-12 05:05:54,568 - distributed.scheduler - INFO - Scheduler closing due to signal-2...
+2024-05-12 05:05:54,569 - distributed.scheduler - INFO - Scheduler closing all comms
+2024-05-12 05:05:54,570 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9369'
+2024-05-12 05:05:54,571 - distributed.scheduler - INFO - End scheduler
+PASSED
+dask_cuda/tests/test_dask_cuda_worker.py::test_unknown_argument PASSED
+dask_cuda/tests/test_dask_cuda_worker.py::test_pre_import 2024-05-12 05:05:58,828 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:05:58,834 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2024-05-12 05:05:58,837 - distributed.scheduler - INFO - State start
+2024-05-12 05:05:58,857 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:05:58,858 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9369
+2024-05-12 05:05:58,859 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2024-05-12 05:05:58,859 - distributed.scheduler - INFO - Registering Worker plugin shuffle
+2024-05-12 05:05:58,864 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:36789'
+2024-05-12 05:05:59,311 - distributed.scheduler - INFO - Receive client connection: Client-50f2e2a6-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:05:59,323 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:33122
+2024-05-12 05:06:00,795 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:06:00,795 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:06:01,273 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:35129', status: init, memory: 0, processing: 0>
+2024-05-12 05:06:01,274 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:35129
+2024-05-12 05:06:01,274 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:36718
+2024-05-12 05:06:01,368 - distributed.scheduler - INFO - Remove client Client-50f2e2a6-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:06:01,368 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:33122; closing.
+2024-05-12 05:06:01,369 - distributed.scheduler - INFO - Remove client Client-50f2e2a6-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:06:01,369 - distributed.scheduler - INFO - Close client connection: Client-50f2e2a6-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:06:01,370 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:36789'. Reason: nanny-close
+2024-05-12 05:06:01,492 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:06:01,493 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:44945
+2024-05-12 05:06:01,493 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:44945
+2024-05-12 05:06:01,493 - distributed.worker - INFO -          dashboard at:            127.0.0.1:43675
+2024-05-12 05:06:01,493 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:01,493 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:01,493 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:06:01,493 - distributed.worker - INFO -                Memory:                   0.98 TiB
+2024-05-12 05:06:01,493 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-5s7zp3r1
+2024-05-12 05:06:01,494 - distributed.worker - INFO - Starting Worker plugin RMMSetup-61cc0bfb-da3c-4408-8a42-4dafa7611e59
+2024-05-12 05:06:01,494 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-3987a1a5-4063-4412-a405-2736deb000b7
+2024-05-12 05:06:01,494 - distributed.worker - INFO - Starting Worker plugin PreImport-b24da38a-cbe6-4c45-a19e-8457b0b38151
+2024-05-12 05:06:01,495 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:01,502 - distributed.scheduler - INFO - Receive client connection: Client-4e59d621-101d-11ef-a7e5-d8c49764f6bb
+2024-05-12 05:06:01,503 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:36742
+2024-05-12 05:06:01,715 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:44945', status: init, memory: 0, processing: 0>
+2024-05-12 05:06:01,716 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:44945
+2024-05-12 05:06:01,717 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:36738
+2024-05-12 05:06:01,717 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:06:01,718 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:01,718 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:01,719 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:06:01,743 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:06:01,744 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:44945. Reason: nanny-close
+2024-05-12 05:06:01,746 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:06:01,746 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:36738; closing.
+2024-05-12 05:06:01,746 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:44945', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490361.7467434')
+2024-05-12 05:06:01,747 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:06:01,851 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:34399', status: init, memory: 0, processing: 0>
+2024-05-12 05:06:01,852 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:34399
+2024-05-12 05:06:01,852 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:36758
+2024-05-12 05:06:02,286 - distributed._signals - INFO - Received signal SIGINT (2)
+2024-05-12 05:06:02,287 - distributed.scheduler - INFO - Scheduler closing due to signal-2...
+2024-05-12 05:06:02,287 - distributed.scheduler - INFO - Scheduler closing all comms
+2024-05-12 05:06:02,288 - distributed.core - INFO - Connection to tcp://127.0.0.1:36718 has been closed.
+2024-05-12 05:06:02,288 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:35129', status: running, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490362.288853')
+2024-05-12 05:06:02,289 - distributed.core - INFO - Connection to tcp://127.0.0.1:36758 has been closed.
+2024-05-12 05:06:02,289 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:34399', status: running, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490362.2893512')
+2024-05-12 05:06:02,289 - distributed.scheduler - INFO - Lost all workers
+2024-05-12 05:06:02,291 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9369'
+2024-05-12 05:06:02,291 - distributed.scheduler - INFO - End scheduler
+PASSED
+dask_cuda/tests/test_dask_cuda_worker.py::test_pre_import_not_found 2024-05-12 05:06:04,762 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:06:04,768 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2024-05-12 05:06:04,772 - distributed.scheduler - INFO - State start
+2024-05-12 05:06:04,796 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:06:04,797 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9369
+2024-05-12 05:06:04,798 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2024-05-12 05:06:04,798 - distributed.scheduler - INFO - Registering Worker plugin shuffle
+2024-05-12 05:06:04,843 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:34085', status: init, memory: 0, processing: 0>
+2024-05-12 05:06:04,855 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:34085
+2024-05-12 05:06:04,855 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:37188
+2024-05-12 05:06:04,857 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:45653', status: init, memory: 0, processing: 0>
+2024-05-12 05:06:04,857 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:45653
+2024-05-12 05:06:04,857 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:37198
+2024-05-12 05:06:04,913 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:37188; closing.
+2024-05-12 05:06:04,913 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:34085', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490364.9136565')
+2024-05-12 05:06:04,914 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:37198; closing.
+2024-05-12 05:06:04,915 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:45653', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490364.9151335')
+2024-05-12 05:06:04,915 - distributed.scheduler - INFO - Lost all workers
+2024-05-12 05:06:05,090 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:39281', status: init, memory: 0, processing: 0>
+2024-05-12 05:06:05,091 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:39281
+2024-05-12 05:06:05,091 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:37210
+2024-05-12 05:06:05,118 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:37210; closing.
+2024-05-12 05:06:05,118 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:39281', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490365.1186175')
+2024-05-12 05:06:05,118 - distributed.scheduler - INFO - Lost all workers
+2024-05-12 05:06:05,376 - distributed.scheduler - INFO - Receive client connection: Client-4e59d621-101d-11ef-a7e5-d8c49764f6bb
+2024-05-12 05:06:05,377 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:37216
+2024-05-12 05:06:05,648 - distributed.core - INFO - Lost connection to 'tcp://127.0.0.1:37202'
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 970, in _handle_comm
+    result = await result
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/scheduler.py", line 4454, in add_nanny
+    await comm.read()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 236, in read
+    convert_stream_closed_error(self, e)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed)  local=tcp://127.0.0.1:9369 remote=tcp://127.0.0.1:37202>: Stream is closed
+2024-05-12 05:06:07,402 - distributed.core - INFO - Lost connection to 'tcp://127.0.0.1:37206'
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 225, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 970, in _handle_comm
+    result = await result
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/scheduler.py", line 4454, in add_nanny
+    await comm.read()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 236, in read
+    convert_stream_closed_error(self, e)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 142, in convert_stream_closed_error
+    raise CommClosedError(f"in {obj}: {exc}") from exc
+distributed.comm.core.CommClosedError: in <TCP (closed)  local=tcp://127.0.0.1:9369 remote=tcp://127.0.0.1:37206>: Stream is closed
+2024-05-12 05:06:07,680 - distributed._signals - INFO - Received signal SIGINT (2)
+2024-05-12 05:06:07,680 - distributed.scheduler - INFO - Scheduler closing due to signal-2...
+2024-05-12 05:06:07,681 - distributed.scheduler - INFO - Scheduler closing all comms
+2024-05-12 05:06:07,682 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9369'
+2024-05-12 05:06:07,682 - distributed.scheduler - INFO - End scheduler
+PASSED
+dask_cuda/tests/test_dask_cuda_worker.py::test_cuda_mig_visible_devices_and_memory_limit_and_nthreads SKIPPED
+dask_cuda/tests/test_dask_cuda_worker.py::test_cuda_visible_devices_uuid 2024-05-12 05:06:10,043 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:06:10,048 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+2024-05-12 05:06:10,052 - distributed.scheduler - INFO - State start
+2024-05-12 05:06:10,074 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:06:10,075 - distributed.scheduler - INFO -   Scheduler at:  tcp://10.33.227.163:9359
+2024-05-12 05:06:10,075 - distributed.scheduler - INFO -   dashboard at:  http://10.33.227.163:8787/status
+2024-05-12 05:06:10,076 - distributed.scheduler - INFO - Registering Worker plugin shuffle
+2024-05-12 05:06:10,139 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:40039'
+2024-05-12 05:06:10,265 - distributed.scheduler - INFO - Receive client connection: Client-578c69b3-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:06:10,277 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:49866
+2024-05-12 05:06:10,865 - distributed.scheduler - INFO - Receive client connection: Client-57bd2aa6-101d-11ef-ac69-d8c49764f6bb
+2024-05-12 05:06:10,866 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:49930
+2024-05-12 05:06:11,956 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:06:11,956 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:06:11,960 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:06:11,961 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:42331
+2024-05-12 05:06:11,961 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:42331
+2024-05-12 05:06:11,961 - distributed.worker - INFO -          dashboard at:            127.0.0.1:35797
+2024-05-12 05:06:11,961 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9359
+2024-05-12 05:06:11,961 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:11,961 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:06:11,962 - distributed.worker - INFO -                Memory:                   0.98 TiB
+2024-05-12 05:06:11,962 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/mockworker-qnegpj08
+2024-05-12 05:06:11,962 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-8d81d5a6-664a-4273-8920-5e765b1bea92
+2024-05-12 05:06:11,962 - distributed.worker - INFO - Starting Worker plugin RMMSetup-1ec49fee-c7b2-4aca-be5f-736edb243609
+2024-05-12 05:06:11,962 - distributed.worker - INFO - Starting Worker plugin PreImport-d3e93dde-a4af-4a53-bbd5-6d4ad1fab100
+2024-05-12 05:06:11,962 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:12,014 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:42331', status: init, memory: 0, processing: 0>
+2024-05-12 05:06:12,016 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:42331
+2024-05-12 05:06:12,016 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:49968
+2024-05-12 05:06:12,016 - distributed.scheduler - INFO - Receive client connection: Client-59dcf05d-101d-11ef-ac6e-d8c49764f6bb
+2024-05-12 05:06:12,017 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:49946
+2024-05-12 05:06:12,017 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:06:12,018 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9359
+2024-05-12 05:06:12,018 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:12,019 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9359
+2024-05-12 05:06:12,116 - distributed.worker - INFO - Run out-of-band function 'lambda'
+2024-05-12 05:06:12,119 - distributed.scheduler - INFO - Remove client Client-578c69b3-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:06:12,119 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:49866; closing.
+2024-05-12 05:06:12,119 - distributed.scheduler - INFO - Remove client Client-578c69b3-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:06:12,120 - distributed.scheduler - INFO - Close client connection: Client-578c69b3-101d-11ef-a7e4-d8c49764f6bb
+2024-05-12 05:06:12,121 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:40039'. Reason: nanny-close
+2024-05-12 05:06:12,122 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:06:12,123 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:42331. Reason: nanny-close
+2024-05-12 05:06:12,125 - distributed.core - INFO - Connection to tcp://127.0.0.1:9359 has been closed.
+2024-05-12 05:06:12,125 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:49968; closing.
+2024-05-12 05:06:12,125 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:42331', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490372.125512')
+2024-05-12 05:06:12,125 - distributed.scheduler - INFO - Lost all workers
+2024-05-12 05:06:12,126 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:06:12,325 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:35823', status: init, memory: 0, processing: 0>
+2024-05-12 05:06:12,326 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:35823
+2024-05-12 05:06:12,326 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:49982
+2024-05-12 05:06:12,354 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:34691', status: init, memory: 0, processing: 0>
+2024-05-12 05:06:12,355 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:34691
+2024-05-12 05:06:12,355 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:49984
+2024-05-12 05:06:12,380 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:41309', status: init, memory: 0, processing: 0>
+2024-05-12 05:06:12,381 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:41309
+2024-05-12 05:06:12,381 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:49988
+2024-05-12 05:06:12,410 - distributed.scheduler - INFO - Register worker <WorkerState 'tcp://127.0.0.1:38559', status: init, memory: 0, processing: 0>
+2024-05-12 05:06:12,410 - distributed.scheduler - INFO - Starting worker compute stream, tcp://127.0.0.1:38559
+2024-05-12 05:06:12,410 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:49986
+2024-05-12 05:06:12,445 - distributed.scheduler - INFO - Remove client Client-59dcf05d-101d-11ef-ac6e-d8c49764f6bb
+2024-05-12 05:06:12,446 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:49946; closing.
+2024-05-12 05:06:12,446 - distributed.scheduler - INFO - Remove client Client-59dcf05d-101d-11ef-ac6e-d8c49764f6bb
+2024-05-12 05:06:12,446 - distributed.scheduler - INFO - Close client connection: Client-59dcf05d-101d-11ef-ac6e-d8c49764f6bb
+2024-05-12 05:06:12,517 - distributed.scheduler - INFO - Remove client Client-57bd2aa6-101d-11ef-ac69-d8c49764f6bb
+2024-05-12 05:06:12,518 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:49930; closing.
+2024-05-12 05:06:12,518 - distributed.scheduler - INFO - Remove client Client-57bd2aa6-101d-11ef-ac69-d8c49764f6bb
+2024-05-12 05:06:12,518 - distributed.scheduler - INFO - Close client connection: Client-57bd2aa6-101d-11ef-ac69-d8c49764f6bb
+2024-05-12 05:06:12,523 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:49982; closing.
+2024-05-12 05:06:12,523 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:35823', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490372.5235107')
+2024-05-12 05:06:12,524 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:49986; closing.
+2024-05-12 05:06:12,525 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:49988; closing.
+2024-05-12 05:06:12,525 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:38559', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490372.5257492')
+2024-05-12 05:06:12,526 - distributed.core - INFO - Received 'close-stream' from tcp://127.0.0.1:49984; closing.
+2024-05-12 05:06:12,526 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:41309', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490372.5264015')
+2024-05-12 05:06:12,526 - distributed.scheduler - INFO - Remove worker <WorkerState 'tcp://127.0.0.1:34691', status: closing, memory: 0, processing: 0> (stimulus_id='handle-worker-cleanup-1715490372.5268302')
+2024-05-12 05:06:12,527 - distributed.scheduler - INFO - Lost all workers
+2024-05-12 05:06:12,886 - distributed._signals - INFO - Received signal SIGINT (2)
+2024-05-12 05:06:12,887 - distributed.scheduler - INFO - Scheduler closing due to signal-2...
+2024-05-12 05:06:12,887 - distributed.scheduler - INFO - Scheduler closing all comms
+2024-05-12 05:06:12,888 - distributed.scheduler - INFO - Stopped scheduler at 'tcp://10.33.227.163:9359'
+2024-05-12 05:06:12,889 - distributed.scheduler - INFO - End scheduler
+PASSED
+dask_cuda/tests/test_dask_cuda_worker.py::test_rmm_track_allocations 2024-05-12 05:06:15,160 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:06:15,165 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 46741 instead
+  warnings.warn(
+2024-05-12 05:06:15,169 - distributed.scheduler - INFO - State start
+2024-05-12 05:06:15,190 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:06:15,190 - distributed.scheduler - INFO - Scheduler closing due to failure-to-start-<class 'OSError'>...
+2024-05-12 05:06:15,191 - distributed.scheduler - INFO - Scheduler closing all comms
+2024-05-12 05:06:15,192 - distributed.scheduler - INFO - End scheduler
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 664, in start
+    await wait_for(self.start_unsafe(), timeout=timeout)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1961, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/tasks.py", line 442, in wait_for
+    return await fut
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/scheduler.py", line 4053, in start_unsafe
+    await self.listen(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 859, in listen
+    listener = await listen(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/core.py", line 256, in _
+    await self.start()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 629, in start
+    sockets = netutil.bind_sockets(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/tornado/netutil.py", line 162, in bind_sockets
+    sock.bind(sockaddr)
+OSError: [Errno 98] Address already in use
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/bin/dask", line 10, in <module>
+    sys.exit(main())
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/__main__.py", line 7, in main
+    run_cli()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/cli.py", line 209, in run_cli
+    cli()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/cli/dask_scheduler.py", line 251, in main
+    asyncio_run(run(), loop_factory=get_loop_factory())
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/compatibility.py", line 236, in asyncio_run
+    return loop.run_until_complete(main)
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/cli/dask_scheduler.py", line 247, in run
+    [task.result() for task in done]
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/cli/dask_scheduler.py", line 247, in <listcomp>
+    [task.result() for task in done]
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/cli/dask_scheduler.py", line 227, in wait_for_scheduler_to_finish
+    await scheduler
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 672, in start
+    raise RuntimeError(f"{type(self).__name__} failed to start.") from exc
+RuntimeError: Scheduler failed to start.
+2024-05-12 05:06:15,553 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:36879'
+2024-05-12 05:06:15,567 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:43029'
+2024-05-12 05:06:15,579 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:44373'
+2024-05-12 05:06:15,600 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:37337'
+2024-05-12 05:06:15,603 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:45719'
+2024-05-12 05:06:15,613 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:40225'
+2024-05-12 05:06:15,624 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:45743'
+2024-05-12 05:06:15,636 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:38653'
+2024-05-12 05:06:17,827 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:06:17,827 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:06:17,834 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:06:17,835 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:34049
+2024-05-12 05:06:17,835 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:34049
+2024-05-12 05:06:17,835 - distributed.worker - INFO -          dashboard at:            127.0.0.1:39267
+2024-05-12 05:06:17,835 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:17,835 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:17,835 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:06:17,835 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:06:17,835 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-kawvn_7c
+2024-05-12 05:06:17,836 - distributed.worker - INFO - Starting Worker plugin RMMSetup-7f6e1026-5495-4fa4-92b3-76d2fffe130c
+2024-05-12 05:06:18,173 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:06:18,173 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:06:18,187 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:06:18,188 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:06:18,188 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:06:18,190 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:35521
+2024-05-12 05:06:18,190 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:35521
+2024-05-12 05:06:18,190 - distributed.worker - INFO -          dashboard at:            127.0.0.1:44753
+2024-05-12 05:06:18,190 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:18,190 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:18,190 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:06:18,190 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:06:18,190 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-laem8t2h
+2024-05-12 05:06:18,191 - distributed.worker - INFO - Starting Worker plugin RMMSetup-4c04273e-33d4-4864-8071-e2f7493f6bd4
+2024-05-12 05:06:18,194 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:06:18,195 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:34623
+2024-05-12 05:06:18,195 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:34623
+2024-05-12 05:06:18,195 - distributed.worker - INFO -          dashboard at:            127.0.0.1:37833
+2024-05-12 05:06:18,195 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:18,195 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:18,195 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:06:18,195 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:06:18,195 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-gxp9xgq0
+2024-05-12 05:06:18,195 - distributed.worker - INFO - Starting Worker plugin PreImport-03e5951e-41ac-400b-8b33-c8ae6eaa506b
+2024-05-12 05:06:18,196 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-cdea5e48-ff26-411e-b4ab-6bf72f74afce
+2024-05-12 05:06:18,196 - distributed.worker - INFO - Starting Worker plugin RMMSetup-d41874d6-089a-4fb6-bb62-d8ff5a313788
+2024-05-12 05:06:18,217 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:06:18,217 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:06:18,222 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:06:18,222 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:06:18,222 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:06:18,223 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:42561
+2024-05-12 05:06:18,223 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:42561
+2024-05-12 05:06:18,223 - distributed.worker - INFO -          dashboard at:            127.0.0.1:39291
+2024-05-12 05:06:18,223 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:18,223 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:18,224 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:06:18,224 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:06:18,224 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-9_vuj2gn
+2024-05-12 05:06:18,224 - distributed.worker - INFO - Starting Worker plugin RMMSetup-fdb76b1c-0ee2-42c2-9a3f-9891889d6353
+2024-05-12 05:06:18,225 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:06:18,225 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:06:18,228 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:06:18,229 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:41813
+2024-05-12 05:06:18,229 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:41813
+2024-05-12 05:06:18,229 - distributed.worker - INFO -          dashboard at:            127.0.0.1:41129
+2024-05-12 05:06:18,229 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:18,229 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:18,229 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:06:18,229 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:06:18,229 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-z1hhzwgv
+2024-05-12 05:06:18,229 - distributed.worker - INFO - Starting Worker plugin RMMSetup-1a28ef26-83ae-411c-a298-3640eee1ac5c
+2024-05-12 05:06:18,232 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:06:18,232 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:06:18,237 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:06:18,238 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:40077
+2024-05-12 05:06:18,238 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:40077
+2024-05-12 05:06:18,238 - distributed.worker - INFO -          dashboard at:            127.0.0.1:42603
+2024-05-12 05:06:18,238 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:18,238 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:18,238 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:06:18,238 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:06:18,238 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-lni5953x
+2024-05-12 05:06:18,239 - distributed.worker - INFO - Starting Worker plugin RMMSetup-b3042206-16fc-427f-b044-4ebf3ddb01fa
+2024-05-12 05:06:18,240 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:06:18,242 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:06:18,242 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:06:18,243 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:39317
+2024-05-12 05:06:18,243 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:39317
+2024-05-12 05:06:18,243 - distributed.worker - INFO -          dashboard at:            127.0.0.1:38583
+2024-05-12 05:06:18,243 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:18,243 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:18,243 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:06:18,243 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:06:18,243 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-zyux3ufb
+2024-05-12 05:06:18,244 - distributed.worker - INFO - Starting Worker plugin RMMSetup-3dff8a7f-7c2c-480c-b6cc-80f458da9291
+2024-05-12 05:06:18,248 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:06:18,249 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:38617
+2024-05-12 05:06:18,249 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:38617
+2024-05-12 05:06:18,249 - distributed.worker - INFO -          dashboard at:            127.0.0.1:34961
+2024-05-12 05:06:18,249 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:18,249 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:18,249 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:06:18,249 - distributed.worker - INFO -                Memory:                 125.97 GiB
+2024-05-12 05:06:18,249 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-i52fp7nx
+2024-05-12 05:06:18,250 - distributed.worker - INFO - Starting Worker plugin RMMSetup-55f00338-1da8-47c4-abcf-331c72cfeab3
+2024-05-12 05:06:22,679 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:36879'. Reason: nanny-close
+2024-05-12 05:06:22,680 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:43029'. Reason: nanny-close
+2024-05-12 05:06:22,680 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:44373'. Reason: nanny-close
+2024-05-12 05:06:22,680 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:37337'. Reason: nanny-close
+2024-05-12 05:06:22,681 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:45719'. Reason: nanny-close
+2024-05-12 05:06:22,681 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:40225'. Reason: nanny-close
+2024-05-12 05:06:22,681 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:45743'. Reason: nanny-close
+2024-05-12 05:06:22,681 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:38653'. Reason: nanny-close
+2024-05-12 05:06:22,979 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-a3ac82b5-f17b-42ef-892e-7162c8788063
+2024-05-12 05:06:22,980 - distributed.worker - INFO - Starting Worker plugin PreImport-630c3a0b-a7d3-4450-9be7-9281b82db3c9
+2024-05-12 05:06:22,981 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,017 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:06:23,018 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:23,019 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,021 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:06:23,063 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-973d367b-b368-44bd-9868-c91b70336745
+2024-05-12 05:06:23,064 - distributed.worker - INFO - Starting Worker plugin PreImport-028c499a-bce7-425a-a087-1908d67d4ad9
+2024-05-12 05:06:23,064 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,067 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:06:23,068 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:35521. Reason: nanny-close
+2024-05-12 05:06:23,071 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:06:23,073 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:06:23,087 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:06:23,088 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:23,088 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,090 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:06:23,118 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:06:23,119 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:34049. Reason: nanny-close
+2024-05-12 05:06:23,121 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:06:23,122 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:06:23,200 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,239 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:06:23,241 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:23,241 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,243 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:06:23,276 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:06:23,277 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:34623. Reason: nanny-close
+2024-05-12 05:06:23,279 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:06:23,281 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:06:23,570 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-f2a7ff34-97f7-4cdd-947d-f5e9b76df5f3
+2024-05-12 05:06:23,571 - distributed.worker - INFO - Starting Worker plugin PreImport-1ac61bad-5a98-4270-bc6a-ea656a23517c
+2024-05-12 05:06:23,573 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,576 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-589001b4-d14c-44c0-a8b7-874b06fa1a22
+2024-05-12 05:06:23,576 - distributed.worker - INFO - Starting Worker plugin PreImport-fe4b46c4-2601-488a-b176-68ca08604d1d
+2024-05-12 05:06:23,577 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,608 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:06:23,609 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:23,609 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,610 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:06:23,614 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:06:23,615 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:23,615 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,617 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:06:23,631 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:06:23,632 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:40077. Reason: nanny-close
+2024-05-12 05:06:23,634 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:06:23,635 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:06:23,636 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:41813. Reason: nanny-close
+2024-05-12 05:06:23,636 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:06:23,638 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:06:23,640 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:06:23,901 - distributed.worker - INFO - Starting Worker plugin PreImport-c06323fa-01e4-4c35-afb3-705ce8bc97d0
+2024-05-12 05:06:23,901 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-370efcc0-2231-46af-b684-1a567c5957e5
+2024-05-12 05:06:23,901 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-aef6a858-4779-4fb3-9ef9-c23a133830d1
+2024-05-12 05:06:23,902 - distributed.worker - INFO - Starting Worker plugin PreImport-323f0ea5-e2dd-4155-8999-11e95a078332
+2024-05-12 05:06:23,902 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,902 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,917 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-33d0356a-833a-407a-969d-20dfd163f080
+2024-05-12 05:06:23,918 - distributed.worker - INFO - Starting Worker plugin PreImport-4d88f27f-bd58-468b-a63c-ab185b52a36f
+2024-05-12 05:06:23,918 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,929 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:06:23,931 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:23,931 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,933 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:06:23,935 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:06:23,937 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:23,937 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,939 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:06:23,945 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:06:23,946 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:23,946 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:23,948 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:06:23,965 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:06:23,965 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:06:23,966 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:06:23,966 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:42561. Reason: nanny-close
+2024-05-12 05:06:23,967 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:38617. Reason: nanny-close
+2024-05-12 05:06:23,967 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:39317. Reason: nanny-close
+2024-05-12 05:06:23,968 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:06:23,969 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:06:23,970 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:06:23,970 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:06:23,971 - distributed.nanny - INFO - Worker closed
+2024-05-12 05:06:23,972 - distributed.nanny - INFO - Worker closed
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_get_cluster_configuration 2024-05-12 05:06:27,037 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:06:27,044 - distributed.http.proxy - INFO - To route to workers diagnostics web server please install jupyter-server-proxy: python -m pip install jupyter-server-proxy
+/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 41209 instead
+  warnings.warn(
+2024-05-12 05:06:27,050 - distributed.scheduler - INFO - State start
+2024-05-12 05:06:27,074 - distributed.scheduler - INFO - -----------------------------------------------
+2024-05-12 05:06:27,076 - distributed.scheduler - INFO - Scheduler closing due to failure-to-start-<class 'OSError'>...
+2024-05-12 05:06:27,077 - distributed.scheduler - INFO - Scheduler closing all comms
+2024-05-12 05:06:27,078 - distributed.scheduler - INFO - End scheduler
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 664, in start
+    await wait_for(self.start_unsafe(), timeout=timeout)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 1961, in wait_for
+    return await asyncio.wait_for(fut, timeout)
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/tasks.py", line 442, in wait_for
+    return await fut
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/scheduler.py", line 4053, in start_unsafe
+    await self.listen(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 859, in listen
+    listener = await listen(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/core.py", line 256, in _
+    await self.start()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/comm/tcp.py", line 629, in start
+    sockets = netutil.bind_sockets(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/tornado/netutil.py", line 162, in bind_sockets
+    sock.bind(sockaddr)
+OSError: [Errno 98] Address already in use
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/bin/dask", line 10, in <module>
+    sys.exit(main())
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/__main__.py", line 7, in main
+    run_cli()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/cli.py", line 209, in run_cli
+    cli()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/cli/dask_scheduler.py", line 251, in main
+    asyncio_run(run(), loop_factory=get_loop_factory())
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/compatibility.py", line 236, in asyncio_run
+    return loop.run_until_complete(main)
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/cli/dask_scheduler.py", line 247, in run
+    [task.result() for task in done]
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/cli/dask_scheduler.py", line 247, in <listcomp>
+    [task.result() for task in done]
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/cli/dask_scheduler.py", line 227, in wait_for_scheduler_to_finish
+    await scheduler
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 672, in start
+    raise RuntimeError(f"{type(self).__name__} failed to start.") from exc
+RuntimeError: Scheduler failed to start.
+2024-05-12 05:06:27,221 - distributed.nanny - INFO -         Start Nanny at: 'tcp://127.0.0.1:35693'
+2024-05-12 05:06:29,387 - distributed.preloading - INFO - Creating preload: dask_cuda.initialize
+2024-05-12 05:06:29,387 - distributed.preloading - INFO - Import preload module: dask_cuda.initialize
+2024-05-12 05:06:29,395 - distributed.preloading - INFO - Run preload setup: dask_cuda.initialize
+2024-05-12 05:06:29,396 - distributed.worker - INFO -       Start worker at:      tcp://127.0.0.1:42667
+2024-05-12 05:06:29,396 - distributed.worker - INFO -          Listening to:      tcp://127.0.0.1:42667
+2024-05-12 05:06:29,396 - distributed.worker - INFO -          dashboard at:            127.0.0.1:40765
+2024-05-12 05:06:29,396 - distributed.worker - INFO - Waiting to connect to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:29,396 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:29,396 - distributed.worker - INFO -               Threads:                          1
+2024-05-12 05:06:29,396 - distributed.worker - INFO -                Memory:                   0.98 TiB
+2024-05-12 05:06:29,396 - distributed.worker - INFO -       Local Directory: /tmp/dask-scratch-space/worker-h7z3cb2m
+2024-05-12 05:06:29,397 - distributed.worker - INFO - Starting Worker plugin PreImport-73729d1b-b4d8-46f9-9e85-a5c62808a57d
+2024-05-12 05:06:29,397 - distributed.worker - INFO - Starting Worker plugin CPUAffinity-6facdb37-dee4-4950-aa9e-33babb2deb95
+2024-05-12 05:06:29,397 - distributed.worker - INFO - Starting Worker plugin RMMSetup-6e1ec73b-c9d1-4e44-8c41-a209836cc0dc
+2024-05-12 05:06:34,159 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:37,226 - distributed.nanny - INFO - Closing Nanny at 'tcp://127.0.0.1:35693'. Reason: nanny-close
+2024-05-12 05:06:37,506 - distributed.worker - INFO - Starting Worker plugin shuffle
+2024-05-12 05:06:37,507 - distributed.worker - INFO -         Registered to:       tcp://127.0.0.1:9369
+2024-05-12 05:06:37,507 - distributed.worker - INFO - -------------------------------------------------
+2024-05-12 05:06:37,508 - distributed.core - INFO - Starting established connection to tcp://127.0.0.1:9369
+2024-05-12 05:06:37,544 - distributed.nanny - INFO - Nanny asking worker to close. Reason: nanny-close
+2024-05-12 05:06:37,545 - distributed.worker - INFO - Stopping worker at tcp://127.0.0.1:42667. Reason: nanny-close
+2024-05-12 05:06:37,546 - distributed.core - INFO - Connection to tcp://127.0.0.1:9369 has been closed.
+2024-05-12 05:06:37,548 - distributed.nanny - INFO - Worker closed
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_worker_fraction_limits Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/bin/dask", line 10, in <module>
+    sys.exit(main())
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/__main__.py", line 7, in main
+    run_cli()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/cli.py", line 207, in run_cli
+    _register_command_ep(cli, ep)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/cli.py", line 178, in _register_command_ep
+    command = entry_point.load()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/importlib_metadata/__init__.py", line 184, in load
+    module = import_module(match.group('module'))
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py", line 8, in <module>
+    import dask.dataframe.core
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/dataframe/__init__.py", line 41, in <module>
+    from dask.dataframe import backends, dispatch, methods, rolling
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/dataframe/backends.py", line 10, in <module>
+    from dask.array.core import Array
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/array/__init__.py", line 4, in <module>
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/array/backends.py", line 8, in <module>
+    from dask.array.core import Array
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/array/core.py", line 30, in <module>
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/array/chunk_types.py", line 110, in <module>
+    import cupy
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cupy/__init__.py", line 10, in <module>
+    _environment._detect_duplicate_installation()  # NOQA
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cupy/_environment.py", line 482, in _detect_duplicate_installation
+    installed_names = {d.metadata["Name"]
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cupy/_environment.py", line 482, in <setcomp>
+    installed_names = {d.metadata["Name"]
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/importlib_metadata/__init__.py", line 473, in metadata
+    return _adapters.Message(email.message_from_string(text))
+  File "/opt/conda/envs/gdf/lib/python3.9/email/__init__.py", line 38, in message_from_string
+    return Parser(*args, **kws).parsestr(s)
+  File "/opt/conda/envs/gdf/lib/python3.9/email/parser.py", line 67, in parsestr
+    return self.parse(StringIO(text), headersonly=headersonly)
+  File "/opt/conda/envs/gdf/lib/python3.9/email/parser.py", line 56, in parse
+    feedparser.feed(data)
+  File "/opt/conda/envs/gdf/lib/python3.9/email/feedparser.py", line 176, in feed
+    self._call_parse()
+  File "/opt/conda/envs/gdf/lib/python3.9/email/feedparser.py", line 180, in _call_parse
+    self._parse()
+  File "/opt/conda/envs/gdf/lib/python3.9/email/feedparser.py", line 228, in _parsegen
+    if not headerRE.match(line):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/bin/dask", line 10, in <module>
+    sys.exit(main())
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/__main__.py", line 7, in main
+    run_cli()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/cli.py", line 207, in run_cli
+    _register_command_ep(cli, ep)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/cli.py", line 178, in _register_command_ep
+    command = entry_point.load()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/importlib_metadata/__init__.py", line 184, in load
+    module = import_module(match.group('module'))
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask_cuda/__init__.py", line 8, in <module>
+    import dask.dataframe.core
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/dataframe/__init__.py", line 41, in <module>
+    from dask.dataframe import backends, dispatch, methods, rolling
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/dataframe/backends.py", line 10, in <module>
+    from dask.array.core import Array
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/array/__init__.py", line 4, in <module>
+    from dask.array import backends, fft, lib, linalg, ma, overlap, random
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/array/backends.py", line 8, in <module>
+    from dask.array.core import Array
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/array/core.py", line 30, in <module>
+    from dask.array.chunk_types import is_valid_array_chunk, is_valid_chunk_type
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 666, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 565, in module_from_spec
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/rapids_dask_dependency/dask_loader.py", line 36, in create_module
+    mod = importlib.import_module(spec.name)
+  File "/opt/conda/envs/gdf/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/dask/array/chunk_types.py", line 110, in <module>
+    import cupy
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cupy/__init__.py", line 47, in <module>
+    from cupy import testing  # NOQA  # NOQA
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cupy/testing/__init__.py", line 1, in <module>
+    from cupy.testing._array import assert_allclose  # NOQA
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cupy/testing/_array.py", line 1, in <module>
+    import numpy.testing
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/testing/__init__.py", line 11, in <module>
+    from ._private.utils import *
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/testing/_private/utils.py", line 1253, in <module>
+    _SUPPORTS_SVE = check_support_sve()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numpy/testing/_private/utils.py", line 1247, in check_support_sve
+    output = subprocess.run(cmd, capture_output=True, text=True)
+  File "/opt/conda/envs/gdf/lib/python3.9/subprocess.py", line 507, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/opt/conda/envs/gdf/lib/python3.9/subprocess.py", line 1134, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/opt/conda/envs/gdf/lib/python3.9/subprocess.py", line 1995, in _communicate
+    ready = selector.select(timeout)
+  File "/opt/conda/envs/gdf/lib/python3.9/selectors.py", line 416, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt
+FAILED
+dask_cuda/tests/test_dask_cuda_worker.py::test_worker_timeout PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range0-1-1] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range0-1-10] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range0-1-100] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range0-10-1] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range0-10-10] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range0-10-100] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range0-100-1] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range0-100-10] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range0-100-100] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range1-1-1] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range1-1-10] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range1-1-100] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range1-10-1] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range1-10-10] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range1-10-100] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range1-100-1] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range1-100-10] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range1-100-100] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range2-1-1] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range2-1-10] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range2-1-100] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range2-10-1] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range2-10-10] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range2-10-100] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range2-100-1] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range2-100-10] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_short[array_size_range2-100-100] PASSED
+dask_cuda/tests/test_device_host_file.py::test_device_host_file_step_by_step PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[10-0-dict] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[10-0-list] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[10-0-tuple] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[10-1-dict] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[10-1-list] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[10-1-tuple] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[10-3-dict] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[10-3-list] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[10-3-tuple] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[10-6-dict] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[10-6-list] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[10-6-tuple] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[value1-0-dict] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[value1-0-list] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[value1-0-tuple] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[value1-1-dict] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[value1-1-list] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[value1-1-tuple] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[value1-3-dict] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[value1-3-list] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[value1-3-tuple] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[value1-6-dict] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[value1-6-list] PASSED
+dask_cuda/tests/test_device_host_file.py::test_serialize_cupy_collection[value1-6-tuple] PASSED
+dask_cuda/tests/test_dgx.py::test_default /opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 46365 instead
+  warnings.warn(
+PASSED
+dask_cuda/tests/test_dgx.py::test_tcp_over_ucx[ucx] SKIPPED (could n...)
+dask_cuda/tests/test_dgx.py::test_tcp_over_ucx[ucxx] /opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 42957 instead
+  warnings.warn(
+PASSED
+dask_cuda/tests/test_dgx.py::test_tcp_only /opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 35287 instead
+  warnings.warn(
+PASSED
+dask_cuda/tests/test_dgx.py::test_ucx_infiniband_nvlink[params0-ucx] SKIPPED
+dask_cuda/tests/test_dgx.py::test_ucx_infiniband_nvlink[params0-ucxx] /opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 40955 instead
+  warnings.warn(
+PASSED
+dask_cuda/tests/test_dgx.py::test_ucx_infiniband_nvlink[params1-ucx] SKIPPED
+dask_cuda/tests/test_dgx.py::test_ucx_infiniband_nvlink[params1-ucxx] /opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 43333 instead
+  warnings.warn(
+PASSED
+dask_cuda/tests/test_dgx.py::test_ucx_infiniband_nvlink[params2-ucx] SKIPPED
+dask_cuda/tests/test_dgx.py::test_ucx_infiniband_nvlink[params2-ucxx] PASSED
+dask_cuda/tests/test_dgx.py::test_ucx_infiniband_nvlink[params3-ucx] SKIPPED
+dask_cuda/tests/test_dgx.py::test_ucx_infiniband_nvlink[params3-ucxx] /opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 38581 instead
+  warnings.warn(
+PASSED
+dask_cuda/tests/test_dgx.py::test_ucx_infiniband_nvlink[params4-ucx] SKIPPED
+dask_cuda/tests/test_dgx.py::test_ucx_infiniband_nvlink[params4-ucxx] /opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 43201 instead
+  warnings.warn(
+[1715490506.923710] [dgx13:14492:0]            sock.c:470  UCX  ERROR bind(fd=161 addr=0.0.0.0:43918) failed: Address already in use
+PASSED
+dask_cuda/tests/test_from_array.py::test_ucx_from_array[ucx] SKIPPED
+dask_cuda/tests/test_from_array.py::test_ucx_from_array[ucxx] 2024-05-12 05:08:45,198 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed_ucxx/ucxx.py", line 399, in read
+    await self.ep.recv(msg)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucxx/_lib_async/endpoint.py", line 414, in recv
+    ret = await req.wait()
+  File "libucxx.pyx", line 843, in wait
+  File "libucxx.pyx", line 827, in wait_yield
+  File "libucxx.pyx", line 822, in ucxx._lib.libucxx.UCXRequest.check_error
+ucxx.UCXXCanceledError: Request canceled
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/worker.py", line 1252, in heartbeat
+    response = await retry_operation(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils_comm.py", line 452, in retry_operation
+    return await retry(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils_comm.py", line 431, in retry
+    return await coro()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1395, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/core.py", line 1154, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/utils.py", line 832, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/distributed_ucxx/ucxx.py", line 417, in read
+    raise CommClosedError(
+distributed.comm.core.CommClosedError: Connection closed by writer.
+Inner exception: UCXXCanceledError('Request canceled')
+PASSED
+dask_cuda/tests/test_from_array.py::test_ucx_from_array[tcp] PASSED
+dask_cuda/tests/test_gds.py::test_gds[True-cupy] SKIPPED (GDS not av...)
+dask_cuda/tests/test_gds.py::test_gds[True-cudf] SKIPPED (GDS not av...)
+dask_cuda/tests/test_gds.py::test_gds[True-numba.cuda] SKIPPED (GDS ...)
+dask_cuda/tests/test_gds.py::test_gds[False-cupy] PASSED
+dask_cuda/tests/test_gds.py::test_gds[False-cudf] PASSED
+dask_cuda/tests/test_gds.py::test_gds[False-numba.cuda] PASSED
+dask_cuda/tests/test_initialize.py::test_initialize_ucx_tcp[ucx] SKIPPED
+dask_cuda/tests/test_initialize.py::test_initialize_ucx_tcp[ucxx] /opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 41637 instead
+  warnings.warn(
+PASSED
+dask_cuda/tests/test_initialize.py::test_initialize_ucx_nvlink[ucx] SKIPPED
+dask_cuda/tests/test_initialize.py::test_initialize_ucx_nvlink[ucxx] /opt/conda/envs/gdf/lib/python3.9/site-packages/distributed/node.py:182: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 36459 instead
+  warnings.warn(
