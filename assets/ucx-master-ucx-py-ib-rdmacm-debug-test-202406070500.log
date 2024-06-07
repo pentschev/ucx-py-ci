@@ -1,0 +1,31 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.19, pytest-8.2.2, pluggy-1.5.0 -- /opt/conda/envs/gdf/bin/python3.9
+cachedir: .pytest_cache
+rootdir: /usr/src/ucx-py
+configfile: pyproject.toml
+plugins: asyncio-0.23.6
+asyncio: mode=strict
+collecting ... collected 8 items
+
+debug-tests/test_send_recv_many_workers.py::test_send_recv_cu[True-dataframe] Process server:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 151, in server
+    loop.run_until_complete(f(port, frames))
+  File "/opt/conda/envs/gdf/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 139, in f
+    lf = ucp.create_listener(write, port=listener_port)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 1008, in create_listener
+    return _get_ctx().create_listener(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/ucp/core.py", line 284, in create_listener
+    ucx_api.UCXListener(
+  File "ucp/_libs/ucx_listener.pyx", line 100, in ucp._libs.ucx_api.UCXListener.__init__
+    assert_ucs_status(status)
+  File "ucp/_libs/utils.pyx", line 107, in ucp._libs.ucx_api.assert_ucs_status
+    raise UCXError(msg)
+ucp._libs.exceptions.UCXError: Device is busy
+CREATING CUDA OBJECT IN SERVER...
