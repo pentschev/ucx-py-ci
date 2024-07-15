@@ -1,0 +1,49 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.19, pytest-8.2.2, pluggy-1.5.0 -- /opt/conda/envs/gdf/bin/python3.9
+cachedir: .pytest_cache
+rootdir: /usr/src/ucx-py
+configfile: pyproject.toml
+plugins: asyncio-0.23.7
+asyncio: mode=strict
+collecting ... collected 8 items
+
+debug-tests/test_send_recv_many_workers.py::test_send_recv_cu[True-dataframe] Process server:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 95, in server
+    cuda_obj = cuda_obj_generator()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 162, in dataframe
+    return cudf.DataFrame(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/dataframe.py", line 863, in __init__
+    self._init_from_dict_like(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/dataframe.py", line 1101, in _init_from_dict_like
+    self._index = ensure_index(index)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/index.py", line 75, in ensure_index
+    return cudf.Index(index_like)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/index.py", line 84, in __call__
+    return as_index(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/index.py", line 3088, in as_index
+    column.as_column(arbitrary, dtype=dtype, nan_as_null=nan_as_null),
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/column/column.py", line 2022, in as_column
+    return as_column(
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/column/column.py", line 1836, in as_column
+    col = ColumnBase.from_arrow(arbitrary)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/cudf/core/column/column.py", line 362, in from_arrow
+    result = libcudf.interop.from_arrow(data)[0]
+  File "/opt/conda/envs/gdf/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "interop.pyx", line 162, in cudf._lib.interop.from_arrow
+  File "/opt/conda/envs/gdf/lib/python3.9/functools.py", line 888, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "interop.pyx", line 142, in cudf._lib.pylibcudf.interop._from_arrow_table
+MemoryError: std::bad_alloc: out_of_memory: CUDA error at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+CREATING CUDA OBJECT IN SERVER...
