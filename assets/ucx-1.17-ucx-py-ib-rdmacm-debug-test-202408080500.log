@@ -1,0 +1,32 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.19, pytest-8.3.2, pluggy-1.5.0 -- /opt/conda/envs/gdf/bin/python3.9
+cachedir: .pytest_cache
+rootdir: /usr/src/ucx-py
+configfile: pyproject.toml
+plugins: asyncio-0.23.8
+asyncio: mode=strict
+collecting ... collected 8 items
+
+debug-tests/test_send_recv_many_workers.py::test_send_recv_cu[True-dataframe] Process server:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 88, in server
+    numba.cuda.current_context()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py", line 220, in get_context
+    return _runtime.get_or_create_context(devnum)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py", line 138, in get_or_create_context
+    return self._get_or_create_context_uncached(devnum)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py", line 155, in _get_or_create_context_uncached
+    return self._activate_context_for(0)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/devices.py", line 177, in _activate_context_for
+    newctx = gpu.get_primary_context()
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/driver.py", line 671, in get_primary_context
+    driver.cuDevicePrimaryCtxRetain(byref(hctx), self.id)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/driver.py", line 327, in safe_cuda_api_call
+    self._check_ctypes_error(fname, retcode)
+  File "/opt/conda/envs/gdf/lib/python3.9/site-packages/numba/cuda/cudadrv/driver.py", line 395, in _check_ctypes_error
+    raise CudaAPIError(retcode, msg)
+numba.cuda.cudadrv.driver.CudaAPIError: [2] Call to cuDevicePrimaryCtxRetain results in CUDA_ERROR_OUT_OF_MEMORY
