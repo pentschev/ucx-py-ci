@@ -1,0 +1,35 @@
+/opt/conda/envs/gdf/lib/python3.10/site-packages/pytest_asyncio/plugin.py:207: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts ==============================
+platform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/conda/envs/gdf/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /usr/src/ucx-py
+configfile: pyproject.toml
+plugins: asyncio-0.25.2
+asyncio: mode=strict, asyncio_default_fixture_loop_scope=None
+collecting ... collected 8 items
+
+debug-tests/test_send_recv_many_workers.py::test_send_recv_cu[True-dataframe] [2025-01-09 06:23:13.858] [RMM] [error] [A][Stream 0x1][Upstream 6000000000B][FAILURE maximum pool size exceeded]
+Process server:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 151, in server
+    loop.run_until_complete(f(port, frames))
+  File "/opt/conda/envs/gdf/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 106, in f
+    set_rmm()
+  File "/usr/src/ucx-py/debug-tests/debug_utils.py", line 17, in set_rmm
+    rmm.reinitialize(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/rmm/rmm.py", line 83, in reinitialize
+    mr._initialize(
+  File "memory_resource.pyx", line 956, in rmm.pylibrmm.memory_resource._initialize
+  File "memory_resource.pyx", line 1018, in rmm.pylibrmm.memory_resource._initialize
+  File "memory_resource.pyx", line 278, in rmm.pylibrmm.memory_resource.PoolMemoryResource.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:276: Maximum pool size exceeded
+CREATING CUDA OBJECT IN SERVER...
