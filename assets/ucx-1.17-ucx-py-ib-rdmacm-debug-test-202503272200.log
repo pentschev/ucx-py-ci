@@ -1,0 +1,46 @@
+/opt/conda/envs/gdf/lib/python3.10/site-packages/pytest_asyncio/plugin.py:217: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts ==============================
+platform linux -- Python 3.10.16, pytest-8.3.5, pluggy-1.5.0 -- /opt/conda/envs/gdf/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /usr/src/ucx-py
+configfile: pyproject.toml
+plugins: asyncio-0.26.0
+asyncio: mode=strict, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 8 items
+
+debug-tests/test_send_recv_many_workers.py::test_send_recv_cu[True-dataframe] Process server:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 95, in server
+    cuda_obj = cuda_obj_generator()
+  File "/usr/src/ucx-py/debug-tests/test_send_recv_many_workers.py", line 162, in dataframe
+    return cudf.DataFrame(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/dataframe.py", line 876, in __init__
+    self._init_from_dict_like(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/dataframe.py", line 1122, in _init_from_dict_like
+    self._insert(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/dataframe.py", line 3383, in _insert
+    value = column.as_column(value, nan_as_null=nan_as_null)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/column/column.py", line 2801, in as_column
+    return as_column(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/column/column.py", line 2594, in as_column
+    col = ColumnBase.from_arrow(arbitrary)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/column/column.py", line 829, in from_arrow
+    plc.interop.from_arrow(data).columns()[0]
+  File "/opt/conda/envs/gdf/lib/python3.10/functools.py", line 889, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "interop.pyx", line 150, in pylibcudf.interop._from_arrow_table
+MemoryError: std::bad_alloc: out_of_memory: CUDA error (failed to allocate 536870912 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+CREATING CUDA OBJECT IN SERVER...
