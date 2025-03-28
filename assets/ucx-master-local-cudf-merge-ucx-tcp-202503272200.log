@@ -1,0 +1,14 @@
+/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/node.py:187: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 42129 instead
+  warnings.warn(
+[ 87149][06:12:57:537699][error ] [A][Stream 0x1][Upstream 800005120B][FAILURE maximum pool size exceeded: std::bad_alloc: out_of_memory: CUDA error (failed to allocate 800005120 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp]
+2025-03-28 06:12:57,785 - distributed.worker - ERROR - Compute Failed
+Key:       ('taskshuffle-84d0937d862a6e243a3efe6da8c6a061', 7)
+State:     executing
+Task:  <Task ('taskshuffle-84d0937d862a6e243a3efe6da8c6a061', 7) _concat(...)>
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 762.944336 MiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 800005120 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp')"
+Traceback: '  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask/dataframe/core.py", line 52, in _concat\n    else methods.concat(args2, uniform=True, ignore_index=ignore_index)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask/dataframe/dispatch.py", line 68, in concat\n    return func(\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper\n    return func(*args, **kwargs)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask_cudf/backends.py", line 295, in concat_cudf\n    return cudf.concat(dfs, axis=axis, ignore_index=ignore_index)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/reshape.py", line 523, in concat\n    result = cudf.DataFrame._concat(\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper\n    return func(*args, **kwargs)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/dataframe.py", line 1818, in _concat\n    plc_result = plc.concatenate.concatenate(plc_tables)\n  File "concatenate.pyx", line 17, in pylibcudf.concatenate.concatenate\n  File "concatenate.pyx", line 44, in pylibcudf.concatenate.concatenate\n'
+
+/opt/conda/envs/gdf/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
