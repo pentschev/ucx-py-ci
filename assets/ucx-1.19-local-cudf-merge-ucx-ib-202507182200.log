@@ -1,0 +1,57 @@
+[ 97317][06:35:27:319231][error ] [A][Stream 0x1][Upstream 799901440B][FAILURE maximum pool size exceeded: std::bad_alloc: out_of_memory: CUDA error (failed to allocate 799901440 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp]
+[ 97212][06:35:27:796342][error ] [A][Stream 0x1][Upstream 99977984B][FAILURE maximum pool size exceeded: std::bad_alloc: out_of_memory: CUDA error (failed to allocate 99977984 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp]
+std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 95.346436 MiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 99977984 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/utils.py", line 818, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed_ucxx/ucxx.py", line 574, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed_ucxx/ucxx.py", line 575, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed_ucxx/ucxx.py", line 294, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "rmm/pylibrmm/device_buffer.pyx", line 102, in rmm.pylibrmm.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 95.346436 MiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 99977984 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2025-07-19 06:35:27,816 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 95.346436 MiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 99977984 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/worker.py", line 2073, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/worker.py", line 2879, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/core.py", line 1018, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/utils.py", line 818, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed_ucxx/ucxx.py", line 574, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed_ucxx/ucxx.py", line 575, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed_ucxx/ucxx.py", line 294, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "rmm/pylibrmm/device_buffer.pyx", line 102, in rmm.pylibrmm.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 95.346436 MiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 99977984 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2025-07-19 06:35:28,135 - distributed.worker - ERROR - Compute Failed
+Key:       ('taskshuffle-537defd6e0a5a93d87e9efd8154e3fb1', 6)
+State:     executing
+Task:  <Task ('taskshuffle-537defd6e0a5a93d87e9efd8154e3fb1', 6) _concat(...)>
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 762.845459 MiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 799901440 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp')"
+Traceback: '  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask/dataframe/core.py", line 53, in _concat\n    else methods.concat(args2, uniform=True, ignore_index=ignore_index)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask/dataframe/dispatch.py", line 68, in concat\n    return func(\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper\n    return func(*args, **kwargs)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask_cudf/backends.py", line 297, in concat_cudf\n    return cudf.concat(dfs, axis=axis, ignore_index=ignore_index)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/reshape.py", line 528, in concat\n    result = cudf.DataFrame._concat(\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper\n    return func(*args, **kwargs)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/dataframe.py", line 1940, in _concat\n    plc_result = plc.concatenate.concatenate(plc_tables)\n  File "pylibcudf/concatenate.pyx", line 17, in pylibcudf.concatenate.concatenate\n  File "pylibcudf/concatenate.pyx", line 44, in pylibcudf.concatenate.concatenate\n'
+
+[ 97317][06:35:28:156376][error ] [A][Stream 0x1][Upstream 800052992B][FAILURE maximum pool size exceeded: std::bad_alloc: out_of_memory: CUDA error (failed to allocate 800052992 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp]
+2025-07-19 06:35:28,159 - distributed.worker - ERROR - Compute Failed
+Key:       ('taskshuffle-b194bd90eaa8cf6c53d045fb6c8fbefd', 3)
+State:     executing
+Task:  <Task ('taskshuffle-b194bd90eaa8cf6c53d045fb6c8fbefd', 3) _concat(...)>
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 762.989990 MiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 800052992 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp')"
+Traceback: '  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask/dataframe/core.py", line 53, in _concat\n    else methods.concat(args2, uniform=True, ignore_index=ignore_index)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask/dataframe/dispatch.py", line 68, in concat\n    return func(\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper\n    return func(*args, **kwargs)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask_cudf/backends.py", line 297, in concat_cudf\n    return cudf.concat(dfs, axis=axis, ignore_index=ignore_index)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/reshape.py", line 528, in concat\n    result = cudf.DataFrame._concat(\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper\n    return func(*args, **kwargs)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/dataframe.py", line 1940, in _concat\n    plc_result = plc.concatenate.concatenate(plc_tables)\n  File "pylibcudf/concatenate.pyx", line 17, in pylibcudf.concatenate.concatenate\n  File "pylibcudf/concatenate.pyx", line 44, in pylibcudf.concatenate.concatenate\n'
+
+[ 97317][06:35:28:164663][error ] [A][Stream 0x1][Upstream 799894272B][FAILURE maximum pool size exceeded: std::bad_alloc: out_of_memory: CUDA error (failed to allocate 799894272 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp]
+2025-07-19 06:35:28,168 - distributed.worker - ERROR - Compute Failed
+Key:       ('taskshuffle-b194bd90eaa8cf6c53d045fb6c8fbefd', 4)
+State:     executing
+Task:  <Task ('taskshuffle-b194bd90eaa8cf6c53d045fb6c8fbefd', 4) _concat(...)>
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 762.838623 MiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 799894272 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp')"
+Traceback: '  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask/dataframe/core.py", line 53, in _concat\n    else methods.concat(args2, uniform=True, ignore_index=ignore_index)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask/dataframe/dispatch.py", line 68, in concat\n    return func(\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper\n    return func(*args, **kwargs)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask_cudf/backends.py", line 297, in concat_cudf\n    return cudf.concat(dfs, axis=axis, ignore_index=ignore_index)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/reshape.py", line 528, in concat\n    result = cudf.DataFrame._concat(\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper\n    return func(*args, **kwargs)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/dataframe.py", line 1940, in _concat\n    plc_result = plc.concatenate.concatenate(plc_tables)\n  File "pylibcudf/concatenate.pyx", line 17, in pylibcudf.concatenate.concatenate\n  File "pylibcudf/concatenate.pyx", line 44, in pylibcudf.concatenate.concatenate\n'
+
+/opt/conda/envs/gdf/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
