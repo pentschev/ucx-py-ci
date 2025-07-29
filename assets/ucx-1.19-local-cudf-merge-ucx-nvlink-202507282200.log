@@ -1,0 +1,30 @@
+2025-07-29 06:37:59,770 - distributed.worker - ERROR - Unexpected exception during heartbeat. Closing worker.
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/worker.py", line 1267, in heartbeat
+    response = await retry_operation(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/utils_comm.py", line 416, in retry_operation
+    return await retry(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/utils_comm.py", line 395, in retry
+    return await coro()
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/core.py", line 1256, in send_recv_from_rpc
+    comm = await self.pool.connect(self.addr)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/core.py", line 1456, in connect
+    raise RuntimeError("ConnectionPool is closed")
+RuntimeError: ConnectionPool is closed
+2025-07-29 06:37:59,781 - tornado.application - ERROR - Exception in callback <bound method Worker.heartbeat of <Worker 'ucx://127.0.0.1:45711', name: 7, status: closed, stored: 0, running: 0/1, ready: 0, comm: 0, waiting: 0>>
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/tornado/ioloop.py", line 947, in _run
+    await val
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/worker.py", line 1267, in heartbeat
+    response = await retry_operation(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/utils_comm.py", line 416, in retry_operation
+    return await retry(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/utils_comm.py", line 395, in retry
+    return await coro()
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/core.py", line 1256, in send_recv_from_rpc
+    comm = await self.pool.connect(self.addr)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/core.py", line 1456, in connect
+    raise RuntimeError("ConnectionPool is closed")
+RuntimeError: ConnectionPool is closed
+/opt/conda/envs/gdf/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 42 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

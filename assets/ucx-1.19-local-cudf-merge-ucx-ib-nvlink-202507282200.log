@@ -1,0 +1,41 @@
+[ 97876][06:39:06:797229][error ] [A][Stream 0x1][Upstream 1602406912B][FAILURE maximum pool size exceeded: std::bad_alloc: out_of_memory: CUDA error (failed to allocate 1602406912 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp]
+[ 97783][06:39:06:801766][error ] [A][Stream 0x1][Upstream 800091648B][FAILURE maximum pool size exceeded: std::bad_alloc: out_of_memory: CUDA error (failed to allocate 800091648 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp]
+std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 763.026855 MiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 800091648 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/utils.py", line 818, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed_ucxx/ucxx.py", line 574, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed_ucxx/ucxx.py", line 575, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed_ucxx/ucxx.py", line 294, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "rmm/pylibrmm/device_buffer.pyx", line 102, in rmm.pylibrmm.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 763.026855 MiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 800091648 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2025-07-29 06:39:06,815 - distributed.worker - ERROR - std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 763.026855 MiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 800091648 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/worker.py", line 2073, in gather_dep
+    response = await get_data_from_worker(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/worker.py", line 2879, in get_data_from_worker
+    response = await send_recv(
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/core.py", line 1018, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed/utils.py", line 818, in wrapper
+    return await func(*args, **kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed_ucxx/ucxx.py", line 574, in read
+    frames = [
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed_ucxx/ucxx.py", line 575, in <listcomp>
+    device_array(each_size) if is_cuda else host_array(each_size)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/distributed_ucxx/ucxx.py", line 294, in device_array
+    return rmm.DeviceBuffer(size=n)
+  File "rmm/pylibrmm/device_buffer.pyx", line 102, in rmm.pylibrmm.device_buffer.DeviceBuffer.__cinit__
+MemoryError: std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 763.026855 MiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 800091648 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp
+2025-07-29 06:39:07,368 - distributed.worker - ERROR - Compute Failed
+Key:       ('getitem-getitem-blockwisemerge-operation-42bf4709ee37a5cc7da200a3135de11b', 6)
+State:     executing
+Task:  <Task ('getitem-getitem-blockwisemerge-operation-42bf4709ee37a5cc7da200a3135de11b', 6) _execute_subgraph(...)>
+Exception: "MemoryError('std::bad_alloc: out_of_memory: RMM failure at:/opt/conda/envs/gdf/include/rmm/mr/device/pool_memory_resource.hpp:262: Maximum pool size exceeded (failed to allocate 1.492358 GiB): std::bad_alloc: out_of_memory: CUDA error (failed to allocate 1602406912 bytes) at: /opt/conda/envs/gdf/include/rmm/mr/device/cuda_memory_resource.hpp')"
+Traceback: '  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/dask/dataframe/multi.py", line 131, in merge_chunk\n    out = lhs.merge(rhs, *args, **kwargs)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/utils/performance_tracking.py", line 51, in wrapper\n    return func(*args, **kwargs)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/dataframe.py", line 4453, in merge\n    ).perform_merge()\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/join/join.py", line 359, in perform_merge\n    left_rows, right_rows = self._gather_maps(\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/join/join.py", line 248, in _gather_maps\n    maps = self._joiner(\n  File "/opt/conda/envs/gdf/lib/python3.10/contextlib.py", line 79, in inner\n    return func(*args, **kwds)\n  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/cudf/core/join/join.py", line 43, in _joiner\n    left_rows, right_rows = join_func(\n  File "pylibcudf/join.pyx", line 50, in pylibcudf.join.inner_join\n  File "pylibcudf/join.pyx", line 76, in pylibcudf.join.inner_join\n'
+
+/opt/conda/envs/gdf/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 48 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
