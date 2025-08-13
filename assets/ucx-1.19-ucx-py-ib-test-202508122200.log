@@ -1,0 +1,26 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.4.1, pluggy-1.6.0 -- /opt/conda/envs/gdf/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /usr/src/ucx-py
+configfile: pyproject.toml
+plugins: asyncio-0.23.8
+asyncio: mode=strict
+collecting ... collected 326 items
+
+tests/test_benchmark_cluster.py::test_benchmark_cluster Process Process-1:
+Traceback (most recent call last):
+  File "/opt/conda/envs/gdf/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/conda/envs/gdf/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/ucp/benchmarks/utils.py", line 125, in _server_process
+    ret = loop.run_until_complete(run())
+  File "/opt/conda/envs/gdf/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/ucp/benchmarks/utils.py", line 117, in run
+    json.dump({"address": get_address(), "port": lf.port}, fp)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/ucp/_libs/utils.py", line 137, in get_address
+    return _get_address(ifname)
+  File "/opt/conda/envs/gdf/lib/python3.10/site-packages/ucp/_libs/utils.py", line 106, in _get_address
+    fcntl.ioctl(
+OSError: [Errno 99] Cannot assign requested address
